@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Classes extends Model
+class Program extends Model
 {
     use HasFactory;
 
@@ -14,3 +14,4 @@ class Classes extends Model
         return $this->belongsTo(Subject::class);
     }
 }
+
