@@ -11,6 +11,7 @@ class CreateClassController extends Controller
 {
     public function __invoke(CreateClassControllerRequest $request)
     {
+        dump($request->all());
         $class = new Program();
         $class->name = $request->get('name');
         $class->grade = $request->get('grade');
@@ -20,6 +21,6 @@ class CreateClassController extends Controller
         $class->medium_id  = $request->get('medium_id');
         $class->save();
 
-        return response($class, 201);
+       return redirect()->route('dashboard')->with('success', 'class created success');
     }
 }
