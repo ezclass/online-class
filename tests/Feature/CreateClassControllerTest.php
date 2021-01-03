@@ -20,10 +20,11 @@ class CreateClassControllerTest extends TestCase
             'grade' => $class->grade,
             'image' => $class->image,
             'teacher_id' => $class->teacher_id,
-            'subject_id ' => $class->subject_id,
-            'medium_id ' => $class->medium_id,
-        ]);
-        //->assertRedirect(route('dashboard'))->assertSessionHas('success');
+            'subject_id' => $class->subject_id,
+            'medium_id' => $class->medium_id,
+        ])
+        ->assertRedirect(route('dashboard'))
+        ->assertSessionHas('success');
 
         $this->assertDatabaseHas('programs', [
             'name' => $class->name,
