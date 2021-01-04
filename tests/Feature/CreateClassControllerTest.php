@@ -4,8 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Program;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CreateClassControllerTest extends TestCase
@@ -23,8 +21,8 @@ class CreateClassControllerTest extends TestCase
             'subject_id' => $class->subject_id,
             'medium_id' => $class->medium_id,
         ])
-        ->assertRedirect(route('dashboard'))
-        ->assertSessionHas('success');
+            ->assertRedirect(route('dashboard'))
+            ->assertSessionHas('success');
 
         $this->assertDatabaseHas('programs', [
             'name' => $class->name,

@@ -16,9 +16,9 @@ class ProgramFactory extends Factory
             'name' => $this->faker->name,
             'grade' => $this->faker->randomNumber(),
             'image' => $this->faker->imageUrl(),
+            'subject' => $this->faker->word,
+            'medium' => $this->faker->word,
             'teacher_id' => Teacher::factory(),
-            'subject_id' => Subject::factory(),
-            'medium_id' => Medium::factory(),
         ];
     }
 }

@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Models\Program;
-use App\Models\Teacher;
-use App\Models\User;
 
-class DeleteClassController extends Controller
+
+class UpdateClassViewController extends Controller
 {
     public function __invoke(Program $program)
     {
-        $program->delete();
-        return redirect()->back();
+        return view('teacher.updateclass')
+            ->with(['program' => $program]);
     }
 }

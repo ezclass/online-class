@@ -17,12 +17,14 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('grade');
-            $table->string('image');
+            $table->string('image')->nullable();
+            $table->string('subject');
+            $table->string('medium');
             $table->timestamps();
 
             $table->foreignId('teacher_id')->constrained();
-            $table->foreignId('subject_id')->constrained();
-            $table->foreignId('medium_id')->constrained();
+            //$table->foreignId('subject_id')->constrained();
+            //$table->foreignId('medium_id')->constrained();
         });
     }
 

@@ -17,11 +17,24 @@ class UpdateClassControllerRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                Rule::unique('programs')
+                //Rule::unique('programs')
             ],
-            'br_number' => [
-                Rule::unique('programs'),
-            ]
+            'grade' => [
+                'required',
+                //Rule::unique('programs'),
+            ],
+            'subject' => [
+                'required',
+                //Rule::unique('programs'),
+            ],
+            'medium' => [
+                'required',
+                ///Rule::unique('programs'),
+            ],
+            'teacher_id' => [
+                'required',
+                //Rule::unique('programs'),
+            ],
         ];
     }
 }

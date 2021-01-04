@@ -5,17 +5,20 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateClassControllerRequest;
 use App\Models\Program;
-use Illuminate\Http\Request;
 
 class UpdateClassController extends Controller
 {
-    public function __invoke(UpdateClassControllerRequest $request, Program $program)
+    public function __invoke(UpdateClassControllerRequest $request)
     {
-        $program->name = $request->get('name');
-        $program->name = $request->get('grade');
-        $program->name = $request->get('image');
-        $program->name = $request->get('subject_id');
-        $program->name = $request->get('meadium_id');
-        $program->save();
+        $Program = Program::find($request->id);
+        $Program->name = $request->get('name');
+        $Program->grade = $request->get('grade');
+        $Program->subject = $request->get('subject');
+        $Program->medium = $request->get('medium');
+        $Program->teacher_id = $request->get('teacher_id');
+        $Program->save();
+
+        return redirect()->route('dashboard')
+            ->with('success', 'class update success');
     }
 }
