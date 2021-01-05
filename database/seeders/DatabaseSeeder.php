@@ -16,9 +16,10 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        User::factory(10)->create();
-
         $this->call(RoleSeeder::class);
+        $this->call(AdminUserSeeder::class);
+
+        User::factory(10)->create();
         Medium::factory(10)->create();
         Program::factory(10)->create();
         Subject::factory(10)->create();
