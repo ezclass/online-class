@@ -3,7 +3,7 @@
 <!-- Validation Errors -->
 <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-<div class="bg-gray-100">
+<div class="py-8 bg-gray-100">
     <div class="px-4  max-w-3xl mx-auto space-y-6">
         <form action="{{route('update.class')}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}

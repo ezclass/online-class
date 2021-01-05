@@ -1,29 +1,19 @@
 <x-app-layout>
 
-    <div class="relative">
-        <select class="...">
-            <option>Indiana</option>
-            <option>Michigan</option>
-            <option>Ohio</option>
-        </select>
-        <div class="pointer-events-auto ...">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
-            </svg>
+    @foreach($program as $program)
+    <div class="hover:bg-gray-100 m-7 max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl">
+        <div class="sm:flex">
+            <div class="md:flex-shrink-0">
+                <img class="h-48 w-full object-cover md:w-48" src="{{ asset('storage/class_image/'.$program->image)}}" alt="Man looking at item at a store">
+            </div>
+            <div class="p-8">
+                <div class="uppercase tracking-wide text-lg text-indigo-500 font-semibold">{{ $program->name }}</div>
+                <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{{ $program->grade }}</a>
+                <p class="mt-2 text-gray-500">{{ $program->subject }}</p>
+                <p>{{ $program->medium }}</p>
+            </div>
         </div>
     </div>
-
-    <div class="relative">
-        <select class="...">
-            <option>Indiana</option>
-            <option>Michigan</option>
-            <option>Ohio</option>
-        </select>
-        <div class="pointer-events-none ...">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
-            </svg>
-        </div>
-    </div>
+    @endforeach
 
 </x-app-layout>

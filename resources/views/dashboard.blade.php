@@ -2,7 +2,7 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-white border-solid border-b-2 border-black bg-gradient-to-r from-green-500 ...">
+                <div class="p-6 text-center md:text-center text-black text-2xl border-solid border-t-2 border-black bg-gradient-to-b from-green-400 ...">
                     {{Auth::User()->name}}
                 </div>
             </div>
@@ -21,12 +21,12 @@
 
                 <div class="flex space-x-4">
                     <div class="w-1/2">
-                        <label for="">Your Class Name</label>
+                        <x-label for="">Your Class Name</x-label>
                         <input type="text" name="name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Your Class Name" required>
                     </div>
 
                     <div class="w-1/2 relative">
-                        <label for="">Meadiam</label>
+                        <x-label for="">Meadiam</x-label>
                         <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="meadiam" name="medium" onchange="random_function()" required>
                             <option selected disabled>Meadiam</option>
                             <option value="සිංහල මාධ්‍යය">සිංහල මාධ්‍යය</option>
@@ -37,14 +37,14 @@
 
                 <div class="flex space-x-4">
                     <div class="w-1/2">
-                        <label for="">You are</label>
+                        <x-label for="">You are</x-label>
                         <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="youare" name="" onchange="random_function1()" required>
                             <option selected disabled>You are</option>
                         </select>
                     </div>
 
                     <div class="w-1/2">
-                        <label for="">Select Grade/Year:</label>
+                        <x-label for="">Select Grade/Year:</x-label>
                         <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="grade" name="grade" onchange="random_function3()" required>
                             <option selected disabled>Select Grade/Year</option>
                         </select>
@@ -53,14 +53,14 @@
 
                 <div class="flex space-x-4">
                     <div class="w-1/2">
-                        <label for="">Select Subject:</label>
+                        <x-label for="">Select Subject:</x-label>
                         <select id="subject" name="subject" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
                             <option selected disabled>Select Subject</option>
                         </select>
                     </div>
 
                     <div class="w-1/2">
-                        <label class="">Class Image</label>
+                        <x-label class="">Class Image</x-label>
                         <input type="file" name="image" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500 @error('class_image') is-invalid @enderror" required>
                     </div>
                 </div>
@@ -74,8 +74,8 @@
 
 
     @foreach($program as $program)
-    <div class="m-7 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div class="md:flex">
+    <div class="hover:bg-gray-100 m-7 max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl">
+        <div class="sm:flex">
             <div class="md:flex-shrink-0">
                 <img class="h-48 w-full object-cover md:w-48" src="{{ asset('storage/class_image/'.$program->image)}}" alt="Man looking at item at a store">
             </div>
