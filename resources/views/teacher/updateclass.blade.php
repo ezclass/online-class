@@ -1,9 +1,4 @@
 <x-app-layout>
-<x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Dashboard') }}
-    </h2>
-</x-slot>
 
 <!-- Validation Errors -->
 <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -215,4 +210,5 @@
     }
 </script>
 <!-- ----------------------- End  Grade and Subject js --------------------->
+
 </x-app-layout>

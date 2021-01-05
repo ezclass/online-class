@@ -13,13 +13,13 @@ class CreateClassControllerTest extends TestCase
         $user = User::factory()->create();
         $class = Program::factory()->make();
 
-        $this->actingAs($user)->post('/teachers', [
+        $this->actingAs($user)->post('/create', [
             'name' => $class->name,
             'grade' => $class->grade,
             'image' => $class->image,
+            'subject' => $class->subject,
+            'medium' => $class->medium,
             'teacher_id' => $class->teacher_id,
-            'subject_id' => $class->subject_id,
-            'medium_id' => $class->medium_id,
         ])
             ->assertRedirect(route('dashboard'))
             ->assertSessionHas('success');
@@ -28,9 +28,9 @@ class CreateClassControllerTest extends TestCase
             'name' => $class->name,
             'grade' => $class->grade,
             'image' => $class->image,
+            'subject' => $class->subject,
+            'medium' => $class->medium,
             'teacher_id' => $class->teacher_id,
-            'subject_id' => $class->subject_id,
-            'medium_id' => $class->medium_id,
         ]);
     }
 }

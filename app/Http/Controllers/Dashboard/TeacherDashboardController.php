@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Program;
 use Illuminate\Support\Facades\Auth;
 
-class HomeClassController extends Controller
+class TeacherDashboardController extends Controller
 {
-    public function index(Program $program)
+    public function __invoke(Program $program)
     {
         $program = $program->all()
             ->where('teacher_id', Auth::user()->id);

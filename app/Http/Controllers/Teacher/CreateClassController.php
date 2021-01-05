@@ -12,11 +12,11 @@ class CreateClassController extends Controller
     {
         $class = new Program();
 
-        $request->file('image');
-        $save = $request->file('image');
-        $filename = time() . '.' . $save->getClientOriginalExtension();
-        $request->image->move('storage/class_image/', $filename);
-        $class->image = $filename;
+         $request->file('image');
+         $save = $request->file('image');
+         $filename = time() . '.' . $save->getClientOriginalExtension();
+         $request->image->move('storage/class_image/', $filename);
+         $class->image = $filename;
 
         $class->name = $request->get('name');
         $class->grade = $request->get('grade');

@@ -11,8 +11,25 @@ class UpdateClassControllerTest extends TestCase
     public function testExample()
     {
         $user = User::factory()->create();
-        $clas = Program::factory()->make();
+        $class = Program::factory()->make();
+        $newNane = "shashika";
 
-        
+        $this->actingAs($user)->post('/update', [
+            'name' => $newNane,
+            'grade' => $class->grade,
+            'subject' => $class->subject,
+            'medium' => $class->medium,
+            'teacher_id' => $class->teacher_id,
+        ])
+            ->assertRedirect(route('dashboard'))
+            ->assertSessionHas('success');
+
+        $this->assertDatabaseHas('programs', [
+            'name' => $newNane,
+            'grade' => $class->grade,
+            'subject' => $class->subject,
+            'medium' => $class->medium,
+            'teacher_id' => $class->teacher_id,
+        ]);
     }
 }

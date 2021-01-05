@@ -1,15 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in! {{Auth::User()->name}}
+                <div class="p-6 text-white border-solid border-b-2 border-black bg-gradient-to-r from-green-500 ...">
+                    {{Auth::User()->name}}
                 </div>
             </div>
         </div>
@@ -18,7 +12,7 @@
     <!-- Validation Errors -->
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-    <div class="bg-gray-100">
+    <div class="pt-8 pb-8 bg-gray-300">
         <div class="px-4  max-w-3xl mx-auto space-y-6">
             <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
@@ -31,12 +25,12 @@
                         <input type="text" name="name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Your Class Name" required>
                     </div>
 
-                    <div class="w-1/2">
+                    <div class="w-1/2 relative">
                         <label for="">Meadiam</label>
                         <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="meadiam" name="medium" onchange="random_function()" required>
                             <option selected disabled>Meadiam</option>
-                            <option value="සිංහල">සිංහල</option>
-                            <option value="English">English</option>
+                            <option value="සිංහල මාධ්‍යය">සිංහල මාධ්‍යය</option>
+                            <option value="English medium">English medium</option>
                         </select>
                     </div>
                 </div>
@@ -78,6 +72,7 @@
         </div>
     </div>
 
+
     @foreach($program as $program)
     <div class="m-7 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
         <div class="md:flex">
@@ -92,11 +87,16 @@
             </div>
 
             <div>
-                <a href="{{route('update.class.view',$program->id)}}" class="m-2 bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ...">
-                    Update
+                <a href="{{route('update.class.view',$program->id)}}">
+                    <x-button class="m-2 bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 ...">
+                        Update
+                    </x-button>
                 </a>
-                <a href="{{route('delete.class', $program->id)}}" class="m-2 bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 ...">
-                    Delete
+
+                <a href="{{route('delete.class', $program->id)}}">
+                    <x-button class="m-2 bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 ...">
+                        Delete
+                    </x-button>
                 </a>
 
             </div>
@@ -146,9 +146,9 @@
         function random_function() {
 
             var m = document.getElementById("meadiam").value;
-            if (m === "සිංහල") {
+            if (m === "සිංහල මාධ්‍යය") {
                 var arr = ["ඔබ:", "ප්‍රාථමික-ගුරුවරයෙකි", "සාමාන්‍ය-පෙළ-ගුරුවරයෙකි", "උසස්-පෙළ-ගුරුවරයෙකි"];
-            } else if (m === "English") {
+            } else if (m === "English medium") {
                 var arr = ["You are:", "O/L-Teacher"];
             }
 
