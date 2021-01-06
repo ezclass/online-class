@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Navbar;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\User;
 
 class FetchAllTeachersController extends Controller
 {
     public function __invoke()
     {
-        return view('navbar.fetchteachers');
+        $users = User::role('teacher')
+            ->get();
+
+        return view('navbar.fetchteachers')
+            ->with(['teacher' => $users]);
     }
 }

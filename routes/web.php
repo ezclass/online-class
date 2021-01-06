@@ -30,8 +30,8 @@ Route::get('/update/class/{program}', UpdateClassViewController::class)
 Route::get('/delete/class/{program}', DeleteClassController::class)
     ->middleware('auth')->name('delete.class');
 
-Route::get('/fetch/class/', FetchAllClassesController::class)
+Route::get('/all/classes/', FetchAllClassesController::class)
     ->name('fetch.class');
 
-Route::get('/fetch/teacher/', FetchAllTeachersController::class)
+Route::get('/all/teachers/', FetchAllTeachersController::class)
     ->name('fetch.teacher');

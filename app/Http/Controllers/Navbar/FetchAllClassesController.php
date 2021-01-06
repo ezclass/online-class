@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Navbar;
 
 use App\Http\Controllers\Controller;
 use App\Models\Program;
-use Illuminate\Http\Request;
 
 class FetchAllClassesController extends Controller
 {
     public function __invoke()
     {
-        $program = Program::all();
+        $program = Program::query()
+            ->with(['users'])
+            ->paginate(10);
+
         return view('navbar.fatchclasses')
             ->with(['program' => $program]);
     }

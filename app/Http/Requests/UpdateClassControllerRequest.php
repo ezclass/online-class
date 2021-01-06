@@ -31,7 +31,7 @@ class UpdateClassControllerRequest extends FormRequest
                 'required',
                 ///Rule::unique('programs'),
             ],
-            'teacher_id' => [
+            'user_id' => [
                 'required',
                 //Rule::unique('programs'),
             ],

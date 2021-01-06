@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateClassControllerRequest;
 use App\Models\Program;
-use Illuminate\Support\Facades\Storage;
 
 class UpdateClassController extends Controller
 {
@@ -22,7 +21,7 @@ class UpdateClassController extends Controller
         $Program->grade = $request->get('grade');
         $Program->subject = $request->get('subject');
         $Program->medium = $request->get('medium');
-        $Program->teacher_id = $request->get('teacher_id');
+        $Program->user_id = $request->get('user_id');
 
         if ($Program->save()) {
             return redirect()->route('dashboard')

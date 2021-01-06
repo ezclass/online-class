@@ -15,9 +15,9 @@
     <div class="pt-8 pb-8 bg-gray-300">
         <div class="px-4  max-w-3xl mx-auto space-y-6">
             <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
-                {{csrf_field()}}
+                @csrf
 
-                <input type="hidden" name="teacher_id" value="{{Auth::User()->id}}">
+                <input type="hidden" name="user_id" value="{{Auth::User()->id}}">
 
                 <div class="flex space-x-4">
                     <div class="w-1/2">

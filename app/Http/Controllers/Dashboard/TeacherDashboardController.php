@@ -11,7 +11,7 @@ class TeacherDashboardController extends Controller
     public function __invoke(Program $program)
     {
         $program = $program->all()
-            ->where('teacher_id', Auth::user()->id);
+            ->where('user_id', Auth::user()->id);
 
         return view('dashboard')
             ->with(['program' => $program]);

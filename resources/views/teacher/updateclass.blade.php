@@ -8,7 +8,7 @@
         <form action="{{route('update.class')}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
 
-            <input type="hidden" name="teacher_id" value="{{Auth::User()->id}}">
+            <input type="hidden" name="user_id" value="{{Auth::User()->id}}">
             <input type="hidden" name="id" value="{{$program->id}}">
             <div class="flex space-x-4">
                 <div class="w-1/2">

@@ -9,9 +9,9 @@ class Program extends Model
 {
     use HasFactory;
 
-    public function subject()
+    public function users()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
 

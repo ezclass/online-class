@@ -19,7 +19,7 @@ class CreateClassControllerRequest extends FormRequest
             'image' => 'required',
             'subject' => 'required',
             'medium' => 'required',
-            'teacher_id' => 'required',
+            'user_id' => 'required',
         ];
     }
 }

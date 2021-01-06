@@ -20,6 +20,5 @@ class DatabaseSeeder extends Seeder
         Medium::factory(10)->create();
         Program::factory(10)->create();
         Subject::factory(10)->create();
-        Teacher::factory(10)->create();
     }
 }
