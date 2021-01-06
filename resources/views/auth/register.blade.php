@@ -1,3 +1,4 @@
+<x-app-layout>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -40,20 +41,25 @@
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required />
             </div>
 
-            <select name="role" id="">
-                <option value="teacher">Teacher</option>
-                <option value="student">Student</option>
-            </select>
+            <div class="mt-4">
+                <x-label for="role" :value="__('Role')" />
+                <select name="role" id="role" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-success-button class="ml-4">
                     {{ __('Register') }}
-                </x-button>
+                </x-success-button>
             </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
+</x-app-layout>

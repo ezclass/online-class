@@ -56,9 +56,9 @@
                 </div>
             </div>
 
-            <x-button type="submit" class="ml-3">
+            <x-success-button  class="ml-3">
                 {{ __('Update') }}
-            </x-button>
+            </x-success-button>
         </form>
     </div>
 </div>

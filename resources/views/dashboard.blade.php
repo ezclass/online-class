@@ -65,9 +65,9 @@
                     </div>
                 </div>
 
-                <x-button type="submit" class="ml-3">
+                <x-success-button type="submit" class="ml-3">
                     {{ __('Create') }}
-                </x-button>
+                </x-success-button>
             </form>
         </div>
     </div>
@@ -84,21 +84,25 @@
                 <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{{ $program->grade }}</a>
                 <p class="mt-2 text-gray-500">{{ $program->subject }}</p>
                 <p>{{ $program->medium }}</p>
-            </div>
-
-            <div>
-                <a href="{{route('update.class.view',$program->id)}}">
-                    <x-button class="m-2 bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 ...">
-                        Update
-                    </x-button>
-                </a>
-
-                <a href="{{route('delete.class', $program->id)}}">
-                    <x-button class="m-2 bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 ...">
-                        Delete
-                    </x-button>
-                </a>
-
+                <p>
+                    <div class="mt-2 flex space-x-4">
+                        <a href="{{route('update.class.view',$program->id)}}">
+                            <x-primary-button>
+                                Lesson
+                            </x-primary-button>
+                        </a>
+                        <a href="{{route('update.class.view',$program->id)}}">
+                            <x-success-button>
+                                Update
+                            </x-success-button>
+                        </a>
+                        <a href="{{route('delete.class', $program->id)}}">
+                            <x-danger-button class="">
+                                Delete
+                            </x-danger-button>
+                        </a>
+                    </div>
+                </p>
             </div>
         </div>
     </div>

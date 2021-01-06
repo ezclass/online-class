@@ -1,3 +1,4 @@
+<x-app-layout>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -44,10 +45,12 @@
                 </a>
                 @endif
 
-                <x-button class="ml-3">
+                <x-success-button class="ml-3">
                     {{ __('Login') }}
-                </x-button>
+                </x-success-button>
             </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+</x-app-layout>

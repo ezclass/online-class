@@ -7,9 +7,6 @@ use App\Models\Program;
 use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\User;
-use Database\Factories\MediumFactory;
-use Database\Factories\ProgramFactory;
-use Database\Factories\SubjectFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
