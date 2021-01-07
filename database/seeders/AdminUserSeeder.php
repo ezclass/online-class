@@ -21,6 +21,8 @@ class AdminUserSeeder extends Seeder
             'updated_at' => now()
         ]);
 
+        $superadmin->assignRole('super admin');
+
         $admin = User::create([
             'name' => 'admin',
             'email' => 'admin@ezclass.lk',
@@ -31,7 +33,6 @@ class AdminUserSeeder extends Seeder
             'updated_at' => now()
         ]);
 
-        $superadmin->assignRole('super admin');
         $admin->assignRole('admin');
     }
 }

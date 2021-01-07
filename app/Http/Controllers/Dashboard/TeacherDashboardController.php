@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class TeacherDashboardController extends Controller
 {
-    public function __invoke(Program $program)
+    public function __invoke()
     {
-        $program = $program->all()
-            ->where('user_id', Auth::user()->id);
+        $program = Program::query()
+            ->where('user_id', Auth::user()->id)
+            ->get();
 
         return view('dashboard')
             ->with(['program' => $program]);

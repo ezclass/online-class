@@ -10,7 +10,7 @@
                 <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{{ $class->grade }}</a>
                 <p class="mt-2 text-gray-500">{{ $class->subject }}</p>
                 <p>{{ $class->medium }}</p>
-                <p>{{ $class->users->email }}</p>
+                <p>{{ $class->users->name }}</p>
                 <p></p>
             </div>
         </div>

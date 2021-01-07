@@ -11,11 +11,11 @@ class UpdateClassController extends Controller
     public function __invoke(UpdateClassControllerRequest $request)
     {
         $Program = Program::find($request->id);
-        $request->file('image');
-        $save = $request->file('image');
-        $filename = time() . '.' . $save->getClientOriginalExtension();
-        $request->image->move('storage/class_image/', $filename);
-        $Program->image = $filename;
+        // $request->file('image');
+        // $save = $request->file('image');
+        // $filename = time() . '.' . $save->getClientOriginalExtension();
+        // $request->image->move('storage/class_image/', $filename);
+        // $Program->image = $filename;
 
         $Program->name = $request->get('name');
         $Program->grade = $request->get('grade');

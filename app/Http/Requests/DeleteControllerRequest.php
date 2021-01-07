@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateClassControllerRequest extends FormRequest
+class DeleteControllerRequest extends FormRequest
 {
     public function authorize()
     {
@@ -15,12 +15,7 @@ class CreateClassControllerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'grade' => 'required',
-            'image' => 'required',
-            'subject' => 'required',
-            'medium' => 'required',
-            'user_id' => 'required',
+            //
         ];
     }
 }

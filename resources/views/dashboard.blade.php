@@ -12,6 +12,8 @@
     <!-- Validation Errors -->
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
+    @role('teacher')
+
     <div class="pt-8 pb-8 bg-gray-300">
         <div class="px-4  max-w-3xl mx-auto space-y-6">
             <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
@@ -71,7 +73,8 @@
             </form>
         </div>
     </div>
-
+    
+    @endrole
 
     @foreach($program as $program)
     <div class="hover:bg-gray-100 m-7 max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl">

@@ -17,24 +17,29 @@ Route::get('/', HomeController::class)
     ->name('welcome');
 
 Route::get('/dashboard', TeacherDashboardController::class)
-    ->middleware('auth')->name('dashboard');
+    ->middleware('auth')
+    ->name('dashboard');
 
 Route::post('/create/class', CreateClassController::class)
-    ->middleware('auth')->name('create.class');
+    ->middleware('role:teacher')
+    ->name('create.class');
 
 Route::post('/update/class', UpdateClassController::class)
-    ->middleware('auth')->name('update.class');
+    ->middleware('role:teacher')
+    ->name('update.class');
 
 Route::get('/update/class/{program}', UpdateClassViewController::class)
-    ->middleware('auth')->name('update.class.view');
+    ->middleware('role:teacher')
+    ->name('update.class.view');
 
 Route::get('/delete/class/{program}', DeleteClassController::class)
-    ->middleware('auth')->name('delete.class');
+    ->middleware('role:teacher')
+    ->name('delete.class');
 
-Route::get('/all/classes/', FetchAllClassesController::class)
+Route::get('/all/classes', FetchAllClassesController::class)
     ->name('fetch.class');
 
-Route::get('/all/teachers/', FetchAllTeachersController::class)
+Route::get('/all/teachers', FetchAllTeachersController::class)
     ->name('fetch.teacher');
 
 Route::get('/dynamic_dependent', [DynamicDependent::class, 'index']);

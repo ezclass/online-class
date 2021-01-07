@@ -2,14 +2,14 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class UpdateClassControllerRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return $this->user()->hasRole(Role::ROLE_TEACHER);
     }
 
     public function rules()
