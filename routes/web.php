@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
+use App\Http\Controllers\Home\DynamicDependent;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Navbar\FetchAllClassesController;
 use App\Http\Controllers\Navbar\FetchAllTeachersController;
@@ -35,3 +36,7 @@ Route::get('/all/classes/', FetchAllClassesController::class)
 
 Route::get('/all/teachers/', FetchAllTeachersController::class)
     ->name('fetch.teacher');
+
+Route::get('/dynamic_dependent', [DynamicDependent::class, 'index']);
+
+Route::post('dynamic_dependent/fetch', [DynamicDependent::class, 'fetch'])->name('dynamicdependent.fetch');

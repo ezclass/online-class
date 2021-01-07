@@ -20,9 +20,10 @@ class CreateProgramsTable extends Migration
             $table->string('image')->nullable();
             $table->string('subject');
             $table->string('medium');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
 
-            $table->foreignId('user_id')->constrained();
+
             //$table->foreignId('subject_id')->constrained();
             //$table->foreignId('medium_id')->constrained();
         });

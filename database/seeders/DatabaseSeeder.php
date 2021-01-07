@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoleSeeder::class);
         $this->call(AdminUserSeeder::class);
+        $this->call(MediumSeeder::class);
+        $this->call(SubjectSeeder::class);
 
         User::factory(10)->create();
-        Medium::factory(10)->create();
         Program::factory(10)->create();
-        Subject::factory(10)->create();
     }
 }

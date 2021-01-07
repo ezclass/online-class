@@ -92,13 +92,12 @@
           <polygon points="2560 0 2560 100 0 100"></polygon>
         </svg>
       </div>
-      <div class="container mx-auto px-4 lg:pt-10 lg:pb-5 pb-10 pt-10">
+      <div class="container mx-auto px-4 lg:pt-5 lg:pb-5 pb-10 pt-10">
         <div class="flex flex-wrap text-center justify-center">
           <div class="w-full lg:w-6/12 px-4">
             <h2 class="text-4xl font-semibold text-white uppercase">
               ONLINE CLASS
             </h2>
-
           </div>
         </div>
       </div>

@@ -108,41 +108,6 @@
     </div>
     @endforeach
 
-    <!-- ----------------------- Start Province and district js --------------------->
-    <script>
-        function random_function2() {
-
-            var b = document.getElementById("Province").value;
-            if (b === "Western Province") {
-                var dis = ["Select Your District", "Gampaha", "Colombo", "Kalutara"];
-            } else if (b === "Central Province") {
-                var dis = ["Select Your District", "Matale", "Kandy", "Nuwara Eliya"];
-            } else if (b === "Southern Province") {
-                var dis = ["Select Your District", "Hambantota", "Matara", "Galle"];
-            } else if (b === "Uva Province") {
-                var dis = ["Select Your District", "Badulla", "Monaragala"];
-            } else if (b === "Sabaragamuwa Province") {
-                var dis = ["Select Your District", "Kegalle", "Ratnapura"];
-            } else if (b === "North Western Province") {
-                var dis = ["Select Your District", "Puttalam", "Kurunegala"];
-            } else if (b === "North Central Province") {
-                var dis = ["Select Your District", "Anuradhapura", "Polonnaruwa"];
-            } else if (b === "Nothern Province") {
-                var dis = ["Select Your District", "Jaffna", "Kilinochchi", "Mannar", "Mullaitivu", "Vavuniya"];
-            } else if (b === "Eastern Province") {
-                var dis = ["Select Your District", "Trincomalee", "Batticaloa", "Ampara"];
-            }
-
-            var string = "";
-
-            for (i = 0; i < dis.length; i++) {
-                string = string + "<option value=" + dis[i] + ">" + dis[i] + "</option>";
-            }
-            document.getElementById("district").innerHTML = string;
-        }
-    </script>
-
-    <!-- ----------------------- End Province and district js --------------------->
 
     <!-- ----------------------- Start meadiam and subject js --------------------->
 
