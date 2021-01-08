@@ -10,12 +10,11 @@ class CreateClassController extends Controller
 {
     public function __invoke(CreateClassControllerRequest $request)
     {
-        $class = new Program();
-        $request->file('image');
-        $save = $request->file('image');
-        $filename = time() . '.' . $save->getClientOriginalExtension();
-        $request->image->move('storage/class_image/', $filename);
-        $class->image = $filename;
+         $class = new Program();
+         $save = $request->file('image');
+         $filename = time() . '.' . $save->getClientOriginalExtension();
+         $request->image->move('storage/class_image/', $filename);
+         $class->image = $filename;
 
         $class->name = $request->get('name');
         $class->grade = $request->get('grade');

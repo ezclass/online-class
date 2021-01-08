@@ -11,7 +11,7 @@
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
                 <form action="{{route('avatar')}}" method="POST" enctype="multipart/form-data">
-                @csrf
+                    @csrf
                     <div class="shadow sm:rounded-md sm:overflow-hidden">
                         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                             <div>
@@ -21,12 +21,9 @@
                                 <div class="mt-2 flex items-center">
                                     <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
                                         @if(Auth::user()->avatar)
-                                        <img src="{{ asset('storage/avatar/'.Auth::user()->avatar)}}"  class="inline-block rounded-full ring-2 ring-white">
+                                        <img src="{{ asset('storage/avatar/'.Auth::user()->avatar)}}" class="inline-block rounded-full ring-2 ring-white">
                                         @endif
                                     </span>
-                                    <button type="button" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                        Change
-                                    </button>
                                 </div>
                             </div>
 

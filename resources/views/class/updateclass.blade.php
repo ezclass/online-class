@@ -52,7 +52,7 @@
 
                 <div class="w-1/2">
                     <label class="">Class Image</label>
-                    <input type="file" name="image" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500 @error('class_image') is-invalid @enderror">
+                    <input type="file" value="{{$program->image}}" name="image" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500 @error('class_image') is-invalid @enderror">
                 </div>
             </div>
 

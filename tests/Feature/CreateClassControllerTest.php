@@ -19,7 +19,7 @@ class CreateClassControllerTest extends TestCase
             'image' => $class->image,
             'subject' => $class->subject,
             'medium' => $class->medium,
-            'teacher_id' => $class->teacher_id,
+            'user_id' => $class->user_id,
         ])
             ->assertRedirect(route('dashboard'))
             ->assertSessionHas('success');
@@ -30,7 +30,7 @@ class CreateClassControllerTest extends TestCase
             'image' => $class->image,
             'subject' => $class->subject,
             'medium' => $class->medium,
-            'teacher_id' => $class->teacher_id,
+            'user_id' => $class->user_id,
         ]);
     }
 }

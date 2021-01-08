@@ -1,21 +1,10 @@
 <x-app-layout>
-    <div class="py-6">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-center md:text-center text-black text-2xl border-solid border-t-2 border-black bg-gradient-to-b from-green-400 ...">
-                    {{Auth::User()->name}}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Validation Errors -->
-    <x-auth-validation-errors class="mb-4" :errors="$errors" />
-   
 
     @role('teacher')
+    <!-- Validation Errors -->
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-    <div class="pt-8 pb-8 bg-gray-300">
+    <div class="mt-10 pt-8 pb-8 bg-yellow-100">
         <div class="px-4  max-w-3xl mx-auto space-y-6">
             <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -74,7 +63,6 @@
             </form>
         </div>
     </div>
-
     @endrole
 
     @foreach($program as $program)
@@ -89,23 +77,23 @@
                 <p class="mt-2 text-gray-500">{{ $program->subject }}</p>
                 <p>{{ $program->medium }}</p>
                 <p>
-                    <div class="mt-2 flex space-x-4">
-                        <a href="{{route('update.class.view',$program->id)}}">
-                            <x-primary-button>
-                                Lesson
-                            </x-primary-button>
-                        </a>
-                        <a href="{{route('update.class.view',$program->id)}}">
-                            <x-success-button>
-                                Update
-                            </x-success-button>
-                        </a>
-                        <a href="{{route('delete.class', $program->id)}}">
-                            <x-danger-button class="">
-                                Delete
-                            </x-danger-button>
-                        </a>
-                    </div>
+                <div class="mt-2 flex space-x-4">
+                    <a href="{{route('update.class.view',$program->id)}}">
+                        <x-primary-button>
+                            Lesson
+                        </x-primary-button>
+                    </a>
+                    <a href="{{route('update.class.view',$program->id)}}">
+                        <x-success-button>
+                            Update
+                        </x-success-button>
+                    </a>
+                    <a href="{{route('delete.class', $program->id)}}">
+                        <x-danger-button class="">
+                            Delete
+                        </x-danger-button>
+                    </a>
+                </div>
                 </p>
             </div>
         </div>

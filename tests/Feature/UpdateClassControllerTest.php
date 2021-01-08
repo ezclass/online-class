@@ -19,7 +19,7 @@ class UpdateClassControllerTest extends TestCase
             'grade' => $class->grade,
             'subject' => $class->subject,
             'medium' => $class->medium,
-            'teacher_id' => $class->teacher_id,
+            'user_id' => $class->user_id,
         ])
             ->assertRedirect(route('dashboard'))
             ->assertSessionHas('success');
@@ -29,7 +29,7 @@ class UpdateClassControllerTest extends TestCase
             'grade' => $class->grade,
             'subject' => $class->subject,
             'medium' => $class->medium,
-            'teacher_id' => $class->teacher_id,
+            'user_id' => $class->user_id,
         ]);
     }
 }

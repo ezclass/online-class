@@ -11,7 +11,7 @@ class UpdateClassViewController extends Controller
 {
     public function __invoke(UpdateClassViewControllerRequest $rquest ,Program $program)
     {
-        return view('teacher.updateclass')
+        return view('class.updateclass')
             ->with(['program' => $program]);
     }
 }
