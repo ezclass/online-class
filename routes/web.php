@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\Home\DynamicDependent;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Navbar\FaqController;
 use App\Http\Controllers\Navbar\FetchAllClassesController;
 use App\Http\Controllers\Navbar\FetchAllTeachersController;
 use App\Http\Controllers\Setting\AvatarController;
@@ -21,6 +22,15 @@ Route::get('/', HomeController::class)
 Route::get('/dashboard', TeacherDashboardController::class)
     ->middleware('auth')
     ->name('dashboard');
+
+Route::get('/all/classes', FetchAllClassesController::class)
+    ->name('fetch.class');
+
+Route::get('/all/teachers', FetchAllTeachersController::class)
+    ->name('fetch.teacher');
+
+Route::get('/faq', FaqController::class)
+    ->name('faq');
 
 Route::get('/setting', SettingViewController::class)
     ->middleware('auth')
@@ -45,12 +55,6 @@ Route::get('/update/class/{program}', UpdateClassViewController::class)
 Route::get('/delete/class/{program}', DeleteClassController::class)
     ->middleware('role:teacher')
     ->name('delete.class');
-
-Route::get('/all/classes', FetchAllClassesController::class)
-    ->name('fetch.class');
-
-Route::get('/all/teachers', FetchAllTeachersController::class)
-    ->name('fetch.teacher');
 
 Route::get('/dynamic_dependent', [DynamicDependent::class, 'index']);
 
