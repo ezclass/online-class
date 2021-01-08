@@ -21,25 +21,54 @@
             </div>
         </section>
 
+        <section class="mt-10 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6 py-8">
+                <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <div>
+                        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
 
-        <div class="flex max-w-sm w-full mx-auto bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
-        <div class="flex justify-center items-center w-12 bg-green-500">
-            <svg class="h-6 w-6 fill-current text-white" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z"/>
-            </svg>
-        </div>
+                        <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white">Find classes</h1>
 
-        <div class="-mx-3 py-2 px-4">
-            <div class="mx-3">
-                <span class="text-green-500 dark:text-green-400 font-semibold">Success</span>
-                <p class="text-gray-600 dark:text-gray-200 text-sm">Your account was registered!</p>
+                        <p class="mt-2 text-gray-500 dark:text-gray-400">ආදරණිය දූ දරුවනි, දෙමාපියනි ඔබට හෝ ඔබේ දරුවාට උපකාරක පන්තිය සොයනවද? තවම සොයාගත නොහැකි උනාද? <br>
+                            මෙන්න විසදුම,
+                            ezclass.lk මගින් නොමිලේම ඔබට අවශ්‍ය විෂය සදහා මාර්ගගත(Online)පන්ති හෝ ශාලා පන්ති(Hall Classes/Group Classes) සොයාගත හැක.
+                        </p>
+                    </div>
+
+                    <div>
+                        <svg class="h-8 w-8" viewBox="0 0 30 30" fill="none">
+                            <path d="M27.3633 7.08984H26.4844V6.21094C26.4844 4.75705 25.3015 3.57422 23.8477 3.57422H4.39453C2.94064 3.57422 1.75781 4.75705 1.75781 6.21094V21.1523H0.878906C0.393516 21.1523 0 21.5459 0 22.0312V23.7891C0 25.2429 1.18283 26.4258 2.63672 26.4258H27.3633C28.8172 26.4258 30 25.2429 30 23.7891V9.72656C30 8.27268 28.8172 7.08984 27.3633 7.08984ZM3.51562 6.21094C3.51562 5.72631 3.9099 5.33203 4.39453 5.33203H23.8477C24.3323 5.33203 24.7266 5.72631 24.7266 6.21094V7.08984H20.332C18.8781 7.08984 17.6953 8.27268 17.6953 9.72656V21.1523H3.51562V6.21094ZM1.75781 23.7891V22.9102H17.6953V23.7891C17.6953 24.0971 17.7489 24.3929 17.8465 24.668H2.63672C2.15209 24.668 1.75781 24.2737 1.75781 23.7891ZM28.2422 23.7891C28.2422 24.2737 27.8479 24.668 27.3633 24.668H20.332C19.8474 24.668 19.4531 24.2737 19.4531 23.7891V9.72656C19.4531 9.24193 19.8474 8.84766 20.332 8.84766H27.3633C27.8479 8.84766 28.2422 9.24193 28.2422 9.72656V23.7891Z" fill="#2D3748" />
+                            <path d="M24.7266 21.1523H22.9688C22.4834 21.1523 22.0898 21.5459 22.0898 22.0312C22.0898 22.5166 22.4834 22.9102 22.9688 22.9102H24.7266C25.212 22.9102 25.6055 22.5166 25.6055 22.0312C25.6055 21.5459 25.212 21.1523 24.7266 21.1523Z" fill="#4299E1" />
+                            <path d="M23.8477 12.3633C24.3331 12.3633 24.7266 11.9698 24.7266 11.4844C24.7266 10.999 24.3331 10.6055 23.8477 10.6055C23.3622 10.6055 22.9688 10.999 22.9688 11.4844C22.9688 11.9698 23.3622 12.3633 23.8477 12.3633Z" fill="#4299E1" />
+                        </svg>
+
+                        <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white">Hold online classes</h1>
+
+                        <p class="mt-2 text-gray-500 dark:text-gray-400"> ඔබ ආදරණීය ගුරුවරයෙක්ද?<br>
+                            ඔබට ezclass.lk වෙබ් අඩවිය මගින්,<br>
+                            ඔබේ දූ දරුවන්ට කිසිදු තෙවන පාර්ශවයේ වෙබ් අඩවියක් හෝ App එකක් බාවිතා නොකර පහසුවෙන්
+                            online classs පවත්වන්න, online Papers ලබාදෙන්න, Real time MCQ paper ලබාදෙන්න වැනි අද්විතීය සේවාවන් ලබාගත හැක.</p>
+                    </div>
+
+                    <div>
+                        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
+                        </svg>
+
+                        <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white">For Primary, Ordinary Level, Advanced Level</h1>
+
+                        <p class="mt-2 text-gray-500 dark:text-gray-400">ආදරණිය දුවේ පුතේ, ඔබට ඕනෑම විෂයක සියලුම පාඩම් සදහා හෝ අමාරු පාඩම් සදහා පමණක්
+                            ඔබ කැමති ඕනෑම ගුරුවරයෙකුගේ Online Class වෙත ezclass.lk හරහා සම්බන්ද විය හැක.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-        
         <!-- Trainers Section -->
-        <section class="pt-20 pb-48">
+        <section class="pt-10 pb-20">
             <div class="container mx-auto px-4">
                 <div class="flex flex-wrap justify-center text-center mb-24">
                     <div class="w-full lg:w-6/12 px-4">
@@ -138,8 +167,9 @@
             </div>
         </section>
 
+
         <!-- Contact Header Section -->
-        <section class="mt-15 pb-20 relative block bg-black text-white">
+        <section class="mt-24 pb-20 relative block bg-black text-white">
             <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px; transform: translateZ(0px)">
                 <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
                     <polygon points="2560 0 2560 100 0 100"></polygon>
