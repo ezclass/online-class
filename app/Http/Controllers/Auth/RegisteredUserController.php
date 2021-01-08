@@ -21,17 +21,19 @@ class RegisteredUserController extends Controller
     {
 
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:35',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'avatar' => 'required',
         ]);
 
         Auth::login($user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'avatar' => 'avatar.jpg',
         ]));
-        
+
         $user->assignRole($request->role);
         event(new Registered($user));
 

@@ -12,7 +12,7 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
+            <input type="hidden" value="avatar.jpg" name="avatar">
             <!-- Name -->
             <div>
                 <x-label for="name" :value="__('Name')" />

@@ -11,6 +11,7 @@
 
     <!-- Validation Errors -->
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
+   
 
     @role('teacher')
 
@@ -67,13 +68,13 @@
                     </div>
                 </div>
 
-                <x-success-button type="submit" class="ml-3">
+                <x-success-button class="ml-3">
                     {{ __('Create') }}
                 </x-success-button>
             </form>
         </div>
     </div>
-    
+
     @endrole
 
     @foreach($program as $program)

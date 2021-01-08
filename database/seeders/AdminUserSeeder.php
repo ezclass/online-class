@@ -16,6 +16,7 @@ class AdminUserSeeder extends Seeder
             'email' => 'superadmin@ezclass.lk',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
+            'avatar' => 'avatar.jpg',
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
@@ -28,6 +29,7 @@ class AdminUserSeeder extends Seeder
             'email' => 'admin@ezclass.lk',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
+            'avatar' => 'avatar.jpg',
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
