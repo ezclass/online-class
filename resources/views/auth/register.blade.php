@@ -53,6 +53,7 @@
                         <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="role" >Role</label>
                     </div>
                     <select name="role" id="role" class="bg-wbg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                        <option value="" selected disabled></option>
                         <option value="teacher">Teacher</option>
                         <option value="student">Student</option>
                     </select>
