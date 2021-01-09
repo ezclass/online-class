@@ -54,8 +54,7 @@
 
                     <div>
                         <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
                         </svg>
 
                         <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white">For Primary, Ordinary Level, Advanced Level</h1>
@@ -167,24 +166,9 @@
             </div>
         </section>
 
+        <x-footer>
+        </x-footer>
 
-        <!-- Contact Header Section -->
-        <section class="mt-24 pb-20 relative block bg-black text-white">
-            <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px; transform: translateZ(0px)">
-                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                    <polygon points="2560 0 2560 100 0 100"></polygon>
-                </svg>
-            </div>
-            <div class="container mx-auto px-4 lg:pt-5 lg:pb-5 pb-10 pt-10">
-                <div class="flex flex-wrap text-center justify-center">
-                    <div class="w-full lg:w-6/12 px-4">
-                        <h2 class="text-4xl font-semibold text-white uppercase">
-                            ONLINE CLASS
-                        </h2>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
 </x-app-layout>

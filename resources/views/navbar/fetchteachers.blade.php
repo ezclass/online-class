@@ -24,4 +24,7 @@
         </div>
     </div>
     @endforeach
+
+    <x-footer>
+    </x-footer>
 </x-app-layout>

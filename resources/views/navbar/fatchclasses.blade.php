@@ -22,6 +22,9 @@
             {{ $program->links() }}
         </div>
     </section>
+
+    <x-footer>
+    </x-footer>
 </x-app-layout>
 
 

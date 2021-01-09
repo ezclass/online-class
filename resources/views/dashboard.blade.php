@@ -1,10 +1,10 @@
 <x-app-layout>
 
     @role('teacher')
-    <!-- Validation Errors -->
-    <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
     <div class="mt-10 pt-8 pb-8 bg-yellow-100">
+
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <div class="px-4  max-w-3xl mx-auto space-y-6">
             <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -78,7 +78,7 @@
                 <p>{{ $program->medium }}</p>
                 <p>
                 <div class="mt-2 flex space-x-4">
-                    <a href="{{route('update.class.view',$program->id)}}">
+                    <a href="{{route('lesson')}}">
                         <x-primary-button>
                             Lesson
                         </x-primary-button>

@@ -62,4 +62,6 @@
         </div>
     </div>
 
+    <x-footer class="py-10">
+    </x-footer>
 </x-app-layout>
