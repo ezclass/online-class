@@ -4,7 +4,7 @@
     <div class="mt-10 pt-8 pb-8 bg-yellow-100">
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-        
+
         <div class="px-4  max-w-3xl mx-auto space-y-6">
             <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -41,10 +41,10 @@
                 <div class="flex space-x-4">
                     <div class="w-1/2 relative">
                         <x-label for="">Meadiam</x-label>
-                        <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="medium_id" name="medium_id" onchange="random_function()" required>
+                        <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="language_id" name="language_id" onchange="random_function()" required>
                             <option selected disabled></option>
-                            @foreach($medium as $media)
-                            <option value="{{$media->id}}">{{$media->medium}}</option>
+                            @foreach($language as $lan)
+                            <option value="{{$lan->id}}">{{$lan->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -85,7 +85,7 @@
                 <div class="uppercase tracking-wide text-lg text-indigo-500 font-semibold">{{ $class->name }}</div>
                 <div class="block mt-1 text-lg leading-tight font-medium text-black">{{ $class->grade }}</div>
                 <p class="mt-2 text-gray-500">{{ $class->subject_program->name }}</p>
-                <p>{{ $class->medium_program->medium }}</p>
+                <p>{{ $class->language->name }}</p>
                 <p>
                 <div class="mt-2 flex space-x-4">
                     <a href="{{route('lesson')}}">

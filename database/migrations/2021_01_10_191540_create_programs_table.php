@@ -15,7 +15,7 @@ class CreateProgramsTable extends Migration
             $table->string('image')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('subject_id')->constrained();
-            $table->foreignId('medium_id')->constrained();
+            $table->foreignId('language_id')->constrained();
             $table->timestamps();
         });
     }

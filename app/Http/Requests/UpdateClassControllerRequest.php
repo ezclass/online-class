@@ -30,7 +30,7 @@ class UpdateClassControllerRequest extends FormRequest
                 'required',
                 //Rule::unique('programs'),
             ],
-            'medium_id' => [
+            'language_id' => [
                 'required',
             ],
         ];

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Medium;
+use App\Models\Language;
 use App\Models\Program;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
@@ -19,10 +19,10 @@ class TeacherDashboardController extends Controller
         $subject = Subject::query()
             ->get();
 
-        $medium = Medium::query()
+        $language = Language::query()
             ->get();
 
         return view('dashboard')
-            ->with(['program' => $program, 'subject' => $subject, 'medium' => $medium]);
+            ->with(['program' => $program, 'subject' => $subject, 'language' => $language]);
     }
 }

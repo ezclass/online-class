@@ -36,9 +36,9 @@
                 <div class="flex space-x-4">
                     <div class="w-1/2 relative">
                         <x-label for="">Meadiam</x-label>
-                        <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="medium_id" name="medium_id" onchange="random_function()" required>
-                            <option selected value="{{$program->medium_id}}">{{$program->medium_program->medium}}</option>
-                            @foreach($medium as $med)
+                        <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="language_id" name="language_id" onchange="random_function()" required>
+                            <option selected value="{{$program->language_id}}">{{$program->language->name}}</option>
+                            @foreach($language as $med)
                             <option value="{{$med->id}}">{{$med->medium}}</option>
                             @endforeach
                         </select>

@@ -2,13 +2,16 @@
 
 namespace Database\Factories;
 
-use App\Models\Medium;
+use App\Models\Language;
+use App\Models\Program;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProgramFactory extends Factory
 {
+    protected $model = Program::class;
+
     public function definition()
     {
         return [
@@ -17,7 +20,7 @@ class ProgramFactory extends Factory
             'image' => $this->faker->imageUrl(),
             'user_id' => User::factory(),
             'subject_id' => Subject::factory(),
-            'medium_id' => Medium::factory(),
+            'language_id' => Language::factory(),
         ];
     }
 }

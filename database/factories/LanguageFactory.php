@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Medium;
+use App\Models\Language;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MediumFactory extends Factory
+class LanguageFactory extends Factory
 {
-    protected $model = Medium::class;
+    protected $model = Language::class;
 
     public function definition()
     {
         return [
-            'medium' => $this->faker->languageCode,
+            'name' => $this->faker->languageCode,
         ];
     }
 }

@@ -9,6 +9,7 @@ class Program extends Model
 {
     use HasFactory;
 
+
     public function users()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
@@ -16,12 +17,11 @@ class Program extends Model
 
     public function subject_program()
     {
-        return $this->belongsTo(Subject::class , 'subject_id', 'id');
+        return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
 
-    public function medium_program()
+    public function language()
     {
-        return $this->belongsTo(Medium::class, 'medium_id', 'id');
+        return $this->belongsTo(Language::class, 'language_id', 'id');
     }
 }
-
