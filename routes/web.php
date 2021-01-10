@@ -47,7 +47,7 @@ Route::post('/create/class', CreateClassController::class)
     ->middleware('role:teacher')
     ->name('create.class');
 
-Route::post('/update/class', UpdateClassController::class)
+Route::post('/update/class/{program}', UpdateClassController::class)
     ->middleware('role:teacher')
     ->name('update.class');
 
@@ -71,6 +71,6 @@ Route::post('dynamic_dependent/fetch', [DynamicDependent::class, 'fetch'])
 
     Route::get('/foo' , function(){
         App::setLocale('si');
-        return Subject::find(1)->name;
+        return Subject::find(10)->name;
     });
 

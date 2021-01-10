@@ -8,26 +8,22 @@ use App\Models\Program;
 
 class UpdateClassController extends Controller
 {
-    public function __invoke(UpdateClassControllerRequest $request)
+    public function __invoke(UpdateClassControllerRequest $request, Program $program)
     {
-        $Program = Program::find($request->id);
-        $save = $request->file('image');
-        $filename = time() . '.' . $save->getClientOriginalExtension();
-        $request->image->move('storage/class_image/', $filename);
-        $Program->image = $filename;
-
-        $Program->name = $request->get('name');
-        $Program->grade = $request->get('grade');
-        $Program->subject = $request->get('subject');
-        $Program->medium = $request->get('medium');
-        $Program->user_id = $request->get('user_id');
-
-        if ($Program->save()) {
-            return redirect()->route('dashboard')
-                ->with('success', 'class update success');
-        } else {
-            return redirect()->route('dashboard')
-                ->with('error', 'class not updated');
+        if ($request->file('image')) {
+            $save = $request->file('image');
+            $filename = time() . '.' . $save->getClientOriginalExtension();
+            $request->image->move('storage/class_image/', $filename);
+            $program->image = $filename;
         }
+
+        $program->name = $request->get('name');
+        $program->grade = $request->get('grade');
+        $program->subject_id = $request->get('subject_id');
+        $program->medium_id = $request->get('medium_id');
+
+        $program->save();
+        return redirect()->route('dashboard')
+            ->with('success', 'class update success');
     }
 }

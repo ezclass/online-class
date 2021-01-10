@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProgramsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('programs', function (Blueprint $table) {
@@ -18,22 +13,13 @@ class CreateProgramsTable extends Migration
             $table->string('name');
             $table->string('grade');
             $table->string('image')->nullable();
-            $table->string('subject');
-            $table->string('medium');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('subject_id')->constrained();
+            $table->foreignId('medium_id')->constrained();
             $table->timestamps();
-
-
-            //$table->foreignId('subject_id')->constrained();
-            //$table->foreignId('medium_id')->constrained();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('programs');

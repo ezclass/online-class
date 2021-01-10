@@ -15,56 +15,54 @@ class SubjectSeeder extends Seeder
             ['name' => ['si' => 'සිංහල', 'en' => 'Sinhala']],
             ['name' => ['si' => 'ගණිතය',  'en' => 'Maths']],
             ['name' => ['si' =>'පරිසරය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'බුද්ධදර්මය',  'en' => 'Buddhism']],
             ['name' => ['si' =>'ඉංග්‍රීසි',  'en' => 'English']],
+            ['name' => ['si' =>'දෙමළ',  'en' => 'Tamil']],
 
             //grade 6-9 common
-            ['name' => ['si' =>'බුද්ධාගම',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ක්‍රිස්තියානි ආගම',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'කතෝලික ආගම',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ඉස්ලාම්',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'සිංහල භාෂාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'සිංහල භාෂාව හා සාහිත්‍ය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ඉංග්‍රීසි භාෂාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ඉතිහාසය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'භූගෝල විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ජීවන නිපුණතා හා පුරවැසි අධ්‍යාපනය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'පුරවැසි අධ්‍යාපනය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'නර්තනය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'පෙරදිග සංගීතය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'අපරදිග සංගීතය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'බටහිර සංගීතය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'චිත්‍ර කලාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'නාට්‍ය හා රංග කලාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ප්‍රායෝගික හා තාක්ෂණ කුසලතා',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'සෞඛ්‍ය හා ශාරීරික අධ්‍යාපනය',  'en' => 'Sinhala']],
+            ['name' => ['si' =>'බුද්ධාගම',  'en' => 'Buddhism']],
+            ['name' => ['si' =>'ක්‍රිස්තියානි ආගම',  'en' => 'Christianity']],
+            ['name' => ['si' =>'කතෝලික ආගම',  'en' => 'Catholic']],
+            ['name' => ['si' =>'ඉස්ලාම්',  'en' => 'Shivenary']],
+            ['name' => ['si' =>'සිංහල භාෂාව',  'en' => 'Sinhala Language']],
+            ['name' => ['si' =>'සිංහල භාෂාව හා සාහිත්‍ය',  'en' => 'Sinhala Language & Literature']],
+            ['name' => ['si' =>'ඉංග්‍රීසි භාෂාව',  'en' => 'English Language']],
+            ['name' => ['si' =>'විද්‍යාව',  'en' => 'Science']],
+            ['name' => ['si' =>'ඉතිහාසය',  'en' => 'History']],
+            ['name' => ['si' =>'භූගෝල විද්‍යාව',  'en' => 'Geography']],
+            ['name' => ['si' =>'ජීවන නිපුණතා හා පුරවැසි අධ්‍යාපනය',  'en' => 'Life skills &-Citizenshipn Education']],
+            ['name' => ['si' =>'පුරවැසි අධ්‍යාපනය',  'en' => 'Citizen Education']],
+            ['name' => ['si' =>'නර්තනය',  'en' => 'Dancing']],
+            ['name' => ['si' =>'පෙරදිග සංගීතය',  'en' => 'Eastern Music']],
+            ['name' => ['si' =>'බටහිර සංගීතය',  'en' => 'Western Music']],
+            ['name' => ['si' =>'චිත්‍ර',  'en' => 'Art']],
+            ['name' => ['si' =>'නාට්‍ය හා රංග කලාව',  'en' => 'Drama & Theatre']],
+            ['name' => ['si' =>'ප්‍රායෝගික හා තාක්ෂණ කුසලතා',  'en' => 'Practical &-Technical Studies']],
+            ['name' => ['si' =>'සෞඛ්‍ය හා ශාරීරික අධ්‍යාපනය',  'en' => 'Health & Physical Education']],
 
             // grade 10-11 special
-            ['name' => ['si' =>'නිර්මාණකරනය හා යාන්ත්‍රික තාක්ෂණවේදය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ගෘහ ආර්ථික විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'කෘෂි හා ආහාර තාක්ෂණවේදය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ජලජ ජීව සම්පත් තාක්ෂණය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'නිර්මාණකරනය හා ඉදිකිරීම් තාක්ෂණවේදය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ශිල්ප කලා',  'en' => 'Sinhala']],
+            ['name' => ['si' =>'නිර්මාණකරනය හා යාන්ත්‍රික තාක්ෂණවේදය',  'en' => 'Design and Mechanical Technology']],
+            ['name' => ['si' =>'ගෘහ ආර්ථික විද්‍යාව',  'en' => 'Home Economics']],
+            ['name' => ['si' =>'කෘෂි හා ආහාර තාක්ෂණවේදය',  'en' => 'Agriculture & Food Technology']],
+            ['name' => ['si' =>'ජලජ ජීව සම්පත් තාක්ෂණය',  'en' => 'Aquatic Biological Resources Technology']],
+            ['name' => ['si' =>'නිර්මාණකරනය හා ඉදිකිරීම් තාක්ෂණවේදය',  'en' => 'Design and Construction Technology']],
+            ['name' => ['si' =>'ශිල්ප කලා',  'en' => '']],
 
             // grade 12-13 special
-            ['name' => ['si' =>'භෞතික විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'රසායන විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'කෘෂි විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ජීව විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'සංයුක්ත ගණිතය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ආර්ථික විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'තර්කනය සහ විද්‍යාත්මක ක්‍රමය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'දේශපාලන විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ව්‍යාපාර සංඛ්‍යානය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ව්‍යාපාර අධ්‍යනය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ගිණුම්කරණය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'චිත්‍ර',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'තොරතුරු හා සන්නිවේදන තාක්ෂණය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'තාක්ෂනය සදහා විද්‍යාව',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ඉංජිනේරු තාක්ෂනය',  'en' => 'Sinhala']],
-            ['name' => ['si' =>'ජෛව පද්ධති තාක්ෂනය',  'en' => 'Sinhala']],
+            ['name' => ['si' =>'භෞතික විද්‍යාව',  'en' => 'Physics']],
+            ['name' => ['si' =>'රසායන විද්‍යාව',  'en' => 'Chemistry']],
+            ['name' => ['si' =>'කෘෂි විද්‍යාව',  'en' => 'Agriculture Science']],
+            ['name' => ['si' =>'ජීව විද්‍යාව',  'en' => 'Biology']],
+            ['name' => ['si' =>'සංයුක්ත ගණිතය',  'en' => 'combined maths']],
+            ['name' => ['si' =>'ආර්ථික විද්‍යාව',  'en' => 'Economics']],
+            ['name' => ['si' =>'තර්කනය සහ විද්‍යාත්මක ක්‍රමය',  'en' => 'Logic and the Scientific Method']],
+            ['name' => ['si' =>'දේශපාලන විද්‍යාව',  'en' => 'Political Science']],
+            ['name' => ['si' =>'ව්‍යාපාර සංඛ්‍යානය',  'en' => 'Business Statistics']],
+            ['name' => ['si' =>'ව්‍යාපාර අධ්‍යනය',  'en' => 'Business Studies']],
+            ['name' => ['si' =>'ගිණුම්කරණය',  'en' => 'Accounting']],
+            ['name' => ['si' =>'තොරතුරු හා සන්නිවේදන තාක්ෂණය',  'en' => 'Information and Communication Technology']],
+            ['name' => ['si' =>'තාක්ෂනය සදහා විද්‍යාව',  'en' => 'Science for Technology']],
+            ['name' => ['si' =>'ඉංජිනේරු තාක්ෂනය',  'en' => 'Engineering Technology']],
+            ['name' => ['si' =>'ජෛව පද්ධති තාක්ෂනය',  'en' => 'Biosystems Technology']],
 
             ];
             collect($subjects)
@@ -77,7 +75,7 @@ class SubjectSeeder extends Seeder
     }
 
 
-
+/*
             // english grade 6-10
             ['name' => 'Buddhism', 'media_id' => '2']],
             ['name' => 'Christianity', 'media_id' => '2']],
@@ -114,5 +112,5 @@ class SubjectSeeder extends Seeder
             // tamil
             ['name' => 'දෙමළ භාෂාව', 'media_id' => '3']],
             ['name' => 'Tamil Language', 'media_id' => '3']],
-
+*/
 

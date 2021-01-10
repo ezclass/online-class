@@ -19,7 +19,5 @@ class DatabaseSeeder extends Seeder
         $this->call(MediumSeeder::class);
         $this->call(SubjectSeeder::class);
         $this->call(ProgramSeeder::class);
-
-
     }
 }

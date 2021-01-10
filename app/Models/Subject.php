@@ -12,4 +12,9 @@ class Subject extends Model
     use HasTranslations;
 
     public $translatable = ['name'];
+
+    public function program_subject()
+    {
+        return $this->hasMany(Program::class, 'subject_id', 'id');
+    }
 }

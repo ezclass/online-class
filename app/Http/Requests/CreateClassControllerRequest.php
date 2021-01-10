@@ -15,12 +15,12 @@ class CreateClassControllerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|max:20',
             'grade' => 'required',
             'image' => 'required',
-            'subject' => 'required',
-            'medium' => 'required',
-            'user_id' => 'required',
+            'medium_id' => 'required|integer',
+            'subject_id' => 'required|integer',
+            'user_id' => 'required|integer',
         ];
     }
 }

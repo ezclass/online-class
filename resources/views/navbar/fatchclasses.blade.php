@@ -8,7 +8,7 @@
             <div class="p-8">
                 <div class="uppercase tracking-wide text-lg text-indigo-500 font-semibold">{{ $class->name }}</div>
                 <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{{ $class->grade }}</a>
-                <p class="mt-2 text-gray-500">{{ $class->subject }}</p>
+                <p class="mt-2 text-gray-500">{{ $class->subject_program->name }}</p>
                 <p>{{ $class->medium }}</p>
                 <p>{{ $class->users->name }}</p>
                 <p></p>

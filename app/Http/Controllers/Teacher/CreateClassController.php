@@ -11,15 +11,17 @@ class CreateClassController extends Controller
     public function __invoke(CreateClassControllerRequest $request)
     {
          $class = new Program();
-         $save = $request->file('image');
-         $filename = time() . '.' . $save->getClientOriginalExtension();
-         $request->image->move('storage/class_image/', $filename);
-         $class->image = $filename;
+         if ($request->file('image')) {
+            $save = $request->file('image');
+            $filename = time() . '.' . $save->getClientOriginalExtension();
+            $request->image->move('storage/class_image/', $filename);
+            $class->image = $filename;
+        }
 
         $class->name = $request->get('name');
         $class->grade = $request->get('grade');
-        $class->subject  = $request->get('subject');
-        $class->medium  = $request->get('medium');
+        $class->subject_id  = $request->get('subject_id');
+        $class->medium_id  = $request->get('medium_id');
         $class->user_id = $request->get('user_id');
         $class->save();
 

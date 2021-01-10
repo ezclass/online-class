@@ -75,8 +75,4 @@
             </form>
         </div>
     </div>
-
-
-    <x-footer class="mt-20">
-    </x-footer>
 </x-app-layout>
