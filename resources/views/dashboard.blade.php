@@ -18,21 +18,12 @@
                     </div>
                     <div class="w-1/2">
                         <x-label for="">Select Grade/Year:</x-label>
-                        <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="grade" name="grade" onchange="random_function3()" required>
-                            <option selected disabled>Select Grade/Year</option>
-                            <option value="Grade 1">Grade 1</option>
-                            <option value="Grade 2">Grade 2</option>
-                            <option value="Grade 3">Grade 3</option>
-                            <option value="Grade 4">Grade 4</option>
-                            <option value="Grade 5">Grade 5</option>
-                            <option value="Grade 6">Grade 6</option>
-                            <option value="Grade 7">Grade 7</option>
-                            <option value="Grade 8">Grade 8</option>
-                            <option value="Grade 9">Grade 9</option>
-                            <option value="Grade 10">Grade 10</option>
-                            <option value="Grade 11">Grade 11</option>
-                            <option value="Grade 12">Grade 12</option>
-                            <option value="Grade 13">Grade 13</option>
+                        <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="grade_id" name="grade_id" onchange="random_function3()" required>
+                            <option selected disabled>Grade/Year</option>
+                           @foreach($grade as $grd)
+                            <option value="{{$grd->id}}">{{$grd->name}}</option>
+                            @endforeach
+
                         </select>
                     </div>
 
@@ -40,9 +31,9 @@
 
                 <div class="flex space-x-4">
                     <div class="w-1/2 relative">
-                        <x-label for="">Meadiam</x-label>
+                        <x-label for="">Select Meadiam</x-label>
                         <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="language_id" name="language_id" onchange="random_function()" required>
-                            <option selected disabled></option>
+                            <option selected disabled>Meadiam</option>
                             @foreach($language as $lan)
                             <option value="{{$lan->id}}">{{$lan->name}}</option>
                             @endforeach
@@ -50,9 +41,9 @@
                     </div>
 
                     <div class="w-1/2">
-                        <x-label for="">Select Subject:</x-label>
+                        <x-label for="">Select Subject</x-label>
                         <select id="subject_id" name="subject_id" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
-                            <option selected disabled></option>
+                            <option selected disabled>Subject</option>
                             @foreach($subject as $sub)
                             <option value="{{$sub->id}}">{{$sub->name}}</option>
                             @endforeach

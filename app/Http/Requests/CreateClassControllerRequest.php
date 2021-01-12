@@ -16,8 +16,8 @@ class CreateClassControllerRequest extends FormRequest
     {
         return [
             'name' => 'required|max:20',
-            'grade' => 'required',
-            'image' => 'required',
+            'grade_id' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:5120',
             'language_id' => 'required|integer',
             'subject_id' => 'required|integer',
             'user_id' => 'required|integer',

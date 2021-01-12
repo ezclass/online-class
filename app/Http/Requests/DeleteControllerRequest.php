@@ -9,7 +9,8 @@ class DeleteControllerRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->hasRole(Role::ROLE_TEACHER);
+        return $this->user()->hasRole(Role::ROLE_TEACHER)
+        and $this->route('program')->user_id == $this->user()->id;
     }
 
     public function rules()

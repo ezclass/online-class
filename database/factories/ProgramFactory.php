@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Grade;
 use App\Models\Language;
 use App\Models\Program;
 use App\Models\Subject;
@@ -16,7 +17,7 @@ class ProgramFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'grade' => $this->faker->randomNumber(),
+            'grade_id' => Grade::factory(),
             'image' => $this->faker->imageUrl(),
             'user_id' => User::factory(),
             'subject_id' => Subject::factory(),

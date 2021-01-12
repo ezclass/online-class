@@ -11,7 +11,7 @@ class CreateProgramsTable extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('grade');
+            $table->string('grade_id');
             $table->string('image')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('subject_id')->constrained();

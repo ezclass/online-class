@@ -14,7 +14,7 @@ class AvatarControllerRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar' => ['required']
+            'avatar' => 'required|image|mimes:png,jpg,jpeg|max:5120',
         ];
     }
 }

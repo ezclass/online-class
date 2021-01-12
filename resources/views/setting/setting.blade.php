@@ -28,6 +28,8 @@
                             </div>
 
                             <div>
+                                 <!-- Validation Errors -->
+                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
                                 <label class="block text-sm font-medium text-gray-700">
                                     Cover photo
                                 </label>

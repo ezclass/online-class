@@ -10,7 +10,7 @@ class UpdateClassControllerRequest extends FormRequest
     public function authorize()
     {
         return $this->user()->hasRole(Role::ROLE_TEACHER)
-        and $this->route('program')->user_id == $this->user()->id;
+            and $this->route('program')->user_id == $this->user()->id;
 
         //return $this->user()->hasRole(Role::ROLE_TEACHER);
     }
@@ -18,21 +18,11 @@ class UpdateClassControllerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [
-                'required',
-                //Rule::unique('programs')
-            ],
-            'grade' => [
-                'required',
-                //Rule::unique('programs'),
-            ],
-            'subject_id' => [
-                'required',
-                //Rule::unique('programs'),
-            ],
-            'language_id' => [
-                'required',
-            ],
+            'name' => 'required',
+            'grade_id' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg|max:5120',
+            'subject_id' => 'required',
+            'language_id' => 'required',
         ];
     }
 }

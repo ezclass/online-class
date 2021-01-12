@@ -13,21 +13,12 @@
                     </div>
                     <div class="w-1/2">
                         <x-label for="">Select Grade/Year:</x-label>
-                        <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="grade" name="grade" onchange="random_function3()" required>
-                            <option selected value="{{$program->grade}}">{{$program->grade}}</option>
-                            <option value="Grade 1">Grade 1</option>
-                            <option value="Grade 2">Grade 2</option>
-                            <option value="Grade 3">Grade 3</option>
-                            <option value="Grade 4">Grade 4</option>
-                            <option value="Grade 5">Grade 5</option>
-                            <option value="Grade 6">Grade 6</option>
-                            <option value="Grade 7">Grade 7</option>
-                            <option value="Grade 8">Grade 8</option>
-                            <option value="Grade 9">Grade 9</option>
-                            <option value="Grade 10">Grade 10</option>
-                            <option value="Grade 11">Grade 11</option>
-                            <option value="Grade 12">Grade 12</option>
-                            <option value="Grade 13">Grade 13</option>
+                        <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="grade_id" name="grade_id" required>
+                            <option selected value="{{$program->grade_id}}">{{$program->grade->name}}</option>
+                            @foreach($grade as $grd)
+                            <option value="{{$grd->id}}">{{$grd->name}}</option>
+                            @endforeach
+
                         </select>
                     </div>
 
