@@ -9,6 +9,8 @@ class Grade extends Model
 {
     use HasFactory;
 
+    // relationships
+    
     public function program()
     {
         return $this->hasMany(Program::class, 'grade_id', 'id');

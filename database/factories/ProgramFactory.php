@@ -1,12 +1,8 @@
 <?php
 
 namespace Database\Factories;
-
-use App\Models\Grade;
-use App\Models\Language;
 use App\Models\Program;
-use App\Models\Subject;
-use App\Models\User;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProgramFactory extends Factory
@@ -17,11 +13,11 @@ class ProgramFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'grade_id' => Grade::factory(),
+            'grade_id' => $this->faker->numberBetween(1,14),
             'image' => $this->faker->imageUrl(),
-            'user_id' => User::factory(),
-            'subject_id' => Subject::factory(),
-            'language_id' => Language::factory(),
+            'user_id' => $this->faker->numberBetween(1,20),
+            'subject_id' => $this->faker->numberBetween(1,45),
+            'language_id' => $this->faker->numberBetween(1,3),
         ];
     }
 }

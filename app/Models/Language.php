@@ -9,6 +9,8 @@ class Language extends Model
 {
     use HasFactory;
 
+    // relationships
+    
     public function programs()
     {
         return $this->hasMany(Program::class , 'language_id', 'id');

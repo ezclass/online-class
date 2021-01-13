@@ -30,7 +30,7 @@
                         <select class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" id="language_id" name="language_id" onchange="random_function()" required>
                             <option selected value="{{$program->language_id}}">{{$program->language->name}}</option>
                             @foreach($language as $med)
-                            <option value="{{$med->id}}">{{$med->medium}}</option>
+                            <option value="{{$med->id}}">{{$med->name}}</option>
                             @endforeach
                         </select>
                     </div>

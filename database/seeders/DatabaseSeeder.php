@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Medium;
+use App\Models\Model_Has_Role;
 use App\Models\Program;
 use App\Models\Subject;
 use App\Models\Teacher;

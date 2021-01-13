@@ -12,9 +12,12 @@ use App\Http\Controllers\Teacher\CreateClassController;
 use App\Http\Controllers\Teacher\DeleteClassController;
 use App\Http\Controllers\Teacher\UpdateClassController;
 use App\Http\Controllers\Teacher\UpdateClassViewController;
+use App\Models\Program;
 use App\Models\Subject;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 require __DIR__ . '/auth.php';
 
@@ -33,6 +36,20 @@ Route::get('/all/teachers', FetchAllTeachersController::class)
 Route::get('/foo', function () {
     App::setLocale('si');
     return Subject::find(10)->name;
+});
+
+Route::get('/filter', function () {
+    
+    $program = QueryBuilder::for(Program::class)
+        ->allowedFilters([
+            AllowedFilter::exact('grade_id'),
+            AllowedFilter::exact('subject_id'),
+            AllowedFilter::exact('language_id')
+        ])
+        ->allowedFields(['name', 'grade_id', 'image', 'user_id', 'subject_id', 'language_id'])
+        ->get();
+    return $program;
+
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -64,5 +81,4 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/delete/class/{program}', DeleteClassController::class)
         ->name('delete.class');
-
 });

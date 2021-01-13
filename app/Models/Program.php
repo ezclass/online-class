@@ -9,6 +9,8 @@ class Program extends Model
 {
     use HasFactory;
 
+    // relationships
+    
     public function users()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

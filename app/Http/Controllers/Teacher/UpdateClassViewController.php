@@ -14,8 +14,6 @@ class UpdateClassViewController extends Controller
 {
     public function __invoke(UpdateClassViewControllerRequest $rquest, Program $program)
     {
-        $program->load(['subject_program', 'language']);
-
         $subject = Subject::query()
             ->get();
 
