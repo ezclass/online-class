@@ -125,7 +125,7 @@
                     <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
-                        <input type="hidden" name="user_id" value="{{Auth::User()->id}}">
+                        {{-- <input type="hidden" name="user_id" value="{{Auth::User()->id}}"> --}}
 
                         <div class="flex space-x-4">
                             <div class="w-1/2">
@@ -192,11 +192,11 @@
                     <div class="p-8">
                         <div class="uppercase tracking-wide text-lg text-indigo-500 font-semibold">{{ $class->name }}</div>
                         <div class="block mt-1 text-lg leading-tight font-medium text-black">{{ $class->grade->name }}</div>
-                        <p class="mt-2 text-gray-500">{{ $class->subject_program->name }}</p>
+                        <p class="mt-2 text-gray-500">{{ $class->subject->name }}</p>
                         <p>{{ $class->language->name }}</p>
                         <p>
                         <div class="mt-2 flex space-x-4">
-                            <a href="{{route('lesson')}}">
+                            <a href="{{route('lesson',$class->id)}}">
                                 <x-primary-button>
                                     Lesson
                                 </x-primary-button>

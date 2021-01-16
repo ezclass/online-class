@@ -20,7 +20,6 @@ class CreateClassControllerRequest extends FormRequest
             'image' => 'required|image|mimes:png,jpg,jpeg|max:5120',
             'language_id' => 'required|integer',
             'subject_id' => 'required|integer',
-            'user_id' => 'required|integer',
         ];
     }
 }

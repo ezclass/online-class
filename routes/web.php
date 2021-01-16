@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
+use App\Http\Controllers\Filter\FilterAllClassController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Lesson\CreateLessonController;
+use App\Http\Controllers\Lesson\DeleteLessonController;
 use App\Http\Controllers\Lesson\LessonController;
+use App\Http\Controllers\Lesson\UpdateLessonController;
+use App\Http\Controllers\Lesson\UpdateLessonViewController;
 use App\Http\Controllers\Navbar\FaqController;
 use App\Http\Controllers\Navbar\FetchAllClassesController;
 use App\Http\Controllers\Navbar\FetchAllTeachersController;
@@ -12,12 +17,9 @@ use App\Http\Controllers\Teacher\CreateClassController;
 use App\Http\Controllers\Teacher\DeleteClassController;
 use App\Http\Controllers\Teacher\UpdateClassController;
 use App\Http\Controllers\Teacher\UpdateClassViewController;
-use App\Models\Program;
 use App\Models\Subject;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 
 require __DIR__ . '/auth.php';
 
@@ -38,19 +40,8 @@ Route::get('/foo', function () {
     return Subject::find(10)->name;
 });
 
-Route::get('/filter', function () {
-    
-    $program = QueryBuilder::for(Program::class)
-        ->allowedFilters([
-            AllowedFilter::exact('grade_id'),
-            AllowedFilter::exact('subject_id'),
-            AllowedFilter::exact('language_id')
-        ])
-        ->allowedFields(['name', 'grade_id', 'image', 'user_id', 'subject_id', 'language_id'])
-        ->get();
-    return $program;
-
-});
+Route::get('/filter', FilterAllClassController::class)
+    ->name('filter');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -63,7 +54,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/avatar', AvatarController::class)
         ->name('avatar');
 
-    Route::get('/lesson', LessonController::class)
+    Route::get('/lesson/{program}', LessonController::class)
         ->name('lesson');
 });
 
@@ -81,4 +72,17 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/delete/class/{program}', DeleteClassController::class)
         ->name('delete.class');
+
+
+    Route::post('/create/lesson/{program}', CreateLessonController::class)
+        ->name('create.lesson');
+
+    Route::get('/update/lesson/{lesson}', UpdateLessonViewController::class)
+        ->name('update.lesson.view');
+
+    Route::post('/update/lesson/{lesson}', UpdateLessonController::class)
+        ->name('update.lesson');
+
+    Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
+        ->name('delete.lesson');
 });

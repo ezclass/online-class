@@ -1,7 +1,6 @@
 <x-app-layout>
     <div class="mt-20 px-4  max-w-3xl mx-auto space-y-6">
-        <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <form action="{{route('filter')}}" method="GET">
             <div class="flex space-x-4">
                 <div class="w-1/2 relative">
                     <x-label for="">Select Meadiam</x-label>
@@ -38,7 +37,7 @@
                 <div class="p-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
                     <p class="uppercase text-sm text-indigo-700 text-center pb-3">{{ $class->name }}</p>
                     <p class="text-sm text-indigo-700 text-center pb-3">{{ $class->grade->name }}</p>
-                    <p class="text-sm text-indigo-700 text-center pb-3">{{ $class->subject_program->name }}</p>
+                    <p class="text-sm text-indigo-700 text-center pb-3">{{ $class->subject->name }}</p>
                     <p class="text-lg text-gray-800 text-center pb-3">The way I drive and handle a car, is an expression of my inner feeling.</p>
                     <p class="text-sm text-gray-800 text-center">
                         <img src="{{ asset('storage/avatar/'. $class->users->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
@@ -50,7 +49,7 @@
         </div>
     </div>
     {{ $program->links() }}
-    
+
 
     <x-footer>
     </x-footer>

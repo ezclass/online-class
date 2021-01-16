@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\Role;
 
-class UpdateClassControllerRequest extends FormRequest
+class CreateLessonControllerRequest extends FormRequest
 {
     public function authorize()
     {
@@ -16,11 +16,9 @@ class UpdateClassControllerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'grade_id' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:5120',
-            'subject_id' => 'required',
-            'language_id' => 'required',
+            'name' => 'required|max:30',
+            'date' => 'required',
+            'time' => 'required',
         ];
     }
 }

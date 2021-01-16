@@ -38,7 +38,7 @@
                     <div class="w-1/2">
                         <x-label for="">Select Subject:</x-label>
                         <select id="subject_id" name="subject_id" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
-                            <option selected value="{{$program->id}}">{{$program->subject_program->name}}</option>
+                            <option selected value="{{$program->subject_id}}">{{$program->subject->name}}</option>
                             @foreach($subject as $sub)
                             <option value="{{$sub->id}}">{{$sub->name}}</option>
                             @endforeach

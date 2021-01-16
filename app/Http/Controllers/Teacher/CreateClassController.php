@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateClassControllerRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
 
 class CreateClassController extends Controller
 {
@@ -16,7 +17,7 @@ class CreateClassController extends Controller
         $class->grade_id = $request->get('grade_id');
         $class->subject_id  = $request->get('subject_id');
         $class->language_id  = $request->get('language_id');
-        $class->user_id = $request->get('user_id');
+        $class->user_id = Auth::user()->id;
         $class->save();
         $this->storeFile($class, $request->file('image'));
 

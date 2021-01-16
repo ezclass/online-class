@@ -13,9 +13,4 @@ class Subject extends Model
 
     public $translatable = ['name'];
 
-    // relationships
-    public function programs()
-    {
-        return $this->hasMany(Program::class, 'subject_id', 'id');
-    }
 }

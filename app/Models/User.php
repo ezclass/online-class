@@ -27,9 +27,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // relationships
-    public function programs()
-    {
-        return $this->hasMany(Program::class , 'user_id', 'id');
-    }
+  
 }

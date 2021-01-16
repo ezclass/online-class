@@ -10,13 +10,13 @@ class Program extends Model
     use HasFactory;
 
     // relationships
-    
+
     public function users()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function subject_program()
+    public function subject()
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
@@ -29,5 +29,10 @@ class Program extends Model
     public function grade()
     {
         return $this->belongsTo(Grade::class, 'grade_id', 'id');
+    }
+
+    public function lesson()
+    {
+        return $this->hasMany(Lesson::class, 'program_id', 'id');
     }
 }
