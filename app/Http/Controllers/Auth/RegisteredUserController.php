@@ -12,40 +12,51 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     *
-     * @return \Illuminate\View\View
-     */
     public function create()
     {
         return view('auth.register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function store(Request $request)
     {
+
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:35',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'avatar' => 'required',
+            'role' => 'required|in:student,teacher',
         ]);
 
         Auth::login($user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'avatar' => 'avatar.jpg',
         ]));
 
+        $user->assignRole($request->role);
         event(new Registered($user));
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|string|email|max:255|unique:users',
+    //         'password' => 'required|string|confirmed|min:8',
+    //     ]);
+
+    //     Auth::login($user = User::create([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'password' => Hash::make($request->password),
+    //     ]));
+
+    //     event(new Registered($user));
+
+    //     return redirect(RouteServiceProvider::HOME);
+    // }
 }
