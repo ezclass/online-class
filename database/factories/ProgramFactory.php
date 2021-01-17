@@ -15,6 +15,7 @@ class ProgramFactory extends Factory
             'name' => $this->faker->name,
             'grade_id' => $this->faker->numberBetween(1,14),
             'image' => $this->faker->imageUrl(),
+            'fees' => $this->faker->randomFloat(2, 50, 5000),
             'user_id' => $this->faker->numberBetween(1,20),
             'subject_id' => $this->faker->numberBetween(1,45),
             'language_id' => $this->faker->numberBetween(1,3),

@@ -77,10 +77,10 @@ Route::middleware(['role:teacher'])->group(function () {
     Route::post('/create/lesson/{program}', CreateLessonController::class)
         ->name('create.lesson');
 
-    Route::get('/update/lesson/{lesson}', UpdateLessonViewController::class)
+    Route::get('/update/lesson/{lesson}/{program}', UpdateLessonViewController::class)
         ->name('update.lesson.view');
 
-    Route::post('/update/lesson/{lesson}', UpdateLessonController::class)
+    Route::post('/update/lesson/{lesson}/{program}', UpdateLessonController::class)
         ->name('update.lesson');
 
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)

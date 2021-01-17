@@ -19,6 +19,7 @@ class UpdateClassControllerRequest extends FormRequest
             'name' => 'required',
             'grade_id' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:5120',
+            'fees' => 'required',
             'subject_id' => 'required',
             'language_id' => 'required',
         ];

@@ -27,6 +27,7 @@
             </x-success-button>
         </form>
     </div>
+
     <div class="container mx-auto pt-16">
         <div class="lg:flex md:flex xl:justify-around sm:flex flex-wrap md:justify-around sm:justify-around lg:justify-around">
             @foreach($program as $class)
@@ -35,10 +36,10 @@
                     <img src="{{$class->image}}" alt="" class="h-full w-full object-cover overflow-hidden rounded" />
                 </div>
                 <div class="p-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
-                    <p class="uppercase text-sm text-indigo-700 text-center pb-3">{{ $class->name }}</p>
                     <p class="text-sm text-indigo-700 text-center pb-3">{{ $class->grade->name }}</p>
                     <p class="text-sm text-indigo-700 text-center pb-3">{{ $class->subject->name }}</p>
                     <p class="text-lg text-gray-800 text-center pb-3">The way I drive and handle a car, is an expression of my inner feeling.</p>
+                    <p class="text-sm text-indigo-700 text-center pb-3">Rs:{{ $class->fees }}</p>
                     <p class="text-sm text-gray-800 text-center">
                         <img src="{{ asset('storage/avatar/'. $class->users->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
                         <a href="javascript:void(0)"><span class="text-indigo-700 cursor-pointer">{{ $class->users->name }}</span></a>

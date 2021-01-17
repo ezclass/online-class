@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Lesson;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateLessonControllerRequest;
 use App\Models\Lesson;
+use App\Models\Program;
 
 class UpdateLessonController extends Controller
 {
-    public function __invoke(UpdateLessonControllerRequest $request, Lesson $lesson)
+    public function __invoke(UpdateLessonControllerRequest $request, Lesson $lesson, Program $program)
     {
         $lesson->name = $request->get('name');
         $lesson->date = $request->get('date');

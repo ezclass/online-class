@@ -12,7 +12,7 @@
     <!-- Card code block start -->
     <div class="bg-white shadow rounded">
         <div class="relative">
-            <img class="h-56 shadow rounded-t w-full object-cover object-center" src="https://tuk-cdn.s3.amazonaws.com/assets/components/grid_cards/gc_29.png" alt="" />
+            <img class="h-56 shadow rounded-t w-full object-cover object-center" src="{{ asset('storage/home/banner.jpg')}}" alt="" />
             <div class="inset-0 m-auto w-24 h-24 absolute bottom-0 -mb-12 xl:ml-10 rounded border-2 shadow border-white">
                 <img class="w-full h-full overflow-hidden object-cover rounded" src="{{ asset('storage/avatar/'. Auth::User()->avatar )}}" alt="avatar" />
             </div>
@@ -168,6 +168,11 @@
                         </div>
 
                         <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <x-label class="">Class fees for the month</x-label>
+                                <input type="number" name="fees" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500 @error('fees') is-invalid @enderror">
+                            </div>
+
                             <div class="w-1/2">
                                 <x-label class="">Class Image</x-label>
                                 <input type="file" name="image" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500 @error('class_image') is-invalid @enderror">

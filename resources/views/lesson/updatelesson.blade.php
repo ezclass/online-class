@@ -5,7 +5,7 @@
  <div class="mt-10 pt-8 pb-8 bg-yellow-100">
      create lesson
      <div class="px-4  max-w-3xl mx-auto space-y-6">
-         <form action="{{route('update.lesson',$lesson->id)}}" method="POST">
+         <form action="{{route('update.lesson',[$lesson->id,$program->id])}}" method="POST">
              @csrf
              <div class="flex space-x-4">
                  <div class="w-1/2">

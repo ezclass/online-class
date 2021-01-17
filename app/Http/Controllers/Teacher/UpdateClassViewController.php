@@ -23,7 +23,7 @@ class UpdateClassViewController extends Controller
         $grade = Grade::query()
             ->get();
 
-        return view('class.updateclass')
+        return view('program.updateprogram')
             ->with(['program' => $program, 'subject' => $subject, 'language' => $language, 'grade' => $grade]);
     }
 }

@@ -13,6 +13,7 @@ class CreateProgramsTable extends Migration
             $table->string('name');
             $table->foreignId('grade_id');
             $table->string('image')->nullable();
+            $table->double('fees');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('subject_id')->constrained();
             $table->foreignId('language_id')->constrained();

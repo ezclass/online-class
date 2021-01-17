@@ -14,6 +14,7 @@ class UpdateClassController extends Controller
     {
         $program->name = $request->get('name');
         $program->grade_id = $request->get('grade_id');
+        $program->fees = $request->get('fees');
         $program->subject_id = $request->get('subject_id');
         $program->language_id = $request->get('language_id');
         $program->save();

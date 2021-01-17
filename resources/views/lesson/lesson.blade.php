@@ -47,7 +47,6 @@
             <div class="max-w-2xl mx-auto px-8 py-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
                 <div class="flex justify-between items-center">
                     <span class="font-light text-gray-600 dark:text-gray-400 text-sm">{{ $lesson->date }} , {{ $lesson->time }}</span>
-                    <a class="px-3 py-1 bg-gray-600 text-gray-100 text-sm font-bold rounded hover:bg-gray-500">Design</a>
                 </div>
 
                 <div class="mt-2">
@@ -57,23 +56,14 @@
                     </p>
                 </div>
 
-                <div class="flex justify-between items-center mt-4">
-                    <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Read more</a>
-
-                    <div class="flex items-center">
-                        <img class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" src="{{ asset('storage/avatar/'. $program->users->avatar )}}" alt="avatar">
-                        <a class="text-gray-700 dark:text-gray-200 font-bold cursor-pointer">
-                            {{$program->users->name}}
-                        </a>
-                    </div>
-                </div>
+                @if ($program->users->id == Auth::User()->id)
                 <div lesson="mt-2 flex space-x-4">
                     <a href="">
                         <x-primary-button>
                             Lesson Room
                         </x-primary-button>
                     </a>
-                    <a href="{{route('update.lesson.view',$lesson->id)}}">
+                    <a href="{{route('update.lesson.view',[$lesson->id,$program->id])}}">
                         <x-success-button>
                             Update
                         </x-success-button>
@@ -84,6 +74,8 @@
                         </x-danger-button>
                     </a>
                 </div>
+                @endif
+
             </div>
         </div>
         @endforeach

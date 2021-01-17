@@ -15,6 +15,7 @@ class CreateClassController extends Controller
         $class = new Program();
         $class->name = $request->get('name');
         $class->grade_id = $request->get('grade_id');
+        $class->fees = $request->get('fees');
         $class->subject_id  = $request->get('subject_id');
         $class->language_id  = $request->get('language_id');
         $class->user_id = Auth::user()->id;
