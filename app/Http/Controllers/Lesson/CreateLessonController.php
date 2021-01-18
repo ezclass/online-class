@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Lesson;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateLessonControllerRequest;
+use App\Http\Requests\CreateLessonRequest;
 use App\Models\Lesson;
 use App\Models\Program;
 
 class CreateLessonController extends Controller
 {
-    public function __invoke(CreateLessonControllerRequest $request, Program $program)
+    public function __invoke(CreateLessonRequest $request, Program $program)
     {
         $class = new Lesson();
         $class->name = $request->get('name');

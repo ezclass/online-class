@@ -62,12 +62,16 @@
                             Lesson Room
                         </x-primary-button>
                     </a>
-                    <a href="{{route('update.lesson.view',[$lesson->id,$program->id])}}">
+
+                    @can('updateLesson',$lesson)
+                    <a href="{{route('update.lesson.view',$lesson->id)}}">
                         <x-success-button>
                             Update
                         </x-success-button>
                     </a>
-                    @can('delete',$lesson)
+                    @endcan
+
+                    @can('deleteLesson',$lesson)
                     <a href="{{route('delete.lesson',$lesson->id)}}">
                         <x-danger-button>
                             Delete

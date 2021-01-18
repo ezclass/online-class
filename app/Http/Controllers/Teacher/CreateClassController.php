@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateClassControllerRequest;
+use App\Http\Requests\CreateProgramRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 
 class CreateClassController extends Controller
 {
-    public function __invoke(CreateClassControllerRequest $request)
+    public function __invoke(CreateProgramRequest $request)
     {
         $class = new Program();
         $class->name = $request->get('name');

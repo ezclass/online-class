@@ -206,16 +206,18 @@
                                     Lesson
                                 </x-primary-button>
                             </a>
-                            <a href="{{route('update.class.view',$class->id)}}">
+                            <a href="{{route('update.program.view',$class->id)}}">
                                 <x-success-button>
                                     Update
                                 </x-success-button>
                             </a>
-                            <a href="{{route('delete.class', $class->id)}}">
+                            
+                            <a href="{{route('delete.program', $class->id)}}">
                                 <x-danger-button class="">
                                     Delete
                                 </x-danger-button>
                             </a>
+
                         </div>
                         </p>
                     </div>

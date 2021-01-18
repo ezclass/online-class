@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateClassControllerRequest;
+use App\Http\Requests\UpdateProgramRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 class UpdateClassController extends Controller
 {
-    public function __invoke(UpdateClassControllerRequest $request, Program $program)
+    public function __invoke(UpdateProgramRequest $request, Program $program)
     {
+        //dd($request);
         $program->name = $request->get('name');
         $program->grade_id = $request->get('grade_id');
         $program->fees = $request->get('fees');

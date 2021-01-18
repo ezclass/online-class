@@ -3,14 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Role;
 
-class CreateLessonControllerRequest extends FormRequest
+class UpdateLessonRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->hasRole(Role::ROLE_TEACHER)
-            and $this->route('program')->user_id == $this->user()->id;
+        return $this->user()->can('updateLesson', $this->route('lesson'));
     }
 
     public function rules()

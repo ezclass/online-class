@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Lesson;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\DeleteLessonControllerRequest;
+use App\Http\Requests\DeleteLessonRequest;
 use App\Models\Lesson;
 
 class DeleteLessonController extends Controller
 {
-    public function __invoke(DeleteLessonControllerRequest $request, Lesson $lesson)
+    public function __invoke(DeleteLessonRequest $request, Lesson $lesson)
     {
         $lesson->delete();
         return redirect()

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
-use App\Http\Controllers\Filter\FilterAllClassController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Lesson\CreateLessonController;
 use App\Http\Controllers\Lesson\DeleteLessonController;
@@ -58,26 +57,26 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['role:teacher'])->group(function () {
 
-    Route::post('/create/class', CreateClassController::class)
+    Route::post('/create/program', CreateClassController::class)
         ->name('create.class');
 
-    Route::post('/update/class/{program}', UpdateClassController::class)
-        ->name('update.class');
+    Route::get('/update/program/{program}', UpdateClassViewController::class)
+        ->name('update.program.view');
 
-    Route::get('/update/class/{program}', UpdateClassViewController::class)
-        ->name('update.class.view');
+    Route::post('/update/program/{program}', UpdateClassController::class)
+        ->name('update.program');
 
-    Route::get('/delete/class/{program}', DeleteClassController::class)
-        ->name('delete.class');
+    Route::get('/delete/program/{program}', DeleteClassController::class)
+        ->name('delete.program');
 
 
     Route::post('/create/lesson/{program}', CreateLessonController::class)
         ->name('create.lesson');
 
-    Route::get('/update/lesson/{lesson}/{program}', UpdateLessonViewController::class)
+    Route::get('/update/lesson/{lesson}', UpdateLessonViewController::class)
         ->name('update.lesson.view');
 
-    Route::post('/update/lesson/{lesson}/{program}', UpdateLessonController::class)
+    Route::post('/update/lesson/{lesson}', UpdateLessonController::class)
         ->name('update.lesson');
 
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)

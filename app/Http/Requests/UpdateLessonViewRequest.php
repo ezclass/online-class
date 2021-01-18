@@ -4,11 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LessonControllerRequest extends FormRequest
+class UpdateLessonViewRequest extends FormRequest
 {
     public function authorize()
     {
-        return false;
+        return $this->user()->can('updateLesson', $this->route('lesson'));
     }
 
     public function rules()

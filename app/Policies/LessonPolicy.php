@@ -11,14 +11,20 @@ class LessonPolicy
 {
     use HandlesAuthorization;
 
-    public function delete(User $user, Lesson $lesson)
+    public function updateLesson(User $user, Lesson $lesson)
     {
-        return $this->manage($user , $lesson);
+        return $this->lessonManage($user, $lesson);
     }
 
-    private function manage(User $user, Lesson $lesson)
+    public function deleteLesson(User $user, Lesson $lesson)
+    {
+        return $this->lessonManage($user, $lesson);
+    }
+
+    //private
+    private function lessonManage(User $user, Lesson $lesson)
     {
         return $user->hasRole(Role::ROLE_TEACHER)
-        and $lesson->program->user_id == $user->id;
+            and $lesson->program->user_id == $user->id;
     }
 }
