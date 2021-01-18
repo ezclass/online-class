@@ -40,9 +40,6 @@ Route::get('/foo', function () {
     return Subject::find(10)->name;
 });
 
-Route::get('/filter', FilterAllClassController::class)
-    ->name('filter');
-
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', TeacherDashboardController::class)

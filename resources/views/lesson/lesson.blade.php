@@ -56,7 +56,6 @@
                     </p>
                 </div>
 
-                @if ($program->users->id == Auth::User()->id)
                 <div lesson="mt-2 flex space-x-4">
                     <a href="">
                         <x-primary-button>
@@ -68,13 +67,14 @@
                             Update
                         </x-success-button>
                     </a>
-                    <a href="">
-                        <x-danger-button lesson="">
+                    @can('delete',$lesson)
+                    <a href="{{route('delete.lesson',$lesson->id)}}">
+                        <x-danger-button>
                             Delete
                         </x-danger-button>
                     </a>
+                    @endcan
                 </div>
-                @endif
 
             </div>
         </div>
