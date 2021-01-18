@@ -11,28 +11,28 @@ class Program extends Model
 
     // relationships
 
-    public function users()
+    public function teacher()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function subject()
     {
-        return $this->belongsTo(Subject::class, 'subject_id', 'id');
+        return $this->belongsTo(Subject::class);
     }
 
     public function language()
     {
-        return $this->belongsTo(Language::class, 'language_id', 'id');
+        return $this->belongsTo(Language::class);
     }
 
     public function grade()
     {
-        return $this->belongsTo(Grade::class, 'grade_id', 'id');
+        return $this->belongsTo(Grade::class);
     }
 
     public function lesson()
     {
-        return $this->hasMany(Lesson::class, 'program_id', 'id');
+        return $this->hasMany(Lesson::class);
     }
 }
