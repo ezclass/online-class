@@ -12,10 +12,12 @@ class LessonController extends Controller
     public function __invoke(Request $request, Program $program)
     {
         $lesson = Lesson::query()
+            ->with(['program'])
             ->where('program_id', $program->id)
             ->get();
 
         return view('lesson.lesson')
+
             ->with([
                 'program' => $program,
                 'lesson' => $lesson

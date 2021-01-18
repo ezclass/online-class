@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
+use App\Http\Controllers\Enroll\EnrolmentRequestController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Lesson\CreateLessonController;
 use App\Http\Controllers\Lesson\DeleteLessonController;
@@ -52,6 +53,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/lesson/{program}', LessonController::class)
         ->name('lesson');
+
+        Route::post('/enroll', EnrolmentRequestController::class)
+        ->name('enroll.request');
 });
 
 

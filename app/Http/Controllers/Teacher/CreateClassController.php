@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateClassControllerRequest;
 use App\Http\Requests\CreateProgramRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
