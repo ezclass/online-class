@@ -1,4 +1,9 @@
 <x-app-layout>
+    <!--Regular Datatables CSS-->
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!--Responsive Extension Datatables CSS-->
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+
     <style>
         .tab-content {
             display: none;
@@ -6,6 +11,96 @@
 
         .tab-content.active {
             display: block;
+        }
+
+        /*Overrides for Tailwind CSS */
+
+        /*Form fields*/
+        .dataTables_wrapper select,
+        .dataTables_wrapper .dataTables_filter input {
+            color: #4a5568;
+            /*text-gray-700*/
+            padding-left: 1rem;
+            /*pl-4*/
+            padding-right: 1rem;
+            /*pl-4*/
+            padding-top: .5rem;
+            /*pl-2*/
+            padding-bottom: .5rem;
+            /*pl-2*/
+            line-height: 1.25;
+            /*leading-tight*/
+            border-width: 2px;
+            /*border-2*/
+            border-radius: .25rem;
+            border-color: #edf2f7;
+            /*border-gray-200*/
+            background-color: #edf2f7;
+            /*bg-gray-200*/
+        }
+
+        /*Row Hover*/
+        table.dataTable.hover tbody tr:hover,
+        table.dataTable.display tbody tr:hover {
+            background-color: #ebf4ff;
+            /*bg-indigo-100*/
+        }
+
+        /*Pagination Buttons*/
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            font-weight: 700;
+            /*font-bold*/
+            border-radius: .25rem;
+            /*rounded*/
+            border: 1px solid transparent;
+            /*border border-transparent*/
+        }
+
+        /*Pagination Buttons - Current selected */
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            color: #fff !important;
+            /*text-white*/
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+            /*shadow*/
+            font-weight: 700;
+            /*font-bold*/
+            border-radius: .25rem;
+            /*rounded*/
+            background: #667eea !important;
+            /*bg-indigo-500*/
+            border: 1px solid transparent;
+            /*border border-transparent*/
+        }
+
+        /*Pagination Buttons - Hover */
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            color: #fff !important;
+            /*text-white*/
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+            /*shadow*/
+            font-weight: 700;
+            /*font-bold*/
+            border-radius: .25rem;
+            /*rounded*/
+            background: #667eea !important;
+            /*bg-indigo-500*/
+            border: 1px solid transparent;
+            /*border border-transparent*/
+        }
+
+        /*Add padding to bottom border */
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #e2e8f0;
+            /*border-b-1 border-gray-300*/
+            margin-top: 0.75em;
+            margin-bottom: 0.75em;
+        }
+
+        /*Change colour of responsive icon*/
+        table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
+        table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+            background-color: #667eea !important;
+            /*bg-indigo-500*/
         }
     </style>
 
@@ -111,16 +206,143 @@
         </nav>
     </div>
 
+    <!-- Validation Errors -->
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
     <div id="panels">
         <div class="panel-1 tab-content active py-5">
-            entry.body
+
+            @role('teacher')
+            <!--Container-->
+            <div class="container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
+                <!--Title-->
+                <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
+                    Enroll Request
+                </h1>
+
+                <!--Card-->
+                <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+                    <table id="table1" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <thead> {{Auth::user()->id}} <br>
+                            <tr>
+                                <th data-priority="1">Student Photo</th>
+                                <th data-priority="1">Student Name</th>
+                                <th data-priority="2">Class Name</th>
+                                <th data-priority="3">Subject Name</th>
+                                <th data-priority="5">Payment Date</th>
+                                <th data-priority="4">Payment Policy</th>
+                                <th data-priority="6">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach($enrolRequest as $enroll)
+                            @if($enroll->accepted_at == null)
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('storage/avatar/'. $enroll->student->avatar )}}" class="inline-block h-10 w-10 rounded-full ring-2 ring-white" alt="">
+                                </td>
+                                <td>{{$enroll->student->name}}</td>
+                                <td>{{$enroll->program->name}}</td>
+                                <td>{{$enroll->program->subject->name}}</td>
+                                <form action="{{route('enroll.accept',$enroll->id)}}" method="POST">
+                                    @csrf
+                                    <td>
+                                        <input type="radio" value="7" name="payment_date" class=""> first week <br>
+                                        <input type="radio" value="14" name="payment_date"> Second week <br>
+                                        <input type="radio" value="21" name="payment_date"> Therd week <br>
+                                        <input type="radio" value="28" name="payment_date"> Last week <br>
+                                    </td>
+                                    <td>
+                                        <input type="radio" value="0" name="payment_policy" class=""> Free Card <br>
+                                        <input type="radio" value="50" name="payment_policy"> 50% Bonus <br>
+                                        <input type="radio" value="100" name="payment_policy"> Normel Price <br>
+                                    </td>
+                                    <td>
+                                        <x-success-button class="ml-3 mt-5">
+                                            {{ __('Accept') }}
+                                        </x-success-button>
+                                    </td>
+                                </form>
+                            </tr>
+                            @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!--/Card-->
+
+            </div>
+            <!--/container-->
+            @endrole
+
+            @role('teacher')
+            <!--Container-->
+            <div class="container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
+                <!--Title-->
+                <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
+                    Enrollded
+                </h1>
+
+                <!--Card-->
+                <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+                    <table id="table2" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <thead>
+                            <tr>
+                                <th data-priority="1">Student Photo</th>
+                                <th data-priority="1">Student Name</th>
+                                <th data-priority="2">Class Name</th>
+                                <th data-priority="3">Subject Name</th>
+                                <th data-priority="5">Payment Date</th>
+                                <th data-priority="4">Payment Policy</th>
+                                <th data-priority="6">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($enrolRequest as $enroll)
+                            @if($enroll->accepted_at != null)
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('storage/avatar/'. $enroll->student->avatar )}}" class="inline-block h-10 w-10 rounded-full ring-2 ring-white" alt="">
+                                </td>
+                                <td>{{$enroll->student->name}}</td>
+                                <td>{{$enroll->program->name}}</td>
+                                <td>{{$enroll->program->subject->name}}</td>
+                                <form action="{{route('enroll.accept',$enroll->id)}}" method="POST">
+                                    @csrf
+                                    <td>
+                                        <input type="radio" value="7" name="payment_date" class=""> first week <br>
+                                        <input type="radio" value="14" name="payment_date"> Second week <br>
+                                        <input type="radio" value="21" name="payment_date"> Therd week <br>
+                                        <input type="radio" value="28" name="payment_date"> Last week <br>
+                                    </td>
+                                    <td>
+                                        <input type="radio" value="0" name="payment_policy" class=""> Free Card <br>
+                                        <input type="radio" value="50" name="payment_policy"> 50% Bonus <br>
+                                        <input type="radio" value="100" name="payment_policy"> Normel Price <br>
+                                    </td>
+                                    <td>
+                                        <x-warning-button class="ml-3 mt-5">
+                                            {{ __('Update') }}
+                                        </x-warning-button>
+                                    </td>
+                                </form>
+                            </tr>
+                            @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!--/Card-->
+
+            </div>
+            <!--/container-->
+            @endrole
+    
         </div>
         <div class="panel-2 tab-content py-5">
             @role('teacher')
             <div class="mt-10 pt-8 pb-8 bg-yellow-100">
-                <!-- Validation Errors -->
-                <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
                 <div class="px-4  max-w-3xl mx-auto space-y-6">
                     <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -211,7 +433,7 @@
                                     Update
                                 </x-success-button>
                             </a>
-                            
+
                             <a href="{{route('delete.program', $class->id)}}">
                                 <x-danger-button class="">
                                     Delete
@@ -227,6 +449,12 @@
         </div>
     </div>
 
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!--Datatables -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
     <script>
         const tabs = document.querySelectorAll(".tabs");
@@ -253,5 +481,24 @@
         for (let i = 0; i < tab.length; i++) {
             tab[i].addEventListener('click', onTabClick, false);
         }
+
+
+        $(document).ready(function() {
+
+            var table = $('#table1').DataTable({
+                    responsive: true
+                })
+                .columns.adjust()
+                .responsive.recalc();
+        });
+
+        $(document).ready(function() {
+
+            var table = $('#table2').DataTable({
+                    responsive: true
+                })
+                .columns.adjust()
+                .responsive.recalc();
+        });
     </script>
 </x-app-layout>

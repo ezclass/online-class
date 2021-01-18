@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
+use App\Http\Controllers\Enroll\EnrolmentAcceptController;
 use App\Http\Controllers\Enroll\EnrolmentRequestController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Lesson\CreateLessonController;
@@ -54,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/lesson/{program}', LessonController::class)
         ->name('lesson');
 
-        Route::post('/enroll', EnrolmentRequestController::class)
+    Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
 });
 
@@ -85,4 +86,8 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
+
+
+    Route::post('/enroll/request/accept/{enrolment}', EnrolmentAcceptController::class)
+        ->name('enroll.accept');
 });

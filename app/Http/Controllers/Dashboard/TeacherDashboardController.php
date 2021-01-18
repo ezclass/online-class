@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Enrolment;
 use App\Models\Grade;
 use App\Models\Language;
 use App\Models\Program;
@@ -18,6 +19,11 @@ class TeacherDashboardController extends Controller
             ->where('user_id', Auth::user()->id)
             ->get();
 
+        $enrolRequest = Enrolment::query()
+            ->with(['student', 'program'])
+            ->orderBy('id', 'DESC')
+            ->get();
+
         $subject = Subject::query()
             ->get();
 
@@ -28,6 +34,12 @@ class TeacherDashboardController extends Controller
             ->get();
 
         return view('dashboard')
-            ->with(['program' => $program, 'subject' => $subject, 'language' => $language, 'grade' => $grade]);
+            ->with([
+                'program' => $program,
+                'subject' => $subject,
+                'language' => $language,
+                'grade' => $grade,
+                'enrolRequest' => $enrolRequest,
+            ]);
     }
 }
