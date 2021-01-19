@@ -11,7 +11,7 @@ class UpdateProgramViewRequest extends FormRequest
     {
         return $this->user()->hasRole(Role::ROLE_TEACHER)
             and $this->route('program')->user_id == $this->user()->id;
-        // return $this->user()->can('update', $this->route('program'));
+        //return $this->user()->can('updateProgram', $this->route('program'));
     }
 
     public function rules()

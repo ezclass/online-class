@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\TeacherRequest;
 use App\Models\Enrolment;
 use App\Models\Grade;
 use App\Models\Language;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TeacherDashboardController extends Controller
 {
-    public function __invoke()
+    public function __invoke(TeacherRequest $request)
     {
         $program = Program::query()
             ->with(['grade', 'subject', 'language'])
@@ -33,7 +34,7 @@ class TeacherDashboardController extends Controller
         $grade = Grade::query()
             ->get();
 
-        return view('dashboard')
+        return view('dashboard.teacher')
             ->with([
                 'program' => $program,
                 'subject' => $subject,

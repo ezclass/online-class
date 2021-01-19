@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Dashboard\AdminRequest;
 
 class AdminDashboardController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(AdminRequest $request)
     {
         return view('admin.admin');
     }

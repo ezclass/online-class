@@ -62,9 +62,21 @@
                             <x-slot name="content">
                                 <!-- Authentication -->
                                 <div>
-                                    <x-dropdown-link href="{{ url('/dashboard') }}">
+                                    @role('teacher')
+                                    <x-dropdown-link href="{{ url('/teacher') }}">
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
+                                    @endrole
+                                    @role('student')
+                                    <x-dropdown-link href="{{ url('/student') }}">
+                                        {{__('Dashboard')}}
+                                    </x-dropdown-link>
+                                    @endrole
+                                    @role('admin|super admin')
+                                    <x-dropdown-link href="{{ url('/admin') }}">
+                                        {{__('Dashboard')}}
+                                    </x-dropdown-link>
+                                    @endrole
                                 </div>
 
                                 <div>
@@ -135,7 +147,7 @@
             <div class="flex items-center px-4">
                 @if (Route::has('login'))
                 @auth
-                <a href="{{route('dashboard')}}">
+                <a href="{{route('teacher')}}">
                     <div class="flex-shrink-0">
                         <img src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="{{Auth::user()->avatar}}" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" />
                     </div>
@@ -160,7 +172,7 @@
                 @if (Route::has('login'))
                 @auth
                 <div>
-                    <x-dropdown-link href="{{ url('/dashboard') }}">
+                    <x-dropdown-link href="{{ url('/teacher') }}">
                         {{__('Dashboard')}}
                     </x-dropdown-link>
                 </div>

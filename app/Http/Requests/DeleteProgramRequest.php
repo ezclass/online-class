@@ -11,7 +11,7 @@ class DeleteProgramRequest extends FormRequest
     {
         return $this->user()->hasRole(Role::ROLE_TEACHER)
             and $this->route('program')->user_id == $this->user()->id;
-        //return $this->user()->can('delete', $this->route('program'));
+        //return $this->user()->can('deleteProgram', $this->route('program'));
     }
 
     public function rules()

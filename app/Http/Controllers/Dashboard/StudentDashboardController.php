@@ -3,12 +3,23 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Dashboard\StudentRequest;
+use App\Models\Enrolment;
+use Illuminate\Support\Facades\Auth;
 
 class StudentDashboardController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(StudentRequest $request)
     {
-        return view('dashboard.student');
+        $enrolRequest = Enrolment::query()
+            ->where('user_id', Auth::user()->id)
+            ->with(['program'])
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        return view('dashboard.student')
+            ->with([
+                'enrolRequest' => $enrolRequest,
+            ]);
     }
 }

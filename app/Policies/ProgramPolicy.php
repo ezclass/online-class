@@ -6,24 +6,26 @@ use App\Models\Program;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Auth;
 
 class ProgramPolicy
 {
     use HandlesAuthorization;
 
-    public function update(User $user, Program $program)
+    public function updateProgram(User $user, Program $program)
     {
         $this->programManage($user, $program);
     }
 
-    public function delete(User $user, Program $program)
+    public function deleteProgram(User $user, Program $program)
     {
         $this->programManage($user, $program);
     }
 
-    private function programManage(User $user, Program $program)
-    {
-        return $user->hasRole(Role::ROLE_TEACHER)
-            and $user->id == $program->user_id;
-    }
+     //private
+     private function programManage(User $user, Program $program)
+     {
+         return $user->hasRole(Role::ROLE_TEACHER)
+             and $program->user_id == $user->id;
+     }
 }

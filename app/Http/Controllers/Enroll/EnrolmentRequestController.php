@@ -17,5 +17,9 @@ class EnrolmentRequestController extends Controller
         $enrol->user_id = Auth::user()->id;
         $enrol->program_id = $program_id;
         $enrol->save();
+
+        return redirect()
+            ->back()
+            ->with('success', 'Enrolment Request Send');
     }
 }

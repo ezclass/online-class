@@ -40,19 +40,10 @@ Route::get('/all/teachers', FetchAllTeachersController::class)
 
 Route::get('/foo', function () {
     App::setLocale('si');
-    return Subject::find(10)->name;
+    return Subject::find(16)->name;
 });
 
 Route::middleware(['auth'])->group(function () {
-
-    Route::get('/dashboard', TeacherDashboardController::class)
-        ->name('dashboard');
-
-    Route::get('/student', StudentDashboardController::class)
-        ->name('student');
-
-    Route::get('/admin', AdminDashboardController::class)
-        ->name('admin');
 
     Route::get('/setting', SettingViewController::class)
         ->name('setting');
@@ -70,10 +61,13 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['role:teacher'])->group(function () {
 
+    Route::get('/teacher', TeacherDashboardController::class)
+        ->name('teacher');
+
     Route::post('/create/program', CreateProgramController::class)
         ->name('create.class');
 
-    Route::get('/update/{program}', UpdateProgramViewController::class)
+    Route::get('/update/program/{program}', UpdateProgramViewController::class)
         ->name('update.program.view');
 
     Route::post('/update/program/{program}', UpdateProgramController::class)
@@ -97,4 +91,16 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::post('/enroll/request/accept/{enrolment}', EnrolmentAcceptController::class)
         ->name('enroll.accept');
+});
+
+Route::middleware(['role:student'])->group(function () {
+
+    Route::get('/student', StudentDashboardController::class)
+        ->name('student');
+});
+
+Route::middleware(['role:admin|super admin'])->group(function () {
+
+    Route::get('/admin', AdminDashboardController::class)
+        ->name('admin');
 });
