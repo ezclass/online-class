@@ -338,7 +338,7 @@
             </div>
             <!--/container-->
             @endrole
-    
+
         </div>
         <div class="panel-2 tab-content py-5">
             @role('teacher')

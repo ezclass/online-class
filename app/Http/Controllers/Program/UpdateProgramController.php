@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teacher;
+namespace App\Http\Controllers\Program;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProgramRequest;
@@ -8,11 +8,10 @@ use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
-class UpdateClassController extends Controller
+class UpdateProgramController extends Controller
 {
     public function __invoke(UpdateProgramRequest $request, Program $program)
     {
-        //dd($request);
         $program->name = $request->get('name');
         $program->grade_id = $request->get('grade_id');
         $program->fees = $request->get('fees');
@@ -28,7 +27,7 @@ class UpdateClassController extends Controller
     private function storeFile(Program $program, UploadedFile $file = null)
     {
         if ($file != null) {
-            Storage::delete('/public/class_image/'.$program->image);
+            Storage::delete('/public/class_image/' . $program->image);
             $filename = $program->id . '.' . $file->getClientOriginalExtension();
             $file->move('storage/class_image/', $filename);
             $program->image = $filename;

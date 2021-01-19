@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Teacher;
+namespace App\Http\Controllers\Program;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateProgramViewRequest;
 use App\Models\Grade;
 use App\Models\Language;
 use App\Models\Program;
 use App\Models\Subject;
+use Illuminate\Http\Request;
 
-class UpdateClassViewController extends Controller
+class UpdateProgramViewController extends Controller
 {
-    public function __invoke(UpdateProgramViewRequest $rquest, Program $program)
+    public function __invoke(Request $request, Program $program)
     {
         $subject = Subject::query()
             ->get();

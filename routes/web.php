@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\Enroll\EnrolmentAcceptController;
 use App\Http\Controllers\Enroll\EnrolmentRequestController;
@@ -12,12 +14,12 @@ use App\Http\Controllers\Lesson\UpdateLessonViewController;
 use App\Http\Controllers\Navbar\FaqController;
 use App\Http\Controllers\Navbar\FetchAllClassesController;
 use App\Http\Controllers\Navbar\FetchAllTeachersController;
+use App\Http\Controllers\Program\CreateProgramController;
+use App\Http\Controllers\Program\DeleteProgramController;
+use App\Http\Controllers\Program\UpdateProgramController;
+use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\Setting\AvatarController;
 use App\Http\Controllers\Setting\SettingViewController;
-use App\Http\Controllers\Teacher\CreateClassController;
-use App\Http\Controllers\Teacher\DeleteClassController;
-use App\Http\Controllers\Teacher\UpdateClassController;
-use App\Http\Controllers\Teacher\UpdateClassViewController;
 use App\Models\Subject;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +48,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', TeacherDashboardController::class)
         ->name('dashboard');
 
+    Route::get('/student', StudentDashboardController::class)
+        ->name('student');
+
+    Route::get('/admin', AdminDashboardController::class)
+        ->name('admin');
+
     Route::get('/setting', SettingViewController::class)
         ->name('setting');
 
@@ -62,16 +70,16 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['role:teacher'])->group(function () {
 
-    Route::post('/create/program', CreateClassController::class)
+    Route::post('/create/program', CreateProgramController::class)
         ->name('create.class');
 
-    Route::get('/update/program/{program}', UpdateClassViewController::class)
+    Route::get('/update/{program}', UpdateProgramViewController::class)
         ->name('update.program.view');
 
-    Route::post('/update/program/{program}', UpdateClassController::class)
+    Route::post('/update/program/{program}', UpdateProgramController::class)
         ->name('update.program');
 
-    Route::get('/delete/program/{program}', DeleteClassController::class)
+    Route::get('/delete/program/{program}', DeleteProgramController::class)
         ->name('delete.program');
 
 
@@ -86,7 +94,6 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
-
 
     Route::post('/enroll/request/accept/{enrolment}', EnrolmentAcceptController::class)
         ->name('enroll.accept');

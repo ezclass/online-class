@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teacher;
+namespace App\Http\Controllers\Program;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProgramRequest;
@@ -8,7 +8,7 @@ use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 
-class CreateClassController extends Controller
+class CreateProgramController extends Controller
 {
     public function __invoke(CreateProgramRequest $request)
     {

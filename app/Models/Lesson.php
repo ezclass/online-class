@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Lesson extends Model
 {
     use HasFactory;
-    use Obfuscatable;
 
     public function program()
     {
