@@ -51,9 +51,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/avatar', AvatarController::class)
         ->name('avatar');
 
-    Route::get('/lesson/{program}', LessonController::class)
-        ->name('lesson');
-
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
 });
@@ -97,6 +94,12 @@ Route::middleware(['role:student'])->group(function () {
 
     Route::get('/student', StudentDashboardController::class)
         ->name('student');
+});
+
+Route::middleware(['role:student|teacher'])->group(function () {
+
+    Route::get('/lesson/{program}', LessonController::class)
+        ->name('lesson');
 });
 
 Route::middleware(['role:admin|super admin'])->group(function () {

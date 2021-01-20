@@ -3,7 +3,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <div class="px-4  max-w-3xl mx-auto space-y-6">
-            <form action="{{route('update.program',$program->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('update.program',$program->getRouteKey())}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="flex space-x-4">

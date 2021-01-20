@@ -423,18 +423,18 @@
                         <p>{{ $class->language->name }}</p>
                         <p>
                         <div class="mt-2 flex space-x-4">
-                            <a href="{{route('lesson',$class->id)}}">
+                            <a href="{{route('lesson',$class->getRouteKey())}}">
                                 <x-primary-button>
                                     Lesson
                                 </x-primary-button>
                             </a>
-                            <a href="{{route('update.program.view',$class->id)}}">
+                            <a href="{{route('update.program.view',$class->getRouteKey())}}">
                                 <x-success-button>
                                     Update
                                 </x-success-button>
                             </a>
 
-                            <a href="{{route('delete.program', $class->id)}}">
+                            <a href="{{route('delete.program', $class->getRouteKey())}}">
                                 <x-danger-button class="">
                                     Delete
                                 </x-danger-button>

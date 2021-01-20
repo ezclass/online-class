@@ -1,9 +1,4 @@
 <x-app-layout>
-    <!--Regular Datatables CSS-->
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
-
     <!-- Card code block start -->
     <div class="bg-white shadow rounded">
         <div class="relative">
@@ -95,34 +90,53 @@
     <!-- Validation Errors -->
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-    @foreach($enrolRequest as $enrol)
-    <div class="mt-10 max-w-sm mx-auto w-full px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md">
-        <div class="flex justify-between items-center">
-            <span class="text-md font-light text-gray-800 dark:text-gray-400">
-                <img src="{{ asset('storage/avatar/'. $enrol->program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
-                {{$enrol->program->teacher->name}}
-            </span>
+    <div class="container mx-auto pt-10 pb-10">
+        <div class="lg:flex md:flex xl:justify-around sm:flex flex-wrap md:justify-around sm:justify-around lg:justify-around">
+            @foreach($enrolRequest as $enrol)
+            <div class="xl:w-1/3 sm:w-5/12 sm:max-w-xs xl:max-w-sm lg:w-1/2 w-11/12 mx-auto sm:mx-0">
+                <div class="mt-10 max-w-sm mx-auto w-full px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md">
+                    <div class="flex justify-between items-center">
+                        <span class="text-md font-light text-gray-800 dark:text-gray-400">
+                            <img src="{{ asset('storage/avatar/'. $enrol->program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                            {{$enrol->program->teacher->name}}
+                        </span>
 
-            <span class="bg-indigo-200 dark:bg-indigo-300 text-indigo-800 dark:text-indigo-900 px-3 py-1 rounded-full uppercase text-xs">
-                {{$enrol->program->subject->name}}
-            </span>
-        </div>
+                        <span class="bg-indigo-200 dark:bg-indigo-300 text-indigo-800 dark:text-indigo-900 px-3 py-1 rounded-full uppercase text-xs">
+                            {{$enrol->program->subject->name}}
+                        </span>
+                    </div>
 
-        <div>
-            <h4 class="text-sm font-semibold text-gray-800 dark:text-white mt-2">
-                @if ($enrol->accepted_at == null)
-               <span>waitin approovel</span>
-                @endif
-            </h4>
-            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.</p>
-        </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-800 dark:text-white mt-2">
+                            @if ($enrol->accepted_at == null)
+                            <span class="text-yellow-500">Wait until approved</span>
+                            @else
+                            <span class="text-green-500">You have been approved</span>
+                            @endif
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                            Rs.{{$enrol->program->fees}}
+                        </p>
+                    </div>
 
-        <div>
-            <div class="flex items-center justify-center mt-4">
-                <a href="">lesson</a>
+                    <div>
+                        <div class="flex items-center justify-center mt-4">
+                            @if ($enrol->accepted_at !== null)
+
+                            <svg class="text-gray-500 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                            <span class="text-gray-500">
+                                <a href="{{route('lesson',$enrol->program->getRouteKey())}}">
+                                    show lessons
+                                </a>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
+            @endforeach
         </div>
     </div>
-    @endforeach
-
 </x-app-layout>

@@ -22,7 +22,7 @@ class TeacherDashboardController extends Controller
 
         $enrolRequest = Enrolment::query()
             ->with(['student', 'program'])
-            ->orderBy('id', 'DESC')
+            ->orderBy('id', 'ASC')
             ->get();
 
         $subject = Subject::query()
