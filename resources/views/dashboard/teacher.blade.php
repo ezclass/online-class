@@ -223,45 +223,63 @@
                 <!--Card-->
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
                     <table id="table1" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                        <thead> {{Auth::user()->id}} <br>
+                        <thead>
                             <tr>
-                                <th data-priority="1">Student Photo</th>
-                                <th data-priority="1">Student Name</th>
-                                <th data-priority="2">Class Name</th>
-                                <th data-priority="3">Subject Name</th>
-                                <th data-priority="5">Payment Date</th>
-                                <th data-priority="4">Payment Policy</th>
-                                <th data-priority="6">Action</th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Student
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Class
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Payment Date
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Payment Policy
+                                </th>
+                                <th scope="col" class="relative px-6 py-3">
+                                    <span class="sr-only">Action</span>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach($enrolRequest as $enroll)
                             @if($enroll->accepted_at == null)
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('storage/avatar/'. $enroll->student->avatar )}}" class="inline-block h-10 w-10 rounded-full ring-2 ring-white" alt="">
+                            <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img class="w-10 h-10 rounded-full" src="{{ asset('storage/avatar/'. $enroll->student->avatar )}}" alt="" />
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">{{$enroll->student->name}}</div>
+                                            <div class="text-sm text-gray-500">{{$enroll->program->grade->name}}</div>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td>{{$enroll->student->name}}</td>
-                                <td>{{$enroll->program->name}}</td>
-                                <td>{{$enroll->program->subject->name}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{$enroll->program->name}}</div>
+                                    <div class="text-sm text-gray-900">{{$enroll->program->subject->name}}</div>
+                                </td>
                                 <form action="{{route('enroll.accept',$enroll->id)}}" method="POST">
                                     @csrf
-                                    <td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                         <input type="radio" value="7" name="payment_date" class=""> first week <br>
                                         <input type="radio" value="14" name="payment_date"> Second week <br>
                                         <input type="radio" value="21" name="payment_date"> Therd week <br>
                                         <input type="radio" value="28" name="payment_date"> Last week <br>
                                     </td>
-                                    <td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                         <input type="radio" value="0" name="payment_policy" class=""> Free Card <br>
                                         <input type="radio" value="50" name="payment_policy"> 50% Bonus <br>
                                         <input type="radio" value="100" name="payment_policy"> Normel Price <br>
                                     </td>
-                                    <td>
-                                        <x-success-button class="ml-3 mt-5">
-                                            {{ __('Accept') }}
-                                        </x-success-button>
+                                    <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                            <x-success-button class="ml-3 mt-5">
+                                                {{ __('Accept') }}
+                                            </x-success-button>
+                                        </a>
                                     </td>
                                 </form>
                             </tr>
@@ -289,42 +307,61 @@
                     <table id="table2" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                         <thead>
                             <tr>
-                                <th data-priority="1">Student Photo</th>
-                                <th data-priority="1">Student Name</th>
-                                <th data-priority="2">Class Name</th>
-                                <th data-priority="3">Subject Name</th>
-                                <th data-priority="5">Payment Date</th>
-                                <th data-priority="4">Payment Policy</th>
-                                <th data-priority="6">Action</th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Student
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Class
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Payment Date
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Payment Policy
+                                </th>
+                                <th scope="col" class="relative px-6 py-3">
+                                    <span class="sr-only">Action</span>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($enrolRequest as $enroll)
                             @if($enroll->accepted_at != null)
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('storage/avatar/'. $enroll->student->avatar )}}" class="inline-block h-10 w-10 rounded-full ring-2 ring-white" alt="">
+                            <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img class="w-10 h-10 rounded-full" src="{{ asset('storage/avatar/'. $enroll->student->avatar )}}" alt="" />
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">{{$enroll->student->name}}</div>
+                                            <div class="text-sm text-gray-500">{{$enroll->program->grade->name}}</div>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td>{{$enroll->student->name}}</td>
-                                <td>{{$enroll->program->name}}</td>
-                                <td>{{$enroll->program->subject->name}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{$enroll->program->name}}</div>
+                                    <div class="text-sm text-gray-900">{{$enroll->program->subject->name}}</div>
+                                </td>
                                 <form action="{{route('enroll.accept',$enroll->id)}}" method="POST">
                                     @csrf
-                                    <td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                         <input type="radio" value="7" name="payment_date" class=""> first week <br>
                                         <input type="radio" value="14" name="payment_date"> Second week <br>
                                         <input type="radio" value="21" name="payment_date"> Therd week <br>
                                         <input type="radio" value="28" name="payment_date"> Last week <br>
                                     </td>
-                                    <td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                         <input type="radio" value="0" name="payment_policy" class=""> Free Card <br>
                                         <input type="radio" value="50" name="payment_policy"> 50% Bonus <br>
                                         <input type="radio" value="100" name="payment_policy"> Normel Price <br>
                                     </td>
-                                    <td>
-                                        <x-warning-button class="ml-3 mt-5">
-                                            {{ __('Update') }}
-                                        </x-warning-button>
+                                    <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                            <x-warning-button class="ml-3 mt-5">
+                                                {{ __('Update') }}
+                                            </x-warning-button>
+                                        </a>
                                     </td>
                                 </form>
                             </tr>

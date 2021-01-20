@@ -107,3 +107,7 @@ Route::middleware(['role:admin|super admin'])->group(function () {
     Route::get('/admin', AdminDashboardController::class)
         ->name('admin');
 });
+
+Route::get('/clone', function () {
+    return view('clone');
+});
