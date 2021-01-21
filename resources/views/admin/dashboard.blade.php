@@ -1,4 +1,7 @@
 <x-admin>
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
     <h3 class="mt-6 text-xl">All Users</h3>
     <!--Container-->
     <div class="mt-5 container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
@@ -19,9 +22,11 @@
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Role
                         </th>
+                        @role('super admin')
                         <th scope="col" class="relative px-6 py-3">
                             <span class="sr-only">Edit</span>
                         </th>
+                        @endrole
                     </tr>
                 </thead>
                 <tbody>
@@ -49,9 +54,11 @@
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                             {{implode(', ', $user->roles()->get()->pluck('name')->toArray() )}}
                         </td>
+                        @role('super admin')
                         <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                             <a href="{{route('admin.edit.user', $user->getRouteKey())}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                         </td>
+                        @endrole
                     </tr>
                     @endforeach
                 </tbody>

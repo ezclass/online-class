@@ -119,6 +119,7 @@
 </head>
 
 <body class="font-sans antialiased">
+    @include('sweetalert::alert')
     <div class="min-h-screen bg-gray-100">
         <!-- component -->
         <div>
@@ -179,7 +180,21 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                 </svg>
                             </span>
-                            <span :class="{'lg:hidden': !isSidebarOpen}"> Logout </span>
+
+                            @if (Route::has('login'))
+                            @auth
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                   <span :class="{'lg:hidden': !isSidebarOpen}">  {{ __('Logout') }} </span>
+                                </x-responsive-nav-link>
+                            </form>
+                            @endauth
+                            @else
+
+                            @endif
                         </button>
                     </div>
                 </aside>
@@ -230,7 +245,7 @@
                                 </span>
                                 <input type="text" placeholder="Search" class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
                             </div>
-                           <a href="{{route('welcome')}}"> Home</a>
+                            <a href="{{route('welcome')}}"> Home</a>
                             <!-- Navbar right -->
                             <div class="relative flex items-center space-x-3">
                                 <!-- Search button -->

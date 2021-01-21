@@ -9,14 +9,15 @@ class UpdateUserRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->hasRole(Role::ROLE_ADMIN)
-            or $this->user()->hasRole(Role::ROLE_SUPER_ADMIN);
+        return  $this->user()->hasRole(Role::ROLE_SUPER_ADMIN);
     }
 
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'email' => 'required',
+            'roles' => 'required',
         ];
     }
 }

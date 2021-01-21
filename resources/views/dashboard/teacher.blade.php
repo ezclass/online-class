@@ -264,15 +264,24 @@
                                 <form action="{{route('enroll.accept',$enroll->id)}}" method="POST">
                                     @csrf
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        <input type="radio" value="7" name="payment_date" class=""> first week <br>
-                                        <input type="radio" value="14" name="payment_date"> Second week <br>
-                                        <input type="radio" value="21" name="payment_date"> Therd week <br>
-                                        <input type="radio" value="28" name="payment_date"> Last week <br>
+                                        @foreach($paymentDate as $date)
+                                        @if ($date->id > 1)
+                                        <div class="">
+                                            <input type="checkbox" name="payment_date_id" value="{{ $date->id }}">
+                                            <label> {{ $date->name }} </label>
+                                        </div>
+                                        @endif
+                                        @endforeach
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        <input type="radio" value="0" name="payment_policy" class=""> Free Card <br>
-                                        <input type="radio" value="50" name="payment_policy"> 50% Bonus <br>
-                                        <input type="radio" value="100" name="payment_policy"> Normel Price <br>
+                                        @foreach($paymentPolicy as $policy)
+                                        @if ($policy->id > 1)
+                                        <div class="">
+                                            <input type="checkbox" name="payment_policy_id" value="{{ $policy->id }}">
+                                            <label> {{ $policy->name }} </label>
+                                        </div>
+                                        @endif
+                                        @endforeach
                                     </td>
                                     <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                         <a href="#" class="text-indigo-600 hover:text-indigo-900">
@@ -346,15 +355,10 @@
                                 <form action="{{route('enroll.accept',$enroll->id)}}" method="POST">
                                     @csrf
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        <input type="radio" value="7" name="payment_date" class=""> first week <br>
-                                        <input type="radio" value="14" name="payment_date"> Second week <br>
-                                        <input type="radio" value="21" name="payment_date"> Therd week <br>
-                                        <input type="radio" value="28" name="payment_date"> Last week <br>
+                                        <div class="text-sm text-gray-900">{{$enroll->paymentdate->name}}</div>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        <input type="radio" value="0" name="payment_policy" class=""> Free Card <br>
-                                        <input type="radio" value="50" name="payment_policy"> 50% Bonus <br>
-                                        <input type="radio" value="100" name="payment_policy"> Normel Price <br>
+                                        <div class="text-sm text-gray-900">{{$enroll->paymentpolicy->name}}</div>
                                     </td>
                                     <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                         <a href="#" class="text-indigo-600 hover:text-indigo-900">

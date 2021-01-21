@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PaymentDate extends Model
 {
     use HasFactory;
+    
 }

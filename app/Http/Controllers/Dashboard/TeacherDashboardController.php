@@ -7,6 +7,8 @@ use App\Http\Requests\Dashboard\TeacherRequest;
 use App\Models\Enrolment;
 use App\Models\Grade;
 use App\Models\Language;
+use App\Models\PaymentDate;
+use App\Models\PaymentPolicy;
 use App\Models\Program;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +23,7 @@ class TeacherDashboardController extends Controller
             ->get();
 
         $enrolRequest = Enrolment::query()
-            ->with(['student', 'program'])
+            ->with(['student', 'program', 'paymentpolicy', 'paymentdate'])
             ->orderBy('id', 'ASC')
             ->get();
 
@@ -34,6 +36,13 @@ class TeacherDashboardController extends Controller
         $grade = Grade::query()
             ->get();
 
+        $paymentDate = PaymentDate::query()
+            ->get();
+
+
+        $paymentPolicy = PaymentPolicy::query()
+            ->get();
+
         return view('dashboard.teacher')
             ->with([
                 'program' => $program,
@@ -41,6 +50,8 @@ class TeacherDashboardController extends Controller
                 'language' => $language,
                 'grade' => $grade,
                 'enrolRequest' => $enrolRequest,
+                'paymentDate' => $paymentDate,
+                'paymentPolicy' => $paymentPolicy,
             ]);
     }
 }

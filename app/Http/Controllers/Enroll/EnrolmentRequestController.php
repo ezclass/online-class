@@ -16,6 +16,8 @@ class EnrolmentRequestController extends Controller
         $enrol = new Enrolment();
         $enrol->user_id = Auth::user()->id;
         $enrol->program_id = $program_id;
+        $enrol->payment_date_id = 1;
+        $enrol->payment_policy_id = 1;
         $enrol->save();
 
         return redirect()
