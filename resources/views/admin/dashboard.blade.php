@@ -46,9 +46,11 @@
                                 Active
                             </span>
                         </td>
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">user</td>
+                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                            {{implode(', ', $user->roles()->get()->pluck('name')->toArray() )}}
+                        </td>
                         <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                            <a href="{{route('edit.user', $user->getRouteKey())}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                            <a href="{{route('admin.edit.user', $user->getRouteKey())}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                         </td>
                     </tr>
                     @endforeach

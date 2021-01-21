@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Admin\EditUsersController;
+use App\Http\Controllers\Admin\EditUserController;
+use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\Enroll\EnrolmentAcceptController;
@@ -108,8 +109,11 @@ Route::middleware(['role:admin|super admin'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
 
-    Route::get('/admin/edit/{user}', EditUsersController::class)
-        ->name('edit.user');
+    Route::get('/admin/edit/{user}', EditUserController::class)
+        ->name('admin.edit.user');
+
+    Route::post('/admin/update/{user}', UpdateUserController::class)
+        ->name('admin.update.user');
 });
 
 Route::get('/clone', function () {
