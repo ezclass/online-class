@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Lesson;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateLessonViewRequest;
+use App\Http\Requests\Lesson\UpdateLessonViewRequest;
 use App\Models\Lesson;
 
 class UpdateLessonViewController extends Controller

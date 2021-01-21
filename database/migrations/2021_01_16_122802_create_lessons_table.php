@@ -13,7 +13,7 @@ class CreateLessonsTable extends Migration
             $table->string('name');
             $table->date('date');
             $table->time('time');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->foreignId('program_id')->constrained();
             $table->timestamps();
         });

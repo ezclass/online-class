@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    public const TEACHER = '/teacher';
-    public const STUDENT = '/student';
-    public const ADMIN = '/admin';
-    public const SUPER_ADMIN = '/admin';
+    public const TEACHER = '/teacher/dashboard';
+    public const STUDENT = '/student/dashboard';
+    public const ADMIN = '/admin/dashboard';
+    public const SUPER_ADMIN = '/admin/dashboard';
 
 
     public function boot()

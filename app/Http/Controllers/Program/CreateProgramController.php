@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Program;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateProgramRequest;
+use App\Http\Requests\Program\CreateProgramRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +23,7 @@ class CreateProgramController extends Controller
         $this->storeFile($class, $request->file('image'));
 
         return redirect()
-            ->route('teacher')
+            ->route('teacher.dashboard')
             ->with('success', 'class created success');
     }
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Program;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\DeleteProgramRequest;
+use App\Http\Requests\Program\DeleteProgramRequest;
 use App\Models\Program;
 use Illuminate\Support\Facades\Storage;
 

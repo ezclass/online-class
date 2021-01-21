@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\EditUsersController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\Enroll\EnrolmentAcceptController;
@@ -58,8 +59,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['role:teacher'])->group(function () {
 
-    Route::get('/teacher', TeacherDashboardController::class)
-        ->name('teacher');
+    Route::get('/teacher/dashboard', TeacherDashboardController::class)
+        ->name('teacher.dashboard');
 
     Route::post('/create/program', CreateProgramController::class)
         ->name('create.class');
@@ -92,8 +93,8 @@ Route::middleware(['role:teacher'])->group(function () {
 
 Route::middleware(['role:student'])->group(function () {
 
-    Route::get('/student', StudentDashboardController::class)
-        ->name('student');
+    Route::get('/student/dashboard', StudentDashboardController::class)
+        ->name('student.dashboard');
 });
 
 Route::middleware(['role:student|teacher'])->group(function () {
@@ -104,8 +105,11 @@ Route::middleware(['role:student|teacher'])->group(function () {
 
 Route::middleware(['role:admin|super admin'])->group(function () {
 
-    Route::get('/admin', AdminDashboardController::class)
-        ->name('admin');
+    Route::get('/admin/dashboard', AdminDashboardController::class)
+        ->name('admin.dashboard');
+
+    Route::get('/admin/edit/{user}', EditUsersController::class)
+        ->name('edit.user');
 });
 
 Route::get('/clone', function () {

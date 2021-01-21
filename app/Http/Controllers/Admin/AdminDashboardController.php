@@ -12,7 +12,7 @@ class AdminDashboardController extends Controller
     {
         $users = User::query()
             ->get();
-        return view('admin.admin')
+        return view('admin.dashboard')
             ->with(['users' => $users]);
     }
 }

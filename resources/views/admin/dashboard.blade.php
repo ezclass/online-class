@@ -1,4 +1,4 @@
-<x-adminpanal>
+<x-admin>
     <h3 class="mt-6 text-xl">All Users</h3>
     <!--Container-->
     <div class="mt-5 container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
@@ -25,16 +25,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $users)
+                    @foreach($users as $user)
                     <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0 w-10 h-10">
-                                    <img class="w-10 h-10 rounded-full" src="{{ asset('storage/avatar/'. $users->avatar )}}" alt="" />
+                                    <img class="w-10 h-10 rounded-full" src="{{ asset('storage/avatar/'. $user->avatar )}}" alt="" />
                                 </div>
                                 <div class="ml-4">
-                                    <div class="text-sm font-medium text-gray-900">{{$users->name}}</div>
-                                    <div class="text-sm text-gray-500">{{$users->email}}</div>
+                                    <div class="text-sm font-medium text-gray-900">{{$user->name}}</div>
+                                    <div class="text-sm text-gray-500">{{$user->email}}</div>
                                 </div>
                             </div>
                         </td>
@@ -48,7 +48,7 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">user</td>
                         <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                            <a href="{{route('edit.user', $user->getRouteKey())}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                         </td>
                     </tr>
                     @endforeach
@@ -58,4 +58,4 @@
         <!--/Card-->
     </div>
     <!--/container-->
-</x-adminpanal>
+</x-admin>

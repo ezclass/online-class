@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Program;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateProgramViewRequest;
+use App\Http\Requests\Program\UpdateProgramViewRequest;
 use App\Models\Grade;
 use App\Models\Language;
 use App\Models\Program;

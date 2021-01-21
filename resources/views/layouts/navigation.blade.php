@@ -63,17 +63,17 @@
                                 <!-- Authentication -->
                                 <div>
                                     @role('teacher')
-                                    <x-dropdown-link href="{{ url('/teacher') }}">
+                                    <x-dropdown-link href="{{ route('teacher.dashboard') }}">
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
                                     @endrole
                                     @role('student')
-                                    <x-dropdown-link href="{{ url('/student') }}">
+                                    <x-dropdown-link href="{{ route('student.dashboard') }}">
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
                                     @endrole
                                     @role('admin|super admin')
-                                    <x-dropdown-link href="{{ url('/admin') }}">
+                                    <x-dropdown-link href="{{ route('admin.dashboard') }}">
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
                                     @endrole
@@ -147,7 +147,7 @@
             <div class="flex items-center px-4">
                 @if (Route::has('login'))
                 @auth
-                <a href="{{route('teacher')}}">
+                <a href="{{route('teacher.dashboard')}}">
                     <div class="flex-shrink-0">
                         <img src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="{{Auth::user()->avatar}}" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" />
                     </div>
@@ -172,9 +172,21 @@
                 @if (Route::has('login'))
                 @auth
                 <div>
-                    <x-dropdown-link href="{{ url('/teacher') }}">
+                    @role('teacher')
+                    <x-dropdown-link href="{{ route('teacher.dashboard') }}">
                         {{__('Dashboard')}}
                     </x-dropdown-link>
+                    @endrole
+                    @role('student')
+                    <x-dropdown-link href="{{ route('student.dashboard') }}">
+                        {{__('Dashboard')}}
+                    </x-dropdown-link>
+                    @endrole
+                    @role('admin|super admin')
+                    <x-dropdown-link href="{{ route('admin.dashboard') }}">
+                        {{__('Dashboard')}}
+                    </x-dropdown-link>
+                    @endrole
                 </div>
                 <div>
                     <x-dropdown-link href="{{ route('setting') }}">

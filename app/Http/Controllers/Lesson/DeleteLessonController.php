@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Lesson;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\DeleteLessonRequest;
+use App\Http\Requests\Lesson\DeleteLessonRequest;
 use App\Models\Lesson;
 
 class DeleteLessonController extends Controller

@@ -230,7 +230,7 @@
                                 </span>
                                 <input type="text" placeholder="Search" class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
                             </div>
-
+                           <a href="{{route('welcome')}}"> Home</a>
                             <!-- Navbar right -->
                             <div class="relative flex items-center space-x-3">
                                 <!-- Search button -->
@@ -387,65 +387,69 @@
                             </div>
                         </div>
 
-                        <!-- Start Content -->
-                        <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
-                            <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
-                                <div class="flex items-start justify-between">
-                                    <div class="flex flex-col space-y-2">
-                                        <span class="text-gray-400">Total Users</span>
-                                        <span class="text-lg font-semibold">100,221</span>
+                        <div>
+                            <!-- Start Content -->
+                            <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
+                                <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex flex-col space-y-2">
+                                            <span class="text-gray-400">Total Users</span>
+                                            <span class="text-lg font-semibold">{{$user->count()}}</span>
+                                        </div>
+                                        <div class="p-10 bg-gray-200 rounded-md"></div>
                                     </div>
-                                    <div class="p-10 bg-gray-200 rounded-md"></div>
-                                </div>
-                                <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                                    <span>from 2021</span>
-                                </div>
-                            </div>
-                            <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
-                                <div class="flex items-start justify-between">
-                                    <div class="flex flex-col space-y-2">
-                                        <span class="text-gray-400">Total Teachers</span>
-                                        <span class="text-lg font-semibold">100,221</span>
+                                    <div>
+                                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
+                                        <span>from 2021</span>
                                     </div>
-                                    <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
-                                <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                                    <span>from 2021</span>
-                                </div>
-                            </div>
-                            <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
-                                <div class="flex items-start justify-between">
-                                    <div class="flex flex-col space-y-2">
-                                        <span class="text-gray-400">Total Students</span>
-                                        <span class="text-lg font-semibold">100,221</span>
+                                <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex flex-col space-y-2">
+                                            <span class="text-gray-400">Total Teachers</span>
+                                            <span class="text-lg font-semibold">{{$user->count()}}</span>
+                                        </div>
+                                        <div class="p-10 bg-gray-200 rounded-md"></div>
                                     </div>
-                                    <div class="p-10 bg-gray-200 rounded-md"></div>
-                                </div>
-                                <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                                    <span>from 2021</span>
-                                </div>
-                            </div>
-                            <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
-                                <div class="flex items-start justify-between">
-                                    <div class="flex flex-col space-y-2">
-                                        <span class="text-gray-400">Total Users</span>
-                                        <span class="text-lg font-semibold">100,221</span>
+                                    <div>
+                                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
+                                        <span>from 2021</span>
                                     </div>
-                                    <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
-                                <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                                    <span>from 2021</span>
+                                <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex flex-col space-y-2">
+                                            <span class="text-gray-400">Total Students</span>
+                                            <span class="text-lg font-semibold">100,221</span>
+                                        </div>
+                                        <div class="p-10 bg-gray-200 rounded-md"></div>
+                                    </div>
+                                    <div>
+                                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
+                                        <span>from 2021</span>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex flex-col space-y-2">
+                                            <span class="text-gray-400">Total Users</span>
+                                            <span class="text-lg font-semibold">100,221</span>
+                                        </div>
+                                        <div class="p-10 bg-gray-200 rounded-md"></div>
+                                    </div>
+                                    <div>
+                                        <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
+                                        <span>from 2021</span>
+                                    </div>
+                                </div>
 
+                            </div>
                         </div>
+
                         <main>
                             {{ $slot }}
                         </main>
+
                     </main>
                     <!-- Main footer -->
                     <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">

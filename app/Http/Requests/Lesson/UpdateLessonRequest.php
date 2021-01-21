@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Lesson;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateLessonViewRequest extends FormRequest
+class UpdateLessonRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,7 +14,9 @@ class UpdateLessonViewRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:30',
+            'date' => 'required',
+            'time' => 'required',
         ];
     }
 }

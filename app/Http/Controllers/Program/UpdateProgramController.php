@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Program;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateProgramRequest;
+use App\Http\Requests\Program\UpdateProgramRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -20,7 +20,7 @@ class UpdateProgramController extends Controller
         $program->save();
         $this->storeFile($program, $request->file('image'));
 
-        return redirect()->route('teacher')
+        return redirect()->route('teacher.dashboard')
             ->with('success', 'class update success');
     }
 
