@@ -7,11 +7,9 @@ use Illuminate\View\Component;
 
 class Admin extends Component
 {
-    public User $user;
-
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
+        
     }
 
     public function render()

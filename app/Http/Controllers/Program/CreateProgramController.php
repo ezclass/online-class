@@ -23,8 +23,7 @@ class CreateProgramController extends Controller
         $this->storeFile($class, $request->file('image'));
 
         return redirect()
-            ->route('teacher.dashboard')
-            ->with('success', 'class created success');
+            ->route('teacher.dashboard');
     }
 
     private function storeFile(Program $program, UploadedFile $file = null)

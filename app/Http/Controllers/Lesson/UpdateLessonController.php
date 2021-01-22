@@ -17,7 +17,6 @@ class UpdateLessonController extends Controller
         $lesson->save();
 
         return redirect()
-            ->back()
-            ->with('success', 'lesson update success');
+            ->back();
     }
 }

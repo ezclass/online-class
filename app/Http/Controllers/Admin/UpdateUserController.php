@@ -16,7 +16,6 @@ class UpdateUserController extends Controller
         $user->save();
 
         return redirect()
-            ->back()
-            ->with('success', 'succes');
+            ->back();
     }
 }

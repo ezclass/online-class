@@ -15,7 +15,6 @@ class DeleteProgramController extends Controller
         Storage::delete('/public/class_image/' . $program->image);
         $program->delete();
         return redirect()
-            ->back()
-            ->with('success', 'Class Deleted Success');
+            ->back();
     }
 }

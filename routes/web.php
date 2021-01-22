@@ -13,9 +13,8 @@ use App\Http\Controllers\Lesson\DeleteLessonController;
 use App\Http\Controllers\Lesson\LessonController;
 use App\Http\Controllers\Lesson\UpdateLessonController;
 use App\Http\Controllers\Lesson\UpdateLessonViewController;
-use App\Http\Controllers\Navbar\FaqController;
-use App\Http\Controllers\Navbar\FetchAllTeachersController;
-use App\Http\Controllers\Navbar\SearchClassController;
+use App\Http\Controllers\Pages\FaqController;
+use App\Http\Controllers\Pages\SearchClassController;
 use App\Http\Controllers\Program\CreateProgramController;
 use App\Http\Controllers\Program\DeleteProgramController;
 use App\Http\Controllers\Program\UpdateProgramController;
@@ -37,9 +36,6 @@ Route::get('/faq', FaqController::class)
 Route::get('/search-class', SearchClassController::class)
     ->name('search-class');
 
-Route::get('/all/teachers', FetchAllTeachersController::class)
-    ->name('fetch.teacher');
-
 Route::get('/foo', function () {
     App::setLocale('si');
     return Subject::find(16)->name;
@@ -56,7 +52,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
 });
-
 
 Route::middleware(['role:teacher'])->group(function () {
 

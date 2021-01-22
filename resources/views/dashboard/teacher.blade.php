@@ -257,31 +257,36 @@
                                         </div>
                                     </div>
                                 </td>
+
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900">{{$enroll->program->name}}</div>
                                     <div class="text-sm text-gray-900">{{$enroll->program->subject->name}}</div>
                                 </td>
+
                                 <form action="{{route('enroll.accept',$enroll->id)}}" method="POST">
                                     @csrf
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        @foreach($paymentDate as $date)
-                                        @if ($date->id > 1)
-                                        <div class="">
-                                            <input type="checkbox" name="payment_date_id" value="{{ $date->id }}">
-                                            <label> {{ $date->name }} </label>
-                                        </div>
-                                        @endif
-                                        @endforeach
+                                        <input type="checkbox" name="payment_date" value="7">
+                                        <label> First Week </label> <br>
+
+                                        <input type="checkbox" name="payment_date" value="14">
+                                        <label> Second Week </label> <br>
+
+                                        <input type="checkbox" name="payment_date" value="21">
+                                        <label> Last Week </label> <br>
+
+                                        <input type="checkbox" name="payment_date" value="28">
+                                        <label> First Week </label> <br>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        @foreach($paymentPolicy as $policy)
-                                        @if ($policy->id > 1)
-                                        <div class="">
-                                            <input type="checkbox" name="payment_policy_id" value="{{ $policy->id }}">
-                                            <label> {{ $policy->name }} </label>
-                                        </div>
-                                        @endif
-                                        @endforeach
+                                        <input type="checkbox" name="payment_policy" value="0">
+                                        <label> Free Card </label> <br>
+
+                                        <input type="checkbox" name="payment_policy" value="50">
+                                        <label> 50% Bounes </label> <br>
+
+                                        <input type="checkbox" name="payment_policy" value="100">
+                                        <label> Normel Price </label> <br>
                                     </td>
                                     <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                         <a href="#" class="text-indigo-600 hover:text-indigo-900">
@@ -355,10 +360,10 @@
                                 <form action="{{route('enroll.accept',$enroll->id)}}" method="POST">
                                     @csrf
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{$enroll->paymentdate->name}}</div>
+                                        <div class="text-sm text-gray-900">{{$enroll->payment_date}}</div>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{$enroll->paymentpolicy->name}}</div>
+                                        <div class="text-sm text-gray-900">{{$enroll->payment_policy}}</div>
                                     </td>
                                     <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                         <a href="#" class="text-indigo-600 hover:text-indigo-900">
@@ -387,9 +392,6 @@
                 <div class="px-4  max-w-3xl mx-auto space-y-6">
                     <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-
-                        {{-- <input type="hidden" name="user_id" value="{{Auth::User()->id}}"> --}}
-
                         <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <x-label for="">Your Class Name</x-label>

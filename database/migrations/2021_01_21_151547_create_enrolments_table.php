@@ -12,8 +12,8 @@ class CreateEnrolmentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('program_id')->constrained();
-            $table->foreignId('payment_date_id')->constrained();
-            $table->foreignId('payment_policy_id')->constrained();
+            $table->tinyInteger('payment_date')->nullable();
+            $table->tinyInteger('payment_policy')->nullable();
             $table->dateTime('accepted_at')->nullable();
             $table->timestamps();
         });

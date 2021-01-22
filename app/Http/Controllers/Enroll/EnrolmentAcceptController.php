@@ -10,13 +10,12 @@ class EnrolmentAcceptController extends Controller
 {
     public function __invoke(EnrolmentAcceptRequest $request, Enrolment $enrolment)
     {
-        $enrolment->payment_date_id = $request->get('payment_date_id');
-        $enrolment->payment_policy_id = $request->get('payment_policy_id');
+        $enrolment->payment_date = $request->get('payment_date');
+        $enrolment->payment_policy = $request->get('payment_policy');
         $enrolment->accepted_at = now();
         $enrolment->save();
 
         return redirect()
-            ->back()
-            ->with('success', 'Request Accept Success');
+            ->back();
     }
 }

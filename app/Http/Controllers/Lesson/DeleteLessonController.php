@@ -12,7 +12,6 @@ class DeleteLessonController extends Controller
     {
         $lesson->delete();
         return redirect()
-            ->back()
-            ->with('success', 'Class Deleted Success');
+            ->back();
     }
 }

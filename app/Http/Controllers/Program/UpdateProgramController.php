@@ -20,8 +20,7 @@ class UpdateProgramController extends Controller
         $program->save();
         $this->storeFile($program, $request->file('image'));
 
-        return redirect()->route('teacher.dashboard')
-            ->with('success', 'class update success');
+        return redirect()->route('teacher.dashboard');
     }
 
     private function storeFile(Program $program, UploadedFile $file = null)

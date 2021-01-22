@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Navbar;
+namespace App\Http\Controllers\Pages;
 
 use ApiChef\Obfuscate\Support\Facades\Obfuscate;
 use App\Http\Controllers\Controller;
-use App\Models\Enrolment;
-use App\Models\Grade;
-use App\Models\Language;
 use App\Models\Program;
-use App\Models\Subject;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 

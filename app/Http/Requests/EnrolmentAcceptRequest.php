@@ -15,8 +15,8 @@ class EnrolmentAcceptRequest extends FormRequest
     public function rules()
     {
         return [
-            'payment_date_id' => 'required',
-            'payment_policy_id' => 'required',
+            'payment_date' => 'required',
+            'payment_policy' => 'required',
         ];
     }
 }

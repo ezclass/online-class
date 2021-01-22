@@ -14,7 +14,7 @@ class CreateLessonsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->string('note')->nullable();
-            $table->foreignId('program_id')->constrained();
+            $table->foreignId('program_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

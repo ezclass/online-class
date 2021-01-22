@@ -20,7 +20,6 @@ class CreateLessonController extends Controller
         $class->save();
 
         return redirect()
-            ->back()
-            ->with('success', 'Lesson created success');
+            ->back();
     }
 }
