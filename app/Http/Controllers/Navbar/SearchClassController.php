@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Navbar;
 
 use ApiChef\Obfuscate\Support\Facades\Obfuscate;
 use App\Http\Controllers\Controller;
+use App\Models\Enrolment;
 use App\Models\Grade;
 use App\Models\Language;
 use App\Models\Program;
@@ -11,7 +12,7 @@ use App\Models\Subject;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class FetchAllClassesController extends Controller
+class SearchClassController extends Controller
 {
     public function __invoke(Request $request)
     {
@@ -33,21 +34,18 @@ class FetchAllClassesController extends Controller
             })
             ->paginate(15);
 
-        $subject = Subject::query()
+
+
+
+        $enroled = Enrolment::query()
             ->get();
 
-        $language = Language::query()
-            ->get();
-
-        $grade = Grade::query()
-            ->get();
-
-        return view('navbar.fatchclasses')
+        return view('pages.search-class')
             ->with([
                 'programs' => $programs,
-                'subject' => $subject,
-                'language' => $language,
-                'grade' => $grade
+                'enroled' => $enroled,
+                'selectedGradeId' => $request->grade,
+                'selectedSubjectId' => $request->subject,
             ]);
     }
 }

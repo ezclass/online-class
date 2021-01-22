@@ -1,32 +1,5 @@
 <x-app-layout>
-    <div class="mt-20 px-4  max-w-3xl mx-auto space-y-6">
-        <form action="{{route('fetch.class')}}" method="GET">
-            <div class="flex space-x-4">
-                <div class="w-1/2 relative">
-                    <x-label for="">Select Grade</x-label>
-                    <select id="grade" name="grade" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500">
-                        <option selected disabled>Grade</option>
-                        @foreach($grade as $grd)
-                        <option value="{{$grd->getRouteKey()}}">{{$grd->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="w-1/2">
-                    <x-label for="">Select Subject</x-label>
-                    <select id="subject" name="subject" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500">
-                        <option selected disabled>Subject</option>
-                        @foreach($subject as $sub)
-                        <option value="{{$sub->getRouteKey()}}">{{$sub->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <x-success-button class="ml-3 mt-5">
-                {{ __('Submit') }}
-            </x-success-button>
-        </form>
-    </div>
+    <x-search-class-form :selected-grade-id="$selectedGradeId" :selected-subject-id="$selectedSubjectId"  />
 
     <div class="container mx-auto pt-16">
         <div class="lg:flex md:flex xl:justify-around sm:flex flex-wrap md:justify-around sm:justify-around lg:justify-around">
@@ -57,7 +30,6 @@
                         </form>
                         @endrole
                     </div>
-
                 </div>
             </div>
             @endforeach

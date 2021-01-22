@@ -14,8 +14,8 @@ use App\Http\Controllers\Lesson\LessonController;
 use App\Http\Controllers\Lesson\UpdateLessonController;
 use App\Http\Controllers\Lesson\UpdateLessonViewController;
 use App\Http\Controllers\Navbar\FaqController;
-use App\Http\Controllers\Navbar\FetchAllClassesController;
 use App\Http\Controllers\Navbar\FetchAllTeachersController;
+use App\Http\Controllers\Navbar\SearchClassController;
 use App\Http\Controllers\Program\CreateProgramController;
 use App\Http\Controllers\Program\DeleteProgramController;
 use App\Http\Controllers\Program\UpdateProgramController;
@@ -34,8 +34,8 @@ Route::get('/', HomeController::class)
 Route::get('/faq', FaqController::class)
     ->name('faq');
 
-Route::get('/all/classes', FetchAllClassesController::class)
-    ->name('fetch.class');
+Route::get('/search-class', SearchClassController::class)
+    ->name('search-class');
 
 Route::get('/all/teachers', FetchAllTeachersController::class)
     ->name('fetch.teacher');
