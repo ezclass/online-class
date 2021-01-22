@@ -10,16 +10,16 @@ use Illuminate\View\Component;
 
 class SearchClassForm extends Component
 {
-    public ?string $selectedGreadId;
+    public ?string $selectedGradeId;
     public ?string $selectedSubjectId;
-    public Collection $greads;
+    public Collection $grades;
     public Collection $subjects;
 
-    public function __construct(string $selectedGreadId = null, string $selectedSubjectId = null)
+    public function __construct(string $selectedGradeId = null, string $selectedSubjectId = null)
     {
-        $this->greads = Grade::query()->get();
+        $this->grades = Grade::query()->get();
         $this->subjects = Subject::query()->get();
-        $this->selectedGreadId = $selectedGreadId;
+        $this->selectedGradeId = $selectedGradeId;
         $this->selectedSubjectId = $selectedSubjectId;
     }
 

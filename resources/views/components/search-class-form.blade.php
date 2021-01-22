@@ -5,8 +5,8 @@
                 <x-label for="">Select Grade</x-label>
                 <select id="grade" name="grade" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500">
                     <option value="">Select Grade</option>
-                    @foreach($greads as $gread)
-                    <option value="{{$gread->getRouteKey()}}" @if($gread->getRouteKey() == $selectedGreadId) selected @endif>{{$gread->name}}</option>
+                    @foreach($grades as $grade)
+                    <option value="{{$grade->getRouteKey()}}" @if($grade->getRouteKey() == $selectedGradeId) selected @endif>{{$grade->name}}</option>
                     @endforeach
                 </select>
             </div>

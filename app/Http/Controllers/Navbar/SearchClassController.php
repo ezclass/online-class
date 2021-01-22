@@ -34,16 +34,9 @@ class SearchClassController extends Controller
             })
             ->paginate(15);
 
-
-
-
-        $enroled = Enrolment::query()
-            ->get();
-
         return view('pages.search-class')
             ->with([
                 'programs' => $programs,
-                'enroled' => $enroled,
                 'selectedGradeId' => $request->grade,
                 'selectedSubjectId' => $request->subject,
             ]);

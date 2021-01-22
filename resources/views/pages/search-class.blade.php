@@ -19,8 +19,7 @@
                     </p>
 
                     <div class="text-center m-5">
-                        @role('teacher')
-                        @else
+                        @unlessrole('teacher')
                         <form action="{{route('enroll.request')}}" method="POST">
                             @csrf
                             <input type="hidden" name="program_id" value="{{$class->getRouteKey()}}">
@@ -28,7 +27,7 @@
                                 {{ __('Enroll Class') }}
                             </x-success-button>
                         </form>
-                        @endrole
+                        @endunlessrole
                     </div>
                 </div>
             </div>
