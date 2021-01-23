@@ -50,7 +50,7 @@
                         <div class="text-sm text-gray-900">{{$enrolment->program->subject->name}}</div>
                     </td>
 
-                    <form action="{{route('enrolment.accept',$enrolment->id)}}" method="POST">
+                    <form action="{{route('enroll.request.accept', $enrolment->id)}}" method="POST">
                         @csrf
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                             <div class="mt-2">

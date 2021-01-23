@@ -19,14 +19,11 @@ class Enrolment extends Model
         return $this->belongsTo(Program::class);
     }
 
-
-    public function paymentdate()
+    public function accept($paymentDate, $paymentPolicy)
     {
-        return $this->belongsTo(PaymentDate::class , 'payment_date_id');
-    }
-
-    public function paymentpolicy()
-    {
-        return $this->belongsTo(PaymentPolicy::class , 'payment_policy_id');
+        $this->payment_date = $paymentDate;
+        $this->payment_policy = $paymentPolicy;
+        $this->accepted_at = now();
+        $this->save();
     }
 }

@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
-use App\Http\Controllers\Enroll\EnrolmentAcceptController;
+use App\Http\Controllers\Enroll\AcceptEnrolmentController;
 use App\Http\Controllers\EnrolmentRequestController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Lesson\CreateLessonController;
@@ -35,6 +35,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/program/{program}', ViewProgramController::class)
         ->name('program.view');
+
+    Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
+        ->name('enroll.request.accept');
 });
 
 
@@ -90,9 +93,6 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
-
-    Route::post('/enroll/request/accept/{enrolment}', EnrolmentAcceptController::class)
-        ->name('enrolment.accept');
 });
 
 Route::middleware(['role:student'])->group(function () {
