@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Pages;
+namespace App\Http\Controllers;
 
 use ApiChef\Obfuscate\Support\Facades\Obfuscate;
-use App\Http\Controllers\Controller;
 use App\Models\Program;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;

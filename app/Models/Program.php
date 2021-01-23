@@ -38,4 +38,20 @@ class Program extends Model
         return $this->hasMany(Lesson::class);
     }
 
+    public function enrollStudent(User $user)
+    {
+        $enrol = new Enrolment();
+        $enrol->user_id = $user->id;
+        $enrol->program_id = $this->id;
+        $enrol->save();
+    }
+
+    public function hasEnrolled(User $user): bool
+    {
+        return Enrolment::query()
+            ->where('user_id', $user->id)
+            ->where('program_id', $this->id)
+            ->whereNotNull('accepted_at')
+            ->exists();
+    }
 }

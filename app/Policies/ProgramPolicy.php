@@ -2,13 +2,24 @@
 
 namespace App\Policies;
 
+use App\Models\Enrolment;
 use App\Models\Program;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProgramPolicy
 {
     use HandlesAuthorization;
+
+    public function view(User $user, Program $program): bool
+    {
+        if ($user->hasRole(Role::ROLE_STUDENT)) {
+            return $program->hasEnrolled($user);
+        }
+
+        return true;
+    }
 
     public function update(User $user, Program $program)
     {
