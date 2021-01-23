@@ -13,10 +13,10 @@ class TeacherDashboardController extends Controller
     {
         return view('dashboard.teacher')
             ->with([
-                'programs' =>  Program::query()
-                    ->with(['grade', 'subject', 'language'])
-                    ->where('user_id', Auth::user()->id)
-                    ->get(),
+                'programs' => Program::query()
+                ->with(['grade', 'subject', 'language'])
+                ->where('user_id', Auth::user()->id)
+                ->get(),
             ]);
     }
 }

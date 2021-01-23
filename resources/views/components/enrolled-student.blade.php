@@ -1,10 +1,10 @@
 <div class="container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
 
-    <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
-        enrolleded Students
+    <h1 class="flex items-center font-sans font-bold break-normal text-gray-500 px-2 py-8 text-xl md:text-2xl">
+        Enrolleded Students
     </h1>
 
-    <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+    <div id='recipients' class="p-6 lg:mt-0 rounded shadow bg-white">
         <table id="table2" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
             <thead>
                 <tr>
@@ -22,10 +22,12 @@
                     </th>
                 </tr>
             </thead>
+
             <tbody>
                 @foreach($enrolments as $enrolled)
                 @if($enrolled->accepted_at != null)
                 <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-10 h-10">
@@ -37,13 +39,16 @@
                             </div>
                         </div>
                     </td>
+
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="text-sm text-gray-900">{{$enrolled->program->name}}</div>
                         <div class="text-sm text-gray-900">{{$enrolled->program->subject->name}}</div>
                     </td>
+
                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                         <div class="text-sm text-gray-900">{{$enrolled->payment_date}}</div>
                     </td>
+
                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                         <div class="text-sm text-gray-900">{{$enrolled->payment_policy}}</div>
                     </td>

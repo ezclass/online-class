@@ -110,7 +110,3 @@ Route::middleware(['role:admin|super admin'])->group(function () {
     Route::post('/admin/update/{user}', UpdateUserController::class)
         ->name('admin.update.user');
 });
-
-Route::get('/clone', function () {
-    return view('clone');
-});

@@ -1,7 +1,6 @@
 <x-app-layout>
-    <!--Regular Datatables CSS-->
+
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 
     <style>
@@ -122,58 +121,31 @@
 
     <div id="panels">
         <div class="panel-1 tab-content active py-5">
+
             <x-enrolment-request />
 
             <x-enrolled-student />
+
         </div>
 
         <div class="panel-2 tab-content py-5">
+
             <x-create-program />
+
         </div>
         <div class="panel-3 tab-content py-5">
+
             @foreach($programs as $program)
-            <div class="hover:bg-gray-100 m-7 max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl">
-                <div class="sm:flex">
-                    <div class="md:flex-shrink-0">
-                        <img class="h-48 w-full object-cover md:w-48" src="{{ asset('storage/class_image/'.$program->image)}}" alt="Man looking at item at a store">
-                    </div>
-                    <div class="p-8">
-                        <div class="uppercase tracking-wide text-lg text-indigo-500 font-semibold">{{ $program->name }}</div>
-                        <div class="block mt-1 text-lg leading-tight font-medium text-black">{{ $program->grade->name }}</div>
-                        <p class="mt-2 text-gray-500">{{ $program->subject->name }}</p>
-                        <p>{{ $program->language->name }}</p>
-                        <p>
-                        <div class="mt-2 flex space-x-4">
-                            <a href="{{route('lesson',$program->getRouteKey())}}">
-                                <x-primary-button>
-                                    Lesson
-                                </x-primary-button>
-                            </a>
-                            <a href="{{route('update.program.view',$program->getRouteKey())}}">
-                                <x-success-button>
-                                    Update
-                                </x-success-button>
-                            </a>
 
-                            <a href="{{route('delete.program', $program->getRouteKey())}}">
-                                <x-danger-button class="">
-                                    Delete
-                                </x-danger-button>
-                            </a>
+            <x-teacher-program-card :program="$program" />
 
-                        </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
             @endforeach
+
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <!--Datatables -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
@@ -222,4 +194,5 @@
                 .responsive.recalc();
         });
     </script>
+
 </x-app-layout>
