@@ -9,6 +9,6 @@ class ProgramSeeder extends Seeder
 {
     public function run()
     {
-        Program::factory(50)->create();
+        Program::factory(100)->create();
     }
 }

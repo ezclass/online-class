@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use ApiChef\Obfuscate\Obfuscatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Program extends Model
 {
     use HasFactory;
+    use Obfuscatable;
 
     // relationships
 
@@ -31,8 +33,9 @@ class Program extends Model
         return $this->belongsTo(Grade::class);
     }
 
-    public function lesson()
+    public function lessons()
     {
         return $this->hasMany(Lesson::class);
     }
+
 }

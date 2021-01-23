@@ -18,14 +18,8 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('fetch.class')" :active="request()->routeIs('fetch.class')">
+                    <x-nav-link :href="route('search-class')" :active="request()->routeIs('search-class')">
                         {{ __('All Classes') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('fetch.teacher')" :active="request()->routeIs('fetch.teacher')">
-                        {{ __('All Teachers') }}
                     </x-nav-link>
                 </div>
 
@@ -62,9 +56,21 @@
                             <x-slot name="content">
                                 <!-- Authentication -->
                                 <div>
-                                    <x-dropdown-link href="{{ url('/dashboard') }}">
+                                    @role('teacher')
+                                    <x-dropdown-link href="{{ route('teacher.dashboard') }}">
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
+                                    @endrole
+                                    @role('student')
+                                    <x-dropdown-link href="{{ route('student.dashboard') }}">
+                                        {{__('Dashboard')}}
+                                    </x-dropdown-link>
+                                    @endrole
+                                    @role('admin|super admin')
+                                    <x-dropdown-link href="{{ route('admin.dashboard') }}">
+                                        {{__('Dashboard')}}
+                                    </x-dropdown-link>
+                                    @endrole
                                 </div>
 
                                 <div>
@@ -116,15 +122,11 @@
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('fetch.class')" :active="request()->routeIs('fetch.class')">
+            <x-responsive-nav-link :href="route('search-class')" :active="request()->routeIs('search-class')">
                 {{ __('All Classes') }}
             </x-responsive-nav-link>
         </div>
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('fetch.teacher')" :active="request()->routeIs('fetch.teacher')">
-                {{ __('All Teachers') }}
-            </x-responsive-nav-link>
-        </div>
+    
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
                 {{ __('FAQ') }}
@@ -135,7 +137,7 @@
             <div class="flex items-center px-4">
                 @if (Route::has('login'))
                 @auth
-                <a href="{{route('dashboard')}}">
+                <a href="{{route('teacher.dashboard')}}">
                     <div class="flex-shrink-0">
                         <img src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="{{Auth::user()->avatar}}" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" />
                     </div>
@@ -160,9 +162,21 @@
                 @if (Route::has('login'))
                 @auth
                 <div>
-                    <x-dropdown-link href="{{ url('/dashboard') }}">
+                    @role('teacher')
+                    <x-dropdown-link href="{{ route('teacher.dashboard') }}">
                         {{__('Dashboard')}}
                     </x-dropdown-link>
+                    @endrole
+                    @role('student')
+                    <x-dropdown-link href="{{ route('student.dashboard') }}">
+                        {{__('Dashboard')}}
+                    </x-dropdown-link>
+                    @endrole
+                    @role('admin|super admin')
+                    <x-dropdown-link href="{{ route('admin.dashboard') }}">
+                        {{__('Dashboard')}}
+                    </x-dropdown-link>
+                    @endrole
                 </div>
                 <div>
                     <x-dropdown-link href="{{ route('setting') }}">

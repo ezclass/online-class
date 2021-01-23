@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Lesson;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateLessonControllerRequest;
+use App\Http\Requests\Lesson\UpdateLessonRequest;
 use App\Models\Lesson;
-use App\Models\Program;
 
 class UpdateLessonController extends Controller
 {
-    public function __invoke(UpdateLessonControllerRequest $request, Lesson $lesson, Program $program)
+    public function __invoke(UpdateLessonRequest $request, Lesson $lesson)
     {
         $lesson->name = $request->get('name');
         $lesson->date = $request->get('date');
@@ -18,7 +17,6 @@ class UpdateLessonController extends Controller
         $lesson->save();
 
         return redirect()
-        ->back()
-        ->with('success', 'lesson update success');
+            ->back();
     }
 }

@@ -2,12 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Medium;
-use App\Models\Model_Has_Role;
-use App\Models\Program;
-use App\Models\Subject;
-use App\Models\Teacher;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
