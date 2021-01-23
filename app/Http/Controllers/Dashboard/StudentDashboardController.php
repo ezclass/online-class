@@ -11,15 +11,13 @@ class StudentDashboardController extends Controller
 {
     public function __invoke(StudentRequest $request)
     {
-        $enrolRequest = Enrolment::query()
-            ->where('user_id', Auth::user()->id)
-            ->with(['program'])
-            ->orderBy('id', 'DESC')
-            ->get();
-
         return view('dashboard.student')
             ->with([
-                'enrolRequest' => $enrolRequest,
+                'enrolments' => Enrolment::query()
+                    ->where('user_id', Auth::user()->id)
+                    ->with(['program', 'program.teacher','program.subject',])
+                    ->orderBy('id', 'DESC')
+                    ->get(),
             ]);
     }
 }
