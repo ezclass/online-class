@@ -89,49 +89,47 @@
             /*.text-grey-lightest*/
         }
     </style>
+
     @role('teacher')
-    <!-- Validation Errors -->
+
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-    <div class="mt-10 pt-8 pb-8 bg-yellow-100">
-        create lesson
-        <div class="px-4  max-w-3xl mx-auto space-y-6">
-            <form action="{{route('create.lesson',$program->getRouteKey())}}" method="POST">
-                @csrf
-                <div class="flex space-x-4">
-                    <div class="w-1/2">
-                        <x-label for="">Your Lesson Name</x-label>
-                        <input type="text" name="name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Your Class Name" required>
-                    </div>
-
-                    <div class="w-1/2 relative">
-                        <x-label for="">Date</x-label>
-                        <input type="date" name="date" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="date" required>
-                    </div>
+    <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
+        <form action="{{route('create.lesson',$program->getRouteKey())}}" method="POST">
+            @csrf
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                <div>
+                    <x-label for="">Your Lesson Name</x-label>
+                    <input type="text" name="name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Your Class Name" required>
                 </div>
 
-                <div class="flex space-x-4">
-                    <div class="w-1/2 relative">
-                        <x-label for="">Time</x-label>
-                        <input type="time" name="time" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="time" required>
-                    </div>
+                <div>
+                    <x-label for="">Date</x-label>
+                    <input type="date" name="date" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="date" required>
+                </div>
+            </div>
 
-                    <div class="w-1/2">
-                        <x-label for="">Note</x-label>
-                        <input type="text" name="note" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Note">
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                <div>
+                    <x-label for="">Time</x-label>
+                    <input type="time" name="time" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="time" required>
                 </div>
 
-                <x-success-button class="mt-3 ml-3">
-                    {{ __('Create') }}
-                </x-success-button>
-            </form>
-        </div>
+                <div>
+                    <x-label for="">Note</x-label>
+                    <input type="text" name="note" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Note">
+                </div>
+            </div>
+
+            <x-success-button class="mt-3 ml-3">
+                {{ __('Create') }}
+            </x-success-button>
+        </form>
     </div>
+
     @endrole
 
     <div class="w-full md:w-3/5 mx-auto p-8">
-        <p>Open <strong>multiple</strong></p>
         <div class="shadow-md">
             @foreach($lesson as $lesson)
             <div class="tab w-full overflow-hidden border-t">
@@ -153,7 +151,7 @@
                             </x-primary-button>
                         </a>
 
-                        @can('updateLesson',$lesson)
+                        @can('update',$lesson)
                         <a href="{{route('update.lesson.view',$lesson->getRouteKey())}}">
                             <x-success-button>
                                 Update
@@ -161,7 +159,7 @@
                         </a>
                         @endcan
 
-                        @can('deleteLesson',$lesson)
+                        @can('delete',$lesson)
                         <a href="{{route('delete.lesson',$lesson->getRouteKey())}}">
                             <x-danger-button>
                                 Delete

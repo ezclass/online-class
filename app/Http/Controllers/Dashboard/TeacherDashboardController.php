@@ -11,14 +11,12 @@ class TeacherDashboardController extends Controller
 {
     public function __invoke(TeacherRequest $request)
     {
-        $program = Program::query()
-            ->with(['grade', 'subject', 'language'])
-            ->where('user_id', Auth::user()->id)
-            ->get();
-
         return view('dashboard.teacher')
             ->with([
-                'program' => $program,
+                'programs' =>  Program::query()
+                    ->with(['grade', 'subject', 'language'])
+                    ->where('user_id', Auth::user()->id)
+                    ->get(),
             ]);
     }
 }

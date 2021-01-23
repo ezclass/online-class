@@ -2,45 +2,37 @@
  <!-- Validation Errors -->
  <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
- <div class="mt-10 pt-8 pb-8 bg-yellow-100">
-     create lesson
-     <div class="px-4  max-w-3xl mx-auto space-y-6">
+     <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
          <form action="{{route('update.lesson',$lesson->getRouteKey())}}" method="POST">
              @csrf
-             <div class="flex space-x-4">
-                 <div class="w-1/2">
+             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                 <div>
                      <x-label for="">Your Lesson Name</x-label>
-                     <input type="text" name="name" value="{{$lesson->name}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Your Class Name" required>
+                     <input type="text" name="name" value="{{$lesson->name}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
                  </div>
 
-                 <div class="w-1/2 relative">
+                 <div>
                      <x-label for="">Date</x-label>
-                     <input type="date" name="date" value="{{$lesson->date}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="date" required>
+                     <input type="date" name="date" value="{{$lesson->date}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
                  </div>
              </div>
 
-             <div class="flex space-x-4">
-                 <div class="w-1/2 relative">
+             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                 <div>
                      <x-label for="">Time</x-label>
-                     <input type="time" name="time" value="{{$lesson->time}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="time" required>
+                     <input type="time" name="time" value="{{$lesson->time}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
                  </div>
 
-                 <div class="w-1/2">
+                 <div>
                      <x-label for="">Note</x-label>
-                     <input type="text" name="note" value="{{$lesson->note}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Note">
+                     <input type="text" name="note" value="{{$lesson->note}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500">
                  </div>
              </div>
 
              <x-success-button class="mt-3 ml-3">
-                 {{ __('Update') }}
-             </x-success-button>
-         </form>
-         <a href="{{route('lesson',$lesson->program->getRouteKey())}}">
-            <x-success-button class="mt-3 ml-3">
-                {{ __('Back') }}
+                {{ __('Update') }}
             </x-success-button>
-         </a>
+         </form>
      </div>
- </div>
 
 </x-app-layout>

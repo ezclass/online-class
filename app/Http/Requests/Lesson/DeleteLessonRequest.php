@@ -8,7 +8,7 @@ class DeleteLessonRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('deleteLesson', $this->route('lesson'));
+        return $this->user()->can('delete', $this->route('lesson'));
     }
 
     public function rules()

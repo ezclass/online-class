@@ -16,7 +16,7 @@ class LessonRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            
         ];
     }
 }

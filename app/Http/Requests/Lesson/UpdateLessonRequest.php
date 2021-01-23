@@ -8,7 +8,7 @@ class UpdateLessonRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('updateLesson', $this->route('lesson'));
+        return $this->user()->can('update', $this->route('lesson'));
     }
 
     public function rules()

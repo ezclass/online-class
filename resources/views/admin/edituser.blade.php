@@ -1,6 +1,7 @@
 <x-admin>
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <!-- Validation Errors -->
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
     <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
         <h2 class="text-lg text-gray-700 dark:text-white font-semibold capitalize">Edit User -- {{$user->name}} </h2>
 
@@ -24,15 +25,16 @@
             </div>
             @endforeach
             <div class="justify-center mt-6">
-               <a href="{{route('admin.dashboard')}}">
-                   <x-warning-button type="button">
-                {{__('Go Back')}}
-                   </x-warning-button>
-            </a>
-            <x-success-button>
-                {{__('Update Account Information')}}
-            </x-success-button>
+                <a href="{{route('admin.dashboard')}}">
+                    <x-warning-button type="button">
+                        {{__('Go Back')}}
+                    </x-warning-button>
+                </a>
+                <x-success-button>
+                    {{__('Update Account Information')}}
+                </x-success-button>
             </div>
         </form>
     </div>
+    
 </x-admin>
