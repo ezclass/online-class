@@ -21,8 +21,6 @@ use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\Setting\AvatarController;
 use App\Http\Controllers\Setting\SettingViewController;
-use App\Models\Subject;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
@@ -35,11 +33,6 @@ Route::get('/faq', FaqController::class)
 
 Route::get('/search-class', SearchClassController::class)
     ->name('search-class');
-
-Route::get('/foo', function () {
-    App::setLocale('si');
-    return Subject::find(16)->name;
-});
 
 Route::middleware(['auth'])->group(function () {
 

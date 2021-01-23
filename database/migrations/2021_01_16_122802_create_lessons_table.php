@@ -11,8 +11,8 @@ class CreateLessonsTable extends Migration
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('date');
-            $table->time('time');
+            $table->dateTime('starts_at');
+            $table->dateTime('ends_at');
             $table->string('note')->nullable();
             $table->foreignId('program_id')->constrained()->onDelete('cascade');
             $table->timestamps();
