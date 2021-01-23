@@ -29,4 +29,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function isStudent(): bool
+    {
+        return $this->hasRole(Role::ROLE_STUDENT);
+    }
+
+    public function isTeacher(): bool
+    {
+        return $this->hasRole(Role::ROLE_TEACHER);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->hasRole(Role::ROLE_ADMIN);
+    }
 }

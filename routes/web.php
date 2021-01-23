@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Enroll\AcceptEnrolmentController;
 use App\Http\Controllers\EnrolmentRequestController;
 use App\Http\Controllers\Home\HomeController;
@@ -30,6 +31,9 @@ Route::get('/search-class', SearchClassController::class)
     ->name('search-class');
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('/dashboard', DashboardController::class)
+        ->name('dashboard');
+
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
 

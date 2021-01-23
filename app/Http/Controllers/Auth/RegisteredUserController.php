@@ -36,13 +36,9 @@ class RegisteredUserController extends Controller
         ]));
 
         $user->assignRole($request->role);
+
         event(new Registered($user));
 
-        if ($user->hasRole(Role::ROLE_TEACHER)) {
-            return redirect(RouteServiceProvider::TEACHER);
-        }
-        if ($user->hasRole(Role::ROLE_STUDENT)) {
-            return redirect(RouteServiceProvider::STUDENT);
-        }
+        return redirect(RouteServiceProvider::DASHBOARD);
     }
 }
