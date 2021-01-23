@@ -1,5 +1,5 @@
 <x-app-layout>
-    
+
     <x-search-class-form :selected-grade-id="$selectedGradeId" :selected-subject-id="$selectedSubjectId"  />
 
     <div class="container mx-auto pt-16">

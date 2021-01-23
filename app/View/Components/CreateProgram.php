@@ -3,27 +3,26 @@
 namespace App\View\Components;
 
 use App\Models\Grade;
+use App\Models\Language;
 use App\Models\Subject;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class SearchClassForm extends Component
+class CreateProgram extends Component
 {
-    public ?string $selectedGradeId;
-    public ?string $selectedSubjectId;
     public Collection $grades;
     public Collection $subjects;
+    public Collection $languages;
 
-    public function __construct(string $selectedGradeId = null, string $selectedSubjectId = null)
+    public function __construct()
     {
         $this->grades = Grade::query()->get();
         $this->subjects = Subject::query()->get();
-        $this->selectedGradeId = $selectedGradeId;
-        $this->selectedSubjectId = $selectedSubjectId;
+        $this->languages = Language::query()->get();
     }
 
     public function render()
     {
-        return view('components.search-class-form');
+        return view('components.create-program');
     }
 }

@@ -84,7 +84,7 @@ Route::middleware(['role:teacher'])->group(function () {
         ->name('delete.lesson');
 
     Route::post('/enroll/request/accept/{enrolment}', EnrolmentAcceptController::class)
-        ->name('enroll.accept');
+        ->name('enrolment.accept');
 });
 
 Route::middleware(['role:student'])->group(function () {
