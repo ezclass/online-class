@@ -1,6 +1,4 @@
 <x-app-layout>
- <!-- Validation Errors -->
- <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
      <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
          <form action="{{route('update.lesson',$lesson->getRouteKey())}}" method="POST">
@@ -12,15 +10,15 @@
                  </div>
 
                  <div>
-                     <x-label for="">Date</x-label>
-                     <input type="date" name="date" value="{{$lesson->date}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
+                     <x-label for="">Start at</x-label>
+                     <input type="datetime" name="starts_at" value="{{$lesson->starts_at}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
                  </div>
              </div>
 
              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                  <div>
-                     <x-label for="">Time</x-label>
-                     <input type="time" name="time" value="{{$lesson->time}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
+                     <x-label for="">End at</x-label>
+                     <input type="datetime" name="ends_at" value="{{$lesson->ends_at}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
                  </div>
 
                  <div>

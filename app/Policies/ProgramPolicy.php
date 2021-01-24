@@ -2,7 +2,6 @@
 
 namespace App\Policies;
 
-use App\Models\Enrolment;
 use App\Models\Program;
 use App\Models\Role;
 use App\Models\User;
@@ -18,7 +17,7 @@ class ProgramPolicy
             return $program->hasEnrolled($user);
         }
 
-        return true;
+        return $this->programManage($user, $program);
     }
 
     public function update(User $user, Program $program)

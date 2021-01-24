@@ -11,7 +11,7 @@ class ProgramViewContraller extends Controller
 {
     public function __invoke(Request $request)
     {
-        return view('dashboard.program-view')
+        return view('dashboard.program')
             ->with([
                 'programs' => Program::query()
                     ->with(['grade', 'subject', 'language'])

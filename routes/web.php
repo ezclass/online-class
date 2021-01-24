@@ -9,7 +9,6 @@ use App\Http\Controllers\EnrolmentRequestController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Lesson\CreateLessonController;
 use App\Http\Controllers\Lesson\DeleteLessonController;
-use App\Http\Controllers\Lesson\LessonController;
 use App\Http\Controllers\Lesson\UpdateLessonController;
 use App\Http\Controllers\Lesson\UpdateLessonViewController;
 use App\Http\Controllers\SearchClassController;
@@ -90,13 +89,7 @@ Route::middleware(['role:student'])->group(function () {
         ->name('student.dashboard');
 });
 
-Route::middleware(['role:student|teacher'])->group(function () {
-    Route::get('/lesson/{program}', LessonController::class)
-        ->name('lesson');
-});
-
 Route::middleware(['role:admin'])->group(function () {
-
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
 });
