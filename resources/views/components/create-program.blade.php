@@ -1,6 +1,6 @@
 <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
 
-    <form action="{{route('create.class')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('create.program')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class=" grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             <div>

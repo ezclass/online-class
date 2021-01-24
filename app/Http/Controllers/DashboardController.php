@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function __invoke(Request $request)
     {
-        return request()->route($this->getRouteForUser($request->user()));
+        return redirect()->route($this->getRouteForUser($request->user()));
     }
 
     private function getRouteForUser(User $user): string

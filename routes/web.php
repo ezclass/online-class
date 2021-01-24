@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Admin\EditUserController;
-use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\DashboardController;
@@ -14,24 +12,26 @@ use App\Http\Controllers\Lesson\DeleteLessonController;
 use App\Http\Controllers\Lesson\LessonController;
 use App\Http\Controllers\Lesson\UpdateLessonController;
 use App\Http\Controllers\Lesson\UpdateLessonViewController;
-use App\Http\Controllers\Pages\FaqController;
 use App\Http\Controllers\SearchClassController;
 use App\Http\Controllers\Program\CreateProgramController;
+use App\Http\Controllers\Program\CreateProgramViewContraller;
 use App\Http\Controllers\Program\DeleteProgramController;
+use App\Http\Controllers\Program\ProgramViewContraller;
 use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
-use App\Http\Controllers\Setting\AvatarController;
-use App\Http\Controllers\Setting\SettingViewController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
+Route::get('/', HomeController::class)
+    ->name('welcome');
+
 Route::get('/search-class', SearchClassController::class)
     ->name('search-class');
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/dashboard', DashboardController::class)
+    Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
     Route::post('/enroll', EnrolmentRequestController::class)
@@ -47,34 +47,20 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
-
-
-
-
 // ----------------------
 
-Route::get('/', HomeController::class)
-    ->name('welcome');
-
-Route::get('/faq', FaqController::class)
-    ->name('faq');
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/setting', SettingViewController::class)
-        ->name('setting');
-
-    Route::post('/avatar', AvatarController::class)
-        ->name('avatar');
-});
-
 Route::middleware(['role:teacher'])->group(function () {
-
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
 
+    Route::get('/create-program', CreateProgramViewContraller::class)
+        ->name('create.program.viwe');
+
     Route::post('/create/program', CreateProgramController::class)
-        ->name('create.class');
+        ->name('create.program');
+
+    Route::get('/program', ProgramViewContraller::class)
+        ->name('program.view.teacher');
 
     Route::get('/update/program/{program}', UpdateProgramViewController::class)
         ->name('update.program.view');
@@ -109,14 +95,8 @@ Route::middleware(['role:student|teacher'])->group(function () {
         ->name('lesson');
 });
 
-Route::middleware(['role:admin|super admin'])->group(function () {
+Route::middleware(['role:admin'])->group(function () {
 
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
-
-    Route::get('/admin/edit/{user}', EditUserController::class)
-        ->name('admin.edit.user');
-
-    Route::post('/admin/update/{user}', UpdateUserController::class)
-        ->name('admin.update.user');
 });

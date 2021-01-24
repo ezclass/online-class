@@ -22,13 +22,6 @@
                         {{ __('All Classes') }}
                     </x-nav-link>
                 </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
-                        {{ __('FAQ') }}
-                    </x-nav-link>
-                </div>
-
             </div>
 
 
@@ -43,7 +36,9 @@
                                 <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700
                                 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition
                                 duration-150 ease-in-out">
-                                    <div><img src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="{{Auth::user()->avatar}}" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" /></div>
+                                    <div>
+                                        {{Auth::user()->name}}
+                                    </div>
 
                                     <div class="ml-1">
                                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -71,12 +66,6 @@
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
                                     @endrole
-                                </div>
-
-                                <div>
-                                    <x-dropdown-link href="{{ route('setting') }}">
-                                        {{ __('Seting') }}
-                                    </x-dropdown-link>
                                 </div>
 
                                 <form method="POST" action="{{ route('logout') }}">
@@ -126,22 +115,11 @@
                 {{ __('All Classes') }}
             </x-responsive-nav-link>
         </div>
-    
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
-                {{ __('FAQ') }}
-            </x-responsive-nav-link>
-        </div>
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 @if (Route::has('login'))
                 @auth
-                <a href="{{route('teacher.dashboard')}}">
-                    <div class="flex-shrink-0">
-                        <img src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="{{Auth::user()->avatar}}" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" />
-                    </div>
-                </a>
                 <div class="ml-3">
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 </div>
@@ -177,11 +155,6 @@
                         {{__('Dashboard')}}
                     </x-dropdown-link>
                     @endrole
-                </div>
-                <div>
-                    <x-dropdown-link href="{{ route('setting') }}">
-                        {{ __('Seting') }}
-                    </x-dropdown-link>
                 </div>
 
                 <form method="POST" action="{{ route('logout') }}">
