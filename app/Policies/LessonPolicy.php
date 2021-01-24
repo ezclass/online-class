@@ -3,7 +3,6 @@
 namespace App\Policies;
 
 use App\Models\Lesson;
-use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -29,8 +28,7 @@ class LessonPolicy
     //--
     private function lessonCreate(User $user, Lesson $lesson)
     {
-        return $lesson->program->user_id == $user->id and
-            $user->hasRole(Role::ROLE_TEACHER);
+        return $lesson->program->user_id == $user->id;
     }
 
     private function lessonManage(User $user, Lesson $lesson)

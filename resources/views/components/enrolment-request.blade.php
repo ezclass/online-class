@@ -21,8 +21,9 @@
                 </tr>
             </thead>
             <tbody>
+
                 @foreach($enrolments as $enrolment)
-                @if($enrolment->accepted_at == null)
+                @can('view', $enrolment)
                 <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
@@ -40,11 +41,11 @@
                         <div class="text-sm text-blue-500">{{$enrolment->program->subject->name}}</div>
                     </td>
 
-                    <form action="{{route('enroll.request.accept', $enrolment->id)}}" method="POST">
+                    <form action="{{route('enroll.request.accept', $enrolment->getRouteKey())}}" method="POST">
                         @csrf
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                             <select name="payment_date" id="">
-                                <option selected>select</option>
+                                <option selected disabled>select</option>
                                 <option value="7">First Week</option>
                                 <option value="14">Second Week</option>
                                 <option value="21">Third Week</option>
@@ -54,7 +55,7 @@
 
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                             <select name=" payment_policy" id="">
-                                <option selected>select</option>
+                                <option selected disabled>select</option>
                                 <option value="0">Free Card</option>
                                 <option value="50">50% Bounes</option>
                                 <option value="100">Normel Price</option>
@@ -70,8 +71,9 @@
                         </td>
                     </form>
                 </tr>
-                @endif
+                @endcan
                 @endforeach
+
             </tbody>
         </table>
     </div>
