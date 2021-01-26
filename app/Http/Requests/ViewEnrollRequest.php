@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AvatarControllerRequest extends FormRequest
+class ViewEnrollRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,7 +14,7 @@ class AvatarControllerRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar' => 'required|image|mimes:png,jpg,jpeg|max:5120',
+            //
         ];
     }
 }

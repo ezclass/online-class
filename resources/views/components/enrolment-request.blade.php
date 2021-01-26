@@ -1,9 +1,4 @@
-<div class="container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
-
-    <h1 class="flex items-center font-sans font-bold break-normal text-gray-500 px-2 py-8 text-xl md:text-2xl">
-        Enrolment Request
-    </h1>
-
+<div class="mt-10 container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
     <div id='recipients' class="p-6 lg:mt-0 rounded shadow bg-white">
         <table id="table1" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
             <thead>
@@ -11,27 +6,24 @@
                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                         Student
                     </th>
-
                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                         Class
                     </th>
-
                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                         Payment Date
                     </th>
-
                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                         Payment Policy
                     </th>
-
                     <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Action</span>
                     </th>
                 </tr>
             </thead>
             <tbody>
+
                 @foreach($enrolments as $enrolment)
-                @if($enrolment->accepted_at == null)
+                @can('view', $enrolment)
                 <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
@@ -40,51 +32,34 @@
                             </div>
                             <div class="ml-4">
                                 <div class="text-sm font-medium text-gray-900">{{$enrolment->student->name}}</div>
-                                <div class="text-sm text-gray-500">{{$enrolment->program->grade->name}}</div>
                             </div>
                         </div>
                     </td>
 
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900">{{$enrolment->program->name}}</div>
-                        <div class="text-sm text-gray-900">{{$enrolment->program->subject->name}}</div>
+                        <div class="text-md text-gray-900">{{$enrolment->program->name}}</div>
+                        <div class="text-sm text-blue-500">{{$enrolment->program->subject->name}}</div>
                     </td>
 
-                    <form action="{{route('enroll.request.accept', $enrolment->id)}}" method="POST">
+                    <form action="{{route('enroll.request.accept', $enrolment->getRouteKey())}}" method="POST">
                         @csrf
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <div class="mt-2">
-                                <input type="radio" name="payment_date" value="7">
-                                <label> First Week </label> <br>
-                            </div>
-                            <div class="mt-2">
-                                <input type="radio" name="payment_date" value="14">
-                                <label> Second Week </label> <br>
-                            </div>
-                            <div class="mt-2">
-                                <input type="radio" name="payment_date" value="21">
-                                <label class="mt-2"> Third Week </label> <br>
-                            </div>
-                            <div class="mt-2">
-                                <input type="radio" name="payment_date" value="28">
-                                <label> Last Week </label> <br>
-                            </div>
+                            <select name="payment_date" id="">
+                                <option selected disabled>select</option>
+                                <option value="7">First Week</option>
+                                <option value="14">Second Week</option>
+                                <option value="21">Third Week</option>
+                                <option value="28">Last Week</option>
+                            </select>
                         </td>
 
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <div class="mt-2">
-                                <input type="radio" name="payment_policy" value="0">
-                                <label> Free Card </label> <br>
-                            </div>
-                            <div class="mt-2">
-                                <input type="radio" name="payment_policy" value="50">
-                                <label> 50% Bounes </label> <br>
-                            </div>
-                            <div class="mt-2">
-                                <input type="radio" name="payment_policy" value="100">
-                                <label> Normel Price </label> <br>
-                            </div>
-
+                            <select name=" payment_policy" id="">
+                                <option selected disabled>select</option>
+                                <option value="0">Free Card</option>
+                                <option value="50">50% Bounes</option>
+                                <option value="100">Normel Price</option>
+                            </select>
                         </td>
 
                         <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
@@ -96,8 +71,9 @@
                         </td>
                     </form>
                 </tr>
-                @endif
+                @endcan
                 @endforeach
+
             </tbody>
         </table>
     </div>

@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Lesson\LessonRequest;
 use App\Models\Lesson;
 use App\Models\Program;
-use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
     public function __invoke(LessonRequest $request, Program $program)
     {
-        $lesson = Lesson::query()
+        dd($request);
+        $lessons = Lesson::query()
             ->with(['program'])
             ->where('program_id', $program->id)
             ->get();
@@ -21,7 +21,7 @@ class LessonController extends Controller
 
             ->with([
                 'program' => $program,
-                'lesson' => $lesson
+                'lessons' => $lessons
             ]);
     }
 }

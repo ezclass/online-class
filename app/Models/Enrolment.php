@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use ApiChef\Obfuscate\Obfuscatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Enrolment extends Model
 {
     use HasFactory;
+    use Obfuscatable;
 
     public function student()
     {
@@ -17,6 +19,14 @@ class Enrolment extends Model
     public function program()
     {
         return $this->belongsTo(Program::class);
+    }
+
+    public function canViewRequest(User $user): bool
+    {
+        return Program::query()
+            ->where('user_id', $user->id)
+            ->where('id', $this->program_id)
+            ->exists();
     }
 
     public function accept($paymentDate, $paymentPolicy)
