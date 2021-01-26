@@ -8,7 +8,7 @@ class ViewProgramRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('view', $this->route('program'));
+        return true;
     }
 
     public function rules()

@@ -12,7 +12,7 @@ class EnrolmentRequest extends Component
 
     public function __construct()
     {
-        $this->enrolments =  Enrolment::query()
+        $this->enrolments = Enrolment::query()
             ->with(['student', 'program', 'program.grade', 'program.subject'])
             ->get();
     }
