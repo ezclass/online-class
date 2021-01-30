@@ -15,11 +15,9 @@ class EnrolmentRequest extends Component
     public function __construct()
     {
         $this->enrolments = Enrolment::query()
+            ->pending()
+            ->ofTeacher(Auth::user())
             ->with(['student', 'program', 'program.grade', 'program.subject'])
-            ->whereNull('accepted_at')
-            ->whereHas('program', function (Builder $query) {
-                $query->where('user_id', Auth::user()->id);
-            })
             ->get();
     }
 
