@@ -16,11 +16,11 @@ class CreateProgramRequest extends FormRequest
     {
         return [
             'name' => 'required|max:20',
-            'grade_id' => 'required',
+            'grade' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:5120',
             'fees' => 'required',
-            'language_id' => 'required|integer',
-            'subject_id' => 'required|integer',
+            'medium' => 'required|integer',
+            'subject' => 'required|integer',
         ];
     }
 }

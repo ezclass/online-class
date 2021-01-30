@@ -10,10 +10,6 @@ class EnrolmentPolicy
 {
     use HandlesAuthorization;
 
-    public function view(User $user, Enrolment $enrolment)
-    {
-        return $enrolment->canViewRequest($user);
-    }
 
     public function accept(User $user, Enrolment $enrolment)
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Program;
 
+use ApiChef\Obfuscate\Support\Facades\Obfuscate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Program\CreateProgramRequest;
 use App\Models\Program;
@@ -14,10 +15,10 @@ class CreateProgramController extends Controller
     {
         $class = new Program();
         $class->name = $request->get('name');
-        $class->grade_id = $request->get('grade_id');
+        $class->grade_id = Obfuscate::decode($request->get('grade'));
         $class->fees = $request->get('fees');
-        $class->subject_id  = $request->get('subject_id');
-        $class->language_id  = $request->get('language_id');
+        $class->subject_id  = Obfuscate::decode($request->get('subject'));
+        $class->language_id  = Obfuscate::decode($request->get('medium'));
         $class->user_id = Auth::user()->id;
         $class->save();
         $this->storeFile($class, $request->file('image'));

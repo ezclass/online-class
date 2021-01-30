@@ -21,14 +21,6 @@ class Enrolment extends Model
         return $this->belongsTo(Program::class);
     }
 
-    public function canViewRequest(User $user): bool
-    {
-        return Program::query()
-            ->where('user_id', $user->id)
-            ->where('id', $this->program_id)
-            ->exists();
-    }
-
     public function accept($paymentDate, $paymentPolicy)
     {
         $this->payment_date = $paymentDate;
