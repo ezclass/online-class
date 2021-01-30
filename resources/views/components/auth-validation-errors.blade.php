@@ -14,7 +14,6 @@
 
             <div class="-mx-3 py-2 px-4">
                 <div class="mx-3">
-                    <span class="text-red-500 dark:text-red-400 font-semibold">Error</span>
                     <p class="text-gray-600 dark:text-gray-200 text-sm">
                         <li>{{ $error }}</li>
                     </p>
