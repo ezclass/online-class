@@ -45,7 +45,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
 // ----------------------
 
 Route::middleware(['role:teacher'])->group(function () {
