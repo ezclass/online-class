@@ -8,11 +8,11 @@
             </div>
 
             <div>
-                <x-label for="grade_id">Select Grade/Year:</x-label>
-                <select name="grade_id" id="grade_id" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
+                <x-label for="grade">Select Grade/Year:</x-label>
+                <select name="grade" id="grade" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
                     <option selected disabled>Grade/Year</option>
                     @foreach($grades as $grade)
-                    <option value="{{$grade->id}}">{{$grade->name}}</option>
+                    <option value="{{$grade->getRouteKey()}}">{{$grade->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -20,21 +20,21 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             <div>
-                <x-label for="language_id">Select Meadiam</x-label>
-                <select id="language_id" name="language_id" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
-                    <option selected disabled>Meadiam</option>
+                <x-label for="medium">Select Medium</x-label>
+                <select id="medium" name="medium" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
+                    <option selected disabled>Medium</option>
                     @foreach($languages as $language)
-                    <option value="{{$language->id}}">{{$language->name}}</option>
+                    <option value="{{$language->getRouteKey()}}">{{$language->name}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div>
-                <x-label for="subject_id">Select Subject</x-label>
-                <select id="subject_id" name="subject_id" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
+                <x-label for="subject">Select Subject</x-label>
+                <select id="subject" name="subject" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" required>
                     <option selected disabled>Subject</option>
                     @foreach($subjects as $subject)
-                    <option value="{{$subject->id}}">{{$subject->name}}</option>
+                    <option value="{{$subject->getRouteKey()}}">{{$subject->name}}</option>
                     @endforeach
                 </select>
             </div>
