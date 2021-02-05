@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\DashboardController;
@@ -41,8 +42,16 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
         ->name('enroll.request.accept');
-});
 
+    Route::get('/checkout/success', [CheckoutController::class, 'success'])
+        ->name('checkout.success');
+
+    Route::get('/checkout/cancelled', [CheckoutController::class, 'cancelled'])
+        ->name('checkout.cancelled');
+
+    Route::get('/checkout/{program}', [CheckoutController::class, 'show'])
+        ->name('checkout');
+});
 
 
 // ----------------------
