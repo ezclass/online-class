@@ -85,7 +85,7 @@ Route::middleware(['role:teacher'])->group(function () {
     Route::get('/edit-lesson/{lesson}', UpdateLessonViewController::class)
         ->name('lesson.edit');
 
-    Route::put('/lesson/{lesson}', UpdateLessonController::class)
+    Route::post('/lesson/{lesson}', UpdateLessonController::class)
         ->name('lesson.update');
 
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)

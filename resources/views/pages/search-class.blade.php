@@ -12,7 +12,4 @@
 
     {{ $programs->links() }}
 
-    <x-footer>
-    </x-footer>
-
 </x-app-layout>

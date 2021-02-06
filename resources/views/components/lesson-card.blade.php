@@ -13,7 +13,7 @@
             </a>
 
             @can('update',$lesson)
-            <a href="{{route('update.lesson.view',$lesson->getRouteKey())}}">
+            <a href="{{route('lesson.edit',$lesson->getRouteKey())}}">
                 <x-success-button>
                     Update
                 </x-success-button>

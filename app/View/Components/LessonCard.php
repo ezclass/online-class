@@ -8,7 +8,7 @@ use Illuminate\View\Component;
 class LessonCard extends Component
 {
     public Lesson $lesson;
-    
+
     public function __construct(Lesson $lesson)
     {
         $this->lesson = $lesson;

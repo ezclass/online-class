@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use ApiChef\Obfuscate\Obfuscatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,5 +20,12 @@ class Lesson extends Model
     public function program()
     {
         return $this->belongsTo(Program::class);
+    }
+
+    // scope
+    public function scopeThisLesson(Builder $query, Program $program)
+    {
+        $query->where('program_id', $program->id)
+            ->exists();
     }
 }

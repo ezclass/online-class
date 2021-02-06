@@ -1,7 +1,7 @@
 <x-app-layout>
 
      <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
-         <form action="{{route('update.lesson',$lesson->getRouteKey())}}" method="POST">
+         <form action="{{route('lesson.update',$lesson->getRouteKey())}}" method="POST">
              @csrf
              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                  <div>
