@@ -10,6 +10,7 @@ class LearningRoomController extends Controller
     public function __invoke(LearningRoomViewRequest $request, Lesson $lesson)
     {
         return view('program.learning-room')
-        ->with(['lesson'=>$lesson]);
+            ->with(['program', 'program.teacher', 'program.subject'])
+            ->with(['lesson' => $lesson]);
     }
 }
