@@ -61,7 +61,7 @@
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
                                     @endrole
-                                    @role('admin|super admin')
+                                    @role('admin')
                                     <x-dropdown-link href="{{ route('admin.dashboard') }}">
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
@@ -150,7 +150,7 @@
                         {{__('Dashboard')}}
                     </x-dropdown-link>
                     @endrole
-                    @role('admin|super admin')
+                    @role('admin')
                     <x-dropdown-link href="{{ route('admin.dashboard') }}">
                         {{__('Dashboard')}}
                     </x-dropdown-link>

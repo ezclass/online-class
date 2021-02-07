@@ -20,7 +20,7 @@ class ProgramPolicy
         return $this->programManage($user, $program);
     }
 
-    public function createLesson(User $user, Program $program)
+    public function create(User $user, Program $program)
     {
         return $this->programManage($user, $program);
     }

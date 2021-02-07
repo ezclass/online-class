@@ -28,4 +28,13 @@ class Lesson extends Model
         $query->where('program_id', $program->id)
             ->exists();
     }
+
+    public function hasEnrolled(User $user): bool
+    {
+        return Enrolment::query()
+            ->where('user_id', $user->id)
+            ->where('program_id', $this->program->id)
+            ->whereNotNull('accepted_at')
+            ->exists();
+    }
 }

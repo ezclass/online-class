@@ -5,7 +5,7 @@
     </p>
     Subject Name : {{$program->subject->name}}
 
-    @can('createLesson', $program)
+    @can('create', $program)
     <x-create-lesson :program="$program" />
     @endcan
 

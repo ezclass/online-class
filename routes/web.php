@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Enroll\AcceptEnrolmentController;
 use App\Http\Controllers\EnrolmentRequestController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\LearningRoomController;
 use App\Http\Controllers\Lesson\CreateLessonController;
 use App\Http\Controllers\Lesson\DeleteLessonController;
 use App\Http\Controllers\Lesson\UpdateLessonController;
@@ -42,6 +43,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
         ->name('enroll.request.accept');
+
+    Route::get('/learning-room/{lesson}', LearningRoomController::class)
+        ->name('learning-room-view');
 
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
         ->name('checkout.success');

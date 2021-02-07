@@ -9,6 +9,6 @@ class CreateProgramViewContraller extends Controller
 {
     public function __invoke(Request $request)
     {
-        return view('dashboard.create-program');
+        return view('program.create-program');
     }
 }

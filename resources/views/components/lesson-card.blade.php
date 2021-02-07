@@ -6,9 +6,9 @@
 
     <div class="overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
         <div class="">
-            <a href="">
+            <a href="{{route('learning-room-view',$lesson)}}">
                 <x-primary-button>
-                    Lesson Room
+                    Learning Room
                 </x-primary-button>
             </a>
 
