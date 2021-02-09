@@ -3,22 +3,12 @@
 namespace App\Policies;
 
 use App\Models\Lesson;
-use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LessonPolicy
 {
     use HandlesAuthorization;
-
-    public function view(User $user, Lesson $lesson): bool
-    {
-        if ($user->hasRole(Role::ROLE_STUDENT)) {
-            return $lesson->hasEnrolled($user);
-        }
-
-        return $this->lessonManage($user, $lesson);
-    }
 
     public function create(User $user, Lesson $lesson)
     {
