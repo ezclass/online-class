@@ -20,6 +20,7 @@ use App\Http\Controllers\Program\DeleteProgramController;
 use App\Http\Controllers\Program\ProgramViewContraller;
 use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
+use App\Http\Controllers\EnroledProgramDeleteController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -99,6 +100,9 @@ Route::middleware(['role:teacher'])->group(function () {
 Route::middleware(['role:student'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
+
+    Route::get('/enroled-program/delete/{enrolment}', EnroledProgramDeleteController::class)
+        ->name('enroled-program.delete');
 });
 
 Route::middleware(['role:admin'])->group(function () {

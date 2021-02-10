@@ -37,10 +37,16 @@
                 </svg>
                 <span class="text-gray-500">
                     <a href="{{route('program.view',$enrolment->program->getRouteKey())}}">
-                        show lessons
+                        Show Lessons
                     </a>
                 </span>
                 @endif
+            </div>
+            <div>
+                <a href="{{route('enroled-program.delete',$enrolment)}}">
+                   Delete Class
+                </a>
+
             </div>
         </div>
     </div>
