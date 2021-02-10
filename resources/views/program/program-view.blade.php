@@ -6,11 +6,11 @@
     Subject Name : {{$program->subject->name}}
 
     @can('create', $program)
-    <x-create-lesson :program="$program" />
+        <x-create-lesson :program="$program" />
     @endcan
 
     @foreach($lessons as $lesson)
-    <x-lesson-card :lesson="$lesson" />
+        <x-lesson-card :lesson="$lesson" />
     @endforeach
 
 </x-app-layout>
