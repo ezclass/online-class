@@ -12,21 +12,21 @@
                 </x-primary-button>
             </a>
 
-            @role('teacher')
+            @can('update', $lesson)
             <a href="{{route('lesson.edit',$lesson->getRouteKey())}}">
                 <x-success-button>
                     Update
                 </x-success-button>
             </a>
-            @endrole
 
-            @role('teacher')
             <a href="{{route('delete.lesson',$lesson->getRouteKey())}}">
                 <x-danger-button>
                     Delete
                 </x-danger-button>
             </a>
-            @endrole
+            @endcan
+
+
         </div>
     </div>
 </div>

@@ -23,9 +23,8 @@ class Lesson extends Model
     }
 
     // scope
-    public function scopeThisLesson(Builder $query, Program $program)
+    public function scopeOfProgram(Builder $query, Program $program)
     {
-        $query->where('program_id', $program->id)
-            ->exists();
+        $query->where('program_id', $program->id);
     }
 }

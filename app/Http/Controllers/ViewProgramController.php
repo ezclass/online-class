@@ -16,7 +16,8 @@ class ViewProgramController extends Controller
             ->with([
                 'program' => $program,
                 'lessons' => Lesson::query()
-                    ->ThisLesson($program)
+                    ->with('program')
+                    ->ofProgram($program)
                     ->get()
             ]);
     }

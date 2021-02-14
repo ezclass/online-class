@@ -57,12 +57,4 @@ class Program extends Model
             ->whereNotNull('accepted_at')
             ->exists();
     }
-
-    public function canShow(User $user): bool
-    {
-        return Enrolment::query()
-            ->where('user_id', '<>', $user->id)
-            ->where('program_id', '<>', $this->id)
-            ->exists();
-    }
 }

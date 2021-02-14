@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use ApiChef\Obfuscate\Support\Facades\Obfuscate;
+use App\Models\Enrolment;
 use App\Models\Program;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -12,6 +13,16 @@ class SearchClassController extends Controller
 {
     public function __invoke(Request $request)
     {
+        $enroledProgramIds = null;
+        if (Auth::check()) {
+            $enroledProgramIds = Enrolment::query()
+            ->select('program_id')
+            ->where('user_id', $request->user()->id)
+            ->get()
+            ->pluck('program_id')
+            ->all();
+        }
+
         $programs = Program::query()
             ->with(['grade', 'subject', 'teacher', 'language'])
             ->when($request->filled('subject'), function ($query) use ($request) {
@@ -27,6 +38,9 @@ class SearchClassController extends Controller
                 $query->whereHas('grade', function (Builder $query) use ($gradeId) {
                     $query->where('id', $gradeId);
                 });
+            })
+            ->when($enroledProgramIds != null, function(Builder $query) use ($enroledProgramIds){
+                $query->whereNotIn('id', $enroledProgramIds);
             })
             ->paginate(15);
 
