@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use ApiChef\Obfuscate\Obfuscatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -57,11 +58,11 @@ class Program extends Model
             ->exists();
     }
 
-    public function CanShow(User $user): bool
+    public function canShow(User $user): bool
     {
         return Enrolment::query()
-            ->where('user_id', $user->id)
-            ->whereKeyNot('program_id', $this->id)
+            ->where('user_id', '<>', $user->id)
+            ->where('program_id', '<>', $this->id)
             ->exists();
     }
 }

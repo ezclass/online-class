@@ -1,4 +1,6 @@
 <x-app-layout>
+    
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
      <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
          <form action="{{route('lesson.update',$lesson->getRouteKey())}}" method="POST">

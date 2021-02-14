@@ -11,12 +11,12 @@ class UpdateLessonController extends Controller
     public function __invoke(UpdateLessonRequest $request, Lesson $lesson)
     {
         $lesson->name = $request->get('name');
-        $lesson->date = $request->get('date');
-        $lesson->time = $request->get('time');
+        $lesson->starts_at = $request->get('starts_at');
+        $lesson->ends_at = $request->get('ends_at');
         $lesson->note  = $request->get('note');
         $lesson->save();
 
         return redirect()
-            ->back();
+            ->route('program.view', $lesson->program);
     }
 }

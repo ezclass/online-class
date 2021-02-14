@@ -11,7 +11,7 @@
                 {{$enrolment->program->subject->name}}
             </span>
         </div>
-
+        {{$enrolment->program->grade->name}}
         <div>
             <h4 class="text-sm font-semibold text-gray-800 dark:text-white mt-2">
                 @if ($enrolment->accepted_at == null)

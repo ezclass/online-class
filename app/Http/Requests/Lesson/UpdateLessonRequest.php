@@ -15,8 +15,8 @@ class UpdateLessonRequest extends FormRequest
     {
         return [
             'name' => 'required|max:30',
-            'date' => 'required',
-            'time' => 'required',
+            'starts_at' => 'required',
+            'ends_at' => 'required',
         ];
     }
 }
