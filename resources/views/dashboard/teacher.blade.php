@@ -6,4 +6,8 @@
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
     <x-enrolment-request />
 
+
+    <formoj form-id="1"></formoj>
+    
 </x-app-layout>
+
