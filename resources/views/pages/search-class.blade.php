@@ -1,15 +1,14 @@
 <x-app-layout>
 
     <x-search-class-form :selected-grade-id="$selectedGradeId" :selected-subject-id="$selectedSubjectId"  />
-
-    <div class="container mx-auto pt-16">
-        <div class="lg:flex md:flex xl:justify-around sm:flex flex-wrap md:justify-around sm:justify-around lg:justify-around">
+    <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
             @foreach($programs as $program)
                 <x-program-card :program="$program"/>
             @endforeach
-        </div>
     </div>
 
-    {{ $programs->links() }}
+    <div class="mt-10 mb-10">
+        {{ $programs->links() }}
+    </div>
 
 </x-app-layout>
