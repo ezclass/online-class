@@ -16,11 +16,11 @@ class SearchClassController extends Controller
         $enroledProgramIds = null;
         if (Auth::check()) {
             $enroledProgramIds = Enrolment::query()
-            ->select('program_id')
-            ->where('user_id', $request->user()->id)
-            ->get()
-            ->pluck('program_id')
-            ->all();
+                ->select('program_id')
+                ->where('user_id', $request->user()->id)
+                ->get()
+                ->pluck('program_id')
+                ->all();
         }
 
         $programs = Program::query()
@@ -39,10 +39,10 @@ class SearchClassController extends Controller
                     $query->where('id', $gradeId);
                 });
             })
-            ->when($enroledProgramIds != null, function(Builder $query) use ($enroledProgramIds){
+            ->when($enroledProgramIds != null, function (Builder $query) use ($enroledProgramIds) {
                 $query->whereNotIn('id', $enroledProgramIds);
             })
-            ->paginate(15);
+            ->paginate(16);
 
         return view('pages.search-class')
             ->with([
