@@ -13,13 +13,14 @@ class CreateLessonController extends Controller
     {
         $class = new Lesson();
         $class->name = $request->get('name');
-        $class->date = $request->get('date');
-        $class->time = $request->get('time');
+        $class->starts_at = $request->get('starts_at');
+        $class->ends_at = $request->get('ends_at');
         $class->note  = $request->get('note');
         $class->program_id  = $program->id;
         $class->save();
 
         return redirect()
-            ->back();
+            ->back()
+            ->with('success', 'lesson created successful');
     }
 }

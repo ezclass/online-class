@@ -12,6 +12,7 @@ class AcceptEnrolmentController extends Controller
     {
         $enrolment->accept($request->get('payment_date'), $request->get('payment_policy'));
 
-        return redirect()->back();
+        return redirect()->back()
+            ->with('success', true);
     }
 }
