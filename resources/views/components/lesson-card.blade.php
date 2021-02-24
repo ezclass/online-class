@@ -1,7 +1,7 @@
 <div class="pt-2 w-full border-t">
     <label class="block p-5 leading-normal cursor-pointer">
         {{$lesson->name}}
-        <span class="ml-10">{{$lesson->date}} {{$lesson->starts_at}} {{$lesson->ends_at}}</span>
+        <span class="ml-10"> {{$lesson->starts_at}} {{$lesson->ends_at}}</span>
     </label>
 
     <div class="overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
