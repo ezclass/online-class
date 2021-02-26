@@ -14,6 +14,6 @@ class DeleteProgramController extends Controller
         $program->delete();
         return redirect()
             ->back()
-            ->with('success', 'class deleted successful');;
+            ->with('success', 'Class deleted successful');;
     }
 }

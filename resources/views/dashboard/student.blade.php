@@ -1,5 +1,8 @@
 <x-app-layout>
 
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-alart />
+    
     <section class="text-gray-700">
         <div class="container mx-auto">
             <div class="flex flex-wrap -m-4">

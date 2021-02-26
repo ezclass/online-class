@@ -119,7 +119,6 @@
 </head>
 
 <body class="font-sans antialiased">
-    @include('sweetalert::alert')
     <div class="min-h-screen bg-gray-100">
         <!-- component -->
         <div>

@@ -1,4 +1,7 @@
 <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
+    <div class="text-lg">
+        Create Lessons
+    </div>
     <form action="{{route('create.lesson',$program->getRouteKey())}}" method="POST">
         @csrf
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">

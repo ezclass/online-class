@@ -15,6 +15,8 @@ class EnrolmentRequestController extends Controller
         $program = Program::forHash($request->get('program_id'))->firstOrFail();
         $program->enrollStudent(Auth::user());
 
-        return redirect()->route('program.view', $request->get('program_id'));
+        return redirect()
+            ->back()
+            ->with('success', 'Enroll request sent, Please check your dashboard.');
     }
 }

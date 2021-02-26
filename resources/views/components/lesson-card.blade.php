@@ -1,10 +1,10 @@
-<div class="pt-2 w-full border-t">
+<div class="pt-2 w-full border-t bg-indigo-100 mt-5">
     <label class="block p-5 leading-normal cursor-pointer">
         {{$lesson->name}}
         <span class="ml-10"> {{$lesson->starts_at}} {{$lesson->ends_at}}</span>
     </label>
 
-    <div class="overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+    <div class="overflow-hidden border-l-2 bg-indigo-100 border-indigo-500 leading-normal">
         <div class="">
             <a href="{{route('learning-room-view',$lesson)}}">
                 <x-primary-button>
@@ -25,8 +25,6 @@
                 </x-danger-button>
             </a>
             @endcan
-
-
         </div>
     </div>
 </div>

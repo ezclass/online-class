@@ -11,21 +11,20 @@
         <div class="grid grid-cols-12 bg-white ">
 
             <div class="col-span-12 w-full px-3 py-6 justify-center flex space-x-4 border-b border-solid md:space-x-0 md:space-y-4 md:flex-col md:col-span-2 md:justify-start ">
-                <a href="#" class="text-sm p-2 bg-indigo-900 text-white text-center rounded font-bold">Classes</a>
-
-                <a href="#" class="text-sm p-2 bg-indigo-200 text-center rounded font-semibold hover:bg-indigo-700 hover:text-gray-200">Lessons</a>
-
-                <a href="#" class="text-sm p-2 bg-indigo-200 text-center rounded font-semibold hover:bg-indigo-700 hover:text-gray-200">Another Something</a>
+                <span class="text-sm p-2 bg-indigo-900 text-white text-center rounded font-bold">Lessons</span>
             </div>
 
             <div class="col-span-12 md:border-solid md:border-l md:border-black md:border-opacity-25 h-full pb-12 md:col-span-10">
                 <div class="px-4 pt-4">
+
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                    <x-alart />
+
                     @can('create', $program)
                     <x-create-lesson :program="$program" />
                     @endcan
 
+                    <x-alart />
+                    
                     @foreach($lessons as $lesson)
                     <x-lesson-card :lesson="$lesson" />
                     @endforeach

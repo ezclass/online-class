@@ -8,7 +8,6 @@ use App\Http\Requests\Program\CreateProgramRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
-
 class CreateProgramController extends Controller
 {
     public function __invoke(CreateProgramRequest $request)
@@ -24,7 +23,8 @@ class CreateProgramController extends Controller
         $this->storeFile($class, $request->file('image'));
 
         return redirect()
-            ->route('teacher.dashboard');
+            ->route('teacher.dashboard')
+            ->with('success', 'Class created successful');
     }
 
     private function storeFile(Program $program, UploadedFile $file = null)
