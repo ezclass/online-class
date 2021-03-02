@@ -65,13 +65,13 @@ Route::middleware(['role:teacher'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
 
-    Route::get('/create-program', CreateProgramViewContraller::class)
+    Route::get('/create-class', CreateProgramViewContraller::class)
         ->name('create.program.viwe');
 
     Route::post('/create/program', CreateProgramController::class)
         ->name('create.program');
 
-    Route::get('/program', ProgramViewContraller::class)
+    Route::get('/class', ProgramViewContraller::class)
         ->name('program.view.teacher');
 
     Route::get('/update/program/{program}', UpdateProgramViewController::class)

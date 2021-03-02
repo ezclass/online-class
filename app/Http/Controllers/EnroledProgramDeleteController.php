@@ -11,6 +11,7 @@ class EnroledProgramDeleteController extends Controller
     {
         $enrolment->delete();
         return redirect()
-            ->back();
+            ->back()
+            ->with('success', 'Class deleted successful');
     }
 }

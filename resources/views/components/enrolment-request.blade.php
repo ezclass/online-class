@@ -21,7 +21,6 @@
                 </tr>
             </thead>
             <tbody>
-
                 @foreach($enrolments as $enrolment)
                 <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                     <td class="px-6 py-4 whitespace-nowrap">
@@ -71,7 +70,6 @@
                     </form>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
     </div>

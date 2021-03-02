@@ -2,18 +2,18 @@
 
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
     <x-alart />
-    
+
     <section class="text-gray-700">
         <div class="container mx-auto">
             <div class="flex flex-wrap -m-4">
-                @if(session('cancelled'))
+                @if(session('cancelled_pay'))
                 <div class="bg-red-100 border border-red-400 text-red-700 p-3 rounded relative my-6 w-full shadow" role="alert">
                     <strong class="font-bold">Sorry!</strong>
                     <span class="block sm:inline">The payment was not successful.</span>
                 </div>
                 @endif
 
-                @if(session('success'))
+                @if(session('success_pay'))
                 <div class="bg-green-100 border border-green-400 text-green-700 p-3 rounded relative my-6 w-full shadow" role="alert">
                     <strong class="font-bold">Congratulations!</strong>
                     <span class="block sm:inline">Your payment was successful.</span>

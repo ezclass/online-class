@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="mt-20 flex max-w-sm mx-auto bg-gradient-to-r from-yellow-500 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden lg:max-w-4xl">
+    <div class="mt-20 flex max-w-sm mx-auto bg-blue-50 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden lg:max-w-4xl">
         <div class="hidden lg:block lg:w-1/2 bg-cover" style="background-image:url('https://images.unsplash.com/photo-1602610411365-76e8c2a88e18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80')"></div>
 
         <div class="w-full py-8 px-6 md:px-8 lg:w-1/2">

@@ -26,7 +26,7 @@ class CheckoutController extends Controller
 
         return redirect()
             ->route('student.dashboard')
-            ->with('success', true);
+            ->with('success_pay', true);
     }
 
     public function cancelled(Request $request)
@@ -35,6 +35,6 @@ class CheckoutController extends Controller
 
         return redirect()
             ->route('student.dashboard')
-            ->with('cancelled', true);
+            ->with('cancelled_pay', true);
     }
 }
