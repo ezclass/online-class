@@ -11,9 +11,9 @@
 
                     <!-- hero text -->
                     <div class="hero-text col-span-6">
-                        <h1 class=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">ONLINE LEARNING PLATFORM</h1>
+                        <h1 class=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">The largest online learning platform in Sri Lanka</h1>
                         <hr class=" w-12 h-1 bg-orange-500 rounded-full mt-8">
-                        <p class="text-gray-800 text-base leading-relaxed mt-8 font-semibold">Your ultimate travel companion. Carries all the information you need while travelling</p>
+                        <p class="text-gray-800 text-base leading-relaxed mt-8 font-semibold">This is your ultimate online learning platform</p>
                         <div class="get-app flex space-x-5 mt-10 justify-center md:justify-start">
                             <button class="apple bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">
                                 <div class="logo">
@@ -100,4 +100,63 @@
                 </div>
             </div>
         </div><!-- end hero -->
+
+
+        <div class="mt-2 mx-auto bg-gray-200">
+            <!-- Carousel Body -->
+            <div class="relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl" style="min-height: 19rem;">
+                <div class="relative w-full md:w-2/5 h-full overflow-hidden rounded-t-lg md:rounded-t-none md:rounded-l-lg" style="min-height: 19rem;">
+                    <img class="absolute inset-0 w-full h-full object-cover object-center" src="{{ asset('storage/home/e-learn1.jpg')}}" alt="">
+                    <div class="absolute inset-0 w-full h-full bg-indigo-900 opacity-75"></div>
+                </div>
+                <div class="w-full md:w-3/5 h-full flex items-center bg-gray-100 rounded-lg">
+                    <div class="p-12 md:pr-24 md:pl-16 md:py-12">
+                        <p class="text-gray-600"><span class="text-gray-900">DIGITAL LEARN</span> is a UK-based fashion retailer that has nearly doubled in size since last year. They integrated Stripe to deliver seamless checkout across mobile and web for customers in 100+ countries, all while automatically combating fraud.</p>
+                    </div>
+                    <svg class="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polygon points="50,0 100,0 50,100 0,100" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class=" mx-auto bg-gray-200">
+            <!-- Carousel Body -->
+            <div class="relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl" style="min-height: 19rem;">
+                <div class="w-full md:w-3/5 h-full flex items-center bg-gray-100 rounded-lg">
+                    <div class="p-12 md:pr-24 md:pl-16 md:py-12">
+                        <p class="text-gray-600"><span class="text-gray-900">DIGITAL LEARN</span> is a UK-based fashion retailer that has nearly doubled in size since last year. They integrated Stripe to deliver seamless checkout across mobile and web for customers in 100+ countries, all while automatically combating fraud.</p>
+                    </div>
+                </div>
+
+                <div class="relative w-full md:w-2/5 h-full overflow-hidden rounded-t-lg md:rounded-t-none md:rounded-l-lg" style="min-height: 19rem;">
+                    <img class="absolute inset-0 w-full h-full object-cover object-center" src="{{ asset('storage/home/home.jpg')}}" alt="">
+                    <div class="absolute inset-0 w-full h-full bg-indigo-900 opacity-75"></div>
+
+                    <svg class="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polygon points="50,0 100,0 50,100 0,100" />
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mx-auto bg-gray-200">
+            <!-- Carousel Body -->
+            <div class="relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl" style="min-height: 19rem;">
+                <div class="relative w-full md:w-2/5 h-full overflow-hidden rounded-t-lg md:rounded-t-none md:rounded-l-lg" style="min-height: 19rem;">
+                    <img class="absolute inset-0 w-full h-full object-cover object-center" src="{{ asset('storage/home/e-learn2.jpg')}}" alt="">
+                    <div class="absolute inset-0 w-full h-full bg-indigo-900 opacity-75"></div>
+                </div>
+                <div class="w-full md:w-3/5 h-full flex items-center bg-gray-100 rounded-lg">
+                    <div class="p-12 md:pr-24 md:pl-16 md:py-12">
+                        <p class="text-gray-600"><span class="text-gray-900">DIGITAL LEARN</span> is a UK-based fashion retailer that has nearly doubled in size since last year. They integrated Stripe to deliver seamless checkout across mobile and web for customers in 100+ countries, all while automatically combating fraud.</p>
+                    </div>
+                    <svg class="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polygon points="50,0 100,0 50,100 0,100" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
 </x-app-layout>
