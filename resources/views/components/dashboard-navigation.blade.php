@@ -14,7 +14,7 @@
 
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('program.view.teacher')" :active="request()->routeIs('program.view.teacher')">
-                {{ __('All Classes') }}
+                {{ __('My Classes') }}
             </x-responsive-nav-link>
         </div>
     </nav>
