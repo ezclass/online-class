@@ -17,11 +17,16 @@
             <x-create-lesson :program="$program" />
             @endcan
 
+            <div class="text-xl">
+                Lessons
+            </div>
             <x-alart />
 
-            @foreach($lessons as $lesson)
-            <x-lesson-card :lesson="$lesson" />
-            @endforeach
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+                @foreach($lessons as $lesson)
+                <x-lesson-card :lesson="$lesson" />
+                @endforeach
+            </div>
 
         </div>
     </div>

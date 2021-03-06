@@ -1,6 +1,6 @@
 @foreach($enrolments as $enrolment)
 <div class="xl:w-1/3 sm:w-5/12 sm:max-w-xs xl:max-w-sm lg:w-1/2 w-11/12 mx-auto sm:mx-0">
-    <div class="mt-10 max-w-sm mx-auto w-full px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md">
+    <div class="mt-5 max-w-sm mx-auto w-full px-4 py-3 bg-white dark:bg-gray-800 shadow-md rounded-md">
         <div class="flex justify-between items-center">
             <span class="text-md font-light text-gray-800 dark:text-gray-400">
                 <img src="{{ asset('storage/avatar/'. $enrolment->program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">

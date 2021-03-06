@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
 
-    Route::get('/program/{program}', ViewProgramController::class)
+    Route::get('/Lesson/{program}', ViewProgramController::class)
         ->name('program.view');
 
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)

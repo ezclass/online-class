@@ -1,13 +1,13 @@
 <x-app-layout>
 
-    <div class="hero bg-gray-100 py-16">
+    <div class="hero bg-gray-100 py-1">
         <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
             <div class="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div class="hero-text col-span-6">
                     <div class=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">
                         <x-search-class-form :selected-grade-id="$selectedGradeId" :selected-subject-id="$selectedSubjectId" />
                     </div>
-                    <hr class=" w-12 h-1 bg-orange-500 rounded-full mt-8">
+
                 </div>
 
                 <div class="hero-image col-span-6">
