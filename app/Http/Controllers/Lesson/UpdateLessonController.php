@@ -16,6 +16,7 @@ class UpdateLessonController extends Controller
         $lesson->save();
 
         return redirect()
-            ->route('program.view', $lesson->program);
+            ->route('program.view', $lesson->program)
+            ->with('success','Lesson update successful');
     }
 }
