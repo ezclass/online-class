@@ -1,4 +1,4 @@
-<x-learning-room>
+<x-learning-room :lesson="$lesson">
 
     {{$lesson->program->subject->name}} <br>
     {{$lesson->name}} <br>

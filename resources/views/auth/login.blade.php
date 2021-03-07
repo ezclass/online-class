@@ -25,7 +25,7 @@
                 @csrf
                 <div class="mt-4">
                     <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="LoggingEmailAddress">Email Address</label>
-                    <input id="email" class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email" name="email" :value="old('email')" required autofocus>
+                    <input id="email" type="email" name="email" :value="old('email')" required autofocus class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                 </div>
 
                 <div class="mt-4">

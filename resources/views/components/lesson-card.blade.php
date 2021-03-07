@@ -11,7 +11,7 @@
 
     <div>
         <div class="flex items-center justify-center mt-4">
-            <a href="{{route('learning-room-view',$lesson)}}" class="mr-4 text-green-500 cursor-pointer dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+            <a href="{{route('overview',$lesson)}}" class="mr-4 text-green-500 cursor-pointer dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
                 Learning Room
             </a>
 

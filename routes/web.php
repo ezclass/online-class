@@ -8,7 +8,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Enroll\AcceptEnrolmentController;
 use App\Http\Controllers\EnrolmentRequestController;
 use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\LearningRoomController;
 use App\Http\Controllers\Lesson\CreateLessonController;
 use App\Http\Controllers\Lesson\DeleteLessonController;
 use App\Http\Controllers\Lesson\UpdateLessonController;
@@ -21,6 +20,9 @@ use App\Http\Controllers\Program\ProgramViewContraller;
 use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\EnroledProgramDeleteController;
+use App\Http\Controllers\LearningRoom\MeatController;
+use App\Http\Controllers\LearningRoom\OverviewController;
+use App\Http\Controllers\LearningRoom\PastPaperController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,8 +47,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
         ->name('enroll.request.accept');
 
-    Route::get('/learning-room/{lesson}', LearningRoomController::class)
-        ->name('learning-room-view');
+    Route::get('/overview/{lesson}', OverviewController::class)
+        ->name('overview');
+
+    Route::get('/meat/{lesson}', MeatController::class)
+        ->name('meat');
+
+    Route::get('/past-paper/{lesson}', PastPaperController::class)
+        ->name('pastpaper');
 
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
         ->name('checkout.success');
