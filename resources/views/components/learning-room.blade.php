@@ -34,6 +34,7 @@
                 <!-- Sidebar -->
                 <aside x-transition:enter="transition transform duration-300" x-transition:enter-start="-translate-x-full opacity-30  ease-in" x-transition:enter-end="translate-x-0 opacity-100 ease-out" x-transition:leave="transition transform duration-300" x-transition:leave-start="translate-x-0 opacity-100 ease-out" x-transition:leave-end="-translate-x-full opacity-0 ease-in" class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-64 max-h-screen overflow-hidden transition-all transform bg-white border-r
                 shadow-lg lg:z-auto lg:static lg:shadow-none" :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}">
+
                     <!-- sidebar header -->
                     <div class="flex items-center justify-between flex-shrink-0 p-2" :class="{'lg:justify-center': !isSidebarOpen}">
                         <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
@@ -48,7 +49,7 @@
 
                     <!-- Sidebar links -->
                     <nav class="flex-1 overflow-hidden hover:overflow-y-auto">
-                        <ul class="p-2 overflow-hidden">
+                        <ul class="p-1 overflow-hidden">
 
                             <x-responsive-nav-link :href="route('overview',$lesson)" :active="request()->routeIs('overview',$lesson)">
                                 {{ __('Overview') }}
@@ -66,7 +67,7 @@
                     </nav>
                 </aside>
 
-                <div class="flex flex-col flex-1 h-full overflow-hidden">
+                <div class="flex bg-gray-100 flex-col flex-1 h-full overflow-hidden">
                     <!-- Navbar -->
                     <header class="flex-shrink-0 border-b">
                         <div class="flex items-center justify-between p-2">
@@ -131,13 +132,6 @@
                     </header>
                     <!-- Main content -->
                     <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
-                        <!-- Main content header -->
-                        <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
-                            <h1 class="text-2xl font-semibold whitespace-nowrap">Classroom</h1>
-                            <div class="space-x-2">
-
-                            </div>
-                        </div>
 
                         <main>
                             {{ $slot }}
