@@ -20,7 +20,7 @@ use App\Http\Controllers\Program\ProgramViewContraller;
 use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\EnroledProgramDeleteController;
-use App\Http\Controllers\LearningRoom\MeatController;
+use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\LearningRoom\PastPaperController;
 use App\Http\Controllers\ViewProgramController;
@@ -50,8 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/overview/{lesson}', OverviewController::class)
         ->name('overview');
 
-    Route::get('/meat/{lesson}', MeatController::class)
-        ->name('meat');
+    Route::get('/meet/{lesson}', MeetController::class)
+        ->name('meet');
 
     Route::get('/past-paper/{lesson}', PastPaperController::class)
         ->name('pastpaper');
@@ -65,7 +65,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/checkout/{program}', [CheckoutController::class, 'show'])
         ->name('checkout');
 });
-
 
 // ----------------------
 
