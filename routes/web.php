@@ -23,6 +23,7 @@ use App\Http\Controllers\EnroledProgramDeleteController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\LearningRoom\PastPaperController;
+use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,9 @@ Route::get('/', HomeController::class)
 
 Route::get('/search-class', SearchClassController::class)
     ->name('search-class');
+
+Route::get('/privacy-policy', PrivacyPolicyController::class)
+    ->name('privacy-policy');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', DashboardController::class)

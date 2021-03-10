@@ -12,14 +12,14 @@
 
             <div>
                 <x-label for="">Start at</x-label>
-                <input type="date" name="starts_at" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="date" required>
+                <input type="datetime-local" name="starts_at" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="date" required>
             </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             <div>
                 <x-label for="">End at</x-label>
-                <input type="time" name="ends_at" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="time" required>
+                <input type="datetime-local" name="ends_at" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="time" required>
             </div>
 
             <div>

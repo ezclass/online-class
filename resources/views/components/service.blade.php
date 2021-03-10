@@ -1,7 +1,7 @@
 <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
     <div class='flex  p-8 w-full  rounded-lg overflow-hidden mx-auto'>
-        <div class="relative flex flex-col items-center justify-around p-4 mr-4 w-80 h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
+        <div class="relative flex flex-col items-center justify-around p-4  w-80 h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-300 rounded-xl -rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-400 rounded-xl rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full transform scale-x-105 scale-y-95 bg-white rounded-xl " style="z-index: -1;"></div>
@@ -26,7 +26,7 @@
     </div>
 
     <div class='flex  p-8 w-full rounded-lg overflow-hidden mx-auto'>
-        <div class="relative flex flex-col items-center justify-around p-4 mr-4 w-80 h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
+        <div class="relative flex flex-col items-center justify-around p-4 w-80 h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-300 rounded-xl -rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-400 rounded-xl rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full transform scale-x-105 scale-y-95 bg-white rounded-xl " style="z-index: -1;"></div>
@@ -49,7 +49,7 @@
     </div>
 
     <div class='flex  p-8 w-full rounded-lg overflow-hidden mx-auto'>
-        <div class="relative flex flex-col items-center justify-around p-4 mr-4 w-80 h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
+        <div class="relative flex flex-col items-center justify-around p-4  w-80 h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-300 rounded-xl -rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-400 rounded-xl rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full transform scale-x-105 scale-y-95 bg-white rounded-xl " style="z-index: -1;"></div>
@@ -72,7 +72,7 @@
     </div>
 
     <div class='flex  p-8 w-full  rounded-lg overflow-hidden mx-auto'>
-        <div class="relative flex flex-col items-center justify-around p-4 mr-4 w-80 h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
+        <div class="relative flex flex-col items-center justify-around p-4 w-80 h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-300 rounded-xl -rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-400 rounded-xl rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full transform scale-x-105 scale-y-95 bg-white rounded-xl " style="z-index: -1;"></div>

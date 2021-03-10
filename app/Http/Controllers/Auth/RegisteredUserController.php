@@ -25,6 +25,7 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|confirmed|min:8',
             'avatar' => 'required',
             'role' => 'required|in:student,teacher',
+            'privacy-policy' => 'required|in:1',
         ]);
 
         Auth::login($user = User::create([

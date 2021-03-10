@@ -82,7 +82,8 @@
                                 </button>
                             </div>
 
-                            <a href="{{route('welcome')}}"> Home</a>
+                            <a href="{{route('welcome')}}"> Home</a> | 
+                            <a href="{{route('program.view',$lesson->program)}}"> Lesson</a>
                             <!-- Navbar right -->
                             <div class="relative flex items-center space-x-3">
                                 <!-- avatar button -->

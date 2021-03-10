@@ -8,7 +8,6 @@ use App\Models\Program;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class SearchClassController extends Controller
 {
     public function __invoke(Request $request)

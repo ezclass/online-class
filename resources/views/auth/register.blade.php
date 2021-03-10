@@ -59,6 +59,13 @@
                     </select>
                 </div>
 
+                <div class="block mt-4">
+                    <label for="Privacy_Policy" class="inline-flex items-center">
+                        <input id="Privacy_Policy" type="checkbox" value="1" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="privacy-policy">
+                        <span class="ml-2 text-sm text-gray-600">I agree to the terms and conditions of the <a href="{{route('privacy-policy')}}" class="text-blue-500"><u>Privacy Policy</u></a> </span>
+                    </label>
+                </div>
+
                 <div class="mt-8">
                     <button type="submit" class="bg-gray-700 text-white py-2 px-4 w-full tracking-wide rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                         Register
