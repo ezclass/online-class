@@ -3,7 +3,7 @@
 
     <div>
         <label for="name" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Your Class Name</label>
-        <x-input type="text" name="name" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required />
+        <x-input type="text" name="name" :value="old('name')" class="block mt-1 w-full" required autofocus />
     </div>
 
     <div class="mt-4">
@@ -38,7 +38,7 @@
 
     <div class="mt-4">
         <label for="fees" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class fees for the month</label>
-        <input type="number" name="fees" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+        <input type="number" name="fees" id="fees" :value="old('fees')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
     </div>
 
     <div class="mt-4">
