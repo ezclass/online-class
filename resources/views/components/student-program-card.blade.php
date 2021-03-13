@@ -47,7 +47,7 @@
             @endif
         </div>
 
-        <div class="ml-20 justify-center text-red-500">
+        <div class="mt-5 ml-32 justify-center text-red-500">
             <a href="{{route('enroled-program.delete',$enrolment)}}">
                 Delete Class
             </a>

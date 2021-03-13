@@ -1,12 +1,11 @@
 <div class="mt-2 w-full max-w-sm px-4 py-3 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-    <div class="flex items-center justify-between">
-        <span class="text-sm font-light text-gray-800 dark:text-gray-400">No.</span>
-        <span class="px-3 py-1 text-xs text-indigo-800 uppercase bg-indigo-200 rounded-full dark:bg-indigo-300 dark:text-indigo-900">{{$lesson->name}}</span>
+    <div>
+        <h1 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">{{$lesson->name}}</h1>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{$lesson->starts_at->format('M d,Y')}} - {{$lesson->starts_at->format('h:i A')}} - {{$lesson->ends_at->format('h:i A')}}</p>
     </div>
 
-    <div>
-        <h1 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">AP® Psychology - Course 5: Health and Behavior</h1>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{$lesson->starts_at}} <br> {{$lesson->ends_at}}</p>
+    <div class="mt-4">
+        {{$lesson->note}}
     </div>
 
     <div>
