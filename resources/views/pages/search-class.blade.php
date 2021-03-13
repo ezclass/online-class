@@ -23,9 +23,14 @@
     <x-alart />
 
     <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
-        @foreach($programs as $program)
+        @forelse($programs as $program)
         <x-program-card :program="$program" />
-        @endforeach
+        @empty
+        <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
+            <strong class="font-bold">oops!</strong>
+            <span class="block sm:inline">Still no class. Coming Soon!</span>
+        </div>
+        @endforelse
     </div>
 
     <div class="mt-10 mb-10">
