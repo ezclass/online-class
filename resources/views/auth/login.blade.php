@@ -2,7 +2,7 @@
 
     <x-auth-page>
         <h1 class="font-black uppercase text-3xl lg:text-5xl text-yellow-500 mb-10">Login</h1>
-        
+
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
         <!-- Validation Errors -->
@@ -47,6 +47,7 @@
                 <span class="border-b dark:border-gray-600 w-1/5 md:w-1/4"></span>
             </div>
         </form>
+        
     </x-auth-page>
 
 </x-app-layout>

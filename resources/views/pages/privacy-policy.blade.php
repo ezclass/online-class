@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-bg-layout>
-        
-    </x-bg-layout>
+    <x-page-layout>
+
+    </x-page-layout>
 </x-app-layout>
