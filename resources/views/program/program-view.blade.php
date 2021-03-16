@@ -17,17 +17,22 @@
             <x-create-lesson :program="$program" />
             @endcan
 
-            <div class="text-xl">
+            <div class="text-xl mt-8 m-10">
                 Lessons
             </div>
+
             <x-alart />
 
             <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-                @foreach($lessons as $lesson)
+                @forelse($lessons as $lesson)
                 <x-lesson-card :lesson="$lesson" />
-                @endforeach
+                @empty
+                <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
+                    <strong class="font-bold">oops!</strong>
+                    <span class="block sm:inline">No lessons yet, create a new lesson</u></a></span>
+                </div>
+                @endforelse
             </div>
-
         </div>
     </div>
 
