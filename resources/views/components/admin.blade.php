@@ -187,7 +187,7 @@
                                 @csrf
                                 <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                                   <span :class="{'lg:hidden': !isSidebarOpen}">  {{ __('Logout') }} </span>
+                                    <span :class="{'lg:hidden': !isSidebarOpen}"> {{ __('Logout') }} </span>
                                 </x-responsive-nav-link>
                             </form>
                             @endauth

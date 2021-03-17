@@ -82,51 +82,28 @@
                                 </button>
                             </div>
 
-                            <a href="{{route('welcome')}}"> Home</a> | 
+                            <a href="{{route('welcome')}}"> Home</a> |
                             <a href="{{route('program.view',$lesson->program)}}"> Lesson</a>
                             <!-- Navbar right -->
                             <div class="relative flex items-center space-x-3">
                                 <!-- avatar button -->
                                 <div class="relative" x-data="{ isOpen: false }">
-                                    <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
-                                        <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="Ahmed Kamel" />
-                                    </button>
+                                    <div>
+                                        @role('teacher')
+                                        <x-dropdown-link href="{{ route('teacher.dashboard') }}">
+                                            <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="Ahmed Kamel">
+                                        </x-dropdown-link>
+                                        @endrole
+                                        @role('student')
+                                        <x-dropdown-link href="{{ route('student.dashboard') }}">
+                                            <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="Ahmed Kamel" />
+                                        </x-dropdown-link>
+                                        @endrole
+                                    </div>
+
                                     <!-- green dot -->
                                     <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping"></div>
                                     <div class="absolute right-0 p-1 bg-green-400 border border-white rounded-full bottom-3"></div>
-
-                                    <!-- Dropdown card -->
-                                    <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max">
-                                        <div class="flex flex-col p-4 space-y-1 font-medium border-b">
-                                            <span class="text-gray-800">{{Auth::User()->name}}</span>
-                                            <span class="text-sm text-gray-400">{{Auth::User()->email}}</span>
-                                        </div>
-                                        <div>
-                                            @role('teacher')
-                                            <x-dropdown-link href="{{ route('teacher.dashboard') }}">
-                                                {{__('Dashboard')}}
-                                            </x-dropdown-link>
-                                            @endrole
-                                            @role('student')
-                                            <x-dropdown-link href="{{ route('student.dashboard') }}">
-                                                {{__('Dashboard')}}
-                                            </x-dropdown-link>
-                                            @endrole
-                                            @role('admin')
-                                            <x-dropdown-link href="{{ route('admin.dashboard') }}">
-                                                {{__('Dashboard')}}
-                                            </x-dropdown-link>
-                                            @endrole
-                                        </div>
-
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
-                                                {{ __('Logout') }}
-                                            </x-dropdown-link>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -148,8 +125,6 @@
                         </div>
                         <div>
                             <!-- Github svg -->
-
-
                         </div>
                     </footer>
                 </div>

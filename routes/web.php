@@ -20,6 +20,7 @@ use App\Http\Controllers\Program\ProgramViewContraller;
 use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\EnroledProgramDeleteController;
+use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\LearningRoom\PastPaperController;
@@ -106,6 +107,10 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
+
+
+    Route::post('/file-upload/{lesson}', FileUploadController::class)
+        ->name('file.upload');
 });
 
 Route::middleware(['role:student'])->group(function () {
