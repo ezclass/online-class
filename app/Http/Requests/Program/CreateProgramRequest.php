@@ -21,6 +21,10 @@ class CreateProgramRequest extends FormRequest
             'fees' => 'required',
             'medium' => 'required|integer',
             'subject' => 'required|integer',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'day' => 'required',
+            'recurrence' => 'required',
         ];
     }
 }

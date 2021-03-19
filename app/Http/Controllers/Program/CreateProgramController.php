@@ -8,6 +8,7 @@ use App\Http\Requests\Program\CreateProgramRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
+
 class CreateProgramController extends Controller
 {
     public function __invoke(CreateProgramRequest $request)
@@ -18,6 +19,10 @@ class CreateProgramController extends Controller
         $class->fees = $request->get('fees');
         $class->subject_id  = Obfuscate::decode($request->get('subject'));
         $class->language_id  = Obfuscate::decode($request->get('medium'));
+        $class->start_date = $request->get('start_date');
+        $class->end_date = $request->get('end_date');
+        $class->day = $request->get('day');
+        $class->recurrence = $request->get('recurrence');
         $class->user_id = Auth::user()->id;
         $class->save();
         $this->storeFile($class, $request->file('image'));
