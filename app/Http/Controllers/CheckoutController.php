@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use ApiChef\PayHere\Payment;
+use ApiChef\PayHere\Subscription;
 use App\Models\Program;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class CheckoutController extends Controller
 {
     public function show(Program $program, Request $request)
     {
+        $duration = Carbon::now()->diffInMonths($program->end_date);
 
-        $payment = Payment::make($program, $request->user(), $program->fees);
+        $payment = Subscription::make(
+            $program,
+            $request->user(),
+            '1 Month',
+            "{$duration} Month",
+            $program->fees
+        );
 
         return view('payhere.checkout')
             ->with([
