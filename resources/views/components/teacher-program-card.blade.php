@@ -4,8 +4,8 @@
     </div>
     <h5 class="mt-2 text-sm font-medium">{{ $program->language->name }}</h5>
     <h2 class="mt-2 font-bold text-xl">{{ $program->subject->name }}</h2>
-    <h6 class="mt-2 text-sm font-bold font-medium">{{ $program->grade->name }}</h6>
-   
+    <h6 class="mt-2 text-sm">{{ $program->grade->name }}</h6>
+
     <p class="mt-3 text-xl text-indigo-800 text-center pb-3">Rs:{{ $program->fees }}</p>
     <div class="mt-2 flex space-x-4">
         <a href="{{route('program.view',$program->getRouteKey())}}">

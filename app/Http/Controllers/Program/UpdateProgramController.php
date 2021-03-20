@@ -12,7 +12,6 @@ class UpdateProgramController extends Controller
 {
     public function __invoke(UpdateProgramRequest $request, Program $program)
     {
-        $program->name = $request->get('name');
         $program->grade_id = $request->get('grade_id');
         $program->fees = $request->get('fees');
         $program->subject_id = $request->get('subject_id');

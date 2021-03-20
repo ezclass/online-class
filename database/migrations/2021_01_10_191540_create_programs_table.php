@@ -10,7 +10,6 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->foreignId('grade_id');
             $table->string('image')->nullable();
             $table->double('fees');

@@ -20,7 +20,6 @@ class ProgramFactory extends Factory
         $startDate = Carbon::parse($this->faker->dateTimeBetween('-2 months', '+6 months'));
 
         return [
-            'name' => $this->faker->name,
             'grade_id' => Grade::query()->inRandomOrder()->first()->id,
             'image' => $this->faker->imageUrl(),
             'fees' => $this->faker->randomFloat(2, 50, 5000),

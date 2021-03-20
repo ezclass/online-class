@@ -14,7 +14,6 @@ class CreateProgramController extends Controller
     public function __invoke(CreateProgramRequest $request)
     {
         $class = new Program();
-        $class->name = $request->get('name');
         $class->grade_id = Obfuscate::decode($request->get('grade'));
         $class->fees = $request->get('fees');
         $class->subject_id  = Obfuscate::decode($request->get('subject'));

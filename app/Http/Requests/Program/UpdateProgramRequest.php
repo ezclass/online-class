@@ -14,12 +14,15 @@ class UpdateProgramRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
             'grade_id' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:5120',
             'fees' => 'required',
             'subject_id' => 'required',
             'language_id' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'day' => 'required',
+            'recurrence' => 'required',
         ];
     }
 }

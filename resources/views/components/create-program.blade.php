@@ -48,7 +48,16 @@
 
     <div class="mt-4">
         <label for="day" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">class Day</label>
-        <input type="date" name="day" id="day" :value="old('day')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+        <select id="day" name="day" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+            <option selected disabled>day</option>
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="saturday">Saturday</option>
+            <option value="wednesday">Sunday</option>
+        </select>
     </div>
 
     <div class="mt-4">

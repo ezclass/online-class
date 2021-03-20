@@ -15,7 +15,6 @@ class CreateProgramRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20',
             'grade' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:5120',
             'fees' => 'required',
