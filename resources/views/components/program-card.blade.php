@@ -5,6 +5,9 @@
     <h5 class="mt-2 text-sm font-medium">{{ $program->language->name }}</h5>
     <h2 class="mt-2 font-bold text-xl">{{ $program->subject->name }}</h2>
     <h6 class="mt-2 text-sm font-medium">{{ $program->grade->name }}</h6>
+    <h6 class="mt-2 text-sm font-medium">{{ $program->start_date}}</h6>
+    <h6 class="mt-2 text-sm font-medium">{{ $program->end_date }}</h6>
+    <h6 class="mt-2 text-sm font-medium">{{ $program->day}}</h6>
     <p class="mt-2 text-sm text-gray-800 text-center">
         <img src="{{ asset('storage/avatar/'. $program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
         <a href="javascript:void(0)"><span class="text-indigo-700 cursor-pointer">{{ $program->teacher->name }}</span></a>

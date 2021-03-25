@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use ApiChef\PayHere\Payment;
 use ApiChef\PayHere\Subscription;
 use App\Models\Program;
 use Illuminate\Http\Request;
@@ -14,7 +13,7 @@ class CheckoutController extends Controller
     {
         $duration = Carbon::now()->diffInMonths($program->end_date);
 
-        $payment = Subscription::make(
+        $subscription = Subscription::make(
             $program,
             $request->user(),
             '1 Month',
@@ -24,14 +23,14 @@ class CheckoutController extends Controller
 
         return view('payhere.checkout')
             ->with([
-                'payment' => $payment,
+                'payment' => $subscription,
                 'program' => $program,
             ]);
     }
 
     public function success(Request $request)
     {
-        $payment = Payment::findByOrderId($request->get('order_id'));
+        $subscription = Subscription::findByOrderId($request->get('order_id'));
 
         return redirect()
             ->route('student.dashboard')
@@ -40,7 +39,7 @@ class CheckoutController extends Controller
 
     public function cancelled(Request $request)
     {
-        $payment = Payment::findByOrderId($request->get('order_id'));
+        $subscription = Subscription::findByOrderId($request->get('order_id'));
 
         return redirect()
             ->route('student.dashboard')
