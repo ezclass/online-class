@@ -8,4 +8,7 @@
         <x-explain />
 
     </div>
+
+    <x-footer />
+
 </x-app-layout>

@@ -149,9 +149,12 @@
             @endforelse
         </div>
 
-        <div class="mt-10 mb-10">
+        <div class="mt-10 py-4 px-4">
             {{ $programs->links() }}
         </div>
 
     </div>
+
+    <x-footer />
+
 </x-app-layout>
