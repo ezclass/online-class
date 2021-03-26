@@ -14,7 +14,7 @@ class ProgramViewContraller extends Controller
         return view('program.program')
             ->with([
                 'programs' => Program::query()
-                    ->with(['grade', 'subject', 'language'])
+                    ->with(['grade', 'subject', 'language', 'enrolments'])
                     ->where('user_id', Auth::user()->id)
                     ->get(),
             ]);

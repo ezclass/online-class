@@ -38,6 +38,12 @@ class Program extends Model
         return $this->hasMany(Lesson::class);
     }
 
+
+    public function enrolments()
+    {
+        return $this->hasMany(Enrolment::class);
+    }
+
     // actions
 
     public function enrollStudent(User $user)
