@@ -13,8 +13,8 @@ class CreateProgramsTable extends Migration
             $table->foreignId('grade_id');
             $table->string('image')->nullable();
             $table->double('fees');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->string('day');
             $table->string('recurrence');
             $table->foreignId('user_id')->constrained();

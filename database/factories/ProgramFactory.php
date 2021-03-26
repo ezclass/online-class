@@ -17,14 +17,14 @@ class ProgramFactory extends Factory
 
     public function definition()
     {
-        $startDate = Carbon::parse($this->faker->dateTimeBetween('-2 months', '+6 months'));
+        $startDate = Carbon::parse($this->faker->dateTimeBetween('-2 months', '+01 months'));
 
         return [
             'grade_id' => Grade::query()->inRandomOrder()->first()->id,
             'image' => $this->faker->imageUrl(),
             'fees' => $this->faker->randomFloat(2, 50, 5000),
             'start_date' => $startDate,
-            'end_date' => $startDate->addMonth(11),
+            'end_date' => $startDate->addMonth(7),
             'day' => $this->faker->dayOfWeek(),
             'recurrence' => $this->faker->name,
             'user_id' => User::role(Role::ROLE_TEACHER)->inRandomOrder()->first()->id,

@@ -3,12 +3,13 @@
         <img src="{{$program->image}}" alt="" class="h-full w-full object-cover overflow-hidden rounded" />
     </div>
     <h5 class="mt-2 text-sm font-medium">{{ $program->language->name }}</h5>
+    <span class="mt-2 text-xl font-medium">{{ $program->grade->name }}</span>
     <h2 class="mt-2 font-bold text-xl">{{ $program->subject->name }}</h2>
-    <h6 class="mt-2 text-sm font-medium">{{ $program->grade->name }}</h6>
-    <h6 class="mt-2 text-sm font-medium">{{ $program->start_date}}</h6>
-    <h6 class="mt-2 text-sm font-medium">{{ $program->end_date }}</h6>
-    <h6 class="mt-2 text-sm font-medium">{{ $program->day}}</h6>
-    <p class="mt-2 text-sm text-gray-800 text-center">
+
+    <h6 class="mt-8 text-sm font-medium">Clas Start Date : <span class="text-indigo-700">{{ $program->start_date}}</span></h6>
+    <h6 class="mt-2 text-sm font-medium">Class End Date : <span class="text-indigo-700">{{ $program->end_date }}</span></h6>
+    <h6 class="mt-2 text-sm font-medium">Class Day : <span class="text-indigo-700">{{ $program->day}}</span></h6>
+    <p class="mt-8 text-sm text-gray-800 text-center">
         <img src="{{ asset('storage/avatar/'. $program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
         <a href="javascript:void(0)"><span class="text-indigo-700 cursor-pointer">{{ $program->teacher->name }}</span></a>
     </p>
