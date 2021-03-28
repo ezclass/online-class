@@ -2,7 +2,6 @@
 
 <x-auth-page>
 
-    <h1 class="font-black uppercase text-3xl lg:text-5xl text-yellow-500 mb-10">Register</h1>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
