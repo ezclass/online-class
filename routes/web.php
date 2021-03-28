@@ -25,6 +25,7 @@ use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\LearningRoom\PastPaperController;
 use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\Program\PaymentDetailController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -107,6 +108,9 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
+
+    Route::get('/payment-detail/{program}', PaymentDetailController::class)
+        ->name('payment.detail');
 
 
     Route::post('/file-upload/{lesson}', FileUploadController::class)
