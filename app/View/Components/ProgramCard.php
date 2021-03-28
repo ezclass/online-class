@@ -8,7 +8,7 @@ use Illuminate\View\Component;
 class ProgramCard extends Component
 {
     public Program $program;
-    
+
     public function __construct(Program $program)
     {
         $this->program = $program;

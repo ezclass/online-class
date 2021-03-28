@@ -31,10 +31,22 @@ class Enrolment extends Model
         $query->whereNull('accepted_at');
     }
 
+    public function scopeEnroled(Builder $query)
+    {
+        $query->whereNotNull('accepted_at');
+    }
+
     public function scopeOfTeacher(Builder $query, User $teacher)
     {
         $query->whereHas('program', function (Builder $query) use ($teacher) {
             $query->where('user_id', $teacher->id);
+        });
+    }
+
+    public function scopeStudents(Builder $query, Program $program)
+    {
+        $query->whereHas('program', function (Builder $query) use ($program) {
+            $query->where('id', $program->id);
         });
     }
 
