@@ -1,11 +1,18 @@
-<div class="flex flex-wrap -m-2">
-    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-            <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/80x80">
-            <div class="flex-grow">
-                <h2 class="text-gray-900 title-font font-medium">{{$enrolment->student->name}}</h2>
-                <p class="text-gray-500">{{$enrolment->student->email}}</p>
-            </div>
+<div class="mt-4 bg-white w-full flex items-center p-2 rounded-xl shadow border">
+    <div class="flex items-center space-x-4">
+        <img src="{{ asset('storage/avatar/'. $enrolment->student->avatar )}}" alt="My profile" class="w-16 h-16 rounded-full">
+    </div>
+    <div class="flex-grow p-3">
+        <div class="font-semibold text-gray-700">
+            {{$enrolment->student->name}}
+        </div>
+        <div class="text-sm text-gray-500">
+            You: Thanks, sounds good! . 8hr
+        </div>
+    </div>
+    <div class="p-2">
+        <div>
+            <a href="">Block</a>
         </div>
     </div>
 </div>

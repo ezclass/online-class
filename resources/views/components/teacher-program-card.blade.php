@@ -1,41 +1,38 @@
-<div class="p-4 lg:w-1/3">
-    <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-8 pb-24 rounded-lg overflow-hidden text-center relative">
-        <h2 class="tracking-widest text-xs text-left title-font font-medium text-gray-400 mb-1">All Students : {{ $program->enrolments->count() }}</h2>
-        <div class="mt-4">
-            <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">{{ $program->grade->name }}</h2>
-            <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1"> {{ $program->language->name }}</h2>
+<div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
+    <img class="w-full max-h-44" src="{{ asset('storage/class_image/'. $program->image )}}" alt="image" /> <!--{{ asset('storage/class_image/'. $program->image )}} -->
+    <div class="badge absolute top-0 right-0 bg-red-500 m-1 text-gray-200 p-1 px-2 text-xs font-bold rounded">Rs:{{ $program->fees }}</div>
+    <div class="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300">
+        <span class="mr-1 p-1 px-2 font-bold">All Students : {{ $program->enrolments->count() }}</span>
+        <span class="mr-1 p-1 px-2 font-bold border-l border-gray-400">{{ $program->language->name }}</span>
+        <span class="mr-1 p-1 px-2 font-bold border-l border-gray-400">Rs:{{ $program->fees }}</span>
+    </div>
+    <div class="desc p-4 text-gray-800">
+        <span class="title font-bold block">{{ $program->subject->name }}</span>
+        <span class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold">{{ $program->grade->name }}</span>
+
+        <div class="m-6">
+            <a href="{{route('payment.detail',$program)}}" class="description text-sm  py-2 border-gray-400 mb-2 text-indigo-500 inline-flex items-center">More Detail
+                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
         </div>
-        <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">{{ $program->subject->name }}</h1>
-        <div class="mt-3 text-xl text-indigo-800 pb-3 text-left">
-            Rs:{{ $program->fees }}
-        </div>
-        <p class="leading-relaxed mb-3"> </p>
-        <a href="{{route('payment.detail',$program)}}" class="text-indigo-500 inline-flex items-center">More Detail
-            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path>
-                <path d="M12 5l7 7-7 7"></path>
-            </svg>
-        </a>
-        <div class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-            <span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+
+        <div class="text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+            <span class="text-blue-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <a href="{{route('program.view',$program->getRouteKey())}}">
-                    <x-primary-button>
-                        Lessons
-                    </x-primary-button>
+                    Lessons
                 </a>
             </span>
-            <span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+            <span class="text-yellow-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <a href="{{route('update.program.view',$program->getRouteKey())}}">
-                    <x-success-button>
-                        Update
-                    </x-success-button>
+                    Update
                 </a>
             </span>
-            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+            <span class="text-red-400 inline-flex items-center leading-none text-sm">
                 <a href="{{route('delete.program', $program->getRouteKey())}}">
-                    <x-danger-button class="">
-                        Delete
-                    </x-danger-button>
+                    Delete
                 </a>
             </span>
         </div>
