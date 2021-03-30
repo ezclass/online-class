@@ -52,7 +52,7 @@ class SubjectSeeder extends Seeder
             ['name' => ['si' =>'රසායන විද්‍යාව',  'en' => 'Chemistry']],
             ['name' => ['si' =>'කෘෂි විද්‍යාව',  'en' => 'Agriculture Science']],
             ['name' => ['si' =>'ජීව විද්‍යාව',  'en' => 'Biology']],
-            ['name' => ['si' =>'සංයුක්ත ගණිතය',  'en' => 'combined maths']],
+            ['name' => ['si' =>'සංයුක්ත ගණිතය',  'en' => 'Combined Maths']],
             ['name' => ['si' =>'ආර්ථික විද්‍යාව',  'en' => 'Economics']],
             ['name' => ['si' =>'තර්කනය සහ විද්‍යාත්මක ක්‍රමය',  'en' => 'Logic and the Scientific Method']],
             ['name' => ['si' =>'දේශපාලන විද්‍යාව',  'en' => 'Political Science']],

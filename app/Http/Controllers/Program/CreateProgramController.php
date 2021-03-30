@@ -13,18 +13,18 @@ class CreateProgramController extends Controller
 {
     public function __invoke(CreateProgramRequest $request)
     {
-        $class = new Program();
-        $class->grade_id = Obfuscate::decode($request->get('grade'));
-        $class->fees = $request->get('fees');
-        $class->subject_id  = Obfuscate::decode($request->get('subject'));
-        $class->language_id  = Obfuscate::decode($request->get('medium'));
-        $class->start_date = $request->get('start_date');
-        $class->end_date = $request->get('end_date');
-        $class->day = $request->get('day');
-        $class->recurrence = $request->get('recurrence');
-        $class->user_id = Auth::user()->id;
-        $class->save();
-        $this->storeFile($class, $request->file('image'));
+        $program = new Program();
+        $program->grade_id = Obfuscate::decode($request->get('grade'));
+        $program->fees = $request->get('fees');
+        $program->subject_id  = Obfuscate::decode($request->get('subject'));
+        $program->language_id  = Obfuscate::decode($request->get('medium'));
+        $program->start_date = $request->get('start_date');
+        $program->end_date = $request->get('end_date');
+        $program->day = $request->get('day');
+        $program->recurrence = $request->get('recurrence');
+        $program->user_id = Auth::user()->id;
+        $program->save();
+        $this->storeFile($program, $request->file('image'));
 
         return redirect()
             ->route('program.view.teacher')

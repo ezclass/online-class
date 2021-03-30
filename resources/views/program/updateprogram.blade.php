@@ -46,12 +46,12 @@
 
             <div class="mt-4">
                 <label for="start_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">class start date</label>
-                <input type="datetime-local" value="{{$program->start_date}}" name="start_date" id="start_date" :value="old('start_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                <input type="date" value="{{$program->start_date}}" name="start_date" id="start_date" :value="old('start_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
             <div class="mt-4">
                 <label for="end_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">class end date</label>
-                <input type="datetime-local" value="{{$program->end_date}}" name="end_date" id="end_date" :value="old('end_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                <input type="date" value="{{$program->end_date}}" name="end_date" id="end_date" :value="old('end_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
             <div class="mt-4">
