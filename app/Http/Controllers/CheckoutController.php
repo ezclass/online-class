@@ -11,7 +11,7 @@ class CheckoutController extends Controller
 {
     public function show(Program $program, Request $request)
     {
-        $duration = Carbon::now()->diffInMonths($program->end_date);
+        $duration = Carbon::create($program->start_date)->diffInMonths($program->end_date);
 
         $subscription = Subscription::make(
             $program,

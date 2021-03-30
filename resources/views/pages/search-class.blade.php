@@ -138,7 +138,7 @@
 
         <x-alart />
 
-        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div class="holder mx-auto w-11/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             @forelse($programs as $program)
             <x-program-card :program="$program" />
             @empty
