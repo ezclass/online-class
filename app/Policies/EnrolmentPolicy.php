@@ -10,8 +10,12 @@ class EnrolmentPolicy
 {
     use HandlesAuthorization;
 
-
     public function accept(User $user, Enrolment $enrolment)
+    {
+        return $this->enrolmentManage($user, $enrolment);
+    }
+
+    public function paymentHistory(User $user, Enrolment $enrolment)
     {
         return $this->enrolmentManage($user, $enrolment);
     }

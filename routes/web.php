@@ -26,6 +26,7 @@ use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\LearningRoom\PastPaperController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Program\PaymentDetailController;
+use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -70,6 +71,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/checkout/{program}', [CheckoutController::class, 'show'])
         ->name('checkout');
+
+    Route::get('/payment-history/{enrolment}/{user}', ProgramPaymentHistoryController::class)
+        ->name('payment.history');
 });
 
 // ----------------------
@@ -111,7 +115,6 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/payment-detail/{program}', PaymentDetailController::class)
         ->name('payment.detail');
-
 
     Route::post('/file-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
