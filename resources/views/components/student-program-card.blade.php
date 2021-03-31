@@ -42,7 +42,7 @@
             @else
             <span class="text-green-500"><i>You have been approved</i></span>
             <p class="mt-2">
-                <a href="{{route('checkout',$enrolment->program)}}" class="text-indigo-500">Pay class fees</a>
+                <a href="{{route('checkout.option',$enrolment->program)}}" class="text-indigo-500">Pay class fees</a>
             </p>
             @endif
         </div>

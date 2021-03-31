@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\BankPaymentController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CheckoutOptionController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\DashboardController;
@@ -71,6 +73,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/checkout/{program}', [CheckoutController::class, 'show'])
         ->name('checkout');
+
+    Route::get('/bank-payment/{program}', [BankPaymentController::class, 'show'])
+        ->name('bank.payment');
+
+    Route::post('/bank-payment/{program}', [BankPaymentController::class, 'success'])
+        ->name('bank.payment.success');
+
+    Route::get('/checkout-option/{program}', CheckoutOptionController::class)
+        ->name('checkout.option');
 
     Route::get('/payment-history/{enrolment}/{user}', ProgramPaymentHistoryController::class)
         ->name('payment.history');
