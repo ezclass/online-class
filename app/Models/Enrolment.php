@@ -12,6 +12,9 @@ class Enrolment extends Model
     use HasFactory;
     use Obfuscatable;
 
+    protected $dates = [
+        'accepted_at'
+    ];
     // relationships
 
     public function student()

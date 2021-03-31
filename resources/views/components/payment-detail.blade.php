@@ -10,6 +10,9 @@
             You: Thanks, sounds good! . 8hr
         </div>
     </div>
+    <div class="flex-grow p-3">
+        Date of class enroled : {{$enrolment->accepted_at->format('M d,Y')}}
+    </div>
     <div class="p-2">
         <div>
             <a href="">Block</a>

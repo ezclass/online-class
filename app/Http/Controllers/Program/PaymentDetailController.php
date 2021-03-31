@@ -18,7 +18,8 @@ class PaymentDetailController extends Controller
                     ->with('student')
                     ->students($program)
                     ->enroled()
-                    ->get()
+                    ->get(),
+                'program' => $program
             ]);
     }
 }
