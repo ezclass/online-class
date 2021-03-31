@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use ApiChef\Obfuscate\Support\Facades\Obfuscate;
 use ApiChef\PayHere\Subscription;
 use App\Models\Program;
 use Illuminate\Http\Request;
@@ -12,7 +11,7 @@ class CheckoutController extends Controller
 {
     public function show(Program $program, Request $request)
     {
-        $duration = Carbon::parse($program->start_date)->diffInMonths($program->end_date);
+        $duration = Carbon::create($program->start_date->format('M d,Y'))->diffInDays($program->end_date->format('M d,Y'));
 
         $subscription = Subscription::make(
             $program,
