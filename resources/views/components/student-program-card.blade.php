@@ -17,8 +17,18 @@
         <div>
             <span class="text-green-500 p-4"><i>You have been approved</i></span>
         </div>
+        <div class="mt-2 ml-4">
+            <a href="{{route('payment.history',[$enrolment, $enrolment->student])}}" class="description text-sm  border-gray-400  text-indigo-500 inline-flex items-center">
+                Payment History
+                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
         @endif
     </div>
+
     <div class="desc p-4 text-gray-800">
         <span class="title font-bold block">{{$enrolment->program->subject->name}}</span>
         <h6 class="mt-8 text-sm font-medium">Clas Start Date : <span class="text-indigo-700">{{ $enrolment->program->start_date->format('M d,Y')}}</span></h6>
@@ -31,7 +41,7 @@
             </span>
         </div>
 
-        <div class=" text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+        <div class=" text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-2">
             @if ($enrolment->accepted_at !== null)
             <span class="text-blue-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <a href="{{route('program.view',$enrolment->program->getRouteKey())}}">

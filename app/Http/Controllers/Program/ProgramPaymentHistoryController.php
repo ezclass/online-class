@@ -13,6 +13,7 @@ class ProgramPaymentHistoryController extends Controller
     public function __invoke(ProgramPaymentHistoryRequest $request, Enrolment $enrolment, User $user)
     {
         return view('program.payment-history')
+            ->with(['student', 'program.subject', 'program.teacher'])
             ->with([
                 'enrolment' => $enrolment,
                 'student' => $user,
