@@ -13,7 +13,7 @@ class CreateEnrolmentsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('program_id')->constrained()->onDelete('cascade');
             $table->tinyInteger('payment_date')->nullable();
-            $table->tinyInteger('payment_policy')->nullable();
+            $table->tinyInteger('payment_policy')->nullable()->default(1);
             $table->dateTime('accepted_at')->nullable();
             $table->timestamps();
         });

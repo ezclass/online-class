@@ -72,16 +72,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/checkout/cancelled', [CheckoutController::class, 'cancelled'])
         ->name('checkout.cancelled');
 
-    Route::get('/checkout/{program}', [CheckoutController::class, 'show'])
+    Route::get('/checkout/{enrolment}', [CheckoutController::class, 'show'])
         ->name('checkout');
 
-    Route::get('/bank-payment/{program}', [BankPaymentController::class, 'show'])
+    Route::get('/bank-payment/{enrolment}', [BankPaymentController::class, 'show'])
         ->name('bank.payment');
 
-    Route::post('/bank-payment/{program}', [BankPaymentController::class, 'success'])
+    Route::post('/bank-payment/{enrolment}', [BankPaymentController::class, 'success'])
         ->name('bank.payment.success');
 
-    Route::get('/checkout-option/{program}', CheckoutOptionController::class)
+    Route::get('/checkout-option/{enrolment}', CheckoutOptionController::class)
         ->name('checkout.option');
 
     Route::get('/payment-history/{enrolment}/{user}', ProgramPaymentHistoryController::class)

@@ -3,19 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BankPaymentRequest;
+use App\Http\Requests\BankPaymentViewRequest;
+use App\Models\Enrolment;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 class BankPaymentController extends Controller
 {
-    public function show(Request $request, Program $program)
+    public function show(BankPaymentViewRequest $request, Enrolment $enrolment)
     {
         return view('payhere.bank-payment')
-            ->with(['program' => $program]);
+            ->with([
+                'enrolment' => $enrolment,
+            ]);
     }
 
-    public function success(BankPaymentRequest $request, Program $program)
+    public function success(BankPaymentRequest $request, Enrolment $enrolment)
     {
         dd($request);
     }
