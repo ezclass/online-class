@@ -22,7 +22,6 @@ class UpdateProgramRequest extends FormRequest
             'start_date' => 'required',
             'end_date' => 'required',
             'day' => 'required',
-            'recurrence' => 'required',
         ];
     }
 }

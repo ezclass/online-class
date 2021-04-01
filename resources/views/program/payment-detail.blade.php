@@ -2,24 +2,6 @@
 
     <x-dashboard-navigation />
 
-    <div class="mt-8 grid lg:grid-cols-2 justify-items-center">
-        <div class="max-w-full text-sm rounded border shadow-sm pointer-events-auto bg-clip-padding w-80">
-            <div class="flex items-center px-3 py-2 text-gray-500 bg-indigo-100 border-b-2 rounded-t bg-clip-padding">
-                <strong class="mr-auto">Class Start Date</strong>
-                <small>{{$program->start_date->format('M d,Y')}}</small>
-            </div>
-            <div class="p-3 bg-white">Class Fee, Rs: {{$program->fees}} </div>
-        </div>
-
-        <div class="max-w-full mt-4 lg:mt-0 text-sm rounded border shadow-sm pointer-events-auto bg-clip-padding w-80">
-            <div class="flex items-center px-3 py-2 text-gray-500 bg-indigo-100 border-b-2 rounded-t bg-clip-padding">
-                <strong class="mr-auto">Class End Date</strong>
-                <small>{{$program->end_date->format('M d,Y')}}</small>
-            </div>
-            <div class="p-3 bg-white">Class Duration : {{$program->start_date->longRelativeToNowDiffForHumans($program->end_date)}}</div>
-        </div>
-    </div>
-
     <hr class="mt-10">
 
     <body class="antialiased font-sans bg-gray-400">

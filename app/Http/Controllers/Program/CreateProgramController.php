@@ -21,7 +21,6 @@ class CreateProgramController extends Controller
         $program->start_date = $request->get('start_date');
         $program->end_date = $request->get('end_date');
         $program->day = $request->get('day');
-        $program->recurrence = $request->get('recurrence');
         $program->user_id = Auth::user()->id;
         $program->save();
         $this->storeFile($program, $request->file('image'));

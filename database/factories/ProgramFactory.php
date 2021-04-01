@@ -26,7 +26,6 @@ class ProgramFactory extends Factory
             'start_date' => $startDate,
             'end_date' => $startDate->addMonth(7),
             'day' => $this->faker->dayOfWeek(),
-            'recurrence' => $this->faker->name,
             'user_id' => User::role(Role::ROLE_TEACHER)->inRandomOrder()->first()->id,
             'subject_id' => Subject::query()->inRandomOrder()->first()->id,
             'language_id' => Language::query()->inRandomOrder()->first()->id,

@@ -32,24 +32,24 @@
     </div>
 
     <div class="mt-4">
-        <label for="fees" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class fees for the month</label>
+        <label for="fees" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Fees for the Month</label>
         <input type="number" name="fees" id="fees" :value="old('fees')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
     </div>
 
     <div class="mt-4">
-        <label for="start_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">class start date</label>
+        <label for="start_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Start Date</label>
         <input type="date" name="start_date" id="start_date" :value="old('start_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
     </div>
 
     <div class="mt-4">
-        <label for="end_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">class end date</label>
+        <label for="end_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class End Date</label>
         <input type="date" name="end_date" id="end_date" :value="old('end_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
     </div>
 
     <div class="mt-4">
-        <label for="day" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">class Day</label>
+        <label for="day" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Day</label>
         <select id="day" name="day" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-            <option selected disabled>day</option>
+            <option selected disabled>Day</option>
             <option value="monday">Monday</option>
             <option value="tuesday">Tuesday</option>
             <option value="wednesday">Wednesday</option>
@@ -57,16 +57,6 @@
             <option value="friday">Friday</option>
             <option value="saturday">Saturday</option>
             <option value="wednesday">Sunday</option>
-        </select>
-    </div>
-
-    <div class="mt-4">
-        <label for="recurrence" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Recurrence</label>
-        <select id="recurrence" name="recurrence" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-            <option selected disabled>recurrence</option>
-            <option value="daily">daily</option>
-            <option value="weekly">weekly</option>
-            <option value="monthly">monthly</option>
         </select>
     </div>
 

@@ -16,7 +16,6 @@ class CreateProgramsTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->string('day');
-            $table->string('recurrence');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('subject_id')->constrained();
             $table->foreignId('language_id')->constrained();
