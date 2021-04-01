@@ -19,16 +19,20 @@
                     <div class="mb-1 bg-indigo-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" x-model="billing.extra">Facebook :</div>
                 </div>
             </div>
+            <hr>
+            
+            <x-auth-session-status class="mb-4" :status="session('status')" />
+            <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
             <form action="{{route('bank.payment.success',$program)}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="flex mb-8 lg:w-2/4 justify-between">
-                    <div class="w-2/4">
+                <div class="flex m-6 mb-8 lg:w-2/4 justify-between">
+                    <div class="">
                         <div class="mb-2 md:mb-1 md:flex items-center">
                             <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Invoice No.</label>
                             <span class="mr-4 md:block">:</span>
                             <div class="flex-1">
-                                <input type="text" name="" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+                                <input type="text" name="invoice_no" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
                             </div>
                         </div>
 
@@ -36,7 +40,7 @@
                             <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Invoice Date</label>
                             <span class="mr-4 md:block">:</span>
                             <div class="flex-1">
-                                <input type="date" name="" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+                                <input type="date" name="invoice_date" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
                             </div>
                         </div>
 
@@ -44,7 +48,7 @@
                             <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Total Amount</label>
                             <span class="mr-4 md:block">:</span>
                             <div class="flex-1">
-                                <input type="text" name="" value="{{$program->fees}}" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+                                <input type="text" name="amount" value="{{$program->fees}}" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
                             </div>
                         </div>
                     </div>
@@ -71,12 +75,13 @@
 						document.getElementById('image2').src = e.target.result;
 					};
 
-					reader.readAsDataURL(file);
-				">
+					reader.readAsDataURL(file);">
                     </div>
                 </div>
-                <div>
-                    <input type="submit" value="Submit">
+                <div class="m-6">
+                    <x-success-button class="text-md text-center">
+                        {{ __('Submit') }}
+                    </x-success-button>
                 </div>
             </form>
         </div>

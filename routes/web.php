@@ -43,6 +43,7 @@ Route::get('/search-class', SearchClassController::class)
 Route::get('/privacy-policy', PrivacyPolicyController::class)
     ->name('privacy-policy');
 
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
@@ -87,7 +88,6 @@ Route::middleware(['auth'])->group(function () {
         ->name('payment.history');
 });
 
-// ----------------------
 
 Route::middleware(['role:teacher'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
@@ -131,6 +131,7 @@ Route::middleware(['role:teacher'])->group(function () {
         ->name('file.upload');
 });
 
+
 Route::middleware(['role:student'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
@@ -138,6 +139,7 @@ Route::middleware(['role:student'])->group(function () {
     Route::get('/enroled-program/delete/{enrolment}', EnroledProgramDeleteController::class)
         ->name('enroled-program.delete');
 });
+
 
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)

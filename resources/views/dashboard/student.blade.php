@@ -1,14 +1,13 @@
 <x-app-layout>
-    <div class="bg-blue-100">
-        <x-profile-heder />
 
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-        <x-alart />
+   <x-profile-heder />
+
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-alart />
 
 
-        <div class="lg:flex md:flex xl:justify-around sm:flex flex-wrap md:justify-around sm:justify-around lg:justify-around">
-            <x-student-program-card />
-        </div>
+    <div class="holder mx-auto w-11/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+        <x-student-program-card />
     </div>
 
 </x-app-layout>

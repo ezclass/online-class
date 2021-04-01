@@ -1,5 +1,4 @@
 <x-app-layout>
-    <div class="bg-blue-100">
 
         <div class="hero  py-1">
             <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
@@ -152,8 +151,6 @@
         <div class="mt-10 py-4 px-4">
             {{ $programs->links() }}
         </div>
-
-    </div>
 
     <x-footer />
 

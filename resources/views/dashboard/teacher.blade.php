@@ -1,5 +1,4 @@
 <x-app-layout>
-    <div class="bg-blue-100">
 
         <x-profile-heder />
 
@@ -10,5 +9,4 @@
 
         <x-enrolment-request />
 
-    </div>
 </x-app-layout>
