@@ -15,7 +15,14 @@ class StudentProgramCard extends Component
     {
         $this->enrolments =  Enrolment::query()
             ->where('user_id', Auth::user()->id)
-            ->with(['program', 'program.teacher', 'program.subject', 'program.grade',])
+            ->with([
+                'program',
+                'program.teacher',
+                'program.subject',
+                'program.grade',
+                'program.enrolments',
+                'program.language'
+            ])
             ->orderBy('id', 'DESC')
             ->get();
     }

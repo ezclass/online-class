@@ -8,6 +8,17 @@
         <span class="mr-1 p-1 px-2 font-bold border-l border-gray-400">{{ $enrolment->program->language->name }}</span>
         <span class="mr-1 p-1 px-2 font-bold border-l border-gray-400">{{$enrolment->program->grade->name}}</span>
     </div>
+    <div>
+        @if ($enrolment->accepted_at == null)
+        <div>
+            <span class="text-yellow-500 p-4"><i>Wait until approved</i></span>
+        </div>
+        @else
+        <div>
+            <span class="text-green-500 p-4"><i>You have been approved</i></span>
+        </div>
+        @endif
+    </div>
     <div class="desc p-4 text-gray-800">
         <span class="title font-bold block">{{$enrolment->program->subject->name}}</span>
         <h6 class="mt-8 text-sm font-medium">Clas Start Date : <span class="text-indigo-700">{{ $enrolment->program->start_date->format('M d,Y')}}</span></h6>
@@ -21,6 +32,7 @@
         </div>
 
         <div class=" text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+            @if ($enrolment->accepted_at !== null)
             <span class="text-blue-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <a href="{{route('program.view',$enrolment->program->getRouteKey())}}">
                     Lessons
@@ -31,6 +43,7 @@
                     Pay class fees
                 </a>
             </span>
+            @endif
             <span class="text-red-400 inline-flex items-center leading-none text-sm">
                 <a href="{{route('enroled-program.delete',$enrolment)}}">
                     Delete
