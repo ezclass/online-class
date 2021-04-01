@@ -30,7 +30,8 @@
             <span class="text-green-500 p-4"><i>You have been approved</i></span>
         </div>
         @endif
-        @if ($enrolment->payment_policy !== 0)
+
+        @if ($enrolment->payment_policy !== 0 and $enrolment->accepted_at !== null)
         <div class="mt-2 ml-4">
             <a href="{{route('payment.history',[$enrolment, $enrolment->student])}}" class="description text-sm  border-gray-400  text-indigo-500 inline-flex items-center">
                 Payment History
