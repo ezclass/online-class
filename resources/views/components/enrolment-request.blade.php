@@ -1,76 +1,87 @@
-<div class="mt-10 container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
-    <div id='recipients' class="p-6 lg:mt-0 rounded shadow bg-white">
-        <table id="table1" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-            <thead>
-                <tr>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Student
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Class
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Payment Date
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Payment Policy
-                    </th>
-                    <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Action</span>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($enrolments as $enrolment)
-                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                                <img class="w-10 h-10 rounded-full" src="{{ asset('storage/avatar/'. $enrolment->student->avatar )}}" alt="" />
+<body class="antialiased font-sans bg-gray-400">
+    <div class="container mx-auto px-4 sm:px-8">
+        <div class="py-8">
+            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                    <table class="min-w-full leading-normal">
+                        <thead>
+                            <tr>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Name
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Class
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Payment Date
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Payment Policy
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @forelse($enrolments as $enrolment)
+                            <tr>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img class="w-full h-full rounded-full" src="{{ asset('storage/avatar/'. $enrolment->student->avatar )}}" alt="" />
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                {{$enrolment->student->name}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->program->subject->name}}</p>
+                                </td>
+                                <form action="{{route('enroll.request.accept', $enrolment->getRouteKey())}}" method="POST">
+                                    @csrf
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <select name="payment_date" id="">
+                                            <option selected disabled>select</option>
+                                            <option value="7">First Week</option>
+                                            <option value="14">Second Week</option>
+                                            <option value="21">Third Week</option>
+                                            <option value="28">Last Week</option>
+                                        </select>
+                                    </td>
+
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <select name=" payment_policy" id="">
+                                            <option selected disabled>select</option>
+                                            <option value="0">Free Card</option>
+                                            <option value="50">50% Bounes</option>
+                                            <option value="100">Normel Price</option>
+                                        </select>
+                                    </td>
+
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                            <x-success-button class="ml-3 mt-5">
+                                                {{ __('Accept') }}
+                                            </x-success-button>
+                                        </a>
+                                    </td>
+                                </form>
+                            </tr>
+                            @empty
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
+                                <strong class="font-bold">Opps!</strong>
+                                <span class="block sm:inline"> There is no enrollment request for your class </span>
                             </div>
-                            <div class="ml-4">
-                                <div class="text-sm font-medium text-gray-900">{{$enrolment->student->name}}</div>
-                            </div>
-                        </div>
-                    </td>
-
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-md text-gray-900">{{$enrolment->program->name}}</div>
-                        <div class="text-sm text-blue-500">{{$enrolment->program->subject->name}}</div>
-                    </td>
-
-                    <form action="{{route('enroll.request.accept', $enrolment->getRouteKey())}}" method="POST">
-                        @csrf
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <select name="payment_date" id="">
-                                <option selected disabled>select</option>
-                                <option value="7">First Week</option>
-                                <option value="14">Second Week</option>
-                                <option value="21">Third Week</option>
-                                <option value="28">Last Week</option>
-                            </select>
-                        </td>
-
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <select name=" payment_policy" id="">
-                                <option selected disabled>select</option>
-                                <option value="0">Free Card</option>
-                                <option value="50">50% Bounes</option>
-                                <option value="100">Normel Price</option>
-                            </select>
-                        </td>
-
-                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                                <x-success-button class="ml-3 mt-5">
-                                    {{ __('Accept') }}
-                                </x-success-button>
-                            </a>
-                        </td>
-                    </form>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</body>
