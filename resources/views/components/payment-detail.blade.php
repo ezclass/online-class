@@ -15,6 +15,15 @@
         <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->accepted_at->format('M d,Y')}}</p>
     </td>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+        <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->payment_date}}</p>
+    </td>
+    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+        <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->payment_policy}}</p>
+    </td>
+    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+        <a href="" class="text-green-500 whitespace-no-wrap">Edit</a>
+    </td>
+    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
         <a href="{{route('payment.history',[$enrolment, $enrolment->student])}}" class="text-blue-500 whitespace-no-wrap">
             Payment History
         </a>

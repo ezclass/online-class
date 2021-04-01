@@ -2,7 +2,12 @@
 
     <x-dashboard-navigation />
 
-    <hr class="mt-10">
+    <div class="text-center mt-4">
+        All Students in : <b>{{$program->subject->name}}</b>
+    </div>
+
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-alart />
 
     <body class="antialiased font-sans bg-gray-400">
         <div class="container mx-auto px-4 sm:px-8">
@@ -17,6 +22,16 @@
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                         Date of class enroled
+                                    </th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Payment Date
+                                    </th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Payment Policy
+                                    </th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Edit Payment Date and <br>
+                                        Payment Policy
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                         Payment History

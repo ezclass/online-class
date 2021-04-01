@@ -1,9 +1,17 @@
 <x-app-layout>
 
     <div class="text-center mt-9">
-        <a href="{{route('payment.detail',$enrolment->program)}}">
-            Go to Back
-        </a>
+        @role('teacher')
+        <x-responsive-nav-link href="{{route('payment.detail',$enrolment->program)}}">
+            {{__('Go to Back')}}
+        </x-responsive-nav-link>
+        @endrole
+
+        @role('student')
+        <x-responsive-nav-link href="{{ route('student.dashboard')}}">
+            {{__('Dashboard')}}
+        </x-responsive-nav-link>
+        @endrole
     </div>
 
     <div class="mt-8 grid lg:grid-cols-2 justify-items-center">
@@ -57,7 +65,7 @@
                                 @empty
                                 <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
                                     <strong class="font-bold">Opps!</strong>
-                                    <span class="block sm:inline"> Students are not yet in your class </span>
+                                    <span class="block sm:inline"> No payment yet </span>
                                 </div>
                                 @endforelse
                             </tbody>

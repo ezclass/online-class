@@ -14,7 +14,7 @@ class PaymentDetailController extends Controller
         return view('program.payment-detail')
             ->with([
                 'enrolments' => Enrolment::query()
-                    ->with(['student','program'])
+                    ->with(['student', 'program'])
                     ->students($program)
                     ->enroled()
                     ->paginate(10),
