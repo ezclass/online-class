@@ -16,7 +16,6 @@ class BankPaymentRequest extends FormRequest
         return [
             'invoice_no' => 'required',
             'invoice_date' => 'required',
-            'amount' => 'required',
             'receipt' => 'required|image|mimes:png,jpg,jpeg|max:5120',
         ];
     }

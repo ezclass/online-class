@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use ApiChef\PayHere\Subscription;
 use App\Http\Requests\BankPaymentRequest;
 use App\Http\Requests\BankPaymentViewRequest;
-use App\Models\BankPayment;
 use App\Models\Enrolment;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Auth;
 
 class BankPaymentController extends Controller
 {
@@ -19,29 +20,47 @@ class BankPaymentController extends Controller
             ]);
     }
 
-    public function success(BankPaymentRequest $request, Enrolment $enrolment)
+    public function store(Enrolment $enrolment, BankPaymentRequest $request)
     {
-        $bankPayment = new BankPayment();
-        $bankPayment->invoice_no = $request->get('invoice_no');
-        $bankPayment->invoice_date = $request->get('invoice_date');
-        $bankPayment->amount = $request->get('amount');
-        $bankPayment->user_id = Auth::user()->id;
-        $bankPayment->program_id = $enrolment->program->id;
-        $bankPayment->save();
-        $this->storeFile($bankPayment, $request->file('receipt'));
+        $duration = Carbon::now()->diffInDays($enrolment->program->end_date->format('M d,Y'));
+
+        $subscription = Subscription::make(
+            $enrolment->program,
+            $request->user(),
+            '1 Month',
+            "{$duration} Day",
+            $enrolment->program->fees
+        );
+
+        $subscription->invoice_no = $request->get('invoice_no');
+        $subscription->invoice_date = $request->get('invoice_date');
+        $subscription->save();
+        $this->storeFile($subscription, $request->file('receipt'));
 
         return redirect()
             ->route('student.dashboard')
             ->with('wait', 'Your payment will be checked');
     }
 
-    private function storeFile(BankPayment $bankPayment, UploadedFile $file = null)
+    private function storeFile(Subscription $subscription, UploadedFile $file = null)
     {
         if ($file != null) {
-            $filename = $bankPayment->id . '.' . $file->getClientOriginalExtension();
+            $filename = $subscription->id . '.' . $file->getClientOriginalExtension();
             $file->move('storage/payment_receipt/', $filename);
-            $bankPayment->receipt = $filename;
-            $bankPayment->save();
+            $subscription->receipt = $filename;
+            $subscription->save();
         }
+    }
+
+    public function success(Request $request, Subscription $subscription)
+    {
+        $subscription->status = 1;
+        $subscription->times_paid = 1;
+        $subscription->validated = true;
+        $subscription->save();
+
+        return redirect()
+            ->route('admin.dashboard')
+            ->with('success', 'Your payment was successful.');
     }
 }

@@ -30,7 +30,7 @@
             <x-auth-session-status class="mb-4" :status="session('status')" />
             <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-            <form action="{{route('bank.payment.success',$enrolment)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('bank.payment.store',$enrolment)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="flex m-6 mb-8 lg:w-2/4 justify-between">
                     <div class="">
@@ -47,15 +47,6 @@
                             <span class="mr-4 md:block">:</span>
                             <div class="flex-1">
                                 <input type="datetime-local" name="invoice_date" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
-                            </div>
-                        </div>
-
-                        <div class="mb-2 md:mb-1 md:flex items-center">
-                            <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Total Amount</label>
-                            <span class="mr-4 md:block">:</span>
-                            <div class="flex-1">
-                                <input type="text" name="amount" value="@if ($enrolment->payment_policy == 50) {{$enrolment->program->fees/2}}
-                        @else {{$enrolment->program->fees}} @endif" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
                             </div>
                         </div>
                     </div>

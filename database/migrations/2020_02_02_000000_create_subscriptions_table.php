@@ -29,6 +29,9 @@ class CreateSubscriptionsTable extends Migration
             $table->morphs('payer');
             $table->boolean('validated')->nullable();
             $table->json('summary')->nullable();
+            $table->string('invoice_no')->nullable();
+            $table->dateTime('invoice_date')->nullable();
+            $table->string('receipt')->nullable();
             $table->timestamps();
         });
     }

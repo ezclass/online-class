@@ -78,8 +78,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/bank-payment/{enrolment}', [BankPaymentController::class, 'show'])
         ->name('bank.payment');
 
-    Route::post('/bank-payment/{enrolment}', [BankPaymentController::class, 'success'])
-        ->name('bank.payment.success');
+    Route::post('/bank-payment/{enrolment}', [BankPaymentController::class, 'store'])
+        ->name('bank.payment.store');
 
     Route::get('/checkout-option/{enrolment}', CheckoutOptionController::class)
         ->name('checkout.option');
@@ -144,4 +144,7 @@ Route::middleware(['role:student'])->group(function () {
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
+
+    Route::post('/bank-payment/{enrolment}', [BankPaymentController::class, 'success'])
+        ->name('bank.payment.success');
 });
