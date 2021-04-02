@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\BankPaymentController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutOptionController;
@@ -145,6 +146,9 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
 
-    Route::post('/bank-payment/{enrolment}', [BankPaymentController::class, 'success'])
+        Route::get('/payment', PaymentController::class)
+        ->name('admin.payment');
+
+    Route::post('/bank-payment-success}', [BankPaymentController::class, 'success'])
         ->name('bank.payment.success');
 });
