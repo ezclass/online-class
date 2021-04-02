@@ -31,7 +31,7 @@
         </div>
         @endif
 
-        @if ($enrolment->payment_policy !== 0 and $enrolment->accepted_at !== null)
+        @if ($enrolment->accepted_at !== null)
         <div class="mt-2 ml-4">
             <a href="{{route('payment.history',[$enrolment, $enrolment->student])}}" class="description text-sm  border-gray-400  text-indigo-500 inline-flex items-center">
                 Payment History
@@ -50,9 +50,21 @@
         <h6 class="mt-2 text-sm font-medium">Class End Date : <span class="text-indigo-700">{{ $enrolment->program->end_date->format('M d,Y') }}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class Day : <span class="text-indigo-700">{{ $enrolment->program->day}}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class Time : <span class="text-indigo-700">{{ $enrolment->program->start_time->format('h:m A')}} To {{ $enrolment->program->end_time->format('h:m A')}}</span></h6>
-        @if ($enrolment->payment_policy !== 0)
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{ $enrolment->payment_date}}</span></h6>
+
+        @if ($enrolment->accepted_at !== null)
+        @if ($enrolment->payment_date == 1)
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">Daily</span></h6>
+        @elseif ($enrolment->payment_date == 7)
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( First Week )</span></h6>
+        @elseif ($enrolment->payment_date == 14)
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Second Week )</span></h6>
+        @elseif ($enrolment->payment_date == 21)
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Third Week )</span></h6>
+        @else
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Last Week )</span></h6>
         @endif
+        @endif
+
         <div class="m-6">
             <span class="text-md font-light text-gray-800 dark:text-gray-400">
                 <img src="{{ asset('storage/avatar/'. $enrolment->program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">

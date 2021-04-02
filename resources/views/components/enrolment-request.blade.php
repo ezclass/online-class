@@ -47,10 +47,11 @@
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <select name="payment_date" id="">
                                             <option selected disabled>select</option>
-                                            <option value="7">First Week</option>
-                                            <option value="14">Second Week</option>
-                                            <option value="21">Third Week</option>
-                                            <option value="28">Last Week</option>
+                                            <option value="1">Daily</option>
+                                            <option value="7">First Week ( 7 )</option>
+                                            <option value="14">Second Week ( 14 )</option>
+                                            <option value="21">Third Week ( 21 )</option>
+                                            <option value="28">Last Week ( 28 )</option>
                                         </select>
                                     </td>
 
