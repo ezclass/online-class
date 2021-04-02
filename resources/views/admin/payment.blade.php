@@ -1,6 +1,7 @@
 <x-admin>
     <!-- Validation Errors -->
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-alart />
 
     <h3 class="mt-6 text-xl">All Users</h3>
     <!--Container-->
@@ -11,16 +12,28 @@
                 <thead>
                     <tr>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            User
+                            amount
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Phone Number
+                            subscribable_id <br>(Program)
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Status
+                            payer_id <br>(Student)
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Role
+                            invoice_no
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            invoice_date
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            receipt
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            Action
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+
                         </th>
                     </tr>
                 </thead>
@@ -29,26 +42,51 @@
                     <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                    <img class="w-10 h-10 rounded-full" src="{{ asset('storage/avatar/'. $user->avatar )}}" alt="" />
-                                </div>
                                 <div class="ml-4">
-                                    <div class="text-sm font-medium text-gray-900">{{$user->name}}</div>
-                                    <div class="text-sm text-gray-500">{{$user->email}}</div>
+                                    <div class="text-sm font-medium text-gray-900">{{$subscription->amount}}</div>
+                                    <div class="text-sm text-gray-500"></div>
                                 </div>
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">0757862096</div>
+                            <div class="text-sm text-gray-900">{{$subscription->subscribable_id}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                                Active
-                            </span>
+                            <div class="text-sm text-gray-900">
+                                {{$subscription->payer_id}}
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            {{implode(', ', $user->roles()->get()->pluck('name')->toArray() )}}
+                            <div class="text-sm text-gray-900">
+                                {{$subscription->invoice_no}}
+                            </div>
                         </td>
+                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                            <div class="text-sm text-gray-900">
+                                {{$subscription->invoice_date}}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                            <div class="flex-shrink-0 w-10 h-10">
+                                <img class="w-10 h-10 rounded-full" src="{{ asset('storage/payment_receipt/'. $subscription->receipt )}}" alt="" />
+                            </div>
+                        </td>
+                        <form action="{{route('bank.payment.success',$subscription)}}" method="POST">
+                            @csrf
+                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                <div class="flex-shrink-0 w-10 h-10">
+                                    <select name="action" id="">
+                                        <option value="1">Success</option>
+                                        <option value="">Cancel</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                <x-success-button>
+                                    {{__('Submit')}}
+                                </x-success-button>
+                            </td>
+                        </form>
                     </tr>
                     @endforeach
                 </tbody>

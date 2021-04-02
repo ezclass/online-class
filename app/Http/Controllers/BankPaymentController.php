@@ -54,13 +54,21 @@ class BankPaymentController extends Controller
 
     public function success(Request $request, Subscription $subscription)
     {
-        $subscription->status = 1;
-        $subscription->times_paid = 1;
-        $subscription->validated = true;
-        $subscription->save();
+        if ($request->get('action') == 1) {
+            $subscription->status = 1;
+            $subscription->times_paid = 1;
+            $subscription->validated = true;
+            $subscription->save();
 
-        return redirect()
-            ->route('admin.dashboard')
-            ->with('success', 'Your payment was successful.');
+            return redirect()
+                ->route('admin.payment')
+                ->with('success', 'Payment verification successful');
+        } else {
+            $subscription->delete();
+
+            return redirect()
+                ->route('admin.payment')
+                ->with('warning', 'The data field has been deleted');
+        }
     }
 }

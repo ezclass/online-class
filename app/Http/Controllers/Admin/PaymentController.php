@@ -13,6 +13,7 @@ class PaymentController extends Controller
         return view('admin.payment')
             ->with([
                 'subscriptions' => Subscription::query()
+                    ->where('validated',null)
                     ->get()
             ]);
     }

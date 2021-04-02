@@ -149,6 +149,6 @@ Route::middleware(['role:admin'])->group(function () {
         Route::get('/payment', PaymentController::class)
         ->name('admin.payment');
 
-    Route::post('/bank-payment-success}', [BankPaymentController::class, 'success'])
+    Route::post('/bank-payment-success/{subscription}', [BankPaymentController::class, 'success'])
         ->name('bank.payment.success');
 });
