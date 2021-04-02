@@ -1,7 +1,9 @@
 <div class="mt-2 w-full max-w-sm px-4 py-3 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     <div>
         <h1 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">{{$lesson->name}}</h1>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{$lesson->starts_at->format('M d,Y')}} - {{$lesson->starts_at->format('h:i A')}} - {{$lesson->ends_at->format('h:i A')}}</p>
+        <p class="mt-2 text-sm text-gray-900 dark:text-gray-300">
+          <b>{{$lesson->starts_at->format('l jS \\of F Y h:i:s A')}} To {{$lesson->starts_at->format('h:i:s A')}}</b>
+        </p>
     </div>
 
     <div class="mt-4">

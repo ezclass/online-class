@@ -15,6 +15,8 @@ class CreateProgramsTable extends Migration
             $table->double('fees');
             $table->date('start_date');
             $table->date('end_date');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->string('day');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('subject_id')->constrained();

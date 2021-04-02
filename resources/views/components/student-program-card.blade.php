@@ -49,6 +49,7 @@
         <h6 class="mt-8 text-sm font-medium">Clas Start Date : <span class="text-indigo-700">{{ $enrolment->program->start_date->format('M d,Y')}}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class End Date : <span class="text-indigo-700">{{ $enrolment->program->end_date->format('M d,Y') }}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class Day : <span class="text-indigo-700">{{ $enrolment->program->day}}</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Class Time : <span class="text-indigo-700">{{ $enrolment->program->start_time}} to {{ $enrolment->program->end_time}}</span></h6>
         @if ($enrolment->payment_policy !== 0)
         <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{ $enrolment->payment_date}}</span></h6>
         @endif

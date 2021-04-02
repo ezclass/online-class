@@ -20,6 +20,8 @@ class CreateProgramController extends Controller
         $program->language_id  = Obfuscate::decode($request->get('medium'));
         $program->start_date = $request->get('start_date');
         $program->end_date = $request->get('end_date');
+        $program->start_time = $request->get('start_time');
+        $program->end_time = $request->get('end_time');
         $program->day = $request->get('day');
         $program->user_id = Auth::user()->id;
         $program->save();

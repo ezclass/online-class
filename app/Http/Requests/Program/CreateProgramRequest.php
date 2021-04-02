@@ -22,6 +22,8 @@ class CreateProgramRequest extends FormRequest
             'subject' => 'required|integer',
             'start_date' => 'required',
             'end_date' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
             'day' => 'required',
         ];
     }

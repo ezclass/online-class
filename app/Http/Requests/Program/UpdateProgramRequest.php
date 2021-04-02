@@ -21,6 +21,8 @@ class UpdateProgramRequest extends FormRequest
             'language_id' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
             'day' => 'required',
         ];
     }

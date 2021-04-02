@@ -18,6 +18,8 @@ class UpdateProgramController extends Controller
         $program->language_id = $request->get('language_id');
         $program->start_date = $request->get('start_date');
         $program->end_date = $request->get('end_date');
+        $program->start_time = $request->get('start_time');
+        $program->end_time = $request->get('end_time');
         $program->day = $request->get('day');
         $program->save();
         $this->storeFile($program, $request->file('image'));
