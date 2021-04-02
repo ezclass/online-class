@@ -5,7 +5,6 @@ namespace App\Models;
 use ApiChef\Obfuscate\Obfuscatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 
 class Program extends Model
 {
@@ -15,6 +14,8 @@ class Program extends Model
     protected $dates = [
         'start_date',
         'end_date',
+        'start_time',
+        'end_time',
     ];
 
     // relationships
