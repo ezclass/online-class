@@ -38,7 +38,7 @@
                             <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Invoice No.</label>
                             <span class="mr-4 md:block">:</span>
                             <div class="flex-1">
-                                <input type="text" name="invoice_no" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+                                <input type="text" name="invoice_no" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
                             </div>
                         </div>
 
@@ -46,7 +46,7 @@
                             <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Invoice Date</label>
                             <span class="mr-4 md:block">:</span>
                             <div class="flex-1">
-                                <input type="date" name="invoice_date" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+                                <input type="datetime-local" name="invoice_date" value="" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                             <span class="mr-4 md:block">:</span>
                             <div class="flex-1">
                                 <input type="text" name="amount" value="@if ($enrolment->payment_policy == 50) {{$enrolment->program->fees/2}}
-                        @else {{$enrolment->program->fees}} @endif" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+                        @else {{$enrolment->program->fees}} @endif" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
                             </div>
                         </div>
                     </div>

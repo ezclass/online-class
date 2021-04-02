@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BankPaymentRequest;
 use App\Http\Requests\BankPaymentViewRequest;
+use App\Models\BankPayment;
 use App\Models\Enrolment;
-use App\Models\Program;
-use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
 
 class BankPaymentController extends Controller
 {
@@ -21,16 +21,27 @@ class BankPaymentController extends Controller
 
     public function success(BankPaymentRequest $request, Enrolment $enrolment)
     {
-        dd($request);
+        $bankPayment = new BankPayment();
+        $bankPayment->invoice_no = $request->get('invoice_no');
+        $bankPayment->invoice_date = $request->get('invoice_date');
+        $bankPayment->amount = $request->get('amount');
+        $bankPayment->user_id = Auth::user()->id;
+        $bankPayment->program_id = $enrolment->program->id;
+        $bankPayment->save();
+        $this->storeFile($bankPayment, $request->file('receipt'));
+
+        return redirect()
+            ->route('student.dashboard')
+            ->with('wait', 'Your payment will be checked');
     }
 
-    private function storeFile(Program $program, UploadedFile $file = null)
+    private function storeFile(BankPayment $bankPayment, UploadedFile $file = null)
     {
         if ($file != null) {
-            $filename = $program->id . '.' . $file->getClientOriginalExtension();
-            $file->move('storage/class_image/', $filename);
-            $program->image = $filename;
-            $program->save();
+            $filename = $bankPayment->id . '.' . $file->getClientOriginalExtension();
+            $file->move('storage/payment_receipt/', $filename);
+            $bankPayment->receipt = $filename;
+            $bankPayment->save();
         }
     }
 }

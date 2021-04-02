@@ -11,10 +11,11 @@ class CreateBankPaymentsTable extends Migration
         Schema::create('bank_payments', function (Blueprint $table) {
             $table->id();
             $table->string('invoice_no');
-            $table->string('invoice_date');
+            $table->dateTime('invoice_date');
             $table->float('amount');
-            $table->morphs('payer');
-            $table->morphs('subscribable');
+            $table->string('receipt')->nullable();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('program_id')->constrained();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
