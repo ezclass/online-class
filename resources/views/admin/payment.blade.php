@@ -12,6 +12,9 @@
                 <thead>
                     <tr>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            Date
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             amount
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -40,13 +43,11 @@
                 <tbody>
                     @foreach($subscriptions as $subscription)
                     <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900">{{$subscription->created_at}}</div>
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex items-center">
-                                <div class="ml-4">
-                                    <div class="text-sm font-medium text-gray-900">{{$subscription->amount}}</div>
-                                    <div class="text-sm text-gray-500"></div>
-                                </div>
-                            </div>
+                            <div class="text-sm font-medium text-gray-900">{{$subscription->amount}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-900">{{$subscription->subscribable_id}}</div>

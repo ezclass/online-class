@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use ApiChef\PayHere\Subscription;
 use App\Http\Requests\BankPaymentRequest;
-use App\Http\Requests\BankPaymentViewRequest;
+use App\Http\Requests\PaymentViewRequest;
 use App\Models\Enrolment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ use Illuminate\Http\UploadedFile;
 
 class BankPaymentController extends Controller
 {
-    public function show(BankPaymentViewRequest $request, Enrolment $enrolment)
+    public function show(PaymentViewRequest $request, Enrolment $enrolment)
     {
         return view('payhere.bank-payment')
             ->with([
@@ -22,14 +22,19 @@ class BankPaymentController extends Controller
 
     public function store(Enrolment $enrolment, BankPaymentRequest $request)
     {
-        $duration = Carbon::now()->diffInDays($enrolment->program->end_date->format('M d,Y'));
+        if ($enrolment->payment_policy == 50) {
+            $fees = $enrolment->program->fees / 2;
+        } else {
+            $fees = $enrolment->program->fees;
+        }
 
+        $duration = Carbon::now()->diffInDays($enrolment->program->end_date->format('M d,Y'));
         $subscription = Subscription::make(
             $enrolment->program,
             $request->user(),
             '1 Month',
             "{$duration} Day",
-            $enrolment->program->fees
+            $fees
         );
 
         $subscription->invoice_no = $request->get('invoice_no');
