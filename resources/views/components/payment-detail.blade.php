@@ -41,9 +41,9 @@
 
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
             <select name=" payment_policy" id="">
-                <option selected >
+                <option selected disabled>
                     @if ($enrolment->payment_policy == 0)
-                   <span class="text-green-500">Free Card</span>
+                    <span class="text-green-500">Free Card</span>
                     @elseif ($enrolment->payment_policy == 50)
                     50% Offer
                     @else
@@ -69,11 +69,38 @@
             Payment History
         </a>
     </td>
+    @if ($enrolment->reminder == null)
+    <form action="{{route('send.remind', $enrolment->getRouteKey())}}" method="POST">
+        @csrf
+        <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+            <select name="remind" id="">
+                <option selected disabled>remind</option>
+                <option value="Please pay the tuition fee">Please pay the tuition fee</option>
+            </select>
+        </td>
+        <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+            <span class="relative inline-block px-3 py-1 font-semibold text-yellow-500 leading-tight">
+
+                <x-warning-button class="ml-3 mt-5">
+                    {{ __('Send') }}
+                </x-warning-button>
+            </span>
+        </td>
+    </form>
+    @else
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        <span class="relative inline-block px-3 py-1 font-semibold text-yellow-500 leading-tight">
-            <a href="" class="relative">Send for student</a>
-        </span>
+        <form action="{{route('cancel.remind', $enrolment->getRouteKey())}}" method="POST">
+            @csrf
+            <x-warning-button class="ml-3 mt-5">
+                {{ __('Cancel') }}
+            </x-warning-button>
+        </form>
     </td>
+    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+
+    </td>
+    @endif
+
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
         <span class="relative inline-block px-3 py-1 font-semibold text-red-500 leading-tight">
             <a href="" class="relative">Block</a>

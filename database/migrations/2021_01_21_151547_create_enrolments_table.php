@@ -15,6 +15,7 @@ class CreateEnrolmentsTable extends Migration
             $table->tinyInteger('payment_date')->nullable();
             $table->tinyInteger('payment_policy')->nullable()->default(1);
             $table->dateTime('accepted_at')->nullable();
+            $table->string('reminder')->nullable();
             $table->timestamps();
         });
     }

@@ -40,6 +40,9 @@
                                         To pay for tuition, <br> make a reminder
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+
+                                    </th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                         Action
                                     </th>
                                 </tr>

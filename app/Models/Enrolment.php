@@ -69,4 +69,10 @@ class Enrolment extends Model
         $this->payment_policy = $paymentPolicy;
         $this->save();
     }
+
+    public function remind($remind)
+    {
+        $this->reminder = $remind;
+        $this->save();
+    }
 }

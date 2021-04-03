@@ -23,6 +23,8 @@ use App\Http\Controllers\Program\ProgramViewContraller;
 use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\EnroledProgramDeleteController;
+use App\Http\Controllers\Enroll\RemindCancelController;
+use App\Http\Controllers\Enroll\RemindController;
 use App\Http\Controllers\Enroll\UpdateEnrolmentController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
@@ -131,6 +133,12 @@ Route::middleware(['role:teacher'])->group(function () {
 
     Route::get('/payment-detail/{program}', PaymentDetailController::class)
         ->name('payment.detail');
+
+    Route::post('/send-remind/{enrolment}', RemindController::class)
+        ->name('send.remind');
+
+    Route::post('/cancel-remind/{enrolment}', RemindCancelController::class)
+        ->name('cancel.remind');
 
     Route::post('/file-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
