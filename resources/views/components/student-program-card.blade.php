@@ -8,7 +8,7 @@
     </div>
     @elseif ($enrolment->payment_policy == 50)
     <div class="badge absolute top-0 right-0 bg-blue-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
-        Rs:{{ $enrolment->program->fees/2 }} ( 50% discount )
+        Rs:{{ $enrolment->program->fees/2 }} ( 50% Offer )
     </div>
     @elseif ($enrolment->payment_policy == 100)
     <div class="badge absolute top-0 right-0 bg-red-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
@@ -79,12 +79,15 @@
                     Lessons
                 </a>
             </span>
+            @endif
+            @if ($enrolment->accepted_at !== null and $enrolment->payment_policy !== 0)
             <span class="text-yellow-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <a href="{{route('checkout.option',$enrolment)}}">
                     Pay class fees
                 </a>
             </span>
             @endif
+
             <span class="text-red-400 inline-flex items-center leading-none text-sm">
                 <a href="{{route('enroled-program.delete',$enrolment)}}">
                     Delete

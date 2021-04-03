@@ -59,7 +59,7 @@
                                         <select name=" payment_policy" id="">
                                             <option selected disabled>select</option>
                                             <option value="0">Free Card</option>
-                                            <option value="50">50% Bounes</option>
+                                            <option value="50">50% Offer</option>
                                             <option value="100">Normel Price</option>
                                         </select>
                                     </td>
