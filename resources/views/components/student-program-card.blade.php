@@ -15,6 +15,14 @@
         Rs:{{ $enrolment->program->fees }}
     </div>
     @endif
+
+    <div>
+        @if ($enrolment->remind !== null)
+        <div class="badge absolute top-40 right-14 bg-red-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
+            {{ $enrolment->remind }}
+        </div>
+        @endif
+    </div>
     <div class="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300">
         <span class="mr-1 p-1 px-2 font-bold">All Students : {{ $enrolment->program->enrolments->count() }}</span>
         <span class="mr-1 p-1 px-2 font-bold border-l border-gray-400">{{ $enrolment->program->language->name }}</span>

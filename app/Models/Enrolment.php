@@ -72,7 +72,7 @@ class Enrolment extends Model
 
     public function remind($remind)
     {
-        $this->reminder = $remind;
+        $this->remind = $remind;
         $this->save();
     }
 }

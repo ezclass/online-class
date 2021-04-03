@@ -10,7 +10,7 @@ class RemindCancelController extends Controller
 {
     public function __invoke(RemindCancelRequest $request, Enrolment $enrolment)
     {
-        $enrolment->reminder = null;
+        $enrolment->remind = null;
         $enrolment->save();
 
         return redirect()->route('payment.detail', $enrolment->program)

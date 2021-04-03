@@ -69,7 +69,7 @@
             Payment History
         </a>
     </td>
-    @if ($enrolment->reminder == null)
+    @if ($enrolment->remind == null)
     <form action="{{route('send.remind', $enrolment->getRouteKey())}}" method="POST">
         @csrf
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
