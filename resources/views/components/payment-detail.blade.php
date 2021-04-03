@@ -14,7 +14,7 @@
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
         <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->accepted_at->format('M d,Y')}}</p>
     </td>
-    <form action="{{route('enroll.request.accept', $enrolment->getRouteKey())}}" method="POST">
+    <form action="{{route('enroll.update', $enrolment->getRouteKey())}}" method="POST">
         @csrf
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
             <select name="payment_date" id="">

@@ -23,6 +23,7 @@ use App\Http\Controllers\Program\ProgramViewContraller;
 use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\EnroledProgramDeleteController;
+use App\Http\Controllers\Enroll\UpdateEnrolmentController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
@@ -57,6 +58,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
         ->name('enroll.request.accept');
+
+    Route::post('/update-enrolment-request/{enrolment}', UpdateEnrolmentController::class)
+        ->name('enroll.update');
 
     Route::get('/overview/{lesson}', OverviewController::class)
         ->name('overview');
@@ -146,7 +150,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
 
-        Route::get('/payment', PaymentController::class)
+    Route::get('/payment', PaymentController::class)
         ->name('admin.payment');
 
     Route::post('/bank-payment-success/{subscription}', [BankPaymentController::class, 'success'])

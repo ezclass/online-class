@@ -62,4 +62,11 @@ class Enrolment extends Model
         $this->accepted_at = now();
         $this->save();
     }
+
+    public function updateEnrolment($paymentDate, $paymentPolicy)
+    {
+        $this->payment_date = $paymentDate;
+        $this->payment_policy = $paymentPolicy;
+        $this->save();
+    }
 }
