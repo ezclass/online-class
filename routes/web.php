@@ -63,9 +63,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
         ->name('enroll.request.accept');
 
-    Route::post('/update-enrolment-request/{enrolment}', UpdateEnrolmentController::class)
-        ->name('enroll.update');
-
     Route::get('/overview/{lesson}', OverviewController::class)
         ->name('overview');
 
@@ -133,8 +130,12 @@ Route::middleware(['role:teacher'])->group(function () {
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
 
+
     Route::get('/student-detail/{program}', StudentDetailController::class)
         ->name('student.detail');
+
+    Route::post('/update-enrolment-request/{enrolment}', UpdateEnrolmentController::class)
+        ->name('enroll.update');
 
     Route::post('/send-remind/{enrolment}', RemindController::class)
         ->name('send.remind');

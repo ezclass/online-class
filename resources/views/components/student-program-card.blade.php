@@ -26,7 +26,7 @@
     <div>
         @if ($enrolment->active == 0)
         <div class="badge absolute top-40 right-0 bg-red-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
-            you are blocked,not yet access this class
+            You are blocked, you cannot enter this class
         </div>
         @endif
     </div>
