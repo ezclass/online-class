@@ -63,6 +63,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
         ->name('enroll.request.accept');
 
+
     Route::get('/overview/{lesson}', OverviewController::class)
         ->name('overview');
 
@@ -72,6 +73,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/past-paper/{lesson}', PastPaperController::class)
         ->name('pastpaper');
 
+        
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
         ->name('checkout.success');
 
