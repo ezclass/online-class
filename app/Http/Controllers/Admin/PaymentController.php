@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use ApiChef\PayHere\Subscription;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\PaymentRequest;
 
 class PaymentController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(PaymentRequest $request)
     {
         return view('admin.payment')
             ->with([

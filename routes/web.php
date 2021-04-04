@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\BankPaymentController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutOptionController;
@@ -163,9 +165,15 @@ Route::middleware(['role:student', 'verified'])->group(function () {
 });
 
 
-Route::middleware(['role:admin', 'verified'])->group(function () {
+Route::middleware(['role:admin|super_admin', 'verified'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
+
+    Route::get('/edit-user/{user}', EditUserController::class)
+        ->name('edit.user');
+
+    Route::post('/update-user/{user}', UpdateUserController::class)
+        ->name('update.user');
 
     Route::get('/payment', PaymentController::class)
         ->name('admin.payment');

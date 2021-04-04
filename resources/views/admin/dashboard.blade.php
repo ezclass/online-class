@@ -1,6 +1,7 @@
 <x-admin>
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-alart />
 
     <h3 class="mt-6 text-xl">All Users</h3>
     <!--Container-->
@@ -20,7 +21,7 @@
                             Status
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Role
+                            Edit
                         </th>
                     </tr>
                 </thead>
@@ -47,7 +48,7 @@
                             </span>
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            {{implode(', ', $user->roles()->get()->pluck('name')->toArray() )}}
+                            <a href="{{route('edit.user',$user)}}">Edit User</a>
                         </td>
                     </tr>
                     @endforeach
@@ -58,4 +59,3 @@
     </div>
     <!--/container-->
 </x-admin>
-

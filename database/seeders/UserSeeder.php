@@ -21,5 +21,9 @@ class UserSeeder extends Seeder
         collect(range(1, 2))->each(function ($id) {
             User::factory()->create(['email' => "admin_{$id}@ezclass.lk"])->assignRole(Role::ROLE_ADMIN);
         });
+
+        collect(range(1, 2))->each(function ($id) {
+            User::factory()->create(['email' => "super_admin_{$id}@ezclass.lk"])->assignRole(Role::ROLE_SUPER_ADMIN);
+        });
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Dashboard;
+namespace App\Http\Requests\Admin;
 
 use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminRequest extends FormRequest
+class PaymentRequest extends FormRequest
 {
     public function authorize()
     {
@@ -15,8 +15,6 @@ class AdminRequest extends FormRequest
 
     public function rules()
     {
-        return [
-            //
-        ];
+        return [];
     }
 }

@@ -11,7 +11,6 @@ class AdminDashboardController extends Controller
     public function __invoke(AdminRequest $request)
     {
         return view('admin.dashboard')
-            ->with('roles')
             ->with([
                 'users' => User::query()
                     ->get()
