@@ -38,8 +38,6 @@ use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
-require __DIR__ . '/auth.php';
-
 Route::get('/', HomeController::class)
     ->name('welcome');
 
@@ -50,7 +48,7 @@ Route::get('/privacy-policy', PrivacyPolicyController::class)
     ->name('privacy-policy');
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
@@ -73,7 +71,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/past-paper/{lesson}', PastPaperController::class)
         ->name('pastpaper');
 
-        
+
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
         ->name('checkout.success');
 
@@ -97,7 +95,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::middleware(['role:teacher'])->group(function () {
+Route::middleware(['role:teacher', 'verified'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
 
@@ -156,7 +154,7 @@ Route::middleware(['role:teacher'])->group(function () {
 });
 
 
-Route::middleware(['role:student'])->group(function () {
+Route::middleware(['role:student', 'verified'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 
@@ -165,7 +163,7 @@ Route::middleware(['role:student'])->group(function () {
 });
 
 
-Route::middleware(['role:admin'])->group(function () {
+Route::middleware(['role:admin', 'verified'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
 
@@ -175,3 +173,5 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/bank-payment-success/{subscription}', [BankPaymentController::class, 'success'])
         ->name('bank.payment.success');
 });
+
+require __DIR__ . '/auth.php';
