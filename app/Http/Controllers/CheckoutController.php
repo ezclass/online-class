@@ -14,8 +14,10 @@ class CheckoutController extends Controller
     {
         if ($enrolment->payment_policy == 50) {
             $fees = $enrolment->program->fees / 2;
+            $offer = $enrolment->payment_policy;
         } else {
             $fees = $enrolment->program->fees;
+            $offer = null;
         }
 
         $duration = Carbon::now()->diffInDays($enrolment->program->end_date->format('M d,Y'));
@@ -27,6 +29,9 @@ class CheckoutController extends Controller
             "{$duration} Day",
             $fees
         );
+
+        $subscription->offer = $offer;
+        $subscription->save();
 
         return view('payhere.checkout')
             ->with([

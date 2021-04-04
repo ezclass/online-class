@@ -32,6 +32,7 @@ class CreateSubscriptionsTable extends Migration
             $table->string('invoice_no')->nullable();
             $table->dateTime('invoice_date')->nullable();
             $table->string('receipt')->nullable();
+            $table->integer('offer')->nullable();
             $table->timestamps();
         });
     }

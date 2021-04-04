@@ -24,21 +24,25 @@ class BankPaymentController extends Controller
     {
         if ($enrolment->payment_policy == 50) {
             $fees = $enrolment->program->fees / 2;
+            $offer = $enrolment->payment_policy;
         } else {
             $fees = $enrolment->program->fees;
+            $offer = null;
         }
 
-        $duration = Carbon::now()->diffInDays($enrolment->program->end_date->format('M d,Y'));
+        $duration = Carbon::now()->diffInMonths($enrolment->program->end_date->format('M d,Y'));
+
         $subscription = Subscription::make(
             $enrolment->program,
             $request->user(),
             '1 Month',
-            "{$duration} Day",
+            "{$duration} Month",
             $fees
         );
 
         $subscription->invoice_no = $request->get('invoice_no');
         $subscription->invoice_date = $request->get('invoice_date');
+        $subscription->offer = $offer;
         $subscription->save();
         $this->storeFile($subscription, $request->file('receipt'));
 
