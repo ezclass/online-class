@@ -81,29 +81,47 @@
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
             <span class="relative inline-block px-3 py-1 font-semibold text-yellow-500 leading-tight">
 
-                <x-warning-button class="ml-3 mt-5">
+                <x-primary-button class="ml-3 mt-5">
                     {{ __('Send') }}
-                </x-warning-button>
+                </x-primary-button>
             </span>
         </td>
     </form>
     @else
-    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        <form action="{{route('cancel.remind', $enrolment->getRouteKey())}}" method="POST">
-            @csrf
+    <form action="{{route('cancel.remind', $enrolment->getRouteKey())}}" method="POST">
+        @csrf
+        <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
             <x-warning-button class="ml-3 mt-5">
                 {{ __('Cancel') }}
             </x-warning-button>
-        </form>
-    </td>
+        </td>
+    </form>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
 
     </td>
     @endif
 
-    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        <span class="relative inline-block px-3 py-1 font-semibold text-red-500 leading-tight">
-            <a href="" class="relative">Block</a>
-        </span>
-    </td>
+    @if ($enrolment->active == 1)
+    <form action="{{route('student.block',$enrolment)}}" method="POST">
+        @csrf
+        <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+            <span class="relative inline-block px-3 py-1 font-semibold text-red-500 leading-tight">
+                <x-danger-button class="ml-3 mt-5">
+                    {{ __('Block') }}
+                </x-danger-button>
+            </span>
+        </td>
+    </form>
+    @else
+    <form action="{{route('student.unblock',$enrolment)}}" method="POST">
+        @csrf
+        <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+
+            <x-warning-button class="ml-3 mt-5">
+                {{ __('UnBlock') }}
+            </x-warning-button>
+
+        </td>
+    </form>
+    @endif
 </tr>

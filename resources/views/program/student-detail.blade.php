@@ -50,7 +50,7 @@
 
                             <tbody>
                                 @forelse($enrolments as $enrolment)
-                                <x-payment-detail :enrolment="$enrolment" />
+                                <x-student-detail :enrolment="$enrolment" />
                                 @empty
                                 <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
                                     <strong class="font-bold">Opps!</strong>

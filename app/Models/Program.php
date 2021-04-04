@@ -66,6 +66,7 @@ class Program extends Model
             ->where('user_id', $user->id)
             ->where('program_id', $this->id)
             ->whereNotNull('accepted_at')
+            ->where('active', 1)
             ->exists();
     }
 }

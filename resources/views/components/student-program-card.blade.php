@@ -18,8 +18,15 @@
 
     <div>
         @if ($enrolment->remind !== null)
-        <div class="badge absolute top-40 right-14 bg-red-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
+        <div class="badge absolute top-32 right-0 bg-yellow-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
             {{ $enrolment->remind }}
+        </div>
+        @endif
+    </div>
+    <div>
+        @if ($enrolment->active == 0)
+        <div class="badge absolute top-40 right-0 bg-red-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
+            you are blocked,not yet access this class
         </div>
         @endif
     </div>
@@ -81,7 +88,7 @@
         </div>
 
         <div class=" text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-2">
-            @if ($enrolment->accepted_at !== null)
+            @if ($enrolment->accepted_at !== null and $enrolment->active == 1)
             <span class="text-blue-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <a href="{{route('program.view',$enrolment->program->getRouteKey())}}">
                     Lessons

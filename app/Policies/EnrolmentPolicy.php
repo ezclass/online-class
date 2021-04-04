@@ -14,7 +14,13 @@ class EnrolmentPolicy
     {
         return $this->enrolmentManage($user, $enrolment);
     }
+
     public function remind(User $user, Enrolment $enrolment)
+    {
+        return $this->enrolmentManage($user, $enrolment);
+    }
+
+    public function block(User $user, Enrolment $enrolment)
     {
         return $this->enrolmentManage($user, $enrolment);
     }

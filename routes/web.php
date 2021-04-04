@@ -23,16 +23,18 @@ use App\Http\Controllers\Program\ProgramViewContraller;
 use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\EnroledProgramDeleteController;
+use App\Http\Controllers\Enroll\BlockController;
 use App\Http\Controllers\Enroll\RemindCancelController;
 use App\Http\Controllers\Enroll\RemindController;
+use App\Http\Controllers\Enroll\UnBlockController;
 use App\Http\Controllers\Enroll\UpdateEnrolmentController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\LearningRoom\PastPaperController;
 use App\Http\Controllers\PrivacyPolicyController;
-use App\Http\Controllers\Program\PaymentDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
+use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -131,14 +133,20 @@ Route::middleware(['role:teacher'])->group(function () {
     Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
 
-    Route::get('/payment-detail/{program}', PaymentDetailController::class)
-        ->name('payment.detail');
+    Route::get('/student-detail/{program}', StudentDetailController::class)
+        ->name('student.detail');
 
     Route::post('/send-remind/{enrolment}', RemindController::class)
         ->name('send.remind');
 
     Route::post('/cancel-remind/{enrolment}', RemindCancelController::class)
         ->name('cancel.remind');
+
+    Route::post('/student-block/{enrolment}', BlockController::class)
+        ->name('student.block');
+
+    Route::post('/student-unblock/{enrolment}', UnBlockController::class)
+        ->name('student.unblock');
 
     Route::post('/file-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');

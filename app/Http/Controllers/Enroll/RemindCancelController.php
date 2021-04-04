@@ -13,7 +13,7 @@ class RemindCancelController extends Controller
         $enrolment->remind = null;
         $enrolment->save();
 
-        return redirect()->route('payment.detail', $enrolment->program)
+        return redirect()->route('student.detail', $enrolment->program)
             ->with('success', 'Remind Cancel Successful');
     }
 }
