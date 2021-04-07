@@ -15,7 +15,7 @@ class FileUploadRequest extends FormRequest
     {
         return [
             'title' => 'required|max:30',
-            'file' => 'required|file|mimes:png,jpg,jpeg,pdf,ppt|max:51200',
+            'file' => 'required|file|mimes:png,jpg,jpeg,pdf,ppt,mkv,mp4|max:51200',
         ];
     }
 }
