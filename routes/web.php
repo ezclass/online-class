@@ -73,7 +73,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/meet-save/{lesson}', [MeetController::class, 'save'])
         ->name('meet.save');
 
-        Route::post('/meet-delete/{lesson}', [MeetController::class, 'delete'])
+    Route::post('/meet-delete/{meeting}', [MeetController::class, 'delete'])
         ->name('meet.delete');
 
     Route::get('/past-paper/{lesson}', PastPaperController::class)

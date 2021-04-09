@@ -29,19 +29,26 @@
                 <h2 class="text-white text-xs uppercase">Copy the link and password</h2>
             </div>
             @forelse ($meetings as $meeting)
+            <form action="{{route('meet.delete',$meeting)}}" method="POST">
+                @csrf
+                <div class="py-6 px-8 space-y-5 bg-white">
+                    <a href="{{$meeting->link}}" target="new" class="text-blue-500"><u>Click Go to Meeting</u></a>
+                    <input type="text" value="{{$meeting->link}}" id="link">
+                    <button onclick="linkFunction()" class="text-green-500">Copy Link</button>
+                </div>
 
-            <div class="py-6 px-8 space-y-5 bg-white">
-                <a href="{{$meeting->link}}" target="new" class="text-blue-500"><u>Click Go to Meeting</u></a>
-                <input type="text" value="{{$meeting->link}}" id="link">
-                <button onclick="linkFunction()" class="text-green-500">Copy Link</button>
-            </div>
-
-            @if ($meeting->password !== null)
-            <div class="py-6 px-8 space-y-5 bg-white">
-                <input type="text" value="{{$meeting->password}}" id="password">
-                <button onclick="passwordFunction()">Copy Password</button>
-            </div>
-            @endif
+                @if ($meeting->password !== null)
+                <div class="py-6 px-8 space-y-5 bg-white">
+                    <input type="text" value="{{$meeting->password}}" id="password">
+                    <button onclick="passwordFunction()">Copy Password</button>
+                </div>
+                @endif
+                <div class="py-6 px-8 space-y-5 bg-white">
+                    <x-success-button type="submit">
+                        {{__('Detele')}}
+                    </x-success-button>
+                </div>
+            </form>
 
             @empty
             <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">

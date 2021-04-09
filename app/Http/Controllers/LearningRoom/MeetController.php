@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\LearningRoom;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LearningRoom\MeetingDeleteRequest;
 use App\Http\Requests\LearningRoom\MeetingSaveRequest;
 use App\Http\Requests\LearningRoom\MeetRequest;
 use App\Models\Lesson;
@@ -17,7 +18,7 @@ class MeetController extends Controller
                 'lesson' => $lesson,
                 'meetings' => Meeting::query()
                     ->where('lesson_id', $lesson->id)
-                    ->orderBy('id','DESC')
+                    ->orderBy('id', 'DESC')
                     ->get(),
             ]);
     }
@@ -33,11 +34,11 @@ class MeetController extends Controller
             ->with('success', 'The link was sent to the students');
     }
 
-    public function delete(MeetingSaveRequest $request, Lesson $lesson, Meeting $meeting)
+    public function delete(MeetingDeleteRequest $request, Meeting $meeting)
     {
         $meeting->delete();
 
         return redirect()->back()
-            ->with('success', 'The link was sent to the students');
+            ->with('success', 'The link was successfully deleted');
     }
 }
