@@ -58,9 +58,9 @@
 
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
             <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                <x-success-button class="ml-3 mt-5">
-                    {{ __('Edit') }}
-                </x-success-button>
+                <span class="ml-3 mt-5 text-green-500">
+                    {{ __('Update') }}
+                </span>
             </a>
         </td>
     </form>
@@ -81,7 +81,7 @@
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
             <span class="relative inline-block px-3 py-1 font-semibold text-yellow-500 leading-tight">
 
-                <x-primary-button class="ml-3 mt-5">
+                <x-primary-button class="">
                     {{ __('Send') }}
                 </x-primary-button>
             </span>
@@ -91,7 +91,7 @@
     <form action="{{route('cancel.remind', $enrolment->getRouteKey())}}" method="POST">
         @csrf
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-            <x-warning-button class="ml-3 mt-5">
+            <x-warning-button class="">
                 {{ __('Cancel') }}
             </x-warning-button>
         </td>
@@ -106,7 +106,7 @@
         @csrf
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
             <span class="relative inline-block px-3 py-1 font-semibold text-red-500 leading-tight">
-                <x-danger-button class="ml-3 mt-5">
+                <x-danger-button class="">
                     {{ __('Block') }}
                 </x-danger-button>
             </span>
@@ -117,7 +117,7 @@
         @csrf
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
 
-            <x-warning-button class="ml-3 mt-5">
+            <x-warning-button class="">
                 {{ __('UnBlock') }}
             </x-warning-button>
 

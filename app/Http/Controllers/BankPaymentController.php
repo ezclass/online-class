@@ -40,15 +40,12 @@ class BankPaymentController extends Controller
             $fees
         );
 
-        $subscription->invoice_no = $request->get('invoice_no');
-        $subscription->invoice_date = $request->get('invoice_date');
-        $subscription->offer = $offer;
-        $subscription->save();
+        $subscription->store($request->get('invoice_no'), $request->get('invoice_date'), $offer);
         $this->storeFile($subscription, $request->file('receipt'));
 
         return redirect()
             ->route('student.dashboard')
-            ->with('wait', 'Your payment will be checked');
+            ->with('primary', 'Your payment will be checked');
     }
 
     private function storeFile(Subscription $subscription, UploadedFile $file = null)
@@ -64,10 +61,7 @@ class BankPaymentController extends Controller
     public function success(Request $request, Subscription $subscription)
     {
         if ($request->get('action') == 1) {
-            $subscription->status = 1;
-            $subscription->times_paid = 1;
-            $subscription->validated = true;
-            $subscription->save();
+            $subscription->successPayment();
 
             return redirect()
                 ->route('admin.payment')

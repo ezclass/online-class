@@ -20,13 +20,13 @@ class CheckoutController extends Controller
             $offer = null;
         }
 
-        $duration = Carbon::now()->diffInDays($enrolment->program->end_date->format('M d,Y'));
+        $duration = Carbon::now()->diffInMonths($enrolment->program->end_date->format('M d,Y'));
 
         $subscription = Subscription::make(
             $enrolment->program,
             $request->user(),
             '1 Month',
-            "{$duration} Day",
+            "{$duration} Month",
             $fees
         );
 
@@ -44,10 +44,7 @@ class CheckoutController extends Controller
     {
         $subscription = Subscription::findByOrderId($request->get('order_id'));
         $subscription->payment_id = $request->get('order_id');
-        $subscription->status = 1;
-        $subscription->times_paid = 1;
-        $subscription->validated = true;
-        $subscription->save();
+        $subscription->successPayment();
 
         return redirect()
             ->route('student.dashboard')
@@ -57,6 +54,7 @@ class CheckoutController extends Controller
     public function cancelled(Request $request)
     {
         $subscription = Subscription::findByOrderId($request->get('order_id'));
+        $subscription->delete();
 
         return redirect()
             ->route('student.dashboard')

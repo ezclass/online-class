@@ -14,6 +14,6 @@ class BlockController extends Controller
         $enrolment->save();
 
         return redirect()->route('student.detail', $enrolment->program)
-            ->with('warning', 'Student has been Blocked');
+            ->with('primary', 'Student has been Blocked');
     }
 }
