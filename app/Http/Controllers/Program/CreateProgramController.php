@@ -18,6 +18,7 @@ class CreateProgramController extends Controller
         $program->fees = $request->get('fees');
         $program->subject_id  = Obfuscate::decode($request->get('subject'));
         $program->language_id  = Obfuscate::decode($request->get('medium'));
+        $program->class_type = $request->get('class_type');
         $program->start_date = $request->get('start_date');
         $program->end_date = $request->get('end_date');
         $program->start_time = $request->get('start_time');

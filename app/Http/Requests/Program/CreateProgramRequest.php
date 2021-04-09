@@ -17,9 +17,10 @@ class CreateProgramRequest extends FormRequest
         return [
             'grade' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:5120',
-            'fees' => 'required',
+            'fees' => 'required|integer',
             'medium' => 'required|integer',
             'subject' => 'required|integer',
+            'class_type' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
             'start_time' => 'required',

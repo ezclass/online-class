@@ -24,6 +24,7 @@ class ProgramFactory extends Factory
             'grade_id' => Grade::query()->inRandomOrder()->first()->id,
             'image' => $this->faker->imageUrl(),
             'fees' => $this->faker->randomFloat(2, 50, 5000),
+            'class_type' => $this->faker->randomElement(array ('Theory', 'Paper', 'Revision')),
             'start_date' => $startDate,
             'end_date' => $startDate->addMonths(12),
             'start_time' => $startTime,

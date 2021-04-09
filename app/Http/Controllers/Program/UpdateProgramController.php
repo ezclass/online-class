@@ -16,6 +16,7 @@ class UpdateProgramController extends Controller
         $program->fees = $request->get('fees');
         $program->subject_id = $request->get('subject_id');
         $program->language_id = $request->get('language_id');
+        $program->class_type = $request->get('class_type');
         $program->start_date = $request->get('start_date');
         $program->end_date = $request->get('end_date');
         $program->start_time = $request->get('start_time');

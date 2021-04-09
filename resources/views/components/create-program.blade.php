@@ -32,6 +32,16 @@
     </div>
 
     <div class="mt-4">
+        <label for="class_type" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Type</label>
+        <select id="class_type" name="class_type" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+            <option selected disabled>Class Type</option>
+            <option value="Theory">Theory</option>
+            <option value="Paper">Paper</option>
+            <option value="Revision">Revision</option>
+        </select>
+    </div>
+
+    <div class="mt-4">
         <label for="fees" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Fees for the Month</label>
         <input type="number" name="fees" id="fees" :value="old('fees')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
     </div>

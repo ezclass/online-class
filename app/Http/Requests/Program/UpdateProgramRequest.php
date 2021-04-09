@@ -19,6 +19,7 @@ class UpdateProgramRequest extends FormRequest
             'fees' => 'required',
             'subject_id' => 'required',
             'language_id' => 'required',
+            'class_type' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
             'start_time' => 'required',

@@ -13,6 +13,7 @@ class CreateProgramsTable extends Migration
             $table->foreignId('grade_id');
             $table->string('image')->nullable();
             $table->double('fees');
+            $table->string('class_type');
             $table->date('start_date');
             $table->date('end_date');
             $table->time('start_time');
