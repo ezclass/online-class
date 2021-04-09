@@ -32,4 +32,12 @@ class MeetController extends Controller
         return redirect()->back()
             ->with('success', 'The link was sent to the students');
     }
+
+    public function delete(MeetingSaveRequest $request, Lesson $lesson, Meeting $meeting)
+    {
+        $meeting->delete();
+
+        return redirect()->back()
+            ->with('success', 'The link was sent to the students');
+    }
 }
