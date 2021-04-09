@@ -16,6 +16,7 @@ class ProgramViewContraller extends Controller
                 'programs' => Program::query()
                     ->with(['grade', 'subject', 'language', 'enrolments'])
                     ->where('user_id', Auth::user()->id)
+                    ->orderBy('id', 'DESC')
                     ->get(),
             ]);
     }

@@ -17,6 +17,7 @@ class EnrolmentRequest extends Component
             ->pending()
             ->ofTeacher(Auth::user())
             ->with(['student', 'program', 'program.grade', 'program.subject'])
+            ->orderBy('id', 'ASC')
             ->get();
     }
 
