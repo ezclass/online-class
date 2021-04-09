@@ -67,8 +67,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/overview/{lesson}', OverviewController::class)
         ->name('overview');
 
-    Route::get('/meet/{lesson}', MeetController::class)
+    Route::get('/meeting/{lesson}', [MeetController::class, 'show'])
         ->name('meet');
+
+    Route::post('/meet-save/{lesson}', [MeetController::class, 'save'])
+        ->name('meet.save');
 
     Route::get('/past-paper/{lesson}', PastPaperController::class)
         ->name('pastpaper');
