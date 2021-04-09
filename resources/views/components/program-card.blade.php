@@ -11,6 +11,7 @@
     </div>
     <div class="desc p-4 text-gray-800">
         <span class="title text-xl block">{{ $program->subject->name }}</span>
+        ( {{ $program->class_type }} )
         <h6 class="mt-8 text-sm font-medium">Clas Start Date : <span class="text-indigo-700">{{ $program->start_date->format('M d,Y')}}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class End Date : <span class="text-indigo-700">{{ $program->end_date->format('M d,Y') }}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class Day : <span class="text-indigo-700">{{ $program->day}}</span></h6>
