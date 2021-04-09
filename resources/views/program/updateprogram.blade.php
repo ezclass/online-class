@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-bg-layout>
-        <h1 class="font-black uppercase text-3xl lg:text-5xl text-yellow-500 mb-10">Update Class</h1>
+     
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -50,7 +50,7 @@
 
             <div class="mt-4">
                 <x-label for="fees">Class Fees for the Month</x-label>
-                <x-input type="number" name="fees" value="{{$program->fees}}" class="block mt-1 w-full" required />
+                <x-input type="number" name="fees" value="{{$program->fees}}" class="block mt-1 w-full"  />
             </div>
 
             <div class="mt-4">

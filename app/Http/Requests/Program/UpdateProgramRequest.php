@@ -16,10 +16,10 @@ class UpdateProgramRequest extends FormRequest
         return [
             'grade_id' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:5120',
-            'fees' => 'required',
+            'fees' => 'required|integer',
+            'class_type' => 'required',
             'subject_id' => 'required',
             'language_id' => 'required',
-            'class_type' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
             'start_time' => 'required',
