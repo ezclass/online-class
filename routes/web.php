@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\UpdateUserController;
+use App\Http\Controllers\Admin\UserStatusController;
 use App\Http\Controllers\BankPaymentController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutOptionController;
@@ -180,6 +181,12 @@ Route::middleware(['role:admin|super_admin', 'verified'])->group(function () {
 
     Route::post('/update-user/{user}', UpdateUserController::class)
         ->name('update.user');
+
+    Route::post('/deactive-user/{user}', [UserStatusController::class, 'deactive'])
+        ->name('deactive.user');
+
+    Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
+        ->name('active.user');
 
     Route::get('/payment', PaymentController::class)
         ->name('admin.payment');

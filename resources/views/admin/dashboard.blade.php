@@ -4,9 +4,7 @@
     <x-alart />
 
     <h3 class="mt-6 text-xl">All Users</h3>
-    <!--Container-->
     <div class="mt-5 container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
-        <!--Card-->
         <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
             <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
@@ -20,9 +18,11 @@
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Status
                         </th>
+                        @role('super_admin')
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Edit
                         </th>
+                        @endrole
                     </tr>
                 </thead>
                 <tbody>
@@ -42,20 +42,36 @@
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-900">0757862096</div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                                Active
-                            </span>
-                        </td>
+
+                        @if ($user->status == 1)
+                        <form action="{{route('deactive.user',$user)}}" method="POST">
+                            @csrf
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <button type="submit" class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                    Active
+                                </button>
+                            </td>
+                        </form>
+                        @else
+                        <form action="{{route('active.user',$user)}}" method="POST">
+                            @csrf
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <button type="submit" class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                                    Deactive
+                                </button>
+                            </td>
+                        </form>
+                        @endif
+
+                        @role('super_admin')
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                             <a href="{{route('edit.user',$user)}}">Edit User</a>
                         </td>
+                        @endrole
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <!--/Card-->
     </div>
-    <!--/container-->
 </x-admin>
