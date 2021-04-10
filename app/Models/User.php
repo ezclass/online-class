@@ -32,6 +32,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function isActive(): bool
+    {
+        return $this->status == 1;
+    }
+
     public function isStudent(): bool
     {
         return $this->hasRole(Role::ROLE_STUDENT);

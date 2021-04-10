@@ -11,6 +11,7 @@ use App\Http\Controllers\CheckoutOptionController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DeactiveDashboardController;
 use App\Http\Controllers\Enroll\AcceptEnrolmentController;
 use App\Http\Controllers\EnrolmentRequestController;
 use App\Http\Controllers\Home\HomeController;
@@ -54,6 +55,9 @@ Route::get('/privacy-policy', PrivacyPolicyController::class)
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
+
+    Route::get('/deactive-dashboard', DeactiveDashboardController::class)
+        ->name('deactive.dashboard');
 
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
