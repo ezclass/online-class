@@ -56,7 +56,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
-    Route::get('/deactive-dashboard', DeactiveDashboardController::class)
+    Route::get('/deactive', DeactiveDashboardController::class)
         ->name('deactive.dashboard');
 
     Route::post('/enroll', EnrolmentRequestController::class)

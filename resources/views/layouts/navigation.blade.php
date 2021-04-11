@@ -50,21 +50,9 @@
                             <x-slot name="content">
                                 <!-- Authentication -->
                                 <div>
-                                    @role('teacher')
-                                    <x-dropdown-link href="{{ route('teacher.dashboard') }}">
+                                    <x-dropdown-link href="{{ route('dashboard') }}">
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
-                                    @endrole
-                                    @role('student')
-                                    <x-dropdown-link href="{{ route('student.dashboard') }}">
-                                        {{__('Dashboard')}}
-                                    </x-dropdown-link>
-                                    @endrole
-                                    @role('admin')
-                                    <x-dropdown-link href="{{ route('admin.dashboard') }}">
-                                        {{__('Dashboard')}}
-                                    </x-dropdown-link>
-                                    @endrole
                                 </div>
 
                                 <form method="POST" action="{{ route('logout') }}">
@@ -112,7 +100,7 @@
                 {{ __('All Classes') }}
             </x-responsive-nav-link>
         </div>
-        
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
@@ -138,21 +126,9 @@
                 @if (Route::has('login'))
                 @auth
                 <div>
-                    @role('teacher')
-                    <x-dropdown-link href="{{ route('teacher.dashboard') }}">
+                    <x-dropdown-link href="{{ route('dashboard') }}">
                         {{__('Dashboard')}}
                     </x-dropdown-link>
-                    @endrole
-                    @role('student')
-                    <x-dropdown-link href="{{ route('student.dashboard') }}">
-                        {{__('Dashboard')}}
-                    </x-dropdown-link>
-                    @endrole
-                    @role('admin')
-                    <x-dropdown-link href="{{ route('admin.dashboard') }}">
-                        {{__('Dashboard')}}
-                    </x-dropdown-link>
-                    @endrole
                 </div>
 
                 <form method="POST" action="{{ route('logout') }}">
