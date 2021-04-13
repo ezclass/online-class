@@ -41,6 +41,13 @@ use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+
+Route::post('upload', function () {
+    Storage::disk('spaces')->put('class', request()->image, 'public');
+
+    return redirect()->back();
+});
 
 Route::get('/', HomeController::class)
     ->name('welcome');

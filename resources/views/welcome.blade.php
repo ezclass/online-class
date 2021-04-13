@@ -1,13 +1,26 @@
 <x-app-layout>
-    <div class="bg-blue-100">
 
-        <x-header />
+    <x-header />
 
-        <x-service />
+    <x-service />
 
-        <x-explain />
+    <x-explain />
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        @csrf
+        {{ csrf_field() }}
 
-    </div>
+        Upload a file<br>
+        <input type="file" name="image" />
+
+        <p><button>Submit</button></p>
+    </form>
+
+    @forelse($files as $file)
+    <li><a href="{{ Storage::disk('spaces')->url($file) }}">{{ Storage::disk('spaces')->url($file) }}</a></li>
+    <img src="{{ Storage::disk('spaces')->url($file) }}" alt="">
+    @empty
+    <li><em>No files to display.</em></li>
+    @endforelse
 
     <x-footer />
 
