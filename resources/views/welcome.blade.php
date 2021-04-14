@@ -14,13 +14,7 @@
 
         <p><button>Submit</button></p>
     </form>
-
-    @forelse($files as $file)
-    <li><a href="{{ Storage::disk('spaces')->url($file) }}">{{ Storage::disk('spaces')->url($file) }}</a></li>
-    <img src="{{ Storage::disk('spaces')->url($file) }}" alt="">
-    @empty
-    <li><em>No files to display.</em></li>
-    @endforelse
+    <img src="{{ Storage::disk('do')->url('class/a.png') }}" alt="">
 
     <x-footer />
 

@@ -44,9 +44,14 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 Route::post('upload', function () {
-    Storage::disk('spaces')->put('class', request()->image, 'public');
 
-    return redirect()->back();
+    if (request()->hasFile('image')) {
+        $file = request()->file('image');
+        $name = $file->getClientOriginalName();
+        $storage = Storage::disk('do')->put('class/' . $name, file_get_contents(request()->file('image')->getRealPath()), 'public');
+
+        return redirect()->back();
+    }
 });
 
 Route::get('/', HomeController::class)

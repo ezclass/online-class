@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        $files = Storage::disk('spaces')->files('class');
+        $files = Storage::disk('do')->files('class');
 
         return view('welcome', compact('files'));
 
