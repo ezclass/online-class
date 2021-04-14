@@ -43,17 +43,6 @@ use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
-Route::post('upload', function () {
-
-    if (request()->hasFile('image')) {
-        $file = request()->file('image');
-        $name = $file->getClientOriginalName();
-        $storage = Storage::disk('do')->put('class/' . $name, file_get_contents(request()->file('image')->getRealPath()), 'public');
-
-        return redirect()->back();
-    }
-});
-
 Route::get('/', HomeController::class)
     ->name('welcome');
 

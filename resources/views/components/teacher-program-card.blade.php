@@ -1,6 +1,5 @@
 <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
-    <img class="w-full max-h-48" src="{{$program->image}}" alt="image" />
-    <!--{{ asset('storage/class_image/'. $program->image )}} -->
+    <img class="w-full max-h-48" src="{{Storage::disk('do')->url('program/'.$program->image)}}" alt="image" />
     <div class="badge absolute top-0 right-0 bg-red-500 m-1 text-gray-200 p-1 px-2 text-xs font-bold rounded">Rs:{{ $program->fees }}</div>
     <div class="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300">
         <span class="mr-1 p-1 px-2 font-bold">All Students : {{ $program->enrolments->count() }}</span>

@@ -1,7 +1,6 @@
 @forelse($enrolments as $enrolment)
 <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
-    <img class="w-full max-h-48" src="{{$enrolment->program->image}}" alt="image" />
-    <!--{{ asset('storage/class_image/'. $enrolment->program->image )}} -->
+    <img class="w-full max-h-48" src="{{Storage::disk('do')->url('program/'.$enrolment->program->image)}}" alt="image" />
     @if ($enrolment->payment_policy == 0)
     <div class="badge absolute top-0 right-0 bg-green-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
         Free Card

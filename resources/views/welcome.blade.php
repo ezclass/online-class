@@ -14,7 +14,7 @@
 
         <p><button>Submit</button></p>
     </form>
-    <img src="{{ Storage::disk('do')->url('class/a.png') }}" alt="">
+    <img src="{{ Storage::disk('do')->url('class/b.png') }}" alt="">
 
     <x-footer />
 

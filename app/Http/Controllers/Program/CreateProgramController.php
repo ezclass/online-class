@@ -8,6 +8,7 @@ use App\Http\Requests\Program\CreateProgramRequest;
 use App\Models\Program;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CreateProgramController extends Controller
 {
@@ -37,7 +38,7 @@ class CreateProgramController extends Controller
     {
         if ($file != null) {
             $filename = $program->id . '.' . $file->getClientOriginalExtension();
-            $file->move('storage/class_image/', $filename);
+            Storage::disk('do')->put('program/' . $filename, file_get_contents(request()->file('image')->getRealPath()), 'public');
             $program->image = $filename;
             $program->save();
         }

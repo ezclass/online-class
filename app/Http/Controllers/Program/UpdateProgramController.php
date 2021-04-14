@@ -34,7 +34,7 @@ class UpdateProgramController extends Controller
         if ($file != null) {
             Storage::delete('/public/class_image/' . $program->image);
             $filename = $program->id . '.' . $file->getClientOriginalExtension();
-            $file->move('storage/class_image/', $filename);
+            Storage::disk('do')->put('program/' . $filename, file_get_contents(request()->file('image')->getRealPath()), 'public');
             $program->image = $filename;
             $program->save();
         }
