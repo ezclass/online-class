@@ -41,7 +41,6 @@ use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 Route::get('/', HomeController::class)
     ->name('welcome');
