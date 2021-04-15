@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\UserStatusController;
 use App\Http\Controllers\BankPaymentController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutOptionController;
+use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
 use App\Http\Controllers\DashboardController;
@@ -51,6 +52,9 @@ Route::get('/search-class', SearchClassController::class)
 Route::get('/privacy-policy', PrivacyPolicyController::class)
     ->name('privacy-policy');
 
+Route::get('/public-dashboard/{user}', PublicDashboardController::class)
+    ->name('public.dashboard');
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
@@ -62,7 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
 
-    Route::get('/Lesson/{program}', ViewProgramController::class)
+    Route::get('/lesson/{program}', ViewProgramController::class)
         ->name('program.view');
 
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)

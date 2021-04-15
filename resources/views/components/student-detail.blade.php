@@ -58,9 +58,9 @@
 
         <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
             <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                <span class="ml-3 mt-5 text-green-500">
+                <button type="submit" class="text-green-500">
                     {{ __('Update') }}
-                </span>
+                </button>
             </a>
         </td>
     </form>

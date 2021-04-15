@@ -20,8 +20,7 @@ class CheckoutController extends Controller
             $offer = null;
         }
 
-        $duration = Carbon::now()->diffInMonths($enrolment->program->end_date->format('M d,Y'));
-
+        $duration = Carbon::create($enrolment->program->start_date->format('M d,Y'))->diffInMonths($enrolment->program->end_date->format('M d,Y'));
         $subscription = Subscription::make(
             $enrolment->program,
             $request->user(),
