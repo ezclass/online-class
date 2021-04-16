@@ -1,3 +1,5 @@
 <x-app-layout>
-    {{$teacher}}
+
+    <x-public :teacher="$teacher" />
+    
 </x-app-layout>
