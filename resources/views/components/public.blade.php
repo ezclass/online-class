@@ -120,4 +120,17 @@
              </div>
          </div>
      </div>
+
+     <div class="my-4"></div>
+
+     <div class="holder mx-auto w-11/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+         @forelse($programs as $program)
+         <x-program-card :program="$program" />
+         @empty
+         <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
+             <strong class="font-bold">oops!</strong>
+             <span class="block sm:inline">Still no class. Coming Soon!</span>
+         </div>
+         @endforelse
+     </div>
  </div>
