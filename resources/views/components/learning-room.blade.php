@@ -72,16 +72,9 @@
                                     <!-- avatar button -->
                                     <div class="relative" x-data="{ isOpen: false }">
                                         <div>
-                                            @role('teacher')
-                                            <x-dropdown-link href="{{ route('teacher.dashboard') }}">
-                                                <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="Ahmed Kamel">
+                                            <x-dropdown-link href="{{ route('dashboard') }}">
+                                                <img class="object-cover w-8 h-8 rounded-full" src="{{ Storage::disk('do')->url('avatar/'. Auth::user()->avatar)}}" alt="Ahmed Kamel">
                                             </x-dropdown-link>
-                                            @endrole
-                                            @role('student')
-                                            <x-dropdown-link href="{{ route('student.dashboard') }}">
-                                                <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="Ahmed Kamel" />
-                                            </x-dropdown-link>
-                                            @endrole
                                         </div>
 
                                         <!-- green dot -->

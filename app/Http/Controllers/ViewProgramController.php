@@ -10,8 +10,6 @@ class ViewProgramController extends Controller
 {
     public function __invoke(ViewProgramRequest $request, Program $program)
     {
-        $program->hasEnrolled($request->user());
-
         return view('program.program-view')
             ->with([
                 'program' => $program,

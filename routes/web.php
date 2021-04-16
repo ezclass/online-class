@@ -52,7 +52,7 @@ Route::get('/search-class', SearchClassController::class)
 Route::get('/privacy-policy', PrivacyPolicyController::class)
     ->name('privacy-policy');
 
-Route::get('/public-dashboard/{user}', PublicDashboardController::class)
+Route::get('/public-profile/{user}', PublicDashboardController::class)
     ->name('public.dashboard');
 
 
@@ -73,7 +73,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('enroll.request.accept');
 
 
-    Route::get('/overview/{lesson}', OverviewController::class)
+    Route::get('/learning-room-overview/{lesson}', OverviewController::class)
         ->name('overview');
 
     Route::get('/meeting/{lesson}', [MeetController::class, 'show'])
@@ -107,7 +107,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/checkout-option/{enrolment}', CheckoutOptionController::class)
         ->name('checkout.option');
 
-    Route::get('/payment-history/{enrolment}/{user}', ProgramPaymentHistoryController::class)
+    Route::get('/student-payment-history/{enrolment}/{user}', ProgramPaymentHistoryController::class)
         ->name('payment.history');
 });
 
