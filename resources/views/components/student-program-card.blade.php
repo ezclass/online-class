@@ -82,7 +82,7 @@
 
         <div class="m-6">
             <span class="text-md font-light text-gray-800 dark:text-gray-400">
-                <img src="{{ asset('storage/avatar/'. $enrolment->program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                <img src="{{ Storage::disk('do')->url('avatar/'. $enrolment->program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
                 {{$enrolment->program->teacher->name}}
             </span>
         </div>
