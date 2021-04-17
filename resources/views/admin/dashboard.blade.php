@@ -31,7 +31,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0 w-10 h-10">
-                                    <img class="w-10 h-10 rounded-full" src="{{ asset('storage/avatar/'. $user->avatar )}}" alt="" />
+                                    <img class="w-10 h-10 rounded-full" src="{{ Storage::disk('do')->url('avatar/'. $user->avatar)}}" alt="" />
                                 </div>
                                 <div class="ml-4">
                                     <div class="text-sm font-medium text-gray-900">{{$user->name}}</div>

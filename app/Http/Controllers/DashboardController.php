@@ -14,23 +14,22 @@ class DashboardController extends Controller
 
     private function getRouteForUser(User $user): string
     {
-        if ($user->isActive()) {
-            if ($user->isStudent()) {
-                return 'student.dashboard';
-            }
-
-            if ($user->isTeacher()) {
-                return 'teacher.dashboard';
-            }
-
-            if ($user->isAdmin()) {
-                return 'admin.dashboard';
-            }
-
-            if ($user->isSuperAdmin()) {
-                return 'admin.dashboard';
-            }
+        if ($user->isStudent()) {
+            return 'student.dashboard';
         }
+
+        if ($user->isTeacher()) {
+            return 'teacher.dashboard';
+        }
+
+        if ($user->isAdmin()) {
+            return 'admin.dashboard';
+        }
+
+        if ($user->isSuperAdmin()) {
+            return 'admin.dashboard';
+        }
+
         return 'deactive.dashboard';
     }
 }
