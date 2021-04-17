@@ -2,8 +2,6 @@
 
     <x-bg-layout>
 
-        <h1 class="font-black uppercase text-3xl lg:text-5xl text-yellow-500 mb-10">Update Lesson</h1>
-
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form action="{{route('lesson.update',$lesson->getRouteKey())}}" method="POST">
@@ -29,7 +27,7 @@
             </div>
 
             <x-success-button class="mt-3 ml-3">
-                {{ __('Update') }}
+                {{ __('Update Lesson') }}
             </x-success-button>
         </form>
 

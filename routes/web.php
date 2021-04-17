@@ -55,13 +55,13 @@ Route::get('/privacy-policy', PrivacyPolicyController::class)
 Route::get('/public-profile/{user}', PublicDashboardController::class)
     ->name('public.dashboard');
 
+Route::get('/deactive', DeactiveDashboardController::class)
+    ->name('deactive.dashboard');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+
+Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
-
-    Route::get('/deactive', DeactiveDashboardController::class)
-        ->name('deactive.dashboard');
 
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
@@ -112,39 +112,39 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
-Route::middleware(['role:teacher', 'verified'])->group(function () {
+Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
 
     Route::get('/create-class', CreateProgramViewContraller::class)
         ->name('create.program.viwe');
 
-    Route::post('/create/program', CreateProgramController::class)
+    Route::post('/create-program', CreateProgramController::class)
         ->name('create.program');
 
     Route::get('/class', ProgramViewContraller::class)
         ->name('program.view.teacher');
 
-    Route::get('/update/program/{program}', UpdateProgramViewController::class)
+    Route::get('/update-class/{program}', UpdateProgramViewController::class)
         ->name('update.program.view');
 
-    Route::post('/update/program/{program}', UpdateProgramController::class)
+    Route::post('/update-program/{program}', UpdateProgramController::class)
         ->name('update.program');
 
-    Route::get('/delete/program/{program}', DeleteProgramController::class)
+    Route::get('/delete-program/{program}', DeleteProgramController::class)
         ->name('delete.program');
 
 
-    Route::post('/create/lesson/{program}', CreateLessonController::class)
+    Route::post('/create-lesson/{program}', CreateLessonController::class)
         ->name('create.lesson');
 
-    Route::get('/edit-lesson/{lesson}', UpdateLessonViewController::class)
+    Route::get('/update-lesson/{lesson}', UpdateLessonViewController::class)
         ->name('lesson.edit');
 
     Route::post('/lesson/{lesson}', UpdateLessonController::class)
         ->name('lesson.update');
 
-    Route::get('/delete/lesson/{lesson}', DeleteLessonController::class)
+    Route::get('/delete-lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
 
 
@@ -171,7 +171,7 @@ Route::middleware(['role:teacher', 'verified'])->group(function () {
 });
 
 
-Route::middleware(['role:student', 'verified'])->group(function () {
+Route::middleware(['role:student', 'verified', 'active'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 
@@ -180,7 +180,7 @@ Route::middleware(['role:student', 'verified'])->group(function () {
 });
 
 
-Route::middleware(['role:admin|super_admin', 'verified'])->group(function () {
+Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
 
