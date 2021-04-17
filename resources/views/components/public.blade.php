@@ -53,10 +53,6 @@
                  <div class="text-gray-700">
                      <div class="grid md:grid-cols-2 text-sm">
                          <div class="grid grid-cols-2">
-                             <div class="px-4 py-2 font-semibold">Gender</div>
-                             <div class="px-4 py-2">Female</div>
-                         </div>
-                         <div class="grid grid-cols-2">
                              <div class="px-4 py-2 font-semibold">Contact No.</div>
                              <div class="px-4 py-2">+11 998001001</div>
                          </div>
@@ -65,10 +61,6 @@
                              <div class="px-4 py-2">
                                  <span class="text-blue-800">{{$teacher->email}}</span>
                              </div>
-                         </div>
-                         <div class="grid grid-cols-2">
-                             <div class="px-4 py-2 font-semibold">Birthday</div>
-                             <div class="px-4 py-2">Feb 06, 1998</div>
                          </div>
                      </div>
                  </div>
