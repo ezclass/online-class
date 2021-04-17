@@ -278,7 +278,7 @@
                 </svg>
             </div>
             <div class="z-10 p-2 text-sm text-center text-gray-500 ">
-                Join the class where the teacher conducts live classes online
+                Join the class where the teacher conducts live online
             </div>
         </div>
     </div>

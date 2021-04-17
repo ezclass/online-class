@@ -1,5 +1,7 @@
 <x-app-layout>
 
+    <x-alart />
+    
         <div class="hero  py-1">
             <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
                 <div class="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -134,8 +136,6 @@
                 </div>
             </div>
         </div>
-
-        <x-alart />
 
         <div class="holder mx-auto w-11/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             @forelse($programs as $program)
