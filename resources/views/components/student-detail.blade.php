@@ -44,14 +44,11 @@
                 <option selected disabled>
                     @if ($enrolment->payment_policy == 0)
                     <span class="text-green-500">Free Card</span>
-                    @elseif ($enrolment->payment_policy == 50)
-                    50% Offer
                     @else
                     Normel Price
                     @endif
                 </option>
                 <option value="0">Free Card</option>
-                <option value="50">50% Offer</option>
                 <option value="100">Normel Price</option>
             </select>
         </td>

@@ -12,25 +12,14 @@ class CheckoutController extends Controller
 {
     public function show(Enrolment $enrolment, PaymentViewRequest $request)
     {
-        if ($enrolment->payment_policy == 50) {
-            $fees = $enrolment->program->fees / 2;
-            $offer = $enrolment->payment_policy;
-        } else {
-            $fees = $enrolment->program->fees;
-            $offer = null;
-        }
-
         $duration = Carbon::create($enrolment->program->start_date->format('M d,Y'))->diffInMonths($enrolment->program->end_date->format('M d,Y'));
         $subscription = Subscription::make(
             $enrolment->program,
             $request->user(),
             '1 Month',
             "{$duration} Month",
-            $fees
+            $enrolment->program->fees
         );
-
-        $subscription->offer = $offer;
-        $subscription->save();
 
         return view('payhere.checkout')
             ->with([
