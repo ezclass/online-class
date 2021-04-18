@@ -9,6 +9,7 @@ use App\Models\Enrolment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class BankPaymentController extends Controller
 {
@@ -22,14 +23,6 @@ class BankPaymentController extends Controller
 
     public function store(Enrolment $enrolment, BankPaymentRequest $request)
     {
-        if ($enrolment->payment_policy == 50) {
-            $fees = $enrolment->program->fees / 2;
-            $offer = $enrolment->payment_policy;
-        } else {
-            $fees = $enrolment->program->fees;
-            $offer = null;
-        }
-
         $duration = Carbon::now()->diffInMonths($enrolment->program->end_date->format('M d,Y'));
 
         $subscription = Subscription::make(
@@ -37,10 +30,10 @@ class BankPaymentController extends Controller
             $request->user(),
             '1 Month',
             "{$duration} Month",
-            $fees
+            $enrolment->program->fees
         );
 
-        $subscription->store($request->get('invoice_no'), $request->get('invoice_date'), $offer);
+        $subscription->store($request->get('invoice_no'), $request->get('invoice_date'));
         $this->storeFile($subscription, $request->file('receipt'));
 
         return redirect()
@@ -52,7 +45,7 @@ class BankPaymentController extends Controller
     {
         if ($file != null) {
             $filename = $subscription->id . '.' . $file->getClientOriginalExtension();
-            $file->move('storage/payment_receipt/', $filename);
+            Storage::disk('do')->put('bank_payment/' . $filename, file_get_contents(request()->file('receipt')->getRealPath()), 'public');
             $subscription->receipt = $filename;
             $subscription->save();
         }
