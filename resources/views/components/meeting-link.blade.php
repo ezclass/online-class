@@ -37,9 +37,9 @@
         <form action="{{route('meet.delete',$meeting)}}" method="POST">
             @csrf
             <div class="py-6 px-8 space-y-5 bg-white">
-                <x-success-button type="submit">
+                <x-danger-button type="submit">
                     {{__('Detele')}}
-                </x-success-button>
+                </x-danger-button>
             </div>
         </form>
         @endrole
