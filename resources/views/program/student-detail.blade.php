@@ -9,7 +9,7 @@
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
     <x-alart />
 
-    <body class="antialiased font-sans bg-gray-400">
+    <div class="antialiased font-sans bg-gray-400">
         <div class="container mx-auto px-4 sm:px-8">
             <div class="py-8">
                 <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -67,6 +67,6 @@
                 </div>
             </div>
         </div>
-    </body>
+    </div>
 
 </x-app-layout>
