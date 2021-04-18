@@ -42,8 +42,8 @@
                                     {{ __('Meet') }}
                                 </x-responsive-nav-link>
 
-                                <x-responsive-nav-link :href="route('pastpaper',$lesson)" :active="request()->routeIs('pastpaper',$lesson)">
-                                    {{ __('Past Paper') }}
+                                <x-responsive-nav-link :href="route('document',$lesson)" :active="request()->routeIs('document',$lesson)">
+                                    {{ __('document') }}
                                 </x-responsive-nav-link>
 
                             </ul>

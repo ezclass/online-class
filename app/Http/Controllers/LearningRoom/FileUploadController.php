@@ -7,6 +7,7 @@ use App\Http\Requests\LearningRoom\FileUploadRequest;
 use App\Models\Document;
 use App\Models\Lesson;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class FileUploadController extends Controller
 {
@@ -26,7 +27,7 @@ class FileUploadController extends Controller
     {
         if ($file != null) {
             $filename = $document->id . '.' . $file->getClientOriginalExtension();
-            $file->move('storage/document/', $filename);
+            Storage::disk('do')->put('document/' . $filename, file_get_contents(request()->file('file')->getRealPath()), 'public');
             $document->file = $filename;
             $document->save();
         }

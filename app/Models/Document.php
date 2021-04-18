@@ -12,8 +12,12 @@ class Document extends Model
     use HasFactory;
     use Obfuscatable;
 
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+
     // scope
-    
     public function scopeOfLesson(Builder $query, Lesson $lesson)
     {
         $query->where('lesson_id', $lesson->id);

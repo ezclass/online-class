@@ -33,10 +33,11 @@ use App\Http\Controllers\Enroll\RemindCancelController;
 use App\Http\Controllers\Enroll\RemindController;
 use App\Http\Controllers\Enroll\UnBlockController;
 use App\Http\Controllers\Enroll\UpdateEnrolmentController;
+use App\Http\Controllers\LearningRoom\DocumentController;
+use App\Http\Controllers\LearningRoom\FileDeleteController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
-use App\Http\Controllers\LearningRoom\PastPaperController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\StudentDetailController;
@@ -85,8 +86,8 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::post('/meet-delete/{meeting}', [MeetController::class, 'delete'])
         ->name('meet.delete');
 
-    Route::get('/past-paper/{lesson}', PastPaperController::class)
-        ->name('pastpaper');
+    Route::get('/document/{lesson}', DocumentController::class)
+        ->name('document');
 
 
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
@@ -168,6 +169,9 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
 
     Route::post('/file-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
+
+    Route::post('/file-delete/{document}', FileDeleteController::class)
+        ->name('file.delete');
 });
 
 
