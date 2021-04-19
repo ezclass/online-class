@@ -42,6 +42,7 @@ use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\StudentDetailController;
+use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,10 +50,13 @@ Route::get('/', HomeController::class)
     ->name('welcome');
 
 Route::get('/search-class', SearchClassController::class)
-    ->name('search-class');
+    ->name('search.class');
+
+Route::get('/legal', TermAndConditionController::class)
+    ->name('legal');
 
 Route::get('/privacy-policy', PrivacyPolicyController::class)
-    ->name('privacy-policy');
+    ->name('privacy.policy');
 
 Route::get('/public-profile/{user}', PublicDashboardController::class)
     ->name('public.dashboard');

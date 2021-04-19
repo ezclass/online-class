@@ -65,7 +65,7 @@
             <div class="block mt-4">
                 <label for="Privacy_Policy" class="inline-flex items-center">
                     <input id="Privacy_Policy" type="checkbox" value="1" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="privacy-policy">
-                    <span class="ml-2 text-sm text-gray-600">I agree to <a href="{{route('privacy-policy')}}" class="text-blue-500"><u>Terms & Conditions</u></a> and <a href="{{route('privacy-policy')}}" class="text-blue-500"><u>Privacy Policy</u></a> </span>
+                    <span class="ml-2 text-sm text-gray-600">I agree to <a href="{{route('legal')}}" target="new" class="text-blue-500"><u>Terms & Conditions</u></a> and <a href="{{route('privacy.policy')}}" target="new" class="text-blue-500"><u>Privacy Policy</u></a> </span>
                 </label>
             </div>
 

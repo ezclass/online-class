@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('search-class')" :active="request()->routeIs('search-class')">
+                    <x-nav-link :href="route('search.class')" :active="request()->routeIs('search.class')">
                         {{ __('All Classes') }}
                     </x-nav-link>
                 </div>
@@ -96,7 +96,7 @@
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('search-class')" :active="request()->routeIs('search-class')">
+            <x-responsive-nav-link :href="route('search.class')" :active="request()->routeIs('search.class')">
                 {{ __('All Classes') }}
             </x-responsive-nav-link>
         </div>

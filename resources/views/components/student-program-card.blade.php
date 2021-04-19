@@ -115,6 +115,6 @@
 @empty
 <div class="bg-blue-100 border border-blue-400 text-blue-700 p-3 rounded relative my-6  shadow" role="alert">
     <strong class="font-bold">hey!</strong>
-    <span class="block sm:inline"> To enter class, click <a href="{{route('search-class')}}"><u>Find Classes</u></a></span>
+    <span class="block sm:inline"> To enter class, click <a href="{{route('search.class')}}"><u>Find Classes</u></a></span>
 </div>
 @endforelse

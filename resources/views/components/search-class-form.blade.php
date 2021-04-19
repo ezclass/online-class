@@ -1,4 +1,4 @@
-<form action="{{route('search-class')}}" method="GET">
+<form action="{{route('search.class')}}" method="GET">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
         <div>
             <x-label for="">Select Grade</x-label>
