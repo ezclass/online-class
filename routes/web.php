@@ -39,6 +39,7 @@ use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\ViewProgramController;
@@ -172,6 +173,9 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
 
     Route::post('/file-delete/{document}', FileDeleteController::class)
         ->name('file.delete');
+
+    Route::get('/income-detail/{program}', IncomeDetailController::class)
+        ->name('income.detail');
 });
 
 
