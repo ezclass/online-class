@@ -6,4 +6,6 @@
         Income Details in : <b>{{$program->subject->name}}</b>
     </div>
 
+   {{$subscriptions}}
+
 </x-app-layout>

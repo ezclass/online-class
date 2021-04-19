@@ -20,13 +20,7 @@
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
         {{$subscription->amount}}
     </td>
-    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        <span class="relative inline-block px-3 py-1 font-semibold text-yellow-500 leading-tight">
-            @if ($subscription->offer !== null)
-            %{{$subscription->offer}}
-            @endif
-        </span>
-    </td>
+    
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
         <span class="relative inline-block px-3 py-1 font-semibold text-green-500 leading-tight">
             Success

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Program;
 
+use ApiChef\PayHere\Subscription;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Program\IncomeDetailRequest;
 use App\Models\Program;
+use Carbon\Carbon;
 
 class IncomeDetailController extends Controller
 {
@@ -13,6 +15,10 @@ class IncomeDetailController extends Controller
         return view('program.income-detail')
             ->with([
                 'program' => $program,
+                'subscriptions' => Subscription::query()
+                    ->where('subscribable_id', $program->id)
+                    ->sum('amount'),
+                'month' => Carbon::now()->format('M/Y')
             ]);
     }
 }
