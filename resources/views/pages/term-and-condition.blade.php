@@ -1,5 +1,5 @@
 <x-guest-layout>
 
-    <p>PayHere Terms & Conditions</p>
+    <p>Gurugedara Terms & Conditions</p>
 
 </x-guest-layout>
