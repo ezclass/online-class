@@ -41,6 +41,7 @@ class SearchClassController extends Controller
             ->when($enroledProgramIds != null, function (Builder $query) use ($enroledProgramIds) {
                 $query->whereNotIn('id', $enroledProgramIds);
             })
+            ->isPublished()
             ->paginate(16);
 
         return view('pages.search-class')

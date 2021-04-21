@@ -24,7 +24,7 @@ class ProgramFactory extends Factory
             'grade_id' => Grade::query()->inRandomOrder()->first()->id,
             'image' => $this->faker->imageUrl(),
             'fees' => $this->faker->randomFloat(2, 50, 5000),
-            'class_type' => $this->faker->randomElement(array ('Theory', 'Paper', 'Revision')),
+            'class_type' => $this->faker->randomElement(array('Theory', 'Paper', 'Revision')),
             'start_date' => $startDate,
             'end_date' => $startDate->addMonths(12),
             'start_time' => $startTime,
@@ -33,6 +33,7 @@ class ProgramFactory extends Factory
             'user_id' => User::role(Role::ROLE_TEACHER)->inRandomOrder()->first()->id,
             'subject_id' => Subject::query()->inRandomOrder()->first()->id,
             'language_id' => Language::query()->inRandomOrder()->first()->id,
+            'status' => 1,
         ];
     }
 }

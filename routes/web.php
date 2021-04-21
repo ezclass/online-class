@@ -41,6 +41,7 @@ use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
+use App\Http\Controllers\Program\ProgramStatusController;
 use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\ViewProgramController;
@@ -130,6 +131,12 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
 
     Route::get('/class', ProgramViewContraller::class)
         ->name('program.view.teacher');
+
+        Route::get('/program-status-publish/{program}', [ProgramStatusController::class, 'publish'])
+        ->name('status.publish');
+
+    Route::get('/program-status-unpublish/{program}', [ProgramStatusController::class, 'unpublish'])
+        ->name('status.unpublish');
 
     Route::get('/update-class/{program}', UpdateProgramViewController::class)
         ->name('update.program.view');

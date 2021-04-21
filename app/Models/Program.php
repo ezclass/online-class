@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use ApiChef\Obfuscate\Obfuscatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -68,5 +69,12 @@ class Program extends Model
             ->whereNotNull('accepted_at')
             ->where('active', 1)
             ->exists();
+    }
+
+    // scope
+
+    public function scopeIsPublished(Builder $query)
+    {
+        $query->where('status', 1);
     }
 }
