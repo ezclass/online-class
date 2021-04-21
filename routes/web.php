@@ -76,10 +76,6 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/lesson/{program}', ViewProgramController::class)
         ->name('program.view');
 
-    Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
-        ->name('enroll.request.accept');
-
-
     Route::get('/learning-room-overview/{lesson}', OverviewController::class)
         ->name('overview');
 
@@ -132,7 +128,7 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/class', ProgramViewContraller::class)
         ->name('program.view.teacher');
 
-        Route::get('/program-status-publish/{program}', [ProgramStatusController::class, 'publish'])
+    Route::get('/program-status-publish/{program}', [ProgramStatusController::class, 'publish'])
         ->name('status.publish');
 
     Route::get('/program-status-unpublish/{program}', [ProgramStatusController::class, 'unpublish'])
@@ -160,6 +156,9 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/delete-lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
 
+
+    Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
+        ->name('enroll.request.accept');
 
     Route::get('/student-detail/{program}', StudentDetailController::class)
         ->name('student.detail');

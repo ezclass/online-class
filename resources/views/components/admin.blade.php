@@ -197,7 +197,7 @@
                                     <!-- avatar button -->
                                     <div class="relative" x-data="{ isOpen: false }">
                                         <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
-                                            <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/avatar/'. Auth::user()->avatar )}}" alt="Ahmed Kamel" />
+                                            <img class="object-cover w-8 h-8 rounded-full" src="{{ Storage::disk('do')->url('avatar/'. Auth::user()->avatar)}}" alt="avatar" />
                                         </button>
                                         <!-- green dot -->
                                         <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping"></div>

@@ -13,6 +13,8 @@ class EnrolmentAcceptRequest extends FormRequest
 
     public function rules()
     {
-        return [];
+        return [
+            'payment_policy' => 'required',
+        ];
     }
 }
