@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
+use App\Http\Controllers\BankDetailController;
 use App\Http\Controllers\BankPaymentController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutOptionController;
@@ -118,6 +119,12 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
 Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
+
+    Route::get('/bank-detail', [BankDetailController::class, 'view'])
+        ->name('bank.detail');
+
+        Route::post('/bank-detail-save', [BankDetailController::class, 'save'])
+        ->name('bank.detail.save');
 
     Route::get('/create-class', CreateProgramViewContraller::class)
         ->name('create.program.viwe');
