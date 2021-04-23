@@ -15,6 +15,10 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             <div>
+                <x-label for="branch">Bank Name <span class="text-red-500">*</span></x-label>
+                <input type="text" name="bank_name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Branch" required>
+            </div>
+            <div>
                 <x-label for="branch">Branch <span class="text-red-500">*</span></x-label>
                 <input type="text" name="branch" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Branch" required>
             </div>

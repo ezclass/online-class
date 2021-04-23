@@ -16,6 +16,7 @@ class BankDetailRequest extends FormRequest
         return [
             'name' => 'required',
             'account_number' => 'required|integer',
+            'bank_name' => 'required',
             'branch' => 'required',
         ];
     }

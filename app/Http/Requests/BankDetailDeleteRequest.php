@@ -4,11 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ViewEnrollRequest extends FormRequest
+class BankDetailDeleteRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return $this->route('bankDetail')->user_id == $this->user()->id;
     }
 
     public function rules()

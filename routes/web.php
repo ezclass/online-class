@@ -123,8 +123,11 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/bank-detail', [BankDetailController::class, 'view'])
         ->name('bank.detail');
 
-        Route::post('/bank-detail-save', [BankDetailController::class, 'save'])
+    Route::post('/bank-detail-save', [BankDetailController::class, 'save'])
         ->name('bank.detail.save');
+
+    Route::post('/bank-detail-delete/{bankDetail}', [BankDetailController::class, 'delete'])
+        ->name('bank.detail.delete');
 
     Route::get('/create-class', CreateProgramViewContraller::class)
         ->name('create.program.viwe');

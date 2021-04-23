@@ -11,7 +11,8 @@ class CreateBankDetailsTable extends Migration
         Schema::create('bank_details', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->tinyInteger('account_number');
+            $table->string('account_number');
+            $table->string('bank_name');
             $table->string('branch');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
