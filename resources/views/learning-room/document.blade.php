@@ -5,7 +5,7 @@
 
     @can('create',$lesson)
     <span class="font-black text-md  text-yellow-500 mb-10">Upload files</span>
-    <span class="font-black text-sm  text-yellow-500 mb-10">( jpg, pdf, ppt, dox )</span>
+    <span class="font-black text-sm  text-yellow-500 mb-10">( png, jpg, jpeg, pdf, docx, ppt, mkv, mp4, zip, txt )</span>
     <x-file-upload :lesson="$lesson" />
     @endcan
 
@@ -24,7 +24,7 @@
                                         Title
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        File
+                                        View
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                         Download

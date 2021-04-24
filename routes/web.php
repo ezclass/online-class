@@ -36,7 +36,9 @@ use App\Http\Controllers\Enroll\UnBlockController;
 use App\Http\Controllers\Enroll\UpdateEnrolmentController;
 use App\Http\Controllers\LearningRoom\DocumentController;
 use App\Http\Controllers\LearningRoom\FileDeleteController;
+use App\Http\Controllers\LearningRoom\FileDownloadController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
+use App\Http\Controllers\LearningRoom\FileViewController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\PrivacyPolicyController;
@@ -190,6 +192,12 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
 
     Route::post('/file-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
+
+    Route::get('/file-view/{document}', FileViewController::class)
+        ->name('file.view');
+
+    Route::get('/file-download/{document}', FileDownloadController::class)
+        ->name('file.download');
 
     Route::post('/file-delete/{document}', FileDeleteController::class)
         ->name('file.delete');

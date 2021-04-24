@@ -8,10 +8,10 @@
         </div>
     </td>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        {{$document->file}}
+        <a href="{{route('file.view',$document)}}">View</a>
     </td>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        Download
+        <a href="{{route('file.download',$document)}}">Download</a>
     </td>
     @role('teacher')
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
