@@ -15,7 +15,7 @@ class CreateLessonController extends Controller
         $class->name = $request->get('name');
         $class->starts_at = $request->get('starts_at');
         $class->ends_at = $request->get('ends_at');
-        $class->note  = $request->get('note');
+        $class->description  = $request->get('description');
         $class->program_id  = $program->id;
         $class->save();
 

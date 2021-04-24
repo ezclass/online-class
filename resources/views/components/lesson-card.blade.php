@@ -7,7 +7,7 @@
     </div>
 
     <div class="mt-4">
-        {{$lesson->note}}
+        {{$lesson->description}}
     </div>
 
     <div>

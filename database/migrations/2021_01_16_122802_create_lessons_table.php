@@ -12,7 +12,7 @@ class CreateLessonsTable extends Migration
             $table->string('name');
             $table->dateTime('starts_at');
             $table->dateTime('ends_at');
-            $table->string('note')->nullable();
+            $table->text('description')->nullable();
             $table->foreignId('program_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

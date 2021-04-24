@@ -12,7 +12,7 @@ class UpdateLessonController extends Controller
         $lesson->name = $request->get('name');
         $lesson->starts_at = $request->get('starts_at');
         $lesson->ends_at = $request->get('ends_at');
-        $lesson->note  = $request->get('note');
+        $lesson->description  = $request->get('description');
         $lesson->save();
 
         return redirect()

@@ -22,8 +22,8 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="">Note</x-label>
-                <x-input type="text" name="note" value="{{$lesson->note}}" class="block mt-1 w-full" />
+                <x-label for="">Description</x-label>
+                <x-input type="text" name="description" value="{{$lesson->description}}" class="block mt-1 w-full" />
             </div>
 
             <x-success-button class="mt-3 ml-3">

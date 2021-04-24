@@ -23,8 +23,8 @@
             </div>
 
             <div>
-                <x-label for="">Note</x-label>
-                <input type="text" name="note" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Note">
+                <x-label for="">Description</x-label>
+                <textarea name="description" id="description" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Lesson Description"></textarea>
             </div>
         </div>
 
