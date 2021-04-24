@@ -54,12 +54,12 @@
             </div>
 
             <div class="mt-4">
-                <label for="start_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Start Date</label>
+                <label for="start_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Start Date <span class="text-red-500">*</span></label>
                 <input type="date" value="{{$program->start_date->format('m/d/Y')}}" name="start_date" id="start_date" :value="old('start_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
             <div class="mt-4">
-                <label for="end_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class End Date</label>
+                <label for="end_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class End Date <span class="text-red-500">*</span></label>
                 <input type="date" value="{{$program->end_date->format('m/d/Y')}}" name="end_date" id="end_date" :value="old('end_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
@@ -74,7 +74,7 @@
                 </style>
 
                 <div class="mt-4">
-                    <label for="day" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Day</label>
+                    <label for="day" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Day <span class="text-red-500">*</span></label>
                     <select x-cloak id="select">
                         <option value="monday">Monday</option>
                         <option value="tuesday">Tuesday</option>
@@ -208,12 +208,12 @@
             </div>
 
             <div class="mt-4">
-                <label for="start_time" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Start Time</label>
+                <label for="start_time" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Start Time <span class="text-red-500">*</span></label>
                 <input type="time" value="{{$program->start_time->format('h:m A')}}" name="start_time" id="start_time" :value="old('start_time')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
             <div class="mt-4">
-                <label for="end_time" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class End Time</label>
+                <label for="end_time" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class End Time <span class="text-red-500">*</span></label>
                 <input type="time" value="{{$program->end_time->format('h:m A')}}" name="end_time" id="end_time" :value="old('end_time')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
