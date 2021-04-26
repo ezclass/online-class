@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AvatarRequest;
 use App\Http\Requests\SettingRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class SettingController extends Controller
 {
@@ -23,5 +28,33 @@ class SettingController extends Controller
 
         return redirect()->back()
             ->with('success', 'Account Detail successfuly update');
+    }
+
+    public function uploadavaratar(AvatarRequest $request, User $user)
+    {
+        $this->deleteOldImage();
+        $this->storeFile($user, $request->file('avatar'));
+
+        return redirect()->back()
+            ->with('success', 'Image Upload Successfully!');
+    }
+
+    private function storeFile(User $user, UploadedFile $file = null)
+    {
+        if ($file != null) {
+            $filename = $user->id . '.' . $file->getClientOriginalExtension();
+            Storage::disk('do')->put('avatar/' . $filename, file_get_contents(request()->file('avatar')->getRealPath()), 'public');
+            $user->avatar = $filename;
+            $user->save();
+        }
+    }
+
+    protected function deleteOldImage()
+    {
+        if (auth()->user()->avatar) {
+            if (Auth::user()->avatar == 'avatar.jpg') {
+            } else
+                Storage::disk('do')->delete('avatar/' . auth()->user()->avatar);
+        }
     }
 }
