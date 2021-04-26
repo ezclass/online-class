@@ -1,5 +1,3 @@
-
-
 <svg viewBox="-10 0 550 450" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>
     <defs>
         <style>
