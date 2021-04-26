@@ -77,6 +77,9 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/setting', [SettingController::class, 'view'])
         ->name('setting');
 
+    Route::post('/setting-save/{user}', [SettingController::class, 'save'])
+        ->name('setting.save');
+
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
 
