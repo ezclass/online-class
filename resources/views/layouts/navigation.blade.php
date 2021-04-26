@@ -55,6 +55,12 @@
                                     </x-dropdown-link>
                                 </div>
 
+                                <div>
+                                    <x-dropdown-link href="{{ route('setting') }}">
+                                        {{__('Setting')}}
+                                    </x-dropdown-link>
+                                </div>
+
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
@@ -128,6 +134,12 @@
                 <div>
                     <x-dropdown-link href="{{ route('dashboard') }}">
                         {{__('Dashboard')}}
+                    </x-dropdown-link>
+                </div>
+
+                <div>
+                    <x-dropdown-link href="{{ route('setting') }}">
+                        {{__('setting')}}
                     </x-dropdown-link>
                 </div>
 

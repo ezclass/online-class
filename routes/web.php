@@ -46,6 +46,7 @@ use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\ProgramStatusController;
 use App\Http\Controllers\Program\StudentDetailController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +73,9 @@ Route::get('/deactive', DeactiveDashboardController::class)
 Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
+
+    Route::get('/setting', [SettingController::class, 'view'])
+        ->name('setting');
 
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');

@@ -120,8 +120,7 @@
          <x-program-card :program="$program" />
          @empty
          <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
-             <strong class="font-bold">oops!</strong>
-             <span class="block sm:inline">Still no class. Coming Soon!</span>
+            <span class="block sm:inline text-yellow-700">No classes yet, Click <a href="{{route('create.program.viwe')}}"><u>Create a new class</u></a></span>
          </div>
          @endforelse
      </div>
