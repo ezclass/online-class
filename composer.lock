@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b80ee6f6eb36aa1458afe586972ef86a",
+    "content-hash": "de2678e1d639c8a85dd4be08a6b3c53e",
     "packages": [
         {
             "name": "apichef/laravel-obfuscate",
@@ -77,29 +77,29 @@
         },
         {
             "name": "apichef/laravel-pay-here",
-            "version": "v1.0.2",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apichef/laravel-pay-here.git",
-                "reference": "a37ff4b9407a7df3d2cc54d5433e0bfa3e45b44d"
+                "reference": "458d570b2692741c9f30a906d056cfd238ca470d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apichef/laravel-pay-here/zipball/a37ff4b9407a7df3d2cc54d5433e0bfa3e45b44d",
-                "reference": "a37ff4b9407a7df3d2cc54d5433e0bfa3e45b44d",
+                "url": "https://api.github.com/repos/apichef/laravel-pay-here/zipball/458d570b2692741c9f30a906d056cfd238ca470d",
+                "reference": "458d570b2692741c9f30a906d056cfd238ca470d",
                 "shasum": ""
             },
             "require": {
                 "apichef/laravel-obfuscate": "^2.0.1",
-                "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
-                "illuminate/database": "^6.0|^7.0|^8.0",
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "laravel/legacy-factories": "^1.1",
-                "php": "^7.2.5 || ^8.0"
+                "guzzlehttp/guzzle": "^7.0.1",
+                "illuminate/database": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0",
+                "laravel/legacy-factories": "^1.1",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0",
                 "squizlabs/php_codesniffer": "^3.5"
             },
             "type": "library",
@@ -138,9 +138,9 @@
             ],
             "support": {
                 "issues": "https://github.com/apichef/laravel-pay-here/issues",
-                "source": "https://github.com/apichef/laravel-pay-here/tree/v1.0.2"
+                "source": "https://github.com/apichef/laravel-pay-here/tree/v2.0.1"
             },
-            "time": "2021-01-08T21:41:03+00:00"
+            "time": "2021-04-11T10:55:22+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -1354,62 +1354,6 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2020-12-22T21:21:19+00:00"
-        },
-        {
-            "name": "laravel/legacy-factories",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/legacy-factories.git",
-                "reference": "5e3fe2fd5fda64e20ea5c74c831a7346294e902a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/legacy-factories/zipball/5e3fe2fd5fda64e20ea5c74c831a7346294e902a",
-                "reference": "5e3fe2fd5fda64e20ea5c74c831a7346294e902a",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/macroable": "^8.0",
-                "php": "^7.3|^8.0",
-                "symfony/finder": "^3.4|^4.0|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Illuminate\\Database\\Eloquent\\LegacyFactoryServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "helpers.php"
-                ],
-                "psr-4": {
-                    "Illuminate\\Database\\Eloquent\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The legacy version of the Laravel Eloquent factories.",
-            "homepage": "http://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2020-10-27T14:25:32+00:00"
         },
         {
             "name": "laravel/tinker",

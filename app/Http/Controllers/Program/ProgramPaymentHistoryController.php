@@ -18,7 +18,6 @@ class ProgramPaymentHistoryController extends Controller
                 'enrolment' => $enrolment,
                 'student' => $user,
                 'subscriptions' => Subscription::query()
-                    ->hasVerified($user, $enrolment)
                     ->get(),
             ]);
     }
