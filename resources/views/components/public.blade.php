@@ -16,7 +16,7 @@
          border-color: var(--main-color);
      }
  </style>
- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
  <div class="container mx-auto my-5 p-5">
@@ -27,16 +27,6 @@
                      <img class="h-auto w-full mx-auto" src="{{ Storage::disk('do')->url('avatar/'. $teacher->avatar )}}" alt="">
                  </div>
                  <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{$teacher->name}}</h1>
-                 <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
-                 <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
-                     consectetur adipisicing elit.
-                     Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
-                 <ul class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                     <li class="flex items-center py-3">
-                         <span>Member since</span>
-                         <span class="ml-auto">{{$teacher->created_at->format('M d, Y')}}</span>
-                     </li>
-                 </ul>
              </div>
          </div>
 
@@ -113,9 +103,16 @@
          @forelse($programs as $program)
          <x-program-card :program="$program" />
          @empty
+         @role('teacher')
          <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
-            <span class="block sm:inline text-yellow-700">No classes yet, Click <a href="{{route('create.program.viwe')}}"><u>Create a new class</u></a></span>
+             <span class="block sm:inline text-yellow-700">No classes yet, Click <a href="{{route('create.program.viwe')}}"><u>Create a new class</u></a></span>
          </div>
+         @endrole
+         @role('student')
+         <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
+             <span class="block sm:inline text-yellow-700">No classes yet</span>
+         </div>
+         @endrole
          @endforelse
      </div>
  </div>

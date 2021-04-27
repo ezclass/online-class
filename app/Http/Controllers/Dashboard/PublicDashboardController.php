@@ -17,6 +17,7 @@ class PublicDashboardController extends Controller
                 'programs' => Program::query()
                     ->with(['grade', 'subject', 'teacher', 'language'])
                     ->where('user_id', $user->id)
+                    ->where('status', 1)
                     ->get(),
             ]);
     }

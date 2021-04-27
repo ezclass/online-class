@@ -63,7 +63,7 @@ Route::get('/legal', TermAndConditionController::class)
 Route::get('/privacy-policy', PrivacyPolicyController::class)
     ->name('privacy.policy');
 
-Route::get('/public-profile/{user}', PublicDashboardController::class)
+Route::get('/public-dashboard/{user}', PublicDashboardController::class)
     ->name('public.dashboard');
 
 Route::get('/deactive', DeactiveDashboardController::class)

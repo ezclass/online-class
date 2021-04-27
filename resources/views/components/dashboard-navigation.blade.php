@@ -11,10 +11,17 @@
                 {{ __('Bank details') }}
             </x-responsive-nav-link>
         </div>
-        
+
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('create.program.viwe')" :active="request()->routeIs('create.program.viwe')">
                 {{ __('Create Class') }}
+            </x-responsive-nav-link>
+        </div>
+
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('public.dashboard',Auth::user())" :active="request()->routeIs('public.dashboard')">
+                {{ __('My Public Dashboard') }}
             </x-responsive-nav-link>
         </div>
 
