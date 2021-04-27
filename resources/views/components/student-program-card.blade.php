@@ -82,8 +82,10 @@
 
         <div class="m-6">
             <span class="text-md font-light text-gray-800 dark:text-gray-400">
-                <img src="{{ Storage::disk('do')->url('avatar/'. $enrolment->program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
-                {{$enrolment->program->teacher->name}}
+                <a href="{{route('public.dashboard', $enrolment->program->teacher)}}"><img src="{{ Storage::disk('do')->url('avatar/'. $enrolment->program->teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                    {{$enrolment->program->teacher->name}}
+                </a>
+
             </span>
         </div>
 
