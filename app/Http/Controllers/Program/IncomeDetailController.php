@@ -17,6 +17,7 @@ class IncomeDetailController extends Controller
                 'program' => $program,
                 'subscriptions' => Subscription::query()
                     ->where('subscribable_id', $program->id)
+                    ->where('status', 1)
                     ->sum('amount'),
                 'month' => Carbon::now()->format('M/Y')
             ]);

@@ -32,6 +32,7 @@ class CheckoutController extends Controller
     {
         $subscription = Subscription::findByOrderId($request->get('order_id'));
         $subscription->payment_id = $request->get('order_id');
+        $subscription->status = 1;
         $subscription->save();
 
         return redirect()
