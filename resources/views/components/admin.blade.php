@@ -133,10 +133,6 @@
                                     {{ __('Overview') }}
                                 </x-responsive-nav-link>
 
-                                <x-responsive-nav-link :href="route('admin.payment')" :active="request()->routeIs('admin.payment')">
-                                    {{ __('Payment') }}
-                                </x-responsive-nav-link>
-
                                 <x-responsive-nav-link>
                                     {{ __('Seting') }}
                                 </x-responsive-nav-link>

@@ -2,13 +2,10 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\EditUserController;
-use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
 use App\Http\Controllers\BankDetailController;
-use App\Http\Controllers\BankPaymentController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\CheckoutOptionController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
@@ -232,7 +229,6 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
 
     Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
-
 });
 
 require __DIR__ . '/auth.php';
