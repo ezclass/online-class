@@ -63,14 +63,9 @@
                     Lessons
                 </a>
             </span>
-            <span class="text-yellow-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+            <span class="text-red-400 inline-flex items-center leading-none text-sm">
                 <a href="{{route('update.program.view',$program->getRouteKey())}}">
                     Update
-                </a>
-            </span>
-            <span class="text-red-400 inline-flex items-center leading-none text-sm">
-                <a href="{{route('delete.program', $program->getRouteKey())}}">
-                    Delete
                 </a>
             </span>
         </div>
