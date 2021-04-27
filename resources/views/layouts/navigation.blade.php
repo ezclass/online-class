@@ -36,7 +36,8 @@
                                 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition
                                 duration-150 ease-in-out">
                                     <div>
-                                        {{Auth::user()->name}}
+                                        <img src="{{ Storage::disk('do')->url('avatar/'. Auth::user()->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                                       <span class="ml-2">{{Auth::user()->name}}</span>
                                     </div>
 
                                     <div class="ml-1">
@@ -113,7 +114,8 @@
                 @if (Route::has('login'))
                 @auth
                 <div class="ml-3">
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                    <img src="{{ Storage::disk('do')->url('avatar/'. Auth::user()->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                    <span class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</span>
                 </div>
                 @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
