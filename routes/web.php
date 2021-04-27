@@ -114,15 +114,6 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/checkout/{enrolment}', [CheckoutController::class, 'show'])
         ->name('checkout');
 
-    Route::get('/bank-payment/{enrolment}', [BankPaymentController::class, 'show'])
-        ->name('bank.payment');
-
-    Route::post('/bank-payment/{enrolment}', [BankPaymentController::class, 'store'])
-        ->name('bank.payment.store');
-
-    Route::get('/checkout-option/{enrolment}', CheckoutOptionController::class)
-        ->name('checkout.option');
-
     Route::get('/student-payment-history/{enrolment}/{user}', ProgramPaymentHistoryController::class)
         ->name('payment.history');
 });
@@ -242,11 +233,6 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
     Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
 
-    Route::get('/payment', PaymentController::class)
-        ->name('admin.payment');
-
-    Route::post('/bank-payment-success/{subscription}', [BankPaymentController::class, 'success'])
-        ->name('bank.payment.success');
 });
 
 require __DIR__ . '/auth.php';
