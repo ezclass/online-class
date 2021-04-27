@@ -21,11 +21,7 @@
                 Update
             </a>
 
-            <a href="{{route('delete.lesson',$lesson->getRouteKey())}}" class="ml-4 text-red-500 cursor-pointer dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                Delete
-            </a>
             @endcan
-
         </div>
     </div>
 </div>

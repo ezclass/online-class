@@ -14,7 +14,7 @@
             <input type="hidden" value="avatar.jpg" name="avatar">
             <div class="mt-4">
                 <div class="flex justify-between">
-                    <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="name">Name</label>
+                    <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="name">Full Name</label>
                 </div>
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
