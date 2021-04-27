@@ -81,8 +81,7 @@
                          </div>
                          <ul class="list-inside space-y-2">
                              <li>
-                                 <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                 <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                 <div class="text-teal-600">{{$teacher->experience}}</div>
                              </li>
                          </ul>
                      </div>
@@ -99,12 +98,7 @@
                          </div>
                          <ul class="list-inside space-y-2">
                              <li>
-                                 <div class="text-teal-600">Masters Degree in Oxford</div>
-                                 <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                             </li>
-                             <li>
-                                 <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                                 <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                 <div class="text-teal-600">{{$teacher->education}}</div>
                              </li>
                          </ul>
                      </div>
