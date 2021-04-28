@@ -23,6 +23,9 @@
                             Edit
                         </th>
                         @endrole
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            Show
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,6 +71,9 @@
                             <a href="{{route('edit.user',$user)}}">Edit User</a>
                         </td>
                         @endrole
+                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                            <a href="{{route('show.detail',$user)}}">Show Details</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
