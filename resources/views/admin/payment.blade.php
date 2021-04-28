@@ -12,88 +12,40 @@
                 <thead>
                     <tr>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Date
+                            Name
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            amount
+                            Email
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            subscribable_id <br>(Program)
+                            Phone Number
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             payer_id <br>(Student)
                         </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            invoice_no
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            invoice_date
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            receipt
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Action
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($subscriptions as $subscription)
+                    @foreach($teachers as $teacher)
                     <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                     <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{$subscription->created_at}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{$teacher->name}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{$subscription->amount}}</div>
+                            <div class="text-sm font-medium text-gray-900">{{$teacher->email}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">{{$subscription->subscribable_id}}</div>
+                            <div class="text-sm text-gray-900">{{$teacher->email}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-900">
-                                {{$subscription->payer_id}}
+                                {{$teacher->email}}
                             </div>
                         </td>
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">
-                                {{$subscription->invoice_no}}
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">
-                                {{$subscription->invoice_date}}
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <div class="flex-shrink-0 w-10 h-10">
-                                <img class="w-10 h-10 rounded-full" src="{{ asset('storage/payment_receipt/'. $subscription->receipt )}}" alt="" />
-                            </div>
-                        </td>
-                        <form action="{{route('bank.payment.success',$subscription)}}" method="POST">
-                            @csrf
-                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                    <select name="action" id="">
-                                        <option value="1">Success</option>
-                                        <option value="">Cancel</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                <x-success-button>
-                                    {{__('Submit')}}
-                                </x-success-button>
-                            </td>
-                        </form>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <!--/Card-->
     </div>
-    <!--/container-->
 </x-admin>

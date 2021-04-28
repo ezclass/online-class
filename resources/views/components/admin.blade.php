@@ -133,8 +133,8 @@
                                     {{ __('Overview') }}
                                 </x-responsive-nav-link>
 
-                                <x-responsive-nav-link>
-                                    {{ __('Seting') }}
+                                <x-responsive-nav-link :href="route('teacher.payment')" :active="request()->routeIs('teacher.payment')">
+                                    {{ __('Payment') }}
                                 </x-responsive-nav-link>
 
                             </ul>
@@ -198,17 +198,6 @@
                                         <!-- green dot -->
                                         <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping"></div>
                                         <div class="absolute right-0 p-1 bg-green-400 border border-white rounded-full bottom-3"></div>
-
-                                        <!-- Dropdown card -->
-                                        <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max">
-                                            <div class="flex flex-col p-4 space-y-1 font-medium border-b">
-                                                <span class="text-gray-800">{{Auth::User()->name}}</span>
-                                                <span class="text-sm text-gray-400">{{Auth::User()->email}}</span>
-                                            </div>
-                                            <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
-                                                <a href="#">Logout</a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
