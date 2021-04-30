@@ -34,7 +34,7 @@ class CheckoutController extends Controller
         $subscription->payment_id = $request->get('order_id');
         $subscription->status = 1;
         $subscription->save();
-
+        
         return redirect()
             ->route('student.dashboard')
             ->with('success', 'Your payment was successful.');

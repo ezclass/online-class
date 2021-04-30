@@ -97,11 +97,14 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::post('/meet-save/{lesson}', [MeetController::class, 'save'])
         ->name('meet.save');
 
-    Route::post('/meet-delete/{meeting}', [MeetController::class, 'delete'])
-        ->name('meet.delete');
-
     Route::get('/document/{lesson}', DocumentController::class)
         ->name('document');
+
+    Route::get('/file-view/{document}', FileViewController::class)
+        ->name('file.view');
+
+    Route::get('/file-download/{document}', FileDownloadController::class)
+        ->name('file.download');
 
 
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
@@ -193,14 +196,11 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::post('/file-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
 
-    Route::get('/file-view/{document}', FileViewController::class)
-        ->name('file.view');
-
-    Route::get('/file-download/{document}', FileDownloadController::class)
-        ->name('file.download');
-
     Route::post('/file-delete/{document}', FileDeleteController::class)
         ->name('file.delete');
+
+    Route::post('/meet-delete/{meeting}', [MeetController::class, 'delete'])
+        ->name('meet.delete');
 
     Route::get('/income-detail/{program}', IncomeDetailController::class)
         ->name('income.detail');
