@@ -100,10 +100,10 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/document/{lesson}', DocumentController::class)
         ->name('document');
 
-    Route::get('/file-view/{document}', FileViewController::class)
+    Route::get('/document-view/{document}', FileViewController::class)
         ->name('file.view');
 
-    Route::get('/file-download/{document}', FileDownloadController::class)
+    Route::get('/document-download/{document}', FileDownloadController::class)
         ->name('file.download');
 
 
@@ -193,10 +193,10 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::post('/student-unblock/{enrolment}', UnBlockController::class)
         ->name('student.unblock');
 
-    Route::post('/file-upload/{lesson}', FileUploadController::class)
+    Route::post('/document-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
 
-    Route::post('/file-delete/{document}', FileDeleteController::class)
+    Route::post('/document-delete/{document}', FileDeleteController::class)
         ->name('file.delete');
 
     Route::post('/meet-delete/{meeting}', [MeetController::class, 'delete'])

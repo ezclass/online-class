@@ -35,7 +35,7 @@
                 <option value="7">First Week ( 7 )</option>
                 <option value="14">Second Week ( 14 )</option>
                 <option value="21">Third Week ( 21 )</option>
-                <option value="28">Last Week ( 28 )</option>
+                <option value="27">Last Week ( 27 )</option>
             </select>
         </td>
 
