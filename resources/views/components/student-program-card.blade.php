@@ -70,13 +70,13 @@
         @if ($enrolment->payment_date == 1)
         <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">Daily</span></h6>
         @elseif ($enrolment->payment_date == 7)
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( First Week )</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} 7 ( First Week )</span></h6>
         @elseif ($enrolment->payment_date == 14)
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Second Week )</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} 14 ( Second Week )</span></h6>
         @elseif ($enrolment->payment_date == 21)
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Third Week )</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} 21 ( Third Week )</span></h6>
         @else
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Last Week )</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} 27 ( Last Week )</span></h6>
         @endif
         @endif
 
@@ -98,18 +98,19 @@
             </span>
             @endif
             @if ($enrolment->accepted_at !== null and $enrolment->payment_policy !== 0)
-            <span class="text-yellow-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+            <span class="text-yellow-400 mr-3 inline-flex items-center leading-none text-sm  py-1 border-gray-200">
                 <a href="{{route('checkout',$enrolment)}}">
                     Pay class fees
                 </a>
             </span>
             @endif
-
-            <span class="text-red-400 inline-flex items-center leading-none text-sm">
+            @if ($enrolment->accepted_at == null)
+            <span class="text-red-400 inline-flex items-center leading-none text-sm pl-3 border-l-2">
                 <a href="{{route('enroled-program.delete',$enrolment)}}">
                     Delete
                 </a>
             </span>
+            @endif
         </div>
     </div>
 </div>
