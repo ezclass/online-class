@@ -18,9 +18,9 @@ class ProgramPaymentHistoryController extends Controller
                 'enrolment' => $enrolment,
                 'student' => $user,
                 'subscriptions' => Subscription::query()
-                    ->where('payer_id', $user->id)
                     ->where('subscribable_id', $enrolment->program_id)
-                    ->where('status', 1)
+                    ->paidBy($user)
+                    ->success()
                     ->get(),
             ]);
     }
