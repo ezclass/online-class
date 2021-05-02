@@ -57,8 +57,11 @@ Route::get('/', HomeController::class)
 Route::get('/search-class', SearchClassController::class)
     ->name('search.class');
 
-Route::get('/contact-us', ContactUsController::class)
+Route::get('/contact-us', [ContactUsController::class, 'view'])
     ->name('contactus');
+
+Route::post('/send-mail', [ContactUsController::class, 'mail'])
+    ->name('send.mail');
 
 Route::get('/legal', TermAndConditionController::class)
     ->name('legal');
