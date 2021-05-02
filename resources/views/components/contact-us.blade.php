@@ -1,4 +1,4 @@
-<section class="lg:mt-16 w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+<section class="lg:mt-16 mb-16 w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Get in touch</h2>
     <p class="mt-3 text-center text-gray-600 dark:text-gray-400">
         We are committed to assisting your issue
