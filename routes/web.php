@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
 use App\Http\Controllers\BankDetailController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\TeacherDashboardController;
@@ -55,6 +56,9 @@ Route::get('/', HomeController::class)
 
 Route::get('/search-class', SearchClassController::class)
     ->name('search.class');
+
+Route::get('/contact-us', ContactUsController::class)
+    ->name('contactus');
 
 Route::get('/legal', TermAndConditionController::class)
     ->name('legal');
