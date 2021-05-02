@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de2678e1d639c8a85dd4be08a6b3c53e",
+    "content-hash": "ffe48c298420fc02b9cc241595ab1b4c",
     "packages": [
         {
             "name": "apichef/laravel-obfuscate",
@@ -5691,6 +5691,44 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.9.1"
             },
             "time": "2020-07-08T17:02:28+00:00"
+        },
+        {
+            "name": "wildbit/postmark-php",
+            "version": "4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wildbit/postmark-php.git",
+                "reference": "3be4ac512cf461998b5dab41eef60a704139d7d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wildbit/postmark-php/zipball/3be4ac512cf461998b5dab41eef60a704139d7d6",
+                "reference": "3be4ac512cf461998b5dab41eef60a704139d7d6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Postmark\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The officially supported client for Postmark (http://postmarkapp.com)",
+            "support": {
+                "issues": "https://github.com/wildbit/postmark-php/issues",
+                "source": "https://github.com/wildbit/postmark-php/tree/4.0.1"
+            },
+            "time": "2021-03-16T16:31:09+00:00"
         }
     ],
     "packages-dev": [

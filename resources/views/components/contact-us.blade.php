@@ -33,27 +33,27 @@
             <span class="mt-2">contact@homeclass.lk</span>
         </a>
     </div>
-    <form action="" method="POST">
+    <form action="{{route('send.mail')}}" method="POST">
         @csrf
         <div class="mt-6 ">
             <div class="items-center -mx-2 md:flex">
                 <div class="w-full mx-2">
                     <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Name</label>
 
-                    <input class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" type="text">
+                    <input name="name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" type="text" required>
                 </div>
 
                 <div class="w-full mx-2 mt-4 md:mt-0">
                     <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">E-mail</label>
 
-                    <input class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" type="email">
+                    <input name="email" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" type="email" required>
                 </div>
             </div>
 
             <div class="w-full mt-4">
                 <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Message</label>
 
-                <textarea class="block w-full h-40 px-4 py-2 border border-gray-400  rounded focus:outline-non focus:border-teal-500"></textarea>
+                <textarea name="message" class="block w-full h-40 px-4 py-2 border border-gray-400  rounded focus:outline-non focus:border-teal-500" required></textarea>
             </div>
 
             <div class="flex justify-center mt-6">
