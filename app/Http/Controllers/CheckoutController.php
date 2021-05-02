@@ -23,7 +23,7 @@ class CheckoutController extends Controller
 
         return view('payhere.checkout')
             ->with([
-                'payment' => $subscription,
+                'subscription' => $subscription,
                 'program' => $enrolment->program,
             ]);
     }
@@ -32,7 +32,7 @@ class CheckoutController extends Controller
     {
         $subscription = Subscription::findByOrderId($request->get('order_id'));
         $subscription->payment_id = $request->get('order_id');
-        $subscription->status = 1;
+        $subscription->status = 2;
         $subscription->save();
 
         return redirect()

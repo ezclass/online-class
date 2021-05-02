@@ -5,7 +5,7 @@
     <x-service />
 
     <x-explain />
-    
+
     <x-footer />
 
 </x-app-layout>
