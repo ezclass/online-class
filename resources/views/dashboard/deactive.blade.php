@@ -124,4 +124,6 @@
         </div>
     </div>
 
+    <x-messanger />
+    
 </x-guest-layout>
