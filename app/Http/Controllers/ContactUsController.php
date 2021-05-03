@@ -14,6 +14,6 @@ class ContactUsController extends Controller
 
     public function mail(ContactUsRequest $request)
     {
-
+       
     }
 }
