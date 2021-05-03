@@ -45,7 +45,7 @@ class SubjectSeeder extends Seeder
             ['name' => ['si' =>'කෘෂි හා ආහාර තාක්ෂණවේදය',  'en' => 'Agriculture & Food Technology']],
             ['name' => ['si' =>'ජලජ ජීව සම්පත් තාක්ෂණය',  'en' => 'Aquatic Biological Resources Technology']],
             ['name' => ['si' =>'නිර්මාණකරනය හා ඉදිකිරීම් තාක්ෂණවේදය',  'en' => 'Design and Construction Technology']],
-            ['name' => ['si' =>'ශිල්ප කලා',  'en' => '']],
+            ['name' => ['si' =>'ශිල්ප කලා',  'en' => 'Crafts']],
 
             // grade 12-13 special
             ['name' => ['si' =>'භෞතික විද්‍යාව',  'en' => 'Physics']],
