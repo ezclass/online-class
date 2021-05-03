@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class Notifications extends Notification
+class Otp extends Notification
 {
     use Queueable;
 
@@ -17,19 +17,16 @@ class Notifications extends Notification
 
     public function via($notifiable)
     {
-        return ['mail', 'sms'];
+        return $notifiable->prefers_sms ? ['textit'] : ['mail'];
     }
 
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->mailer('postmark')
             ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
-    }
-
-    public function toSms($notifiable)
-    {
+            ->action('Click to go to the site', url('/'))
+            ->line('Thank you for using homeclass.lk!');
     }
 
     public function toArray($notifiable)
