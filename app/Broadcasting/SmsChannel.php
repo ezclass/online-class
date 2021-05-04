@@ -2,7 +2,7 @@
 
 namespace App\Broadcasting;
 
-use App\Notifications\Notifications;
+use App\Notifications\Otp;
 
 class SmsChannel
 {
@@ -10,8 +10,8 @@ class SmsChannel
     {
     }
 
-    public function send($notifiable, Notifications $notification)
+    public function send($notifiable, Otp $notification)
     {
-        $message = $notification->toSms($notifiable);
+        $message = $notification->toOtp($notifiable);
     }
 }
