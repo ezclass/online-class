@@ -20,7 +20,7 @@ class ProgramPaymentHistoryController extends Controller
                 'subscriptions' => Subscription::query()
                     ->where('subscribable_id', $enrolment->program_id)
                     ->paidBy($user)
-                    ->success()
+                    ->where('status', 2)
                     ->get(),
             ]);
     }
