@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-alart />
-    
+
         <div class="hero  py-1">
             <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
                 <div class="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -151,7 +151,5 @@
         <div class="mt-10 py-4 px-4">
             {{ $programs->links() }}
         </div>
-
-    <x-footer />
 
 </x-app-layout>
