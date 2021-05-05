@@ -7,9 +7,7 @@
         {{$document->title}}
         </div>
     </td>
-    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        <a href="{{route('file.view',$document)}}" class="text-indigo-500">View</a>
-    </td>
+
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
         <a href="{{route('file.download',$document)}}" class="text-green-500">Download</a>
     </td>

@@ -4,6 +4,9 @@
     <x-alart />
 
     @can('create', $lesson)
+
+    <x-meeting-provider />
+
     <div class=" flex items-center justify-center ">
         <div class="flex flex-col shadow-xl">
             <div class="py-6 px-14 bg-gradient-to-tr from-blue-500 to-blue-300 rounded-tl-2xl rounded-tr-2xl text-center space-y-8">
