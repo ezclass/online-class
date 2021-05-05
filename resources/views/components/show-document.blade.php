@@ -1,6 +1,6 @@
 <tr>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        {{$document->created_at->format('M d, Y')}}
+        {{$document->created_at->format('M d, Y , h:m a')}}
         </div>
     </td>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
@@ -8,10 +8,10 @@
         </div>
     </td>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        <a href="{{route('file.view',$document)}}">View</a>
+        <a href="{{route('file.view',$document)}}" class="text-indigo-500">View</a>
     </td>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        <a href="{{route('file.download',$document)}}">Download</a>
+        <a href="{{route('file.download',$document)}}" class="text-green-500">Download</a>
     </td>
     @role('teacher')
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
