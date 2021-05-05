@@ -38,7 +38,6 @@ use App\Http\Controllers\LearningRoom\DocumentController;
 use App\Http\Controllers\LearningRoom\FileDeleteController;
 use App\Http\Controllers\LearningRoom\FileDownloadController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
-use App\Http\Controllers\LearningRoom\FileViewController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\PrivacyPolicyController;
@@ -106,9 +105,6 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
 
     Route::get('/document/{lesson}', DocumentController::class)
         ->name('document');
-
-    Route::get('/document-view/{document}', FileViewController::class)
-        ->name('file.view');
 
     Route::get('/document-download/{document}', FileDownloadController::class)
         ->name('file.download');
