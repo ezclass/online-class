@@ -7,6 +7,4 @@
 
     <x-messanger />
 
-    <x-footer />
-
 </x-app-layout>
