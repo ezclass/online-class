@@ -10,8 +10,8 @@ class ProgramSeeder extends Seeder
 {
     public function run()
     {
-        Program::factory(100)
-            ->has(Lesson::factory()->count(10))
+        Program::factory(16)
+            ->has(Lesson::factory()->count(5))
             ->create();
     }
 }
