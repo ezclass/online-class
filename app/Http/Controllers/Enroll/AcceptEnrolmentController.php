@@ -12,7 +12,7 @@ class AcceptEnrolmentController extends Controller
     {
         $enrolment->accept($request->get('payment_date'), $request->get('payment_policy'));
 
-        return redirect()->route('student.detail', $enrolment->program)
-            ->with('success', 'Enrolment Accept Successful');
+        return redirect()->back()
+            ->with('success', 'Enrolment Accept Successful, To show you student details, go to, MyClass->StudentDetails this way');
     }
 }

@@ -10,8 +10,7 @@ class UpdateLessonController extends Controller
     public function __invoke(UpdateLessonRequest $request, Lesson $lesson)
     {
         $lesson->name = $request->get('name');
-        $lesson->starts_at = $request->get('starts_at');
-        $lesson->ends_at = $request->get('ends_at');
+        $lesson->class_date = $request->get('class_date');
         $lesson->description  = $request->get('description');
         $lesson->save();
 

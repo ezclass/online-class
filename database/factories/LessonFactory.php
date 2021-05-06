@@ -18,8 +18,7 @@ class LessonFactory extends Factory
         return [
             'name' => $this->faker->title,
             'description' => $this->faker->sentence,
-            'starts_at' => $startsAt,
-            'ends_at' => $startsAt->addHours(3),
+            'class_date' => $startsAt,
             'program_id' => Program::factory(),
         ];
     }

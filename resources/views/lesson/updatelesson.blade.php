@@ -12,13 +12,8 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="">Start at <span class="text-red-500">*</span></x-label>
-                <x-input type="datetime-local" name="starts_at" value="{{$lesson->starts_at}}" class="block mt-1 w-full" required />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="">End at <span class="text-red-500">*</span></x-label>
-                <x-input type="datetime-local" name="ends_at" value="{{$lesson->ends_at}}" class="block mt-1 w-full" required />
+                <x-label for="">Class Date</x-label>
+                <x-input type="date" name="class_date" value="{{$lesson->class_date}}" class="block mt-1 w-full" required />
             </div>
 
             <div class="mt-4">

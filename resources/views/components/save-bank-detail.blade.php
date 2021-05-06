@@ -16,7 +16,13 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             <div>
                 <x-label for="branch">Bank Name <span class="text-red-500">*</span></x-label>
-                <input type="text" name="bank_name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Branch" required>
+                <select name="bank_name" id="bank_name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Branch" required>
+                <option value="" selected disabled>Bank Name</option>
+                <option value="Bank of Ceylon">Bank of Ceylon</option>
+                    <option value="Hatton National Bank PLC">Hatton National Bank PLC</option>
+                    <option value="People's Bank">People's Bank</option>
+                    <option value="Sampath Bank PLC">Sampath Bank PLC</option>
+                </select>
             </div>
             <div>
                 <x-label for="branch">Branch <span class="text-red-500">*</span></x-label>
@@ -29,4 +35,3 @@
         </x-success-button>
     </form>
 </div>
-
