@@ -13,8 +13,7 @@ class CreateLessonController extends Controller
     {
         $class = new Lesson();
         $class->name = $request->get('name');
-        $class->starts_at = $request->get('starts_at');
-        $class->ends_at = $request->get('ends_at');
+        $class->class_date = $request->get('class_date');
         $class->description  = $request->get('description');
         $class->program_id  = $program->id;
         $class->save();

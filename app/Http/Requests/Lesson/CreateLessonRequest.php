@@ -14,9 +14,8 @@ class CreateLessonRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:30',
-            'starts_at' => 'required',
-            'ends_at' => 'required',
+            'name' => 'required|max:50',
+            'class_date' => 'required',
         ];
     }
 }
