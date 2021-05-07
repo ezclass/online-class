@@ -34,6 +34,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    // relationships
+
+    public function banks()
+    {
+        return $this->hasMany(BankDetail::class);
+    }
+
     public function isActive(): bool
     {
         return $this->status == 1;

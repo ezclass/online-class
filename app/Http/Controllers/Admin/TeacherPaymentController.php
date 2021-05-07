@@ -13,7 +13,6 @@ class TeacherPaymentController extends Controller
         return view('admin.payment')
             ->with([
                 'teachers' => User::query()
-                    ->with('roles')
                     ->where('status', 1)
                     ->role('teacher')
                     ->get(),
