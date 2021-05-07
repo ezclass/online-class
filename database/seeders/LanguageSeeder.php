@@ -12,7 +12,7 @@ class LanguageSeeder extends Seeder
         Language::query()->insert([
             ['name' => 'සිංහල මාධ්‍යය'],
             ['name' => 'English medium'],
-            ['name' => 'දෙමළ මාධ්‍යය'],
+            ['name' => 'தமிழ் ஊடகங்கள்'],
         ]);
     }
 }
