@@ -100,9 +100,6 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/meeting/{lesson}', [MeetController::class, 'show'])
         ->name('meet');
 
-    Route::post('/meet-save/{lesson}', [MeetController::class, 'save'])
-        ->name('meet.save');
-
     Route::get('/document/{lesson}', DocumentController::class)
         ->name('document');
 
@@ -201,6 +198,9 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
 
     Route::post('/document-delete/{document}', FileDeleteController::class)
         ->name('file.delete');
+
+    Route::post('/meet-save/{lesson}', [MeetController::class, 'save'])
+        ->name('meet.save');
 
     Route::post('/meet-delete/{meeting}', [MeetController::class, 'delete'])
         ->name('meet.delete');
