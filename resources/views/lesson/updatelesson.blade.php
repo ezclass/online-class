@@ -13,7 +13,7 @@
 
             <div class="mt-4">
                 <x-label for="">Class Date</x-label>
-                <x-input type="date" name="class_date" value="{{$lesson->class_date}}" class="block mt-1 w-full" required />
+                <x-input type="date" name="class_date" value="{{$lesson->class_date->format('Y-m-d')}}" class="block mt-1 w-full" required />
             </div>
 
             <div class="mt-4">

@@ -2,7 +2,7 @@
     <div>
         <h1 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">{{$lesson->name}}</h1>
         <p class="mt-2 text-sm text-gray-900 dark:text-gray-300">
-          <b>{{$lesson->class_date}} , {{$lesson->program->start_time->format('h:i: A')}} To {{$lesson->program->end_time->format('h:i: A')}}</b>
+          <b>{{$lesson->class_date->format('d M, Y')}} , {{$lesson->program->start_time->format('h:i: A')}} To {{$lesson->program->end_time->format('h:i: A')}}</b>
         </p>
     </div>
 

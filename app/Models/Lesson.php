@@ -15,8 +15,7 @@ class Lesson extends Model
     use SoftDeletes;
 
     protected $dates = [
-        'starts_at',
-        'ends_at',
+        'class_date',
     ];
 
     public function program()
