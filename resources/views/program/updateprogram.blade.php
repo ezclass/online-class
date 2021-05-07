@@ -54,13 +54,13 @@
             </div>
 
             <div class="mt-4">
-                <label for="start_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Start Date <span class="text-red-500">*</span></label>
-                <input type="date" value="{{$program->start_date->format('m/d/Y')}}" name="start_date" id="start_date" :value="old('start_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                <label for="start_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Start Date</label>
+                <input type="date" value="{{$program->start_date->format('Y-m-d')}}" name="start_date" id="start_date" :value="old('start_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
             <div class="mt-4">
-                <label for="end_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class End Date <span class="text-red-500">*</span></label>
-                <input type="date" value="{{$program->end_date->format('m/d/Y')}}" name="end_date" id="end_date" :value="old('end_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                <label for="end_date" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class End Date</label>
+                <input type="date" value="{{$program->end_date->format('Y-m-d')}}" name="end_date" id="end_date" :value="old('end_date')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
             <div>
@@ -109,7 +109,7 @@
                                                 </div>
                                             </template>
                                             <div x-show="selected.length    == 0" class="flex-1">
-                                                <input placeholder="{{$program->day}}" class="bg-transparent p-1 px-2 appearance-none outline-none h-full w-full text-gray-800" x-bind:value="selectedValues()">
+                                                <input placeholder="{{$program->day}}" class="bg-transparent p-1 px-2 appearance-none outline-none h-full w-full text-gray-800" x-bind:value="selectedValues()" required>
                                             </div>
                                         </div>
                                         <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-l flex items-center border-gray-200 svelte-1l8159u">
@@ -209,12 +209,11 @@
 
             <div class="mt-4">
                 <label for="start_time" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Start Time <span class="text-red-500">*</span></label>
-                <input type="time" value="{{$program->start_time->format('h:m A')}}" name="start_time" id="start_time" :value="old('start_time')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                <input type="time" value="{{$program->start_time->format('h:m A')}}" name="start_time" id="start_time" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
-
             <div class="mt-4">
                 <label for="end_time" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class End Time <span class="text-red-500">*</span></label>
-                <input type="time" value="{{$program->end_time->format('h:m A')}}" name="end_time" id="end_time" :value="old('end_time')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                <input type="time" value="{{$program->end_time->format('h:m A')}}" name="end_time" id="end_time" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
             </div>
 
             <div class="mt-4">
