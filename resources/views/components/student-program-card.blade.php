@@ -70,13 +70,13 @@
         @if ($enrolment->payment_date == 1)
         <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">Daily</span></h6>
         @elseif ($enrolment->payment_date == 7)
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} 7 ( First Week )</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( First Week )</span></h6>
         @elseif ($enrolment->payment_date == 14)
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} 14 ( Second Week )</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Second Week )</span></h6>
         @elseif ($enrolment->payment_date == 21)
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} 21 ( Third Week )</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Third Week )</span></h6>
         @else
-        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} 27 ( Last Week )</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Payment Date : <span class="text-indigo-700">{{$enrolment->payment_date}} ( Last Week )</span></h6>
         @endif
         @endif
 
