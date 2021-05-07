@@ -16,7 +16,7 @@ class SubjectSeeder extends Seeder
             ['name' => ['si' => 'ගණිතය',  'en' => 'Maths']],
             ['name' => ['si' =>'පරිසරය',  'en' => 'Sinhala']],
             ['name' => ['si' =>'ඉංග්‍රීසි',  'en' => 'English']],
-            ['name' => ['si' =>'தமிழ்',  'en' => 'Tamil']],
+            ['name' => ['si' =>'දෙමළ',  'en' => 'Tamil']],
 
             //grade 6-9 common
             ['name' => ['si' =>'බුද්ධාගම',  'en' => 'Buddhism']],
