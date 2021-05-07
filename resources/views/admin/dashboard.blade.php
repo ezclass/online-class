@@ -16,6 +16,9 @@
                             Phone Number
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            Role
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Status
                         </th>
                         @role('super_admin')
@@ -23,9 +26,6 @@
                             Edit
                         </th>
                         @endrole
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Show
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +44,10 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-900">0757862096</div>
+                        </td>
+
+                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                           {{implode(', ', $user->roles->pluck('name')->toArray())}}
                         </td>
 
                         @if ($user->status == 1)
@@ -68,12 +72,9 @@
 
                         @role('super_admin')
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <a href="{{route('edit.user',$user)}}">Edit User</a>
+                            <a href="{{route('edit.user',$user)}}" class="text-yellow-500">Edit User</a>
                         </td>
                         @endrole
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <a href="{{route('show.detail',$user)}}">Show Details</a>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -13,6 +13,7 @@ class AdminDashboardController extends Controller
         return view('admin.dashboard')
             ->with([
                 'users' => User::query()
+                    ->with('roles')
                     ->get()
             ]);
     }

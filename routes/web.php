@@ -238,7 +238,7 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
     Route::get('/teacher-payment-detail', TeacherPaymentController::class)
         ->name('teacher.payment');
 
-    Route::get('/show-detail/{user}', ShowDetailController::class)
+    Route::get('/show-teacher-detail/{user}', ShowDetailController::class)
         ->name('show.detail');
 });
 
