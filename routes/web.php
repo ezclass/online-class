@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AllTeacherController;
 use App\Http\Controllers\Admin\EditUserController;
-use App\Http\Controllers\Admin\ShowDetailController;
 use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
@@ -232,11 +232,11 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
     Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
 
-    Route::get('/teacher-pay', TeacherPayController::class)
+    Route::get('/teacher-pay/{user}', TeacherPayController::class)
         ->name('teacher.pay');
 
-    Route::get('/teacher-detail/{user}', ShowDetailController::class)
-        ->name('show.detail');
+    Route::get('/all-teacher', AllTeacherController::class)
+        ->name('all.teacher');
 });
 
 require __DIR__ . '/auth.php';

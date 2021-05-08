@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShowDetailRequest extends FormRequest
+class AllTeacherRequest extends FormRequest
 {
     public function authorize()
     {
