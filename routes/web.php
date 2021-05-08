@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\ShowDetailController;
-use App\Http\Controllers\Admin\TeacherPaymentController;
+use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
 use App\Http\Controllers\BankDetailController;
@@ -209,7 +209,6 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
         ->name('income.detail');
 });
 
-
 Route::middleware(['role:student', 'verified', 'active'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
@@ -217,7 +216,6 @@ Route::middleware(['role:student', 'verified', 'active'])->group(function () {
     Route::get('/enroled-program/delete/{enrolment}', EnroledProgramDeleteController::class)
         ->name('enroled-program.delete');
 });
-
 
 Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
@@ -235,10 +233,10 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
     Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
 
-    Route::get('/teacher-payment-detail', TeacherPaymentController::class)
-        ->name('teacher.payment');
+    Route::get('/teacher-pay', TeacherPayController::class)
+        ->name('teacher.pay');
 
-    Route::get('/show-teacher-detail/{user}', ShowDetailController::class)
+    Route::get('/teacher-detail/{user}', ShowDetailController::class)
         ->name('show.detail');
 });
 
