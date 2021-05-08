@@ -3,48 +3,21 @@
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
     <x-alart />
 
-    <h3 class="mt-6 text-xl">All Payers : {{$subscriptions->count()}}</h3>
-    <div class="mt-5 container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
-        <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-            <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                <thead>
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Photo
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Name
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Email
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Phone Number
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Account Name
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Account Number
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Bank Name
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Branch Name
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Submite Pay
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($subscriptions as $subscription)
-                    <x-teacher-pay :subscription="$subscription" />
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+    <div class="grid lg:grid-cols-2 gap-4">
+        <x-payment :teacher="$teacher" />
     </div>
+
+    <div class="m-6">
+        <h3 class="mt-6 text-xl">Total = Rs.{{$subscriptions->sum('amount')}}</h3>
+        <h3 class="mt-6 text-xl">Total - 6.1% = {{$subscriptions->sum('amount')}} - {{$subscriptions->sum('amount') / 100 * 6.1}}</h3>
+        <h3 class="mt-6 text-xl text-green-400">Total amount to be paid = <span class="text-yellow-500">Rs.{{$subscriptions->sum('amount') - $subscriptions->sum('amount') / 100 * 6.1}}</span></h3>
+    </div>
+
+
+    <h3 class="mt-6 text-xl">All Payers : {{$subscriptions->count()}}</h3>
+
+    <x-all-program-detail :programs="$programs" />
+
+    <x-teacher-pay :subscriptions="$subscriptions" />
 
 </x-admin>
