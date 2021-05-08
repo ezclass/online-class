@@ -1,10 +1,10 @@
 <div class="mt-5 max-w-4xl p-6 mx-auto bg-indigo-200 dark:bg-gray-800 rounded-md shadow-md">
-    <form action="{{route('bank.detail.save')}}" method="POST">
+    <form action="{{route('bank.detail.save', Auth::user())}}" method="POST">
         @csrf
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             <div>
-                <x-label for="">Name as mentioned in the bank book <span class="text-red-500">*</span></x-label>
-                <input type="text" name="name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Name as mentioned in the bank book" required>
+                <x-label for="account_name">Name as mentioned in the bank book <span class="text-red-500">*</span></x-label>
+                <input type="text" name="account_name" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Name as mentioned in the bank book" required>
             </div>
 
             <div>

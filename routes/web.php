@@ -126,10 +126,10 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/bank-detail', [BankDetailController::class, 'view'])
         ->name('bank.detail');
 
-    Route::post('/bank-detail-save', [BankDetailController::class, 'save'])
+    Route::post('/bank-detail-save{user}', [BankDetailController::class, 'save'])
         ->name('bank.detail.save');
 
-    Route::post('/bank-detail-delete/{bankDetail}', [BankDetailController::class, 'delete'])
+    Route::post('/bank-detail-delete/{user}', [BankDetailController::class, 'delete'])
         ->name('bank.detail.delete');
 
     /*  Program  */
