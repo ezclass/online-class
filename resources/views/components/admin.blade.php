@@ -133,8 +133,8 @@
                                     {{ __('Overview') }}
                                 </x-responsive-nav-link>
 
-                                <x-responsive-nav-link :href="route('teacher.payment')" :active="request()->routeIs('teacher.payment')">
-                                    {{ __('Payment') }}
+                                <x-responsive-nav-link :href="route('teacher.pay')" :active="request()->routeIs('teacher.pay')">
+                                    {{ __('Teacher Pay') }}
                                 </x-responsive-nav-link>
 
                             </ul>
