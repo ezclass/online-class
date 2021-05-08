@@ -19,6 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar');
             $table->boolean('status')->default(1);
+            $table->string('account_name')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('bank_name')->nullable();
+            $table->string('branch')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
