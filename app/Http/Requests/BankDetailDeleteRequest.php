@@ -8,7 +8,7 @@ class BankDetailDeleteRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->route('bankDetail')->user_id == $this->user()->id;
+        return $this->route('user')->id == $this->user()->id;
     }
 
     public function rules()

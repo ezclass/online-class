@@ -8,13 +8,13 @@ class BankDetailRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return $this->route('user')->id == $this->user()->id;
     }
 
     public function rules()
     {
         return [
-            'name' => 'required',
+            'account_name' => 'required',
             'account_number' => 'required|integer',
             'bank_name' => 'required',
             'branch' => 'required',

@@ -74,7 +74,6 @@ Route::get('/public-dashboard/{user}', PublicDashboardController::class)
 Route::get('/deactive', DeactiveDashboardController::class)
     ->name('deactive.dashboard');
 
-
 Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
@@ -120,7 +119,6 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
         ->name('payment.history');
 });
 
-
 Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
@@ -128,12 +126,13 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/bank-detail', [BankDetailController::class, 'view'])
         ->name('bank.detail');
 
-    Route::post('/bank-detail-save', [BankDetailController::class, 'save'])
+    Route::post('/bank-detail-save{user}', [BankDetailController::class, 'save'])
         ->name('bank.detail.save');
 
-    Route::post('/bank-detail-delete/{bankDetail}', [BankDetailController::class, 'delete'])
+    Route::post('/bank-detail-delete/{user}', [BankDetailController::class, 'delete'])
         ->name('bank.detail.delete');
 
+    /*  Program  */
     Route::get('/create-class', CreateProgramViewContraller::class)
         ->name('create.program.viwe');
 
@@ -158,7 +157,7 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/delete-program/{program}', DeleteProgramController::class)
         ->name('delete.program');
 
-
+    /*  Lesson  */
     Route::post('/create-lesson/{program}', CreateLessonController::class)
         ->name('create.lesson');
 
@@ -171,7 +170,7 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/delete-lesson/{lesson}', DeleteLessonController::class)
         ->name('delete.lesson');
 
-
+    /*  Other  */
     Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
         ->name('enroll.request.accept');
 

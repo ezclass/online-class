@@ -23,6 +23,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'avatar',
         'status',
+        'account_name',
+        'account_number',
+        'bank_name',
+        'branch',
     ];
 
     protected $hidden = [
@@ -36,9 +40,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     // relationships
 
-    public function banks()
+    public function bank()
     {
-        return $this->hasMany(BankDetail::class);
+        return $this->hasOne(BankDetail::class, 'user_id');
     }
 
     public function isActive(): bool
