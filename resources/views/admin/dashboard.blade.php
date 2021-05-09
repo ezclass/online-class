@@ -20,6 +20,9 @@
                                         User
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Registed At
+                                    </th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                         Phone Number
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -39,7 +42,7 @@
                             <tbody>
                                 @forelse($users as $user)
                                 <tr>
-                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">{{$user->id}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
@@ -52,6 +55,9 @@
                                                 <div class="text-sm text-gray-500">{{$user->email}}</div>
                                             </div>
                                         </div>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$user->created_at->format('d M, Y - h:m a')}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">{{$user->phone_number}}</p>

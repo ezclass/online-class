@@ -10,6 +10,9 @@
                                     Class ID
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Created At
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Subject
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -19,7 +22,7 @@
                                     Class Fees
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Show more details
+                                    Show Payer details
                                 </th>
                             </tr>
                         </thead>
@@ -30,7 +33,9 @@
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">{{$program->id}}</p>
                                 </td>
-
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$program->created_at->format('d M ,Y - h:m a')}}</p>
+                                </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">{{$program->subject->name}}</p>
                                 </td>
