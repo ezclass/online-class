@@ -20,7 +20,6 @@
 
             <span class="mt-2">
                 +94 775486681 <br>
-                +94 750000000
             </span>
         </a>
 
@@ -30,7 +29,7 @@
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
 
-            <span class="mt-2">contact@homeclass.lk</span>
+            <span class="mt-2">homeclass.lk@gmail.com</span>
         </a>
     </div>
     <form action="{{route('send.mail')}}" method="POST">
