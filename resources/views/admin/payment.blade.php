@@ -20,6 +20,7 @@
     <hr>
     <div class="mt-6 text-xl">All payers for this month : {{$subscriptions->count('id')}}</div>
     <div class="mt-2 text-xl">All Clases : {{$programs->count()}}</div>
+    
     <x-all-program-detail :programs="$programs" />
 
 </x-admin>
