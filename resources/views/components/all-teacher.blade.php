@@ -11,13 +11,10 @@
                                     ID
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Teacher Photo
+                                    Teacher
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Teacher Name
-                                </th>
-                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Teacher Email
+                                    Registered At
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Teacher Phone Number
@@ -35,14 +32,18 @@
                                     <p class="text-gray-900 whitespace-no-wrap">{{$teacher->id}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <img src="{{ Storage::disk('do')->url('avatar/'. $teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img src="{{ Storage::disk('do')->url('avatar/'. $teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">{{$teacher->name}}</div>
+                                            <div class="text-sm text-gray-500">{{$teacher->email}}</div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$teacher->name}}</p>
-                                </td>
-
-                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$teacher->email}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$teacher->created_at->format('d M, Y - h:m a')}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">{{$teacher->phone_number}}</p>
