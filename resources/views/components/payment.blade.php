@@ -1,5 +1,5 @@
 <div class="items-center">
-    <div class='shadow rounded-md bg-blue-100 w-full max-w-lg h-56'>
+    <div class='shadow rounded-md bg-blue-100 w-full max-w-lg h-60'>
         <div class='flex items-center px-5 py-3'>
             <img src="{{ Storage::disk('do')->url('avatar/'. $teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
             <div class='mx-3'>

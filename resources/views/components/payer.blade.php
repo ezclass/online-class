@@ -7,47 +7,52 @@
                         <thead>
                             <tr>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Class ID
+                                    Student ID
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Subject
+                                   Payment Date
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    All Students
+                                    Student Photo
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Class Fees
+                                    Student Name
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Show more details
+                                    Student Email
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Student Phone Number
                                 </th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @forelse($programs as $program)
+                            @forelse($subscriptions as $subscription)
                             <tr>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$program->id}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->payer->id}}</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->updated_at->format('d M ,Y - h:m a')}}</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <img src="{{ Storage::disk('do')->url('avatar/'. $subscription->payer->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
                                 </td>
 
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$program->subject->name}}</p>
-                                </td>
-
-                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$program->enrolments->count()}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->payer->name}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$program->fees}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->payer->email}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <a href="{{route('payer.detail',$program)}}" class="whitespace-no-wrap text-indigo-500">Show More</a>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->payer->email}}</p>
                                 </td>
                             </tr>
                             @empty
                             <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
-                                <span class="block sm:inline"> Classes are not set yet </span>
+                                <span class="block sm:inline"> Students not yet enrolled</span>
                             </div>
                             @endforelse
                         </tbody>

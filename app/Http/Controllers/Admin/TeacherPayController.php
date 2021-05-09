@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use ApiChef\PayHere\Subscription;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\TeacherPayRequest;
+use App\Http\Requests\Admin\AdminSuperAdminRequest;
 use App\Models\Program;
 use App\Models\User;
 use Carbon\Carbon;
@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class TeacherPayController extends Controller
 {
-    public function __invoke(TeacherPayRequest $request, User $user)
+    public function __invoke(AdminSuperAdminRequest $request, User $user)
     {
         $startDate = Carbon::now();
         $firstDay = $startDate->firstOfMonth();
