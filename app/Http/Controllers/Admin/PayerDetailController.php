@@ -19,7 +19,7 @@ class PayerDetailController extends Controller
                     ->where('subscribable_id', $program->id)
                     ->where('status', 2)
                     ->orderBy('id', 'asc')
-                    ->get(),
+                    ->paginate(10),
             ]);
     }
 }
