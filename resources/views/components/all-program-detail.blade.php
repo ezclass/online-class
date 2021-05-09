@@ -18,6 +18,9 @@
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                    Class Fees
                                 </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Show more details
+                                 </th>
                             </tr>
                         </thead>
 
@@ -38,11 +41,13 @@
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">{{$program->fees}}</p>
                                 </td>
-
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">Show More</p>
+                                </td>
                             </tr>
                             @empty
                             <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
-                                <span class="block sm:inline"> Students are not yet in your class </span>
+                                <span class="block sm:inline"> Classes are not set yet </span>
                             </div>
                             @endforelse
                         </tbody>

@@ -9,7 +9,7 @@
 
     <div class="m-6">
         <h3 class="mt-6 text-xl">Total = Rs.{{$subscriptions->sum('amount')}}</h3>
-        <h3 class="mt-6 text-xl">Total - 6.1% = {{$subscriptions->sum('amount')}} - {{$subscriptions->sum('amount') / 100 * 6.1}}</h3>
+        <h3 class="mt-6 text-xl">Amount charged (Total - 6.1%) = {{$subscriptions->sum('amount')}} - {{$subscriptions->sum('amount') / 100 * 6.1}}</h3>
         <h3 class="mt-6 text-xl text-green-400">Total amount to be paid = <span class="text-yellow-500">Rs.{{$subscriptions->sum('amount') - $subscriptions->sum('amount') / 100 * 6.1}}</span></h3>
     </div>
 
