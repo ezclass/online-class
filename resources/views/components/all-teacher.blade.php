@@ -1,55 +1,69 @@
 <h3 class="mt-6 text-xl">All Teachers : {{$teachers->count()}}</h3>
-<div class="mt-5 container w-full md:w-5/5 xl:w-5/5  mx-auto px-2">
-    <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-        <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-            <thead>
-                <tr>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        ID
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Photo
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Name
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Email
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Phone Number
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                        Show Details
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($teachers as $teacher)
-                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm font-medium text-gray-900">{{$teacher->id}}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <img src="{{ Storage::disk('do')->url('avatar/'. $teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm font-medium text-gray-900">{{$teacher->name}}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm font-medium text-gray-900">{{$teacher->email}}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900">{{$teacher->email}}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900">
-                            <a href="{{route('teacher.pay',$teacher)}}" class="text-indigo-500">Show Details</a>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+<div class="antialiased font-sans">
+    <div class="container mx-auto px-4 sm:px-8">
+        <div class="py-8">
+            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                    <table class="min-w-full leading-normal">
+                        <thead>
+                            <tr>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    ID
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Teacher Photo
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Teacher Name
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Teacher Email
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Teacher Phone Number
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Show Details
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @forelse($teachers as $teacher)
+                            <tr>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$teacher->id}}</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <img src="{{ Storage::disk('do')->url('avatar/'. $teacher->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$teacher->name}}</p>
+                                </td>
+
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$teacher->email}}</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$teacher->phone_number}}</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{route('teacher.pay',$teacher)}}" class="text-indigo-500">Show Details</a>
+                                </td>
+                            </tr>
+                            @empty
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
+                                <span class="block sm:inline"> Teachers are not yet registered</span>
+                            </div>
+                            @endforelse
+                        </tbody>
+
+                    </table>
+                    <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

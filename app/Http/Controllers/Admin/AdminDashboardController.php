@@ -14,7 +14,7 @@ class AdminDashboardController extends Controller
             ->with([
                 'users' => User::query()
                     ->with('roles')
-                    ->get()
+                    ->paginate(10)
             ]);
     }
 }
