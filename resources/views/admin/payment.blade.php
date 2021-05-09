@@ -7,17 +7,19 @@
         <x-payment :teacher="$teacher" />
     </div>
 
-    <div class="m-6">
-        <h3 class="mt-6 text-xl">Total = Rs.{{$subscriptions->sum('amount')}}</h3>
-        <h3 class="mt-6 text-xl">Amount charged (Total - 6.1%) = {{$subscriptions->sum('amount')}} - {{$subscriptions->sum('amount') / 100 * 6.1}}</h3>
-        <h3 class="mt-6 text-xl text-green-400">Total amount to be paid = <span class="text-yellow-500">Rs.{{$subscriptions->sum('amount') - $subscriptions->sum('amount') / 100 * 6.1}}</span></h3>
+    <div class="m-6 mt-4">
+        <div class="mt-6 text-xl">Total = Rs.{{$subscriptions->sum('amount')}}</div>
+        <div class="mt-2 text-xl">Amount charged (Total - 6.1%) = {{$subscriptions->sum('amount')}} - {{$subscriptions->sum('amount') / 100 * 6.1}}</div>
+        <div class="mt-2 text-xl text-green-400">
+            Total amount to be paid =
+            <span class="text-yellow-500">
+                Rs.{{$subscriptions->sum('amount') - $subscriptions->sum('amount') / 100 * 6.1}} //
+            </span>
+        </div>
     </div>
-
-
-    <h3 class="mt-6 text-xl">All Payers : {{$subscriptions->count()}}</h3>
-
+    <hr>
+    <div class="mt-6 text-xl">All payers for this month : {{$subscriptions->count('id')}}</div>
+    <div class="mt-2 text-xl">All Clases : {{$programs->count()}}</div>
     <x-all-program-detail :programs="$programs" />
-
-    <x-teacher-pay :subscriptions="$subscriptions" />
 
 </x-admin>

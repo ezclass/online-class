@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserStatusRequest;
+use App\Http\Requests\Admin\AdminSuperAdminRequest;
 use App\Models\User;
 
 class UserStatusController extends Controller
 {
-    public function deactive(UserStatusRequest $request, User $user)
+    public function deactive(AdminSuperAdminRequest $request, User $user)
     {
         $user->status = false;
         $user->save();
@@ -17,7 +17,7 @@ class UserStatusController extends Controller
             ->with('success', 'User deactivation successful');
     }
 
-    public function active(UserStatusRequest $request, User $user)
+    public function active(AdminSuperAdminRequest $request, User $user)
     {
         $user->status = true;
         $user->save();

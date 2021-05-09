@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AllTeacherController;
 use App\Http\Controllers\Admin\EditUserController;
+use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
@@ -232,11 +233,14 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
     Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
 
+    Route::get('/all-teacher', AllTeacherController::class)
+        ->name('all.teacher');
+
     Route::get('/teacher-pay/{user}', TeacherPayController::class)
         ->name('teacher.pay');
 
-    Route::get('/all-teacher', AllTeacherController::class)
-        ->name('all.teacher');
+    Route::get('/payer-detail/{program}', PayerDetailController::class)
+        ->name('payer.detail');
 });
 
 require __DIR__ . '/auth.php';
