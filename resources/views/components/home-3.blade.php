@@ -8,9 +8,8 @@
             </h1>
             <div class="md:my-10 md:ml-6 mt-3">
                 <h3 class="text-white">
-                    Homeclass.lk is the best online learning platform for <br />
-                    teaching classes with
-                    great security and features
+                    homeclass.lk is the best online learning platform.<br />
+                    Tution classes can be held with great security and features.
                 </h3>
             </div>
         </div>
