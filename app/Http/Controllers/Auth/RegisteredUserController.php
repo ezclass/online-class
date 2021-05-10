@@ -22,6 +22,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:35',
             'email' => 'required|string|email|max:255|unique:users',
+            'phone_number' => 'required|string|max:10|unique:users|digits:10',
             'gender' => 'required|string|in:Male,Female',
             'password' => 'required|string|confirmed|min:8',
             'avatar' => 'required',
@@ -32,6 +33,7 @@ class RegisteredUserController extends Controller
         Auth::login($user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone_number' => $request->phone_number,
             'gender' => $request->gender,
             'password' => Hash::make($request->password),
             'avatar' => 'avatar.jpg',
