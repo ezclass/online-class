@@ -9,7 +9,6 @@
 
     <x-home-3 />
 
-    <x-client-opinion />
 
     <x-messanger />
 
