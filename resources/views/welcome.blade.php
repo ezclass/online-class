@@ -8,6 +8,8 @@
 
     <x-explain />
 
+    <x-client-opinion />
+
     <x-messanger />
 
 </x-app-layout>
