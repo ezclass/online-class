@@ -4,6 +4,8 @@
 
     <x-service />
 
+    <x-home-3 />
+
     <x-explain />
 
     <x-messanger />
