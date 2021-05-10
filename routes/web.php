@@ -41,6 +41,7 @@ use App\Http\Controllers\LearningRoom\FileDownloadController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
+use App\Http\Controllers\OpinionController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
@@ -79,6 +80,12 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
+    Route::post('/save-opinion', [OpinionController::class, 'save'])
+        ->name('save-opinion');
+
+    Route::get('/delete-opinion/{opinion}', [OpinionController::class, 'delete'])
+        ->name('delete-opinion');
+
     Route::get('/setting', [SettingController::class, 'view'])
         ->name('setting');
 
@@ -106,7 +113,7 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/document-download/{document}', FileDownloadController::class)
         ->name('file.download');
 
-
+    /* Payment */
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
         ->name('checkout.success');
 
