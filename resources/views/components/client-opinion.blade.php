@@ -40,9 +40,12 @@
                             <span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span>
                         </p>
                     </div>
+                    @auth
                     @if ($opinion->user_id == Auth::user()->id)
                     <a href="{{route('delete-opinion', $opinion)}}" class="text-red-500 m-3 mt-3">Delete My Opinion</a>
                     @endif
+                    @endauth
+
                 </div>
                 @empty
 
