@@ -137,6 +137,10 @@
                                     {{ __('Teacher Pay') }}
                                 </x-responsive-nav-link>
 
+                                <x-responsive-nav-link :href="route('client.opinion')" :active="request()->routeIs('client.opinion')">
+                                    {{ __('Client Opinion') }}
+                                </x-responsive-nav-link>
+
                             </ul>
                         </nav>
                         <!-- Sidebar footer -->
@@ -213,6 +217,9 @@
                             </div>
 
                             <main>
+                                <x-auth-session-status class="mb-4" :status="session('status')" />
+                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                <x-alart />
                                 {{ $slot }}
                             </main>
 

@@ -3,7 +3,7 @@
         <div class="">
             <h1 class="mt-32 text-white text-2xl md:text-6xl font-bold">
                 Keep your teaching in a faster, safer environment
-                <span class="text-blue-400">Homeclass.lk </span>
+                <span class="text-blue-400">homeclass.lk </span>
                 offers you a faster and more secure service. <br />
             </h1>
             <div class="md:my-10 md:ml-6 mt-3">

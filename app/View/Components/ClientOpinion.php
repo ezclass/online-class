@@ -13,7 +13,8 @@ class ClientOpinion extends Component
     public function __construct()
     {
         $this->opinions = Opinion::query()
-        ->with('client')
+            ->with('client')
+            ->where('status', 1)
             ->get();
     }
 

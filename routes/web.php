@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AllTeacherController;
+use App\Http\Controllers\Admin\ClientOpinionController;
 use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\TeacherPayController;
@@ -240,6 +241,7 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
     Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
 
+    /* Teacher Pay */
     Route::get('/all-teacher', AllTeacherController::class)
         ->name('all.teacher');
 
@@ -248,6 +250,16 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
 
     Route::get('/payer-detail/{program}', PayerDetailController::class)
         ->name('payer.detail');
+
+    /* Opinion */
+    Route::get('/client-opinion-request', [ClientOpinionController::class, 'view'])
+        ->name('client.opinion');
+
+    Route::get('/accept-opinion-request/{opinion}', [ClientOpinionController::class, 'accept'])
+        ->name('accept.opinion');
+
+    Route::get('/delete-opinion-request/{opinion}', [ClientOpinionController::class, 'delete'])
+        ->name('delete.opinion');
 });
 
 require __DIR__ . '/auth.php';

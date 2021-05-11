@@ -14,19 +14,26 @@ class CreateClassControllerTest extends TestCase
         $class = Program::factory()->make();
 
         $this->actingAs($user)->post('/create', [
-            'name' => $class->name,
-            'grade' => $class->grade,
+            'status' => $class->status,
+            'grade_id' => $class->grade_id,
             'image' => $class->image,
-            'subject' => $class->subject,
-            'medium' => $class->medium,
+            'fees' =>$class->fees,
+            'class_type' =>$class->class_type,
+            'start_date' =>$class->start_date,
+            'end_date' =>$class->end_date,
+            'start_time' =>$class->start_time,
+            'end_time' =>$class->end_time,
+            'day' =>$class->day,
             'user_id' => $class->user_id,
+            'subject_id' => $class->subject_id,
+            'language_id' =>$class->language_id,
         ])
-            ->assertRedirect(route('dashboard'))
-            ->assertSessionHas('success');
+            ->assertRedirect(route('program.view.teacher'))
+            ->assertSessionHas('success', 'Class created successful');
 
         $this->assertDatabaseHas('programs', [
-            'name' => $class->name,
-            'grade' => $class->grade,
+            'status' => $class->status,
+            'grade_id' => $class->grade_id,
             'image' => $class->image,
             'subject' => $class->subject,
             'medium' => $class->medium,
