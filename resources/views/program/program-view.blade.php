@@ -26,7 +26,7 @@
                 <x-lesson-card :lesson="$lesson" />
                 @empty
                 <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
-                    <span class="block sm:inline">No lessons yet, create a new lesson</u></a></span>
+                    <span class="block sm:inline">No lessons yet @role('teacher') , create a new lesson @endrole</u></a></span>
                 </div>
                 @endforelse
             </div>
