@@ -28,26 +28,26 @@
                         </thead>
 
                         <tbody>
-                            @forelse($subscriptions as $subscription)
+                            @forelse($payments as $payment)
                             <tr>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->payer->id}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$payment->payer->id}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->updated_at->format('d M ,Y - h:m a')}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$payment->updated_at->format('d M ,Y - h:m a')}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <img src="{{ Storage::disk('do')->url('avatar/'. $subscription->payer->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                                    <img src="{{ Storage::disk('do')->url('avatar/'. $payment->payer->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
                                 </td>
 
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->payer->name}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$payment->payer->name}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->payer->email}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$payment->payer->email}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$subscription->payer->email}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$payment->payer->email}}</p>
                                 </td>
                             </tr>
                             @empty
@@ -59,7 +59,7 @@
 
                     </table>
                     <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
-                        {{ $subscriptions->links() }}
+                        {{ $payments->links() }}
                     </div>
                 </div>
             </div>

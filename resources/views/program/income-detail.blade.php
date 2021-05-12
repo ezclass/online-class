@@ -1,5 +1,6 @@
 <x-app-layout>
 
+    <x-profile-heder />
     <x-dashboard-navigation />
 
     <div class="bg-yellow-100 border text-center border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
