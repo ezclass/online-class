@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use ApiChef\PayHere\Payment;
-use ApiChef\PayHere\Subscription;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminSuperAdminRequest;
 use App\Models\Program;
@@ -23,7 +22,6 @@ class TeacherPayController extends Controller
             ->with([
                 'teacher' => $user,
                 'payments' => Payment::query()
-                    ->with(['payable.teacher', 'payer', 'payable.subject'])
                     ->whereBetween('updated_at', [
                         Carbon::createFromDate("$firstDay")->startOfMonth(),
                         Carbon::createFromDate("$lastDay")->endOfMonth()
@@ -32,7 +30,6 @@ class TeacherPayController extends Controller
                         $query->where('user_id', $user->id);
                     })
                     ->success()
-                    ->orderBy('id', 'asc')
                     ->get(),
                 'programs' => Program::query()
                     ->with(['enrolments', 'subject'])
