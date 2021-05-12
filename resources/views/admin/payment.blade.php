@@ -21,5 +21,6 @@
     <x-paid-form :teacher="$teacher" :payments="$payments"/>
 
     <x-all-program-detail :programs="$programs" />
+    <x-paid-fetch :paids="$paids" />
 
 </x-admin>

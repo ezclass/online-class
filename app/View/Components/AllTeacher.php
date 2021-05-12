@@ -15,7 +15,6 @@ class AllTeacher extends Component
         $this->teachers = User::query()
             ->where('status', 1)
             ->role('teacher')
-            ->where('status', 1)
             ->orderBy('id', 'asc')
             ->get();
     }
