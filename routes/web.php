@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AllTeacherController;
 use App\Http\Controllers\Admin\ClientOpinionController;
 use App\Http\Controllers\Admin\EditUserController;
+use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
@@ -249,6 +250,9 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
 
     Route::get('/teacher-pay/{user}', TeacherPayController::class)
         ->name('teacher.pay');
+
+    Route::post('/paid-save', [PaidController::class, 'save'])
+        ->name('paid.save');
 
     Route::get('/payer-detail/{program}', PayerDetailController::class)
         ->name('payer.detail');

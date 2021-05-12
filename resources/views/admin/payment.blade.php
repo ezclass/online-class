@@ -1,7 +1,4 @@
 <x-admin>
-    <!-- Validation Errors -->
-    <x-auth-validation-errors class="mb-4" :errors="$errors" />
-    <x-alart />
 
     <div class="grid lg:grid-cols-2 gap-4">
         <x-payment :teacher="$teacher" />
@@ -20,6 +17,8 @@
     <hr>
     <div class="mt-6 text-xl">All payers for this month : {{$payments->count('id')}}</div>
     <div class="mt-2 text-xl">All Clases : {{$programs->count()}}</div>
+
+    <x-paid-form :teacher="$teacher" :payments="$payments"/>
 
     <x-all-program-detail :programs="$programs" />
 
