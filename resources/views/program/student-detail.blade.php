@@ -2,8 +2,8 @@
 
     <x-dashboard-navigation />
 
-    <div class="text-center mt-4">
-        All Students in : <b>{{$program->subject->name}}</b>
+    <div class="text-center mt-4 text-xl">
+        All Students in : <b>{{$program->subject->name}} Class</b>
     </div>
 
     <x-auth-validation-errors class="mb-4" :errors="$errors" />

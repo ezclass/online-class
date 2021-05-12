@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Program;
 
+use ApiChef\PayHere\Payment;
 use ApiChef\PayHere\Subscription;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Program\IncomeDetailRequest;
@@ -19,9 +20,9 @@ class IncomeDetailController extends Controller
         return view('program.income-detail')
             ->with([
                 'program' => $program,
-                'subscriptions' => Subscription::query()
-                    ->where('subscribable_id', $program->id)
-                    ->where('status', 2)
+                'payments' => Payment::query()
+                    ->where('payable_id', $program->id)
+                    ->success()
                     ->whereBetween('updated_at', [
                         Carbon::createFromDate("$firstDay")->startOfMonth(),
                         Carbon::createFromDate("$lastDay")->endOfMonth()

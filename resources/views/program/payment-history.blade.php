@@ -57,8 +57,8 @@
                             </thead>
 
                             <tbody>
-                                @forelse($subscriptions as $subscription)
-                                <x-payment-history :subscription="$subscription" />
+                                @forelse($payments as $payment)
+                                <x-payment-history :payment="$payment" />
                                 @empty
                                 <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
                                     <strong class="font-bold">Opps!</strong>

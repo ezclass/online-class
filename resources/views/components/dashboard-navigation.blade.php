@@ -18,16 +18,15 @@
             </x-responsive-nav-link>
         </div>
 
-
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('public.dashboard',Auth::user())" :active="request()->routeIs('public.dashboard')">
-                {{ __('My Public Dashboard') }}
+            <x-responsive-nav-link :href="route('program.view.teacher')" :active="request()->routeIs('program.view.teacher')">
+                {{ __('My Classes') }}
             </x-responsive-nav-link>
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('program.view.teacher')" :active="request()->routeIs('program.view.teacher')">
-                {{ __('My Classes') }}
+            <x-responsive-nav-link :href="route('public.dashboard',Auth::user())" :active="request()->routeIs('public.dashboard')">
+                {{ __('My Public Dashboard') }}
             </x-responsive-nav-link>
         </div>
     </nav>
