@@ -1,4 +1,5 @@
 @auth
+@role('teacher')
 <div class="m-10 text-center">
     <form action="{{route('save-opinion')}}" method="POST">
         @csrf
@@ -6,6 +7,7 @@
         <button class="px-8 rounded-r-lg bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r">Submit</button>
     </form>
 </div>
+@endrole
 @endauth
 
 <div class="min-w-screen min-h-screen bg-gray-50 flex items-center justify-center py-5">

@@ -87,6 +87,7 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/delete-opinion/{opinion}', [OpinionController::class, 'delete'])
         ->name('delete-opinion');
 
+    /* Setting */
     Route::get('/setting', [SettingController::class, 'view'])
         ->name('setting');
 
@@ -99,6 +100,7 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::post('/enroll', EnrolmentRequestController::class)
         ->name('enroll.request');
 
+    /* Learning */
     Route::get('/lesson/{program}', ViewProgramController::class)
         ->name('program.view');
 
