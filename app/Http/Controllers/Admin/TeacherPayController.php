@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use ApiChef\PayHere\Payment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminSuperAdminRequest;
+use App\Models\Paid;
 use App\Models\Program;
 use App\Models\User;
 use Carbon\Carbon;
@@ -35,6 +36,9 @@ class TeacherPayController extends Controller
                     ->with(['enrolments', 'subject'])
                     ->where('user_id', $user->id)
                     ->get(),
+                'paids' => Paid::query()
+                    ->where('user_id', $user->id)
+                    ->paginate(10),
             ]);
     }
 }
