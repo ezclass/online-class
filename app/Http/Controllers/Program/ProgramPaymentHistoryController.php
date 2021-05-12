@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Program;
 
-use ApiChef\PayHere\Subscription;
+use ApiChef\PayHere\Payment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Program\ProgramPaymentHistoryRequest;
 use App\Models\Enrolment;
@@ -17,10 +17,10 @@ class ProgramPaymentHistoryController extends Controller
             ->with([
                 'enrolment' => $enrolment,
                 'student' => $user,
-                'subscriptions' => Subscription::query()
-                    ->where('subscribable_id', $enrolment->program_id)
+                'payments' => Payment::query()
+                    ->where('payable_id', $enrolment->program_id)
                     ->paidBy($user)
-                    ->where('status', 2)
+                    ->success()
                     ->get(),
             ]);
     }

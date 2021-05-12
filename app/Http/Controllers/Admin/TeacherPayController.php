@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use ApiChef\PayHere\Payment;
 use ApiChef\PayHere\Subscription;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminSuperAdminRequest;
@@ -21,16 +22,16 @@ class TeacherPayController extends Controller
         return view('admin.payment')
             ->with([
                 'teacher' => $user,
-                'subscriptions' => Subscription::query()
-                    ->with(['subscribable.teacher', 'payer', 'subscribable.subject'])
+                'payments' => Payment::query()
+                    ->with(['payable.teacher', 'payer', 'payable.subject'])
                     ->whereBetween('updated_at', [
                         Carbon::createFromDate("$firstDay")->startOfMonth(),
                         Carbon::createFromDate("$lastDay")->endOfMonth()
                     ])
-                    ->whereHas('subscribable', function (Builder $query) use ($user) {
+                    ->whereHas('payable', function (Builder $query) use ($user) {
                         $query->where('user_id', $user->id);
                     })
-                    ->where('status', 2)
+                    ->success()
                     ->orderBy('id', 'asc')
                     ->get(),
                 'programs' => Program::query()

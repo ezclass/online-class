@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex items-center mt-12">
         <div class="md:w-1/2 md:mx-auto">
-            <x-pay-here-checkout-form :payable="$subscription" success-url="{{ route('checkout.success') }}" cancelled-url="{{ route('checkout.cancelled') }}" form-class="bg-white rounded w-full shadow-sm px-6 pt-2">
+            <x-pay-here-checkout-form :payable="$payment" success-url="{{ route('checkout.success') }}" cancelled-url="{{ route('checkout.cancelled') }}" form-class="bg-white rounded w-full shadow-sm px-6 pt-2">
                 <input type="hidden" name="items" value="{{ $program->subject->name }}">
                 <p class="text-2xl mb-6 mt-4">You are almost there!</p>
                 <div class="flex flex-wrap -mx-3 mb-6">
