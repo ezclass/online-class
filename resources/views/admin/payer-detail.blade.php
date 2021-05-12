@@ -8,5 +8,5 @@
         </a>
     </div>
 
-    <x-payer :subscriptions="$subscriptions" />
+    <x-payer :payments="$payments" />
 </x-admin>
