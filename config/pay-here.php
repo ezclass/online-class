@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'base_url' => env('PAY_HERE_BASE_URL', 'https://www.payhere.lk'),
+    'base_url' => env('PAY_HERE_BASE_URL', 'https://www.payhere.lk/'),
 
     /*
     |--------------------------------------------------------------------------
