@@ -10,9 +10,4 @@ class Paid extends Model
 {
     use HasFactory;
     use Obfuscatable;
-
-    public function teachers()
-    {
-        return $this->hasMany(User::class);
-    }
 }

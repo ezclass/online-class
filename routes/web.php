@@ -44,6 +44,7 @@ use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\OpinionController;
+use App\Http\Controllers\Payment\CashHistoryController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
@@ -135,15 +136,6 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
 
-    Route::get('/bank-detail', [BankDetailController::class, 'view'])
-        ->name('bank.detail');
-
-    Route::post('/bank-detail-save{user}', [BankDetailController::class, 'save'])
-        ->name('bank.detail.save');
-
-    Route::post('/bank-detail-delete/{user}', [BankDetailController::class, 'delete'])
-        ->name('bank.detail.delete');
-
     /*  Program  */
     Route::get('/create-class', CreateProgramViewContraller::class)
         ->name('create.program.viwe');
@@ -216,8 +208,21 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
     Route::post('/meet-delete/{meeting}', [MeetController::class, 'delete'])
         ->name('meet.delete');
 
+    /* payment */
+    Route::get('/bank-detail', [BankDetailController::class, 'view'])
+        ->name('bank.detail');
+
+    Route::post('/bank-detail-save{user}', [BankDetailController::class, 'save'])
+        ->name('bank.detail.save');
+
+    Route::post('/bank-detail-delete/{user}', [BankDetailController::class, 'delete'])
+        ->name('bank.detail.delete');
+
     Route::get('/income-detail/{program}', IncomeDetailController::class)
         ->name('income.detail');
+
+    Route::get('/cash-history', CashHistoryController::class)
+        ->name('cash.history');
 });
 
 Route::middleware(['role:student', 'verified', 'active'])->group(function () {
