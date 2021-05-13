@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use ApiChef\PayHere\Payment;
 use App\Http\Requests\PaymentViewRequest;
 use App\Models\Enrolment;
+use App\Notifications\PaymentSuccessful;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -30,6 +31,7 @@ class CheckoutController extends Controller
         $payment->payment_id = $request->get('order_id');
         $payment->status = 2;
         $payment->save();
+        $request->user()->notify(new PaymentSuccessful());
 
         return redirect()
             ->route('student.dashboard')
