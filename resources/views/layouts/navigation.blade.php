@@ -69,6 +69,12 @@
                                     </x-dropdown-link>
                                 </div>
 
+                                <div>
+                                    <x-dropdown-link :href="route('public.dashboard',Auth::user())">
+                                        {{ __('My Public Dashboard') }}
+                                    </x-dropdown-link>
+                                </div>
+
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
@@ -155,6 +161,11 @@
                 <div>
                     <x-dropdown-link href="{{ route('setting') }}">
                         {{__('setting')}}
+                    </x-dropdown-link>
+                </div>
+                <div>
+                    <x-dropdown-link :href="route('public.dashboard',Auth::user())" :active="request()->routeIs('public.dashboard')">
+                        {{ __('My Public Dashboard') }}
                     </x-dropdown-link>
                 </div>
 

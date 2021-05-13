@@ -13,8 +13,8 @@
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-timeline-nav-link :href="route('public.dashboard',Auth::user())" :active="request()->routeIs('public.dashboard')">
-                {{ __('My Public Dashboard') }}
+            <x-timeline-nav-link :href="route('bank.detail')" :active="request()->routeIs('bank.detail')">
+                {{ __('Bank details') }}
             </x-timeline-nav-link>
         </div>
     </nav>
