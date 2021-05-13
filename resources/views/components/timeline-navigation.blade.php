@@ -8,7 +8,7 @@
 
         <div class="pt-2 pb-3 space-y-1">
             <x-timeline-nav-link :href="route('cash.history')" :active="request()->routeIs('cash.history')">
-                {{ __('Cash history') }}
+                {{ __('Revenue History') }}
             </x-timeline-nav-link>
         </div>
 
