@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class InvoicePaid extends Notification
+class AcceptEnrollmentRequest extends Notification
 {
     use Queueable;
 
@@ -22,11 +22,10 @@ class InvoicePaid extends Notification
 
     public function toMail($notifiable)
     {
-        $url = url('/student-payment-history/'.$this->enrolment->id.$this->user->id);
-
-        return (new MailMessage)->markdown('mail.invoice.paid')
-        ->subject('Invoice Paid')
-        ->markdown('mail.invoice.paid', ['url' => $url]);
+        return (new MailMessage)
+            ->line('Your enrollment request was accepted')
+            ->action('Go to the dashboard', url('/student/dashboard'))
+            ->line('Thanks for using homeclass.lk');
     }
 
     public function toArray($notifiable)

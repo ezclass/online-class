@@ -99,9 +99,6 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::post('/uploadavaratar/{user}', [SettingController::class, 'uploadavaratar'])
         ->name('uploadavaratar');
 
-    Route::post('/enroll', EnrolmentRequestController::class)
-        ->name('enroll.request');
-
     /* Learning */
     Route::get('/lesson/{program}', ViewProgramController::class)
         ->name('program.view');
@@ -228,6 +225,9 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
 Route::middleware(['role:student', 'verified', 'active'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
+
+    Route::post('/enroll', EnrolmentRequestController::class)
+        ->name('enroll.request');
 
     Route::get('/enroled-program/delete/{enrolment}', EnroledProgramDeleteController::class)
         ->name('enroled-program.delete');

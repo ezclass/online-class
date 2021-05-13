@@ -4,9 +4,10 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class Otp extends Notification
+class EnrollmentRequest extends Notification
 {
     use Queueable;
 
@@ -16,12 +17,14 @@ class Otp extends Notification
 
     public function via($notifiable)
     {
-        return $notifiable->prefers_sms ? ['textit'] : ['mail'];
+        return ['mail'];
     }
 
-    public function toOtp($notifiable)
+    public function toMail($notifiable)
     {
-
+        return (new MailMessage)
+            ->line('Congratulations, you have received a enrollment request')
+            ->action('Go to the dashboard', url('/teacher/dashboard'));
     }
 
     public function toArray($notifiable)
