@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Program;
 
 use ApiChef\PayHere\Payment;
-use ApiChef\PayHere\Subscription;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Program\IncomeDetailRequest;
 use App\Models\Program;

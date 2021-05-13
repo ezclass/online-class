@@ -47,7 +47,7 @@
                                     <p class="text-gray-900 whitespace-no-wrap">{{$program->fees}}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <a href="{{route('payer.detail',$program)}}" class="whitespace-no-wrap text-indigo-500">Show More</a>
+                                    <a href="{{route('payer.detail',$program)}}" class="whitespace-no-wrap text-indigo-500">Show Payer details</a>
                                 </td>
                             </tr>
                             @empty
