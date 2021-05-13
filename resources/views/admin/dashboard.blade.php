@@ -1,7 +1,7 @@
 <x-admin>
 
-    <x-auth-validation-errors class="mb-4" :errors="$errors" />
-    <x-alart />
+    <x-search-user-form :selected-role-id="$selectedRoleId" />
+
 
     <h3 class="mt-6 text-xl">All Users : {{$users->count()}}</h3>
 

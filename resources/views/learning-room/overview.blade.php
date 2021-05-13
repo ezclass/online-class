@@ -24,7 +24,7 @@
     <div class="dark:bg-gray-900 py-6 flex flex-col justify-center sm:py-12">
         <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
             @forelse ($enrolments as $enrolment)
-            <x-all-students :enrolment="$enrolment" />
+            <x-all-student :enrolment="$enrolment" />
             @empty
             <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
                 <span class="block sm:inline text-yellow-700">There are no students in your class yet</span>

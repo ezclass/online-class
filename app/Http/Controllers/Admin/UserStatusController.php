@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminSuperAdminRequest;
+use App\Http\Requests\Admin\SuperAdminRequest;
 use App\Models\User;
 
 class UserStatusController extends Controller
 {
-    public function deactive(AdminSuperAdminRequest $request, User $user)
+    public function deactive(SuperAdminRequest $request, User $user)
     {
         $user->status = false;
         $user->save();
