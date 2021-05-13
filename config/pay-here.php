@@ -9,6 +9,7 @@ return [
     | This is where you can configure PayHere base url, based on the
     | application environment. On production, the value should set to
     | https://www.payhere.lk/
+    | https://sandbox.payhere.lk/
     |
     */
 
