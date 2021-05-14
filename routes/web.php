@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AllTeacherController;
 use App\Http\Controllers\Admin\ClientOpinionController;
 use App\Http\Controllers\Admin\EditUserController;
+use App\Http\Controllers\Admin\EnrolledStudentDetailController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
@@ -83,6 +84,9 @@ Route::get('/deactive', DeactiveDashboardController::class)
 Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
+
+    Route::post('/enroll', EnrolmentRequestController::class)
+        ->name('enroll.request');
 
     Route::post('/save-opinion', [OpinionController::class, 'save'])
         ->name('save-opinion');
@@ -227,9 +231,6 @@ Route::middleware(['role:student', 'verified', 'active'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 
-    Route::post('/enroll', EnrolmentRequestController::class)
-        ->name('enroll.request');
-
     Route::get('/enroled-program/delete/{enrolment}', EnroledProgramDeleteController::class)
         ->name('enroled-program.delete');
 });
@@ -249,6 +250,9 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
 
     Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
+
+    Route::get('/enrolled-student-detail/{program}', EnrolledStudentDetailController::class)
+        ->name('enrolled.student.detail');
 
     /* Teacher Pay */
     Route::get('/all-teacher', AllTeacherController::class)

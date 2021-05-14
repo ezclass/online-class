@@ -74,10 +74,19 @@ class Program extends Model
     public function getLesson($program)
     {
         return Lesson::query()
-        ->with('program')
-        ->ofProgram($program)
-        ->orderBy('id', 'DESC')
-        ->paginate(10);
+            ->with('program')
+            ->ofProgram($program)
+            ->orderBy('id', 'DESC')
+            ->paginate(10);
+    }
+
+    public function getStudent($program)
+    {
+        return Enrolment::query()
+            ->with(['student', 'program'])
+            ->students($program)
+            ->enroled()
+            ->paginate(10);
     }
 
     // scope
