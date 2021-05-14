@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ClientOpinionController;
 use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
+use App\Http\Controllers\Admin\ProgramDetailController;
 use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
@@ -261,6 +262,13 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
 
     Route::get('/payer-detail/{program}', PayerDetailController::class)
         ->name('payer.detail');
+
+    /* program details */
+    Route::get('/lesson-detail/{program}', [ProgramDetailController::class, 'lesson'])
+        ->name('program.detail');
+
+    Route::get('/meeting-detail/{lesson}', [ProgramDetailController::class, 'meeting'])
+        ->name('meeting.detail');
 
     /* Opinion */
     Route::get('/client-opinion-request', [ClientOpinionController::class, 'view'])

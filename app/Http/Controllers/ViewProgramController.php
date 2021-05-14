@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ViewProgramRequest;
-use App\Models\Lesson;
 use App\Models\Program;
 
 class ViewProgramController extends Controller
@@ -13,11 +12,7 @@ class ViewProgramController extends Controller
         return view('program.program-view')
             ->with([
                 'program' => $program,
-                'lessons' => Lesson::query()
-                    ->with('program')
-                    ->ofProgram($program)
-                    ->orderBy('id', 'DESC')
-                    ->get()
+                'lessons' => $program->getLesson($program),
             ]);
     }
 }

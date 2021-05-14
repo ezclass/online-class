@@ -71,6 +71,15 @@ class Program extends Model
             ->exists();
     }
 
+    public function getLesson($program)
+    {
+        return Lesson::query()
+        ->with('program')
+        ->ofProgram($program)
+        ->orderBy('id', 'DESC')
+        ->paginate(10);
+    }
+
     // scope
 
     public function scopeIsPublished(Builder $query)

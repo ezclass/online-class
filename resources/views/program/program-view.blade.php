@@ -30,6 +30,9 @@
                 </div>
                 @endforelse
             </div>
+            <div class="px-5 mt-6 py-5 border-t flex flex-col xs:flex-row items-center xs:justify-between">
+                {{$lessons->links()}}
+            </div>
         </div>
     </div>
 </x-app-layout>
