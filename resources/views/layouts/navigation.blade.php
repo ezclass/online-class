@@ -44,7 +44,7 @@
                                 duration-150 ease-in-out">
                                     <div>
                                         <img src="{{ Storage::disk('do')->url('avatar/'. Auth::user()->avatar )}}" alt="avatar" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
-                                       <span class="ml-2">{{Auth::user()->name}}</span>
+                                        <span class="ml-2">{{Auth::user()->name}}</span>
                                     </div>
 
                                     <div class="ml-1">
@@ -62,19 +62,18 @@
                                         {{__('Dashboard')}}
                                     </x-dropdown-link>
                                 </div>
-
                                 <div>
                                     <x-dropdown-link href="{{ route('setting') }}">
                                         {{__('Setting')}}
                                     </x-dropdown-link>
                                 </div>
-
+                                @role('teacher')
                                 <div>
                                     <x-dropdown-link :href="route('public.dashboard',Auth::user())">
                                         {{ __('My Public Dashboard') }}
                                     </x-dropdown-link>
                                 </div>
-
+                                @endrole
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
@@ -163,12 +162,13 @@
                         {{__('setting')}}
                     </x-dropdown-link>
                 </div>
+                @role('teacher')
                 <div>
                     <x-dropdown-link :href="route('public.dashboard',Auth::user())" :active="request()->routeIs('public.dashboard')">
                         {{ __('My Public Dashboard') }}
                     </x-dropdown-link>
                 </div>
-
+                @endrole
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
