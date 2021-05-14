@@ -16,10 +16,7 @@ class MeetController extends Controller
         return view('learning-room.meet')
             ->with([
                 'lesson' => $lesson,
-                'meetings' => Meeting::query()
-                    ->where('lesson_id', $lesson->id)
-                    ->orderBy('id', 'DESC')
-                    ->get(),
+                'meetings' => $lesson->getMeeting($lesson),
             ]);
     }
 

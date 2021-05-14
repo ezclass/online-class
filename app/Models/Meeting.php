@@ -13,6 +13,10 @@ class Meeting extends Model
     use SoftDeletes;
     use Obfuscatable;
 
+    protected $dates = [
+        'class_date',
+    ];
+
     public function lesson()
     {
         return $this->belongsTo(Lesson::class);

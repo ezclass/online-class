@@ -20,7 +20,6 @@
             <a href="{{route('lesson.edit',$lesson->getRouteKey())}}" class="ml-4 mr-4 text-yellow-500 cursor-pointer dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
                 Update
             </a>
-
             @endcan
         </div>
     </div>

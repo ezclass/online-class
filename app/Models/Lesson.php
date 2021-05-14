@@ -28,4 +28,14 @@ class Lesson extends Model
     {
         $query->where('program_id', $program->id);
     }
+
+    // actions
+
+    public function getMeeting($lesson)
+    {
+        return Meeting::query()
+            ->where('lesson_id', $lesson->id)
+            ->orderBy('id', 'DESC')
+            ->paginate(10);
+    }
 }
