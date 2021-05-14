@@ -25,6 +25,9 @@
                                     Show Payer details
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Enrolled student detail
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Show program details
                                 </th>
                             </tr>
@@ -51,6 +54,9 @@
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <a href="{{route('payer.detail',$program)}}" class="whitespace-no-wrap text-green-500">Show Payer details</a>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{route('enrolled.student.detail',$program)}}" class="whitespace-no-wrap text-indigo-500">Enrolled student detail</a>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <a href="{{route('program.detail',$program)}}" class="whitespace-no-wrap text-indigo-500">Show program details</a>
