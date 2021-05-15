@@ -17,7 +17,7 @@ class PaymentSuccessful extends Notification
 
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     public function toMail($notifiable)
@@ -30,6 +30,8 @@ class PaymentSuccessful extends Notification
 
     public function toArray($notifiable)
     {
-        return [];
+        return [
+            'data' => 'Your payment is successful'
+        ];
     }
 }

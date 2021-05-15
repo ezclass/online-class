@@ -17,7 +17,7 @@ class EnrollmentRequest extends Notification
 
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     public function toMail($notifiable)
@@ -29,6 +29,8 @@ class EnrollmentRequest extends Notification
 
     public function toArray($notifiable)
     {
-        return [];
+        return [
+            'data' => 'Congratulations, you have received a enrollment request'
+        ];
     }
 }
