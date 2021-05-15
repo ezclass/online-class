@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                      <img src="{{Storage::disk('do')->url('logo/logo.png')}}" alt="logo" class="mt-2 block h-14 w-auto fill-current text-gray-600" >
                     </a>
                 </div>
 
