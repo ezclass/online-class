@@ -9,7 +9,9 @@
                 <div class="mb-10 md:mb-20 text-gray-600 font-light">
                     <h1 class="font-black uppercase text-3xl lg:text-5xl text-yellow-500 mb-10">Your account has been deactivated</h1>
                     <p>Please contact the Help Center</p>
+                    <p>Hotline - 0775486681</p>
                 </div>
+                <span class="mt-3"> <a href="{{route('welcome')}}" class="text-indigo-500">Back to Home</a></span>
             </div>
             <div class="w-full md:w-1/2 text-center">
                 <svg id="6b5bbc3a-7ba8-40c4-8b79-fdc85beb38a1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-full max-w-lg lg:max-w-full mx-auto" viewBox="0 0 1032.24 832.63">
@@ -125,5 +127,5 @@
     </div>
 
     <x-messanger />
-    
+
 </x-guest-layout>

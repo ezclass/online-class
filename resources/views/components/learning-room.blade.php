@@ -69,6 +69,8 @@
                                 <a href="{{route('program.view',$lesson->program)}}"> Lesson</a>
                                 <!-- Navbar right -->
                                 <div class="relative flex items-center space-x-3">
+                                    <x-notification />
+
                                     <!-- avatar button -->
                                     <div class="relative" x-data="{ isOpen: false }">
                                         <div>

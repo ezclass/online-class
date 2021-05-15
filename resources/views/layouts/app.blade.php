@@ -8,7 +8,7 @@
 
     <title>{{ config('app.name', 'HomeClass') }}</title>
 
-    <link rel="icon" type="image/png" href="https://online-class.sgp1.digitaloceanspaces.com/icon/icon.png">
+    <link rel="icon" type="image/png" href="https://online-class.sgp1.digitaloceanspaces.com/logo/logo.png">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

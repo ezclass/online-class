@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
-                      <img src="{{Storage::disk('do')->url('logo/logo.png')}}" alt="logo" class="mt-2 block h-14 w-auto fill-current text-gray-600" >
+                        <img src="{{Storage::disk('do')->url('logo/logo.png')}}" alt="logo" class="mt-2 block h-14 w-auto fill-current text-gray-600">
                     </a>
                 </div>
 
@@ -32,9 +32,13 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="sm:flex sm:items-center sm:ml-6">
+                <div class="sm:flex sm:items-center sm:ml-6">
+                    <x-notification />
+                </div>
+
                 @if (Route::has('login'))
-                <div class="hidden top-0 right-0 px-6 py-4 sm:block">
+                <div class="hidden  top-0 right-0 px-6 py-4 sm:block">
                     @auth
                     <div>
                         <x-dropdown align="right" width="48">
@@ -86,7 +90,6 @@
                     </div>
                     @else
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
                     @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                     @endif

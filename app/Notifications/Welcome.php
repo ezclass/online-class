@@ -13,7 +13,7 @@ class Welcome extends Notification
 
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database', 'mail'];
     }
 
     public function toMail($notifiable)
@@ -26,6 +26,8 @@ class Welcome extends Notification
 
     public function toArray($notifiable)
     {
-        return [];
+        return [
+            'data' => 'You have successfully registered with homeclass.lk'
+        ];
     }
 }

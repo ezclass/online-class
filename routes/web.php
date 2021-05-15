@@ -45,6 +45,7 @@ use App\Http\Controllers\LearningRoom\FileDownloadController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
+use App\Http\Controllers\Notification\MarkAsReadController;
 use App\Http\Controllers\OpinionController;
 use App\Http\Controllers\Payment\CashHistoryController;
 use App\Http\Controllers\PrivacyPolicyController;
@@ -93,6 +94,10 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
 
     Route::get('/delete-opinion/{opinion}', [OpinionController::class, 'delete'])
         ->name('delete-opinion');
+
+    /* Notification */
+    Route::get('/mark-as-read', MarkAsReadController::class)
+        ->name('mark.as.read');
 
     /* Setting */
     Route::get('/setting', [SettingController::class, 'view'])
