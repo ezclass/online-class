@@ -10,6 +10,7 @@ class EnroledProgramDeleteController extends Controller
     public function __invoke(EnroledProgramDeleteRequest $request, Enrolment $enrolment)
     {
         $enrolment->delete();
+        
         return redirect()
             ->back()
             ->with('success', 'Class deleted successful');

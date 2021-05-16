@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Auth;
 
 class Welcome extends Notification
 {
@@ -19,7 +20,9 @@ class Welcome extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('You have successfully registered with homeclass.lk')
+            ->line('Hello ' . ' ' .
+                Auth::user()->name . ',' . ' ' .
+                'welcome to homeclass.lk')
             ->action('Go to the site', url('/'))
             ->line('Thanks for signing up for Homeclass.lk!');
     }
@@ -27,7 +30,9 @@ class Welcome extends Notification
     public function toArray($notifiable)
     {
         return [
-            'data' => 'You have successfully registered with homeclass.lk'
+            'data' => 'Hello ' . ' ' .
+                Auth::user()->name . ',' . ' ' .
+                'welcome to homeclass.lk'
         ];
     }
 }

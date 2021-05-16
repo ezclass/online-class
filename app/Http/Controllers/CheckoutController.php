@@ -31,7 +31,7 @@ class CheckoutController extends Controller
         $payment->payment_id = $request->get('order_id');
         $payment->status = 2;
         $payment->save();
-        $request->user()->notify(new PaymentSuccessful());
+        $request->user()->notify(new PaymentSuccessful($payment));
 
         return redirect()
             ->route('student.dashboard')
