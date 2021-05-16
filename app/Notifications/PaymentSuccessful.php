@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use ApiChef\PayHere\Payment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,8 +12,11 @@ class PaymentSuccessful extends Notification
 {
     use Queueable;
 
-    public function __construct()
+    private $payment;
+
+    public function __construct(Payment $payment)
     {
+        $this->payment = $payment;
     }
 
     public function via($notifiable)
@@ -23,7 +27,12 @@ class PaymentSuccessful extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Your payment is successful')
+            ->line('For the' . ' ' .
+                $this->payment->payable->subject->name . ' ' .
+                'class of the' . ' ' .
+                $this->payment->payable->teacher->name . ' ' .
+                'teacher,' . ' ' .
+                'your payment was successful.')
             ->action('Go to the dashboard', url('/student/dashboard'))
             ->line('Thanks for using homeclass.lk');
     }
@@ -31,7 +40,12 @@ class PaymentSuccessful extends Notification
     public function toArray($notifiable)
     {
         return [
-            'data' => 'Your payment is successful'
+            'data' => 'For the' . ' ' .
+                $this->payment->payable->subject->name . ' ' .
+                'class of the' . ' ' .
+                $this->payment->payable->teacher->name . ' ' .
+                'teacher,' . ' ' .
+                'your payment was successful.'
         ];
     }
 }

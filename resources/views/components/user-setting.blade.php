@@ -17,8 +17,8 @@
                                 Profile Photo
                             </label>
                             <div class="mt-1 flex items-center">
-                                <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
-                                    <img src="{{ Storage::disk('do')->url('avatar/'. Auth::user()->avatar)}}" alt="">
+                                <span class="inline-block h-12 w-12 rounded-full overflow-hidde">
+                                    <img src="{{Storage::disk('do')->url('avatar/'. Auth::user()->avatar)}}" alt="avatar" class="inline-block h-12 w-12 rounded-full ring-2 ring-white">
                                 </span>
                             </div>
                         </div>
@@ -26,15 +26,16 @@
                         <div>
                             <form action="{{route('uploadavaratar', Auth::user())}}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                <div class="mt-1 flex justify-items-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                     <div class="space-y-1 text-center">
                                         <div class="flex text-sm text-gray-600">
-                                            <span>Upload a file</span>
                                             <input type="file" id="avatar" name="avatar">
                                         </div>
-                                        <p class="text-xs text-gray-500">
-                                            PNG, JPG, JPEG up to 10MB
-                                        </p>
+                                        <div>
+                                            <p class="text-xs text-gray-500">
+                                                PNG, JPG, JPEG up to 10MB
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

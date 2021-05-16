@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Enrolment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,8 +12,11 @@ class AcceptEnrollmentRequest extends Notification
 {
     use Queueable;
 
-    public function __construct()
+    private $enrolment;
+    
+    public function __construct(Enrolment $enrolment)
     {
+        $this->enrolment = $enrolment;
     }
 
     public function via($notifiable)
@@ -23,7 +27,10 @@ class AcceptEnrollmentRequest extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Your enrollment request was accepted')
+            ->line('The enrollment request you sent to' . ' ' .
+                $this->enrolment->program->teacher->name . "'s" . ' ' .
+                $this->enrolment->program->subject->name . ' ' .
+                'Class was accepted')
             ->action('Go to the dashboard', url('/student/dashboard'))
             ->line('Thanks for using homeclass.lk');
     }
@@ -31,7 +38,10 @@ class AcceptEnrollmentRequest extends Notification
     public function toArray($notifiable)
     {
         return [
-            'data' => 'Your enrollment request was accepted'
+            'data' => 'The enrollment request you sent to' . ' ' .
+                $this->enrolment->program->teacher->name . "'s" . ' ' .
+                $this->enrolment->program->subject->name . ' ' .
+                'Class was accepted',
         ];
     }
 }

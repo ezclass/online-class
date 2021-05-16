@@ -9,7 +9,7 @@ class MarkAsReadController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $request->user()->unreadNotifications->markAsRead();
+        $request->user()->notifications()->delete();
 
         return redirect()->back();
     }
