@@ -88,14 +88,21 @@
                                         </td>
                                     </form>
                                     @endif
+
+                                    @if (implode(', ', $user->roles->pluck('name')->toArray()) == 'teacher')
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <a href="{{route('teacher.pay',$user)}}" class="text-yellow-500">Show More</a>
+                                    </td>
+                                    @else
+                                   <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm"></td>
+                                    @endif
+
                                     @role('super_admin')
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <a href="{{route('edit.user',$user)}}" class="text-yellow-500">Edit User</a>
                                     </td>
                                     @endrole
-                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <a href="{{route('teacher.pay',$user)}}" class="text-yellow-500">Show More</a>
-                                    </td>
+
                                 </tr>
                                 @empty
                                 <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">

@@ -12,5 +12,5 @@
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
     <x-alart />
 
-    <x-student-detail :enrolments="$enrolments" />
+    <x-enrolled-student-detail :enrolments="$enrolments" />
 </x-admin>
