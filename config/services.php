@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'sms' => [
+        'key' => env('TEXTIT_KEY'),
+        'secret' => env('TEXTIT_SECRET'),
+    ],
+
 ];
