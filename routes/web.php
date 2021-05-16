@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\EnrolledStudentDetailController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
+use App\Http\Controllers\Admin\StudentPaymentHistoryController;
 use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
@@ -255,6 +256,10 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(funct
 
     Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
+
+    /* student detail */
+    Route::get('/student-payment-history-chech/{enrolment}/{user}', StudentPaymentHistoryController::class)
+        ->name('student.payment.history');
 
     Route::get('/enrolled-student-detail/{program}', EnrolledStudentDetailController::class)
         ->name('enrolled.student.detail');
