@@ -89,23 +89,23 @@
             </span>
         </div>
 
-        <div class=" text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-2">
+        <div class="text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-2">
             @if ($enrolment->accepted_at !== null and $enrolment->active == 1)
-            <span class="text-blue-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+            <span class="text-blue-400 mr-3 inline-flex items-center leading-none text-lg pr-3 py-1 border-r-2 border-gray-200">
                 <a href="{{route('program.view',$enrolment->program->getRouteKey())}}">
                     Lessons
                 </a>
             </span>
             @endif
             @if ($enrolment->accepted_at !== null and $enrolment->payment_policy !== 0)
-            <span class="text-yellow-400 mr-3 inline-flex items-center leading-none text-sm  py-1 border-gray-200">
+            <span class="text-yellow-400 mr-3 inline-flex items-center leading-none text-lg  py-1 border-gray-200">
                 <a href="{{route('checkout',$enrolment)}}">
                     Pay class fees
                 </a>
             </span>
             @endif
             @if ($enrolment->accepted_at == null)
-            <span class="text-red-400 inline-flex items-center leading-none text-sm pl-3 border-l-2">
+            <span class="text-red-400 inline-flex items-center leading-none text-lg pl-3 border-l-2">
                 <a href="{{route('enroled-program.delete',$enrolment)}}">
                     Delete
                 </a>

@@ -85,6 +85,7 @@
                                     </select>
                                 </div>
 
+                                @role('teacher')
                                 <div class="col-span-6">
                                     <label for="experience" class="block text-sm font-medium text-gray-700">Experience</label>
                                     <input type="text" name="experience" id="experience" value="{{Auth::User()->experience}}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
@@ -94,6 +95,7 @@
                                     <label for="education" class="block text-sm font-medium text-gray-700">Education</label>
                                     <input type="text" name="education" value="{{Auth::User()->education}}" placeholder="{{Auth::User()->education}}" id="education" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                                 </div>
+                                @endrole
                             </div>
                         </div>
                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

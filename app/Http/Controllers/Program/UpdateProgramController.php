@@ -32,11 +32,19 @@ class UpdateProgramController extends Controller
     private function storeFile(Program $program, UploadedFile $file = null)
     {
         if ($file != null) {
-            Storage::delete('/public/class_image/' . $program->image);
+            $this->deleteOldImage($program);
             $filename = $program->id . '.' . $file->getClientOriginalExtension();
             Storage::disk('do')->put('program/' . $filename, file_get_contents(request()->file('image')->getRealPath()), 'public');
             $program->image = $filename;
             $program->save();
+        }
+    }
+
+    protected function deleteOldImage(Program $program)
+    {
+        if ($program->image == 'program-image.jpg') {
+        } else {
+            Storage::disk('do')->delete('program/' . $program->image);
         }
     }
 }

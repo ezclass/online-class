@@ -16,8 +16,8 @@ class SettingRequest extends FormRequest
         return [
             'name' => 'required',
             'gender' => 'required',
-            'experience' => 'required|max:255',
-            'education' => 'required|max:255',
+            'experience' => 'max:255',
+            'education' => 'max:255',
         ];
     }
 }

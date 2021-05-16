@@ -58,12 +58,12 @@
         </div>
 
         <div class="mt-2 text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-            <span class="text-blue-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+            <span class="text-blue-400 mr-3 inline-flex items-center leading-none text-md pr-3 py-1 border-r-2 border-gray-200">
                 <a href="{{route('program.view',$program->getRouteKey())}}">
                     Lessons
                 </a>
             </span>
-            <span class="text-red-400 inline-flex items-center leading-none text-sm">
+            <span class="text-red-400 inline-flex items-center leading-none text-md">
                 <a href="{{route('update.program.view',$program->getRouteKey())}}">
                     Update
                 </a>
