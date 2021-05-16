@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Broadcasting\SmsChannel;
 use App\Models\Program;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -22,7 +23,7 @@ class EnrollmentRequest extends Notification
 
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', SmsChannel::class];
     }
 
     public function toMail($notifiable)
@@ -41,5 +42,11 @@ class EnrollmentRequest extends Notification
                 Auth::user()->name  . ' ' . 'student for your' . ' ' .
                 $this->program->subject->name . ' ' . ' class.'
         ];
+    }
+
+    public function toSms($notifiable): SmsChannel
+    {
+        return (new SmsChannel())
+            ->content('otp send');
     }
 }
