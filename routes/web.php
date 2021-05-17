@@ -54,6 +54,8 @@ use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\ProgramStatusController;
 use App\Http\Controllers\Program\StudentDetailController;
+use App\Http\Controllers\Security\OtpController;
+use App\Http\Controllers\Security\PhoneNumberVerificationController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\ViewProgramController;
@@ -80,10 +82,24 @@ Route::get('/privacy-policy', PrivacyPolicyController::class)
 Route::get('/public-dashboard/{user}', PublicDashboardController::class)
     ->name('public.dashboard');
 
-Route::get('/deactive', DeactiveDashboardController::class)
-    ->name('deactive.dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/phone-number-verification', [PhoneNumberVerificationController::class, 'view'])
+        ->name('phone.number.verification');
 
-Route::middleware(['auth', 'verified', 'active'])->group(function () {
+    Route::post('/phone-number-change/{user}', [PhoneNumberVerificationController::class, 'change'])
+        ->name('phone.number.change');
+
+    Route::get('/send-otp', [OtpController::class, 'send'])
+        ->name('send.otp');
+
+    Route::post('/verify-otp/{user}', [OtpController::class, 'verify'])
+        ->name('verify.otp');
+
+    Route::get('/deactive', DeactiveDashboardController::class)
+        ->name('deactive.dashboard');
+});
+
+Route::middleware(['auth', 'verified', 'active', 'phone_verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
@@ -140,7 +156,7 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
         ->name('payment.history');
 });
 
-Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
+Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
 
@@ -233,7 +249,7 @@ Route::middleware(['role:teacher', 'verified', 'active'])->group(function () {
         ->name('cash.history');
 });
 
-Route::middleware(['role:student', 'verified', 'active'])->group(function () {
+Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 
@@ -241,7 +257,7 @@ Route::middleware(['role:student', 'verified', 'active'])->group(function () {
         ->name('enroled-program.delete');
 });
 
-Route::middleware(['role:admin|super_admin', 'verified', 'active'])->group(function () {
+Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verified'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
 

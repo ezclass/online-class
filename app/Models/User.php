@@ -51,6 +51,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->status == 1;
     }
 
+    public function isVerified(): bool
+    {
+        return $this->phone_number_verified_at !== null;
+    }
+
     public function isStudent(): bool
     {
         return $this->hasRole(Role::ROLE_STUDENT);
