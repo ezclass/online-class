@@ -31,7 +31,7 @@ class EnrollmentRequest extends Notification
         return (new MailMessage)
             ->line('An enrollment request has been received from' . ' ' .
                 Auth::user()->name . ' ' . 'student for your' . ' ' .
-                $this->program->subject->name . ' ' . ' class.')
+                $this->program->subject->name . ' ' . 'class.')
             ->action('Go to the dashboard', url('/teacher/dashboard'));
     }
 
@@ -40,13 +40,16 @@ class EnrollmentRequest extends Notification
         return [
             'data' => 'An enrollment request has been received from' . ' ' .
                 Auth::user()->name  . ' ' . 'student for your' . ' ' .
-                $this->program->subject->name . ' ' . ' class.'
+                $this->program->subject->name . ' ' . 'class.'
         ];
     }
 
     public function toSms($notifiable): SmsChannel
     {
         return (new SmsChannel())
-            ->content('otp send');
+            ->content('An enrollment request has been received from' . ' ' .
+                Auth::user()->name  . ' ' . 'student for your' . ' ' .
+                $this->program->subject->name . ' ' . 'class.')
+            ->to($this->program->teacher->phone_number);
     }
 }
