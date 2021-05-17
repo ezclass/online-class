@@ -126,6 +126,9 @@ Route::middleware(['auth', 'verified', 'active', 'phone_verified'])->group(funct
     Route::post('/uploadavaratar/{user}', [SettingController::class, 'uploadavaratar'])
         ->name('uploadavaratar');
 
+    Route::post('/change-email/{user}', [SettingController::class, 'change'])
+        ->name('change.email');
+
     /* Learning */
     Route::get('/lesson/{program}', ViewProgramController::class)
         ->name('program.view');

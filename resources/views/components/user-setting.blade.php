@@ -139,18 +139,33 @@
                                     Change Phone Number
                                 </a>
                             </div>
+
+                            <div class="col-span-6">
+                                <form action="{{route('change.email', Auth::user())}}" method="POST">
+                                    @csrf
+                                    <div class="">
+                                        <label for="experience" class="block text-sm font-medium text-gray-700">Email</label>
+                                        <input type="email" name="email" value="{{Auth::user()->email}}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <label for="education" class="block text-sm font-medium text-gray-700">Change Email</label>
+                                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                            Change Email
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+</div>
 
-    <div class="hidden sm:block" aria-hidden="true">
-        <div class="py-5">
-            <div class="border-t border-gray-200"></div>
-        </div>
+<div class="hidden sm:block" aria-hidden="true">
+    <div class="py-5">
+        <div class="border-t border-gray-200"></div>
     </div>
-
 </div>

@@ -4,5 +4,6 @@
     <x-alart />
 
     <x-user-setting />
-
+    <x-messanger />
+    
 </x-app-layout>
