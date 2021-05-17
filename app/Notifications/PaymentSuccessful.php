@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use ApiChef\PayHere\Payment;
+use App\Broadcasting\SmsChannel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -21,7 +22,7 @@ class PaymentSuccessful extends Notification
 
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', SmsChannel::class];
     }
 
     public function toMail($notifiable)
@@ -47,5 +48,17 @@ class PaymentSuccessful extends Notification
                 'teacher,' . ' ' .
                 'your payment was successful.'
         ];
+    }
+
+    public function toSms($notifiable): SmsChannel
+    {
+        return (new SmsChannel())
+            ->content('For the' . ' ' .
+                $this->payment->payable->subject->name . ' ' .
+                'class of the' . ' ' .
+                $this->payment->payable->teacher->name . ' ' .
+                'teacher,' . ' ' .
+                'your payment was successful.')
+            ->to($this->payment->payer->phone_number);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Broadcasting\SmsChannel;
 use App\Models\Enrolment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -13,7 +14,7 @@ class AcceptEnrollmentRequest extends Notification
     use Queueable;
 
     private $enrolment;
-    
+
     public function __construct(Enrolment $enrolment)
     {
         $this->enrolment = $enrolment;
@@ -21,14 +22,15 @@ class AcceptEnrollmentRequest extends Notification
 
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', SmsChannel::class];
     }
 
     public function toMail($notifiable)
     {
         return (new MailMessage)
             ->line('The enrollment request you sent to' . ' ' .
-                $this->enrolment->program->teacher->name . "'s" . ' ' .
+                $this->enrolment->program->teacher->name . ' ' .
+                "teacher's" . ' ' .
                 $this->enrolment->program->subject->name . ' ' .
                 'Class was accepted')
             ->action('Go to the dashboard', url('/student/dashboard'))
@@ -39,9 +41,21 @@ class AcceptEnrollmentRequest extends Notification
     {
         return [
             'data' => 'The enrollment request you sent to' . ' ' .
-                $this->enrolment->program->teacher->name . "'s" . ' ' .
+                $this->enrolment->program->teacher->name . ' ' .
+                "teacher's" . ' ' .
                 $this->enrolment->program->subject->name . ' ' .
                 'Class was accepted',
         ];
+    }
+
+    public function toSms($notifiable): SmsChannel
+    {
+        return (new SmsChannel())
+            ->content('The enrollment request you sent to' . ' ' .
+                $this->enrolment->program->teacher->name . ' ' .
+                "teacher's" . ' ' .
+                $this->enrolment->program->subject->name . ' ' .
+                'Class was accepted')
+            ->to($this->enrolment->student->phone_number);
     }
 }
