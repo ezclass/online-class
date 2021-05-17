@@ -40,4 +40,6 @@
         </div>
     </section>
 
+    <x-messanger />
+    
 </x-app-layout>

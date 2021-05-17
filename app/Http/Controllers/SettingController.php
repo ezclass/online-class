@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AvatarRequest;
+use App\Http\Requests\Setting\ChangeEmailRequest;
 use App\Http\Requests\SettingRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -56,5 +57,15 @@ class SettingController extends Controller
             } else
                 Storage::disk('do')->delete('avatar/' . auth()->user()->avatar);
         }
+    }
+
+    public function change(ChangeEmailRequest $request, User $user)
+    {
+        $user->email_verified_at = null;
+        $user->email = $request->get('email');
+        $user->save();
+
+        return redirect()->back()
+            ->with('success', 'Email change was successful.');
     }
 }
