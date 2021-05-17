@@ -23,6 +23,7 @@
         "spatie/laravel-permission": "^3.18",
         "spatie/laravel-query-builder": "^3.3",
         "spatie/laravel-translatable": "^4.6",
+        "tzsk/otp": "^5.1",
         "wildbit/postmark-php": "^4.0"
     },
     "require-dev": {
