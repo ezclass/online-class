@@ -1,8 +1,5 @@
 <x-guest-layout>
 
-    <nav>
-
-    </nav>
     <div class="pt-16 p-16">
         <p class="text-2xl">Zencemart Education Terms & Conditions</p>
 
@@ -112,6 +109,10 @@
 
         <div class="mt-5">
             <p>Regardless of the date you charge students for tuition (provided by homeclass.lk), you agree that we (Zencemart Education) will pay you within the last three days of the month.(Sometimes you will even get paid on the day the students pay). If you do not agree, you will not be able to use any of the services at homeclass.lk.</p>`
+        </div>
+
+        <div class="mt-5">
+            <p>Last Updated: 18-05-2021</p>`
         </div>
 
     </div>
