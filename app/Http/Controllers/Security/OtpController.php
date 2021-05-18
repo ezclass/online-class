@@ -17,7 +17,7 @@ class OtpController extends Controller
         $request->user()->notify(new SendOtp($otp));
 
         return redirect()->back()
-            ->with('success', 'OTP has been sent to your phone');
+            ->with('success', 'An SMS with your verification code was sent to your phone.');
     }
 
     public function verify(Request $request, User $user)
