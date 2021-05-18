@@ -1,16 +1,16 @@
 <footer class="text-white bg-gray-900 body-font">
-    <div class="container px-5 py-8 mx-auto flex items-center md:flex-row flex-col">
+    <div class="container px-5 py-8 mx-auto flex items-center lg:flex-row flex-col">
         <a href="https://homeclass.lk/" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-600">
           <img src="{{Storage::disk('do')->url('logo/logo.png')}}" alt="logo" class="w-12 h-12  p-2 bg-blue-100 rounded-full">
             <span class="ml-3 text-xl text-white">HomeClass</span>
         </a>
-        <p class="text-sm text-white sm:ml-4 sm:pl-4 md:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 mt-4">© 2021 Made By —
-            <a href="https://zencemart.com" class="text-indigo-500 ml-1" rel="noopener noreferrer" target="_blank">Zencemart Software Company</a>
+        <p class="text-sm text-white sm:ml-4 sm:pl-4 lg:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 mt-4">© 2021 Made By —
+            <a  class="text-indigo-500 ml-1" rel="noopener noreferrer" target="_blank">Zencemart Software Company</a>
         </p>
-        <p class="text-sm text-white sm:ml-4 sm:pl-4 md:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 mt-4">Hotline -
+        <p class="text-sm text-white sm:ml-4 sm:pl-4 lg:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 mt-4">Hotline -
            0775486681
         </p>
-        <p class="text-sm text-white sm:ml-4 sm:pl-4 md:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 mt-4">E-mail -
+        <p class="text-sm text-white sm:ml-4 sm:pl-4 lg:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 mt-4">E-mail -
            homeclass.lk@gmail.com
         </p>
         <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
