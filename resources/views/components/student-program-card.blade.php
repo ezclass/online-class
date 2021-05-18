@@ -106,7 +106,7 @@
             @endif
             @if ($enrolment->accepted_at == null)
             <span class="text-red-400 inline-flex items-center leading-none text-md pl-3 border-l-2">
-                <a href="{{route('enroled-program.delete',$enrolment)}}">
+                <a href="{{route('enroled.program.delete',$enrolment)}}">
                     Delete
                 </a>
             </span>

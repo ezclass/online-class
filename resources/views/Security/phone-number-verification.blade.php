@@ -18,10 +18,10 @@
                             Change Phone Number
                         </button>
                     </form>
-                    <hr class="m-3 border-gray-500">
+                    <hr class="m-6 border-gray-500">
                     <div class="mt-4">
-                        <div class="text-center">
-                            <a href="{{route('send.otp')}}" class="hover:underline">Send OTP</a>
+                        <div class="text-center mt-6">
+                            <a href="{{route('send.otp')}}" class="underline text-xl">Send OTP</a>
                         </div>
                         <form action="{{route('verify.otp', Auth::user())}}" method="POST">
                         @csrf
@@ -30,7 +30,7 @@
                             </div>
                             <div class="py-2">
                                 <button type="submit" class="border-1 border-gray-100 focus:outline-none bg-gray-600 text-white font-bold tracking-wider block w-full p-1 rounded-lg focus:border-gray-700 hover:bg-gray-700">
-                                    Verify
+                                    Verify Phone Number
                                 </button>
                             </div>
                         </form>
@@ -41,5 +41,5 @@
     </section>
 
     <x-messanger />
-    
+
 </x-app-layout>
