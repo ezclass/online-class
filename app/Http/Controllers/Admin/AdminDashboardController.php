@@ -22,7 +22,7 @@ class AdminDashboardController extends Controller
             ->with('roles')
             ->paginate(10);
 
-        return view('admin.dashboard')
+        return view('admin.all-user')
             ->with([
                 'users' => $user,
                 'selectedRoleId' => $request->role,

@@ -129,6 +129,12 @@
                         <nav class="flex-1 overflow-hidden hover:overflow-y-auto">
                             <ul class="p-1 overflow-hidden">
 
+                                @role('super_admin')
+                                <x-responsive-nav-link :href="route('super.admin.dashboard')" :active="request()->routeIs('super.admin.dashboard')">
+                                    {{ __('Dashboard') }}
+                                </x-responsive-nav-link>
+                                @endrole
+
                                 <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                                     {{ __('Overview') }}
                                 </x-responsive-nav-link>

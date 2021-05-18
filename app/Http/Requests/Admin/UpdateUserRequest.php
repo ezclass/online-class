@@ -18,6 +18,7 @@ class UpdateUserRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'roles' => 'required',
+            'gender' => 'required',
         ];
     }
 }

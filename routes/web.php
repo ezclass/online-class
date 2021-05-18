@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
 use App\Http\Controllers\Admin\StudentPaymentHistoryController;
+use App\Http\Controllers\Admin\SuperAdminDashboardController;
 use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserStatusController;
@@ -256,19 +257,13 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->gro
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 
-    Route::get('/enroled-program/delete/{enrolment}', EnroledProgramDeleteController::class)
-        ->name('enroled-program.delete');
+    Route::get('/enroled-program-delete/{enrolment}', EnroledProgramDeleteController::class)
+        ->name('enroled.program.delete');
 });
 
 Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verified'])->group(function () {
-    Route::get('/admin/dashboard', AdminDashboardController::class)
+    Route::get('/admin/all-user', AdminDashboardController::class)
         ->name('admin.dashboard');
-
-    Route::get('/edit-user/{user}', EditUserController::class)
-        ->name('edit.user');
-
-    Route::post('/update-user/{user}', UpdateUserController::class)
-        ->name('update.user');
 
     Route::post('/deactive-user/{user}', [UserStatusController::class, 'deactive'])
         ->name('deactive.user');
@@ -312,6 +307,17 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verifi
 
     Route::get('/delete-opinion-request/{opinion}', [ClientOpinionController::class, 'delete'])
         ->name('delete.opinion');
+});
+
+Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])->group(function () {
+    Route::get('/super-admin/dashboard', SuperAdminDashboardController::class)
+        ->name('super.admin.dashboard');
+
+    Route::get('/edit-user/{user}', EditUserController::class)
+        ->name('edit.user');
+
+    Route::post('/update-user/{user}', UpdateUserController::class)
+        ->name('update.user');
 });
 
 require __DIR__ . '/auth.php';

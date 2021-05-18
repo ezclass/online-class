@@ -27,7 +27,7 @@ class DashboardController extends Controller
         }
 
         if ($user->isSuperAdmin()) {
-            return 'admin.dashboard';
+            return 'super.admin.dashboard';
         }
 
         return 'deactive.dashboard';

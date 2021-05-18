@@ -15,8 +15,8 @@
                 </div>
 
                 <div>
-                    <label class="text-gray-700 dark:text-gray-200" for="email">Email Address</label>
-                    <input id="email" name="email" type="email" value="{{$user->email}}" class="mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" required>
+                    <label class="text-gray-700 dark:text-gray-200" for="email">Gender</label>
+                    <input id="gender" name="gender" type="text" value="{{$user->gender}}" class="mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" required>
                 </div>
             </div>
             @foreach($roles as $role)
@@ -38,4 +38,32 @@
         </form>
     </div>
 
+
+    <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+            <form>
+                @csrf
+                <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="name">Phone</label>
+                    <input id="name" name="name" type="text" value="{{$user->phone_number}}" class="mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" required>
+                </div>
+                <div class="justify-center mt-6">
+                    <x-success-button>
+                        {{__('Update Phone Number')}}
+                    </x-success-button>
+                </div>
+            </form>
+            <form>
+                <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="email">Email Address</label>
+                    <input id="email" name="email" type="email" value="{{$user->email}}" class="mt-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded py-2 px-4 block w-full focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" required>
+                </div>
+                <div class="justify-center mt-6">
+                    <x-success-button>
+                        {{__('Update Email Address')}}
+                    </x-success-button>
+                </div>
+            </form>
+        </div>
+    </div>
 </x-admin>
