@@ -26,9 +26,8 @@ class RegisteredUserController extends Controller
             'phone_number' => 'required|string|max:10|unique:users|digits:10',
             'gender' => 'required|string|in:Male,Female',
             'password' => 'required|string|confirmed|min:8',
-            'avatar' => 'required',
             'role' => 'required|in:student,teacher',
-            'privacy-policy' => 'required|in:1',
+            'terms_&_conditions' => 'required|in:1',
         ]);
 
         Auth::login($user = User::create([
@@ -45,7 +44,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         $user->notify(new Welcome());
-        
+
         return redirect(RouteServiceProvider::HOME);
     }
 }

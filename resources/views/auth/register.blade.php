@@ -11,7 +11,6 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-            <input type="hidden" value="avatar.jpg" name="avatar">
             <div class="mt-4">
                 <div class="flex justify-between">
                     <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="name">Full Name</label>
@@ -28,7 +27,7 @@
 
             <div class="mt-4">
                 <div class="flex justify-between">
-                    <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="LoggingPhoneNumber">Phone Number</label>
+                    <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="LoggingPhoneNumber">Phone Number (07XXXXXXXX)</label>
                 </div>
                 <x-input id="phone_number" class="block mt-1 w-full" type="number" name="phone_number" :value="old('phone_number')" required autofocus />
             </div>
@@ -60,7 +59,7 @@
 
             <div class="mt-4">
                 <div class="flex justify-between">
-                    <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="role">Role</label>
+                    <label class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" for="role">Select Role</label>
                 </div>
                 <select name="role" id="role" :value="old('role')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                     <option value="" selected disabled></option>
@@ -70,9 +69,9 @@
             </div>
 
             <div class="block mt-4">
-                <label for="Privacy_Policy" class="inline-flex items-center">
-                    <input id="Privacy_Policy" type="checkbox" value="1" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="privacy-policy">
-                    <span class="ml-2 text-sm text-gray-600">I agree to <a href="{{route('legal')}}" target="new" class="text-blue-500"><u>Terms & Conditions</u></a> and <a href="{{route('privacy.policy')}}" target="new" class="text-blue-500"><u>Privacy Policy</u></a> </span>
+                <label for="terms_&_conditions" class="inline-flex items-center">
+                    <input id="terms_&_conditions" type="checkbox" name="terms_&_conditions" value="1" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                    <span class="ml-2 text-sm text-gray-600">I agree to <a href="{{route('legal')}}" target="new" class="text-blue-500"><u>Terms & Conditions</u></a></span>
                 </label>
             </div>
 
