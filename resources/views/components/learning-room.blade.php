@@ -21,7 +21,7 @@
                         <!-- sidebar header -->
                         <div class="flex items-center justify-between flex-shrink-0 p-2" :class="{'lg:justify-center': !isSidebarOpen}">
                             <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
-                                <span :class="{'lg:hidden': !isSidebarOpen}">ezclass</span>
+                                <span :class="{'lg:hidden': !isSidebarOpen}">HomeClass</span>
                             </span>
                             <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
                                 <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +56,7 @@
                             <div class="flex items-center justify-between p-2">
                                 <!-- Navbar left -->
                                 <div class="flex items-center space-x-3">
-                                    <span class="p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">ezclass</span>
+                                    <span class="p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">Menu</span>
                                     <!-- Toggle sidebar button -->
                                     <button @click="toggleSidbarMenu()" class="p-2 rounded-md focus:outline-none focus:ring">
                                         <svg class="w-4 h-4 text-gray-600" :class="{'transform transition-transform -rotate-180': isSidebarOpen}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,8 +64,6 @@
                                         </svg>
                                     </button>
                                 </div>
-
-                                <a href="{{route('welcome')}}"> Home</a> |
                                 <a href="{{route('program.view',$lesson->program)}}"> Lesson</a>
                                 <!-- Navbar right -->
                                 <div class="relative flex items-center space-x-3">
@@ -99,7 +97,7 @@
                             <div>ezclass &copy; 2021</div>
                             <div class="text-sm">
                                 Made by
-                                <a class="text-blue-400 underline" href="https://www.zencemart.com" target="_blank" rel="noopener noreferrer">zencemart software company</a>
+                                <a class="text-blue-400 underline"  target="_blank" rel="noopener noreferrer">zencemart software company</a>
                             </div>
                             <div>
                                 <!-- Github svg -->
