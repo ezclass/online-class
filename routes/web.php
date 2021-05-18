@@ -77,9 +77,6 @@ Route::post('/send-mail', [ContactUsController::class, 'mail'])
 Route::get('/legal', TermAndConditionController::class)
     ->name('legal');
 
-Route::get('/privacy-policy', PrivacyPolicyController::class)
-    ->name('privacy.policy');
-
 Route::get('/public-dashboard/{user}', PublicDashboardController::class)
     ->name('public.dashboard');
 
