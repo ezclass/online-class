@@ -16,7 +16,8 @@ class DocumentController extends Controller
                 'lesson' => $lesson,
                 'documents' => Document::query()
                     ->ofLesson($lesson)
-                    ->get()
+                    ->orderBy('id', 'DESC')
+                    ->paginate(10),
             ]);
     }
 }
