@@ -5,6 +5,11 @@
 
     <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
         <h2 class="text-lg text-gray-700 dark:text-white font-semibold capitalize">Edit User -- {{$user->name}} </h2>
+        <div class="text-red-500">
+            @if ($user->email_verified_at || $user->phone_number_verified_at == null)
+            <a href="{{route('delete.user' ,$user)}}">Delete User</a>
+            @endif
+        </div>
 
         <form action="{{route('update.user', $user->getRouteKey())}}" method="POST">
             @csrf
@@ -37,5 +42,4 @@
             </div>
         </form>
     </div>
-
 </x-admin>
