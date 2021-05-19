@@ -42,6 +42,7 @@ use App\Http\Controllers\Enroll\RemindController;
 use App\Http\Controllers\Enroll\UnBlockController;
 use App\Http\Controllers\Enroll\UpdateEnrolmentController;
 use App\Http\Controllers\LearningRoom\DocumentController;
+use App\Http\Controllers\LearningRoom\DownloadAccessController;
 use App\Http\Controllers\LearningRoom\FileDeleteController;
 use App\Http\Controllers\LearningRoom\FileDownloadController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
@@ -222,6 +223,12 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
 
     Route::post('/document-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
+
+    Route::get('/download-access-active/{document}', [DownloadAccessController::class, 'active'])
+        ->name('download.active');
+
+    Route::get('/download-access-inactive/{document}', [DownloadAccessController::class, 'inactive'])
+        ->name('download.inactive');
 
     Route::post('/document-delete/{document}', FileDeleteController::class)
         ->name('file.delete');
