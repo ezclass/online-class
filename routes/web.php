@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AllTeacherController;
 use App\Http\Controllers\Admin\ClientOpinionController;
+use App\Http\Controllers\Admin\DeleteUserController;
 use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\EnrolledStudentDetailController;
 use App\Http\Controllers\Admin\PaidController;
@@ -321,6 +322,9 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
 
     Route::post('/update-user/{user}', UpdateUserController::class)
         ->name('update.user');
+
+        Route::get('/delete-user/{user}', DeleteUserController::class)
+        ->name('delete.user');
 });
 
 require __DIR__ . '/auth.php';

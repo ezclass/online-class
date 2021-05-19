@@ -26,6 +26,7 @@ class CreateProgramController extends Controller
         $program->end_time = $request->get('end_time');
         $program->day = $request->get('day');
         $program->user_id = Auth::user()->id;
+        $program->status = 1;
         $program->image = "program-image.jpg";
         $program->save();
         //$this->storeFile($program, $request->file('image'));
