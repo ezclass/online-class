@@ -50,7 +50,6 @@ use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\Notification\MarkAsReadController;
 use App\Http\Controllers\OpinionController;
 use App\Http\Controllers\Payment\CashHistoryController;
-use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\ProgramStatusController;
