@@ -36,7 +36,7 @@
         <h6 class="mt-4 text-sm font-medium">Clas Start Date : <span class="text-indigo-700">{{ $program->start_date->format('M d,Y')}}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class End Date : <span class="text-indigo-700">{{ $program->end_date->format('M d,Y') }}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class Day : <span class="text-indigo-700">{{ $program->day}}</span></h6>
-        <h6 class="mt-2 text-sm font-medium">Class Time : <span class="text-indigo-700">{{ $program->start_time->format('h:m A')}} To {{ $program->end_time->format('h:m A')}}</span></h6>
+        <h6 class="mt-2 text-sm font-medium">Class Time : <span class="text-indigo-700">{{ $program->start_time->format('h:i A')}} To {{ $program->end_time->format('h:i A')}}</span></h6>
         <div class="mt-4">
             <a href="{{route('student.detail',$program)}}" class="description text-sm  border-gray-400  text-indigo-500 inline-flex items-center">
                 Student Details

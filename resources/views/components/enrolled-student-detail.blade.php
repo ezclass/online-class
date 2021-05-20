@@ -59,7 +59,7 @@
                                     </div>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->accepted_at->format('M d,Y')}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->accepted_at->isoFormat('MMM Do Y, h:mm a')}}</p>
                                 </td>
                                 <form action="{{route('enroll.update', $enrolment->getRouteKey())}}" method="POST">
                                     @csrf
@@ -82,7 +82,7 @@
                                             <option value="7">First Week ( 7 )</option>
                                             <option value="14">Second Week ( 14 )</option>
                                             <option value="21">Third Week ( 21 )</option>
-                                            <option value="27">Last Week ( 27 )</option>
+                                            <option value="25">Last Week ( 25 )</option>
                                         </select>
                                     </td>
 

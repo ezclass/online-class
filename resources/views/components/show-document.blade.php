@@ -1,6 +1,6 @@
 <tr>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-        {{$document->created_at->format('M d, Y , h:m a')}}
+        {{$document->created_at->isoFormat('MMM Do Y, h:mm a')}}
         </div>
     </td>
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">

@@ -7,10 +7,13 @@
                         <thead>
                             <tr>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Name
+                                    Request Date
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Class
+                                   Student Detail
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Class /Subject
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Payment Date
@@ -28,6 +31,10 @@
                             @forelse($enrolments as $enrolment)
                             <tr>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->created_at->format('d M, h:i A')}}</p>
+                                </td>
+
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 w-10 h-10">
                                             <img class="w-full h-full rounded-full" src="{{ Storage::disk('do')->url('avatar/'. $enrolment->student->avatar)}}" alt="avatar" />
@@ -36,11 +43,14 @@
                                             <p class="text-gray-900 whitespace-no-wrap">
                                                 {{$enrolment->student->name}}
                                             </p>
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                {{$enrolment->student->phone_number}}
+                                            </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->program->subject->name}}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->program->grade->name}} / {{$enrolment->program->subject->name}}</p>
                                 </td>
                                 <form action="{{route('enroll.request.accept', $enrolment->getRouteKey())}}" method="POST">
                                     @csrf
@@ -51,7 +61,7 @@
                                             <option value="7">First Week ( 7 )</option>
                                             <option value="14">Second Week ( 14 )</option>
                                             <option value="21">Third Week ( 21 )</option>
-                                            <option value="27">Last Week ( 27 )</option>
+                                            <option value="25">Last Week ( 25 )</option>
                                         </select>
                                     </td>
 
