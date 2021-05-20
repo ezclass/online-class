@@ -38,12 +38,7 @@
                              <div class="px-4 py-2 font-semibold">Contact No.</div>
                              <span class="px-4 py-2">{{$teacher->phone_number}}</span>
                          </div>
-                         <div class="grid lg:grid-cols-2">
-                             <div class="px-4 py-2 font-semibold">Email.</div>
-                             <div class="px-4 py-2">
-                                 <span class="text-blue-800">{{$teacher->email}}</span>
-                             </div>
-                         </div>
+                        
                      </div>
                  </div>
              </div>

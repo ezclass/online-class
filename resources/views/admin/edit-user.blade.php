@@ -5,11 +5,8 @@
 
     <div class="mt-5 max-w-4xl p-6 mx-auto bg-gray-200 dark:bg-gray-800 rounded-md shadow-md">
         <h2 class="text-lg text-gray-700 dark:text-white font-semibold capitalize">Edit User -- {{$user->name}} </h2>
-        <div class="text-red-500">
-            @if ($user->email_verified_at || $user->phone_number_verified_at == null)
-            <a href="{{route('delete.user' ,$user)}}">Delete User</a>
-            @endif
-        </div>
+
+        <a href="{{route('delete.user', $user)}}" class="deleteuser text-red-500">Delete User</a>
 
         <form action="{{route('update.user', $user->getRouteKey())}}" method="POST">
             @csrf
@@ -42,4 +39,15 @@
             </div>
         </form>
     </div>
+
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('deleteuser');
+        var confirmIt = function(e) {
+            if (!confirm('Are you sure you want to delete this user?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
 </x-admin>
