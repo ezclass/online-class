@@ -47,14 +47,14 @@
                                         <p class="text-gray-900 whitespace-no-wrap">{{$lesson->id}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$lesson->created_at->format('d M ,Y - h:m a')}}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$lesson->created_at->isoFormat('MMM Do Y, h:mm a')}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">{{$lesson->name}}</p>
                                     </td>
 
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{$lesson->class_date->format('d M ,Y - h:m a')}}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{$lesson->class_date->isoFormat('MMM Do Y, h:mm a')}}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">{{$lesson->description}}</p>
