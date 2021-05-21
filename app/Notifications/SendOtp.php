@@ -28,7 +28,7 @@ class SendOtp extends Notification
     public function toSms($notifiable): SmsChannel
     {
         return (new SmsChannel())
-            ->content($this->otp . ' ' . 'is your OTP')
+            ->content($this->otp . ' ' . 'is your Homeclass verification code.')
             ->to(Auth::user()->phone_number);
     }
 }
