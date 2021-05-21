@@ -34,16 +34,19 @@
 
     @role('teacher')
     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-
-        <form action="{{route('meet.delete',$meeting)}}" method="POST">
-            @csrf
-            <div class="py-6 px-8 space-y-5 bg-white">
-                <x-danger-button type="submit">
-                    {{__('Detele')}}
-                </x-danger-button>
-            </div>
-        </form>
-
+        <a href="{{route('meet.delete',$meeting)}}" class="deletebtn text-red-500">
+            Delete
+        </a>
     </td>
     @endrole
 </tr>
+
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('deletebtn');
+    var confirmIt = function(e) {
+        if (!confirm('Do you want to delete this Link?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>

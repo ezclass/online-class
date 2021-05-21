@@ -17,7 +17,7 @@ class EnrolmentRequestController extends Controller
         $program->teacher->notify(new EnrollmentRequest($program));
 
         return redirect()
-            ->back()
-            ->with('success', 'Enroll request sent, Please check your dashboard.');
+            ->route('student.dashboard')
+            ->with('success', 'Enroll request sent.');
     }
 }

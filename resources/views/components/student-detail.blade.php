@@ -92,7 +92,7 @@
                                                 @if ($enrolment->payment_policy == 0)
                                                 <span class="text-green-500">Free Card</span>
                                                 @else
-                                                Normel Price
+                                                <span class="text-gray-500">Normel Pric</span>
                                                 @endif
                                             </option>
                                             <option value="0">Free Card</option>
@@ -132,41 +132,27 @@
                                     </td>
                                 </form>
                                 @else
-                                <form action="{{route('cancel.remind', $enrolment->getRouteKey())}}" method="POST">
-                                    @csrf
-                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <x-warning-button class="">
-                                            {{ __('Cancel') }}
-                                        </x-warning-button>
-                                    </td>
-                                </form>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-
+                                    <a href="{{route('cancel.remind', $enrolment)}}" class="deletebtn text-yellow-500">
+                                        Cancel Reminder
+                                    </a>
                                 </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm"></td>
                                 @endif
 
+
                                 @if ($enrolment->active == 1)
-                                <form action="{{route('student.block',$enrolment)}}" method="POST">
-                                    @csrf
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <span class="relative inline-block px-3 py-1 font-semibold text-red-500 leading-tight">
-                                            <x-danger-button class="">
-                                                {{ __('Block') }}
-                                            </x-danger-button>
-                                        </span>
+                                        <a href="{{route('student.block',$enrolment)}}" class="blockstudent text-red-500">
+                                            Block Student
+                                        </a>
                                     </td>
-                                </form>
                                 @else
-                                <form action="{{route('student.unblock',$enrolment)}}" method="POST">
-                                    @csrf
-                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-
-                                        <x-warning-button class="">
-                                            {{ __('UnBlock') }}
-                                        </x-warning-button>
-
-                                    </td>
-                                </form>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{route('student.unblock',$enrolment)}}" class="unblockstudent text-yellow-500">
+                                        UnBlock Student
+                                    </a>
+                                </td>
                                 @endif
                             </tr>
                             @empty
@@ -185,3 +171,14 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('blockstudent');
+    var confirmIt = function(e) {
+        if (!confirm('Do you want to block this student?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>

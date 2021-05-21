@@ -16,7 +16,7 @@ class CreateProgramRequest extends FormRequest
     {
         return [
             'grade' => 'required',
-            'fees' => 'required|integer|min:500',
+            'fees' => 'required|integer|min:200',
             'medium' => 'required|integer',
             'subject' => 'required|integer',
             'class_type' => 'required',
