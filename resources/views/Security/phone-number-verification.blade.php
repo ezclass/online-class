@@ -21,7 +21,7 @@
                     <hr class="m-6 border-gray-500">
                     <div class="mt-4">
                         <div class="text-center mt-6">
-                            <a href="{{route('send.otp')}}" class="underline text-xl">Send Code</a>
+                            <a href="{{route('send.otp')}}" class="text-xl"> Send verification code </a>
                         </div>
                         <form action="{{route('verify.otp', Auth::user())}}" method="POST">
                             @csrf
