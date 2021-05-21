@@ -29,6 +29,9 @@
                                         Role
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Email and Phone No Verifi
+                                    </th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                         Status
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -68,7 +71,14 @@
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <p class="inline-flex px-2 text-xs font-semibold leading-5 text-indigo-800 bg-indigo-100 rounded-full"> {{implode(', ', $user->roles->pluck('name')->toArray())}}</p>
                                     </td>
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        @if ($user->email_verified_at and $user->phone_number_verified_at)
+                                        <p class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">Verified</p>
+                                        @else
+                                        <p class="inline-flex px-2 text-xs font-semibold leading-5 text-yellow-800 bg-yellow-100 rounded-full">Not verified</p>
+                                        @endif
 
+                                    </td>
                                     @if ($user->status == 1)
                                     <form action="{{route('deactive.user',$user)}}" method="POST">
                                         @csrf
@@ -94,7 +104,7 @@
                                         <a href="{{route('teacher.pay',$user)}}" class="text-yellow-500">Show More</a>
                                     </td>
                                     @else
-                                   <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm"></td>
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm"></td>
                                     @endif
 
                                     @role('super_admin')
