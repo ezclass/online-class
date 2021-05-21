@@ -106,7 +106,7 @@
             @endif
             @if ($enrolment->accepted_at == null)
             <span class="text-red-400 inline-flex items-center leading-none text-md pl-3 border-l-2">
-                <a href="{{route('enroled.program.delete',$enrolment)}}">
+                <a href="{{route('enroled.program.delete',$enrolment)}}" class="deletebtn">
                     Delete
                 </a>
             </span>
@@ -121,3 +121,14 @@
     <span class="block sm:inline"> To enter class, Click <a href="{{route('search.class')}}"><u>Find Classes</u></a></span>
 </div>
 @endforelse
+
+
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('deletebtn');
+    var confirmIt = function(e) {
+        if (!confirm('Do you want to delete this class?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>

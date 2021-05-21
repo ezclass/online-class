@@ -16,20 +16,20 @@
         </x-slot>
 
         <x-slot name="content">
-            <div class="p-4 font-medium border-b">
+            <div class="p-4 font-medium border-b text-center">
                 <span class="text-gray-800">Notification</span>
             </div>
             <ul class="flex flex-col p-2 my-2 space-y-1">
-                <li>
-                    <a href="{{route('mark.as.read')}}" class="text-green-500 block px-2 py-1 transition rounded-md hover:bg-green-100">Mark All as Read</a>
+                <li class="text-center">
+                    <a href="{{route('mark.as.read')}}" class="text-green-500 text-sm block px-2 py-1 transition rounded-md hover:bg-green-100">Mark All as Read</a>
                 </li>
                 <div class="mt-3">
                     @forelse ( Auth::user()->unreadnotifications as $notification )
                     <li>
-                        <span class="block text-gray-600 px-2 py-1 transition rounded-md cursor-pointer hover:bg-gray-200">{{$notification->data['data']}}</span>
+                        <span class="block text-gray-600 px-2 py-1 text-sm transition rounded-md cursor-pointer hover:bg-gray-200">{{$notification->data['data']}}</span>
                     </li>
                     <li>
-                        <span class="text-gray-400">{{$notification->created_at->format('d M, h:m a')}}</span>
+                        <span class="text-gray-400 text-xs px-2 py-1">{{$notification->created_at->diffForHumans()}}</span>
                     </li>
                     <hr>
                     @empty

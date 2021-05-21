@@ -213,13 +213,13 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
     Route::post('/send-remind/{enrolment}', RemindController::class)
         ->name('send.remind');
 
-    Route::post('/cancel-remind/{enrolment}', RemindCancelController::class)
+    Route::get('/cancel-remind/{enrolment}', RemindCancelController::class)
         ->name('cancel.remind');
 
-    Route::post('/student-block/{enrolment}', BlockController::class)
+    Route::get('/student-block/{enrolment}', BlockController::class)
         ->name('student.block');
 
-    Route::post('/student-unblock/{enrolment}', UnBlockController::class)
+    Route::get('/student-unblock/{enrolment}', UnBlockController::class)
         ->name('student.unblock');
 
     Route::post('/document-upload/{lesson}', FileUploadController::class)
@@ -231,13 +231,13 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
     Route::get('/download-access-inactive/{document}', [DownloadAccessController::class, 'inactive'])
         ->name('download.inactive');
 
-    Route::post('/document-delete/{document}', FileDeleteController::class)
-        ->name('file.delete');
+    Route::get('/document-delete/{document}', FileDeleteController::class)
+        ->name('document.delete');
 
     Route::post('/meet-save/{lesson}', [MeetController::class, 'save'])
         ->name('meet.save');
 
-    Route::post('/meet-delete/{meeting}', [MeetController::class, 'delete'])
+    Route::get('/meet-delete/{meeting}', [MeetController::class, 'delete'])
         ->name('meet.delete');
 
     /* payment */
