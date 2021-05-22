@@ -10,7 +10,7 @@
                                     Request Date
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                   Student Detail
+                                    Student Detail
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Class /Subject
@@ -22,7 +22,10 @@
                                     Payment Policy
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Action
+                                    Accept Request
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Delete Request
                                 </th>
                             </tr>
                         </thead>
@@ -52,7 +55,7 @@
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">{{$enrolment->program->grade->name}} / {{$enrolment->program->subject->name}}</p>
                                 </td>
-                                <form action="{{route('enroll.request.accept', $enrolment->getRouteKey())}}" method="POST">
+                                <form action="{{route('accept.enroll.request', $enrolment)}}" method="POST">
                                     @csrf
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <select name="payment_date" id="">
@@ -74,13 +77,14 @@
                                     </td>
 
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                                            <x-success-button class="ml-3 mt-5">
-                                                {{ __('Accept') }}
-                                            </x-success-button>
-                                        </a>
+                                        <x-success-button>
+                                            {{ __('Accept') }}
+                                        </x-success-button>
                                     </td>
                                 </form>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{route('enroll.request.delete', $enrolment)}}" class="text-red-500 deleterequest">Delete Request</a>
+                                </td>
                             </tr>
                             @empty
                             <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">
@@ -94,3 +98,13 @@
         </div>
     </div>
 </body>
+
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('deleterequest');
+    var confirmIt = function(e) {
+        if (!confirm('Do you want to delete this enrollment request?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>

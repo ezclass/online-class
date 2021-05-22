@@ -201,8 +201,11 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
         ->name('delete.lesson');
 
     /*  Other  */
-    Route::post('/accept-enrolment-request/{enrolment}', AcceptEnrolmentController::class)
-        ->name('enroll.request.accept');
+    Route::post('/accept-enrolment-request/{enrolment}', [AcceptEnrolmentController::class, 'accept'])
+        ->name('accept.enroll.request');
+
+    Route::get('/delete-enrolment-request/{enrolment}', [AcceptEnrolmentController::class, 'delete'])
+        ->name('enroll.request.delete');
 
     Route::get('/student-detail/{program}', StudentDetailController::class)
         ->name('student.detail');
@@ -269,10 +272,10 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verifi
     Route::get('/admin/all-user', AdminDashboardController::class)
         ->name('admin.dashboard');
 
-    Route::post('/deactive-user/{user}', [UserStatusController::class, 'deactive'])
+    Route::get('/deactive-user/{user}', [UserStatusController::class, 'deactive'])
         ->name('deactive.user');
 
-    Route::post('/active-user/{user}', [UserStatusController::class, 'active'])
+    Route::get('/active-user/{user}', [UserStatusController::class, 'active'])
         ->name('active.user');
 
     /* student detail */
@@ -323,7 +326,7 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
     Route::post('/update-user/{user}', UpdateUserController::class)
         ->name('update.user');
 
-        Route::get('/delete-user/{user}', DeleteUserController::class)
+    Route::get('/delete-user/{user}', DeleteUserController::class)
         ->name('delete.user');
 });
 
