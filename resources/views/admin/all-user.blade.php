@@ -80,23 +80,17 @@
 
                                     </td>
                                     @if ($user->status == 1)
-                                    <form action="{{route('deactive.user',$user)}}" method="POST">
-                                        @csrf
-                                        <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                            <button type="submit" class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                                                Active
-                                            </button>
-                                        </td>
-                                    </form>
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <a href="{{route('deactive.user',$user)}}" class="activeuser inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                            Active
+                                        </a>
+                                    </td>
                                     @else
-                                    <form action="{{route('active.user',$user)}}" method="POST">
-                                        @csrf
-                                        <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                            <button type="submit" class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
-                                                Deactive
-                                            </button>
-                                        </td>
-                                    </form>
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <a href="{{route('active.user',$user)}}" class="deactiveuser inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                                            Deactive
+                                        </a>
+                                    </td>
                                     @endif
 
                                     @if (implode(', ', $user->roles->pluck('name')->toArray()) == 'teacher')
@@ -130,4 +124,25 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('deactiveuser');
+        var confirmIt = function(e) {
+            if (!confirm('Do you want to activate this user?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('activeuser');
+        var confirmIt = function(e) {
+            if (!confirm('Do you want to deactivate this user?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
 </x-admin>
