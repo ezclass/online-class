@@ -4,8 +4,6 @@
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
     <x-alart />
 
-    <x-ad />
-
     <x-header />
 
     @guest
