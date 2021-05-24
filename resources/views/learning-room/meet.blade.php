@@ -4,7 +4,6 @@
     <x-alart />
 
     @can('create', $lesson)
-
     <x-meeting-provider />
 
     <div class=" flex items-center justify-center ">
@@ -26,86 +25,6 @@
     </div>
     @endcan
 
-    <div class="mt-36 antialiased font-sans">
-        <div class="container mx-auto px-4 sm:px-8">
-            <div class="py-8">
-                <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                    <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                        <table class="min-w-full leading-normal">
-                            <thead>
-                                <tr>
-                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Create at
-                                    </th>
-                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Meeting Link
-                                    </th>
-                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Go to Meeting
-                                    </th>
-                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Copy Link
-                                    </th>
-                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Password
-                                    </th>
-                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Copy Password
-                                    </th>
-                                    @role('teacher')
-                                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Delete
-                                    </th>
-                                    @endrole
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                @forelse($meetings as $meeting)
-                                <x-meeting-link :meeting="$meeting" />
-                                @empty
-                                <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
-                                    <span class="block sm:inline text-yellow-700">The link does not exist yet</span>
-                                </div>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function linkFunction() {
-            /* Get the text field */
-            var copyText = document.getElementById("link");
-
-            /* Select the text field */
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-            /* Copy the text inside the text field */
-            document.execCommand("copy");
-
-            /* Alert the copied text */
-            alert("Copied the text: " + copyText.value);
-        }
-
-        function passwordFunction() {
-            /* Get the text field */
-            var copyText = document.getElementById("password");
-
-            /* Select the text field */
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-            /* Copy the text inside the text field */
-            document.execCommand("copy");
-
-            /* Alert the copied text */
-            alert("Copied the text: " + copyText.value);
-        }
-    </script>
+    <x-meeting-link :meetings="$meetings" />
 
 </x-learning-room>
