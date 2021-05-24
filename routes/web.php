@@ -47,6 +47,7 @@ use App\Http\Controllers\LearningRoom\DownloadAccessController;
 use App\Http\Controllers\LearningRoom\FileDeleteController;
 use App\Http\Controllers\LearningRoom\FileDownloadController;
 use App\Http\Controllers\LearningRoom\FileUploadController;
+use App\Http\Controllers\LearningRoom\McqController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\Notification\MarkAsReadController;
@@ -143,6 +144,12 @@ Route::middleware(['auth', 'verified', 'active', 'phone_verified'])->group(funct
 
     Route::get('/document-download/{document}', FileDownloadController::class)
         ->name('file.download');
+
+    Route::get('/mcq/{lesson}', [McqController::class, 'view'])
+        ->name('mcq.view');
+
+    Route::post('/mcq-save/{lesson}', [McqController::class, 'save'])
+        ->name('mcq.save');
 
     /* Payment */
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
@@ -242,6 +249,9 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
 
     Route::get('/meet-delete/{meeting}', [MeetController::class, 'delete'])
         ->name('meet.delete');
+
+    Route::get('/mcq-delete/{mcq}', [McqController::class, 'delete'])
+        ->name('mcq.delete');
 
     /* payment */
     Route::get('/bank-detail', [BankDetailController::class, 'view'])

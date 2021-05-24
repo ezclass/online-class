@@ -7,22 +7,22 @@
                         <thead>
                             <tr>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Create at
+                                    Cteate Date
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Meeting Link
+                                    Description
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Go to Meeting
+                                    Date and time to submit
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Link
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Go to Form
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Copy Link
-                                </th>
-                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Password
-                                </th>
-                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Copy Password
                                 </th>
                                 @role('teacher')
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -33,56 +33,47 @@
                         </thead>
 
                         <tbody>
-                            @forelse($meetings as $meeting)
+                            @forelse($mcqs as $mcq)
                             <tr>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    {{$meeting->created_at->isoFormat('MMM Do Y, h:mm a')}}
+                                    {{$mcq->created_at->isoFormat('MMM Do Y, h:mm a')}}
 
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <input type="text" value="{{$meeting->link}}" id="link" class="text-gray-900 whitespace-no-wrap">
-
+                                    {{ $mcq->description }}
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <a href="{{$meeting->link}}" target="new" class="text-blue-500"><u>Click Go to Meeting</u></a>
+                                    {{$mcq->submitted_at->isoFormat('MMM Do, h:mm a')}}
+                                </td>
+
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <input type="text" value="{{ $mcq->link }}" id="linkcopy" class="text-gray-900 whitespace-no-wrap">
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{$mcq->link}}" target="new" class="text-blue-500"><u>Click Go to Form</u></a>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <button onclick="linkFunction()" class="text-green-500 whitespace-no-wrap">Copy Link</button>
                                 </td>
-
-                                @if ($meeting->password !== null)
-                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <input type="text" value="{{$meeting->password}}" id="password">
-                                </td>
-
-                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <button onclick="passwordFunction()" class="text-green-500">Copy Password</button>
-                                </td>
-                                @else
-                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    -
-                                </td>
-
-                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    -
-                                </td>
-                                @endif
-
                                 @role('teacher')
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <a href="{{route('meet.delete',$meeting)}}" class="deletebtn text-red-500">
+                                    <a href="{{route('mcq.delete', $mcq)}}" class="deletebtn text-red-500">
                                         Delete
                                     </a>
                                 </td>
                                 @endrole
                             </tr>
+
                             @empty
                             <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6 w-full shadow" role="alert">
-                                <span class="block sm:inline text-yellow-700">The link does not exist yet</span>
+                                <span class="block sm:inline text-yellow-700">The form link does not exist yet</span>
                             </div>
                             @endforelse
                         </tbody>
                     </table>
+                    <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
+                        {{ $mcqs->links() }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,7 +83,7 @@
 <script>
     function linkFunction() {
         /* Get the text field */
-        var copyText = document.getElementById("link");
+        var copyText = document.getElementById("linkcopy");
 
         /* Select the text field */
         copyText.select();
@@ -102,22 +93,7 @@
         document.execCommand("copy");
 
         /* Alert the copied text */
-        alert("Copied the text: " + copyText.value);
-    }
-
-    function passwordFunction() {
-        /* Get the text field */
-        var copyText = document.getElementById("password");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-
-        /* Alert the copied text */
-        alert("Copied the text: " + copyText.value);
+        alert("Copied the link: " + copyText.value);
     }
 </script>
 

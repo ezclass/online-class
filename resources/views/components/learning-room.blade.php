@@ -46,6 +46,10 @@
                                     {{ __('document') }}
                                 </x-responsive-nav-link>
 
+                                <x-responsive-nav-link :href="route('mcq.view',$lesson)" :active="request()->routeIs('mcq.view',$lesson)">
+                                    {{ __('MCQ') }}
+                                </x-responsive-nav-link>
+
                             </ul>
                         </nav>
                     </aside>
