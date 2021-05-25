@@ -11,11 +11,17 @@
             <span>Branch :</span> <span class="text-indigo-500">{{Auth::user()->branch}}</span>
         </div>
     </div>
-
-    <form action="{{route('bank.detail.delete', Auth::user())}}" method="POST" class="mt-9">
-        @csrf
-        <x-danger-button>
-            {{__('Delete')}}
-        </x-danger-button>
-    </form>
+    <div class="m-6">
+        <a href="{{route('bank.detail.delete', Auth::user())}}" class="deletedetail inline-flex px-2 text-xs font-semibold leading-5 text-gray-900 bg-red-500 rounded-full">Delete Detail</a>
+    </div>
 </div>
+
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('deletedetail');
+    var confirmIt = function(e) {
+        if (!confirm('Delete this bank information?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>

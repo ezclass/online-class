@@ -48,10 +48,10 @@
                                         <p class="text-gray-900 whitespace-no-wrap"></p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <a href="{{route('accept.opinion',$opinion)}}" class="text-green-500">Accept Opinion</a>
+                                        <a href="{{route('accept.opinion',$opinion)}}" class="text-green-500 acptbtn">Accept Opinion</a>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <a href="{{route('delete.opinion',$opinion)}}" class="text-red-500">Delete Opinion</a>
+                                        <a href="{{route('delete.opinion',$opinion)}}" class="text-red-500 deletebtn">Delete Opinion</a>
                                     </td>
                                 </tr>
                                 @empty
@@ -70,5 +70,23 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('acptbtn');
+        var confirmIt = function(e) {
+            if (!confirm('Do you want to accept this opinion?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+
+        var elems = document.getElementsByClassName('deletebtn');
+        var confirmIt = function(e) {
+            if (!confirm('Do you want to delete this opinion?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
 
 </x-admin>
