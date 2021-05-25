@@ -260,7 +260,7 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
     Route::post('/bank-detail-save{user}', [BankDetailController::class, 'save'])
         ->name('bank.detail.save');
 
-    Route::post('/bank-detail-delete/{user}', [BankDetailController::class, 'delete'])
+    Route::get('/bank-detail-delete/{user}', [BankDetailController::class, 'delete'])
         ->name('bank.detail.delete');
 
     Route::get('/income-detail/{program}', IncomeDetailController::class)

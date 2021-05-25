@@ -44,16 +44,25 @@
                     </div>
                     @auth
                     @if ($opinion->user_id == Auth::user()->id)
-                    <a href="{{route('delete-opinion', $opinion)}}" class="text-red-500 m-3 mt-3">Delete My Opinion</a>
+                    <div class="mt-2">
+                        <a href="{{route('delete-opinion', $opinion)}}" class="deleteopinion text-red-500 m-3 mt-3">Delete My Opinion</a>
+                    </div>
                     @endif
                     @endauth
-
                 </div>
                 @empty
 
                 @endforelse
-
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('deleteopinion');
+    var confirmIt = function(e) {
+        if (!confirm('Do you want to delete this opinion?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
