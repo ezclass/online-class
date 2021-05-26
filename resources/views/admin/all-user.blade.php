@@ -2,7 +2,6 @@
 
     <x-search-user-form :selected-role-id="$selectedRoleId" />
 
-
     <h3 class="mt-6 text-xl">All Users : {{$users->count()}}</h3>
 
     <div class="antialiased font-sans">
