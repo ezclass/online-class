@@ -35,4 +35,8 @@ return [
         'secret' => env('TEXTIT_SECRET'),
     ],
 
+    'contact' => [
+        'key' => env('POSTMARK_KEY'),
+    ],
+
 ];
