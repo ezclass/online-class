@@ -7,6 +7,9 @@
     <x-header />
 
     @guest
+    <x-embed-styles />
+    <x-embed url="https://youtu.be/G8qX2u2Kr2c" />
+
     <x-explain />
     <x-service />
     @endguest
