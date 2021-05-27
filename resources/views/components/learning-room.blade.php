@@ -43,18 +43,22 @@
             </div>
             <nav class="text-white text-base font-semibold pt-3">
                 <x-responsive-nav-link :href="route('overview',$lesson)" :active="request()->routeIs('overview',$lesson)">
+                    <i class="fa fa-home"></i>
                     {{ __('Overview') }}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link :href="route('meet',$lesson)" :active="request()->routeIs('meet',$lesson)">
-                    {{ __('Meet') }}
+                    <i class="fas fa-video"></i>
+                    {{ __('Meeting') }}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link :href="route('document',$lesson)" :active="request()->routeIs('document',$lesson)">
+                    <i class="far fa-file-word"></i>
                     {{ __('document') }}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link :href="route('mcq.view',$lesson)" :active="request()->routeIs('mcq.view',$lesson)">
+                    <i class="fas fa-question"></i>
                     {{ __('MCQ') }}
                 </x-responsive-nav-link>
             </nav>
@@ -63,7 +67,7 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
-                    <i class="fas fa-arrow-circle-up mr-3"></i>
+                    <i class="fas fa-sign-out-alt mr-3"></i>
                     Logout
                 </button>
             </form>
@@ -98,18 +102,22 @@
                 <!-- Dropdown Nav -->
                 <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
                     <x-responsive-nav-link :href="route('overview',$lesson)" :active="request()->routeIs('overview',$lesson)">
+                        <i class="fa fa-home"></i>
                         {{ __('Overview') }}
                     </x-responsive-nav-link>
 
                     <x-responsive-nav-link :href="route('meet',$lesson)" :active="request()->routeIs('meet',$lesson)">
-                        {{ __('Meet') }}
+                        <i class="fas fa-video"></i>
+                        {{ __('Meeting') }}
                     </x-responsive-nav-link>
 
                     <x-responsive-nav-link :href="route('document',$lesson)" :active="request()->routeIs('document',$lesson)">
+                        <i class="far fa-file-word"></i>
                         {{ __('document') }}
                     </x-responsive-nav-link>
 
                     <x-responsive-nav-link :href="route('mcq.view',$lesson)" :active="request()->routeIs('mcq.view',$lesson)">
+                        <i class="fas fa-question"></i>
                         {{ __('MCQ') }}
                     </x-responsive-nav-link>
                 </nav>
