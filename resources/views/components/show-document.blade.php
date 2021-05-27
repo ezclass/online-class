@@ -95,7 +95,7 @@
 <script type="text/javascript">
     var elems = document.getElementsByClassName('deletebtn');
     var confirmIt = function(e) {
-        if (!confirm('Do you want to delete this Link?')) e.preventDefault();
+        if (!confirm('Delete this?')) e.preventDefault();
     };
     for (var i = 0, l = elems.length; i < l; i++) {
         elems[i].addEventListener('click', confirmIt, false);

@@ -1,4 +1,4 @@
-<section class="dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center">
+<section class="mt-4 dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center">
     <div class="bg-white dark:bg-gray-800 lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
         <div class="lg:w-1/2">
             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 538.05 434.89" class="w-full max-w-lg lg:max-w-full mx-auto">
