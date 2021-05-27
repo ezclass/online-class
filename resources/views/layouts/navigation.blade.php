@@ -113,20 +113,20 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+            <x-responsive-nav-link2 :href="route('welcome')" :active="request()->routeIs('welcome')">
                 {{ __('Home') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link2>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('search.class')" :active="request()->routeIs('search.class')">
+            <x-responsive-nav-link2 :href="route('search.class')" :active="request()->routeIs('search.class')">
                 {{ __('All Classes') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link2>
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('contactus')" :active="request()->routeIs('contactus')">
+            <x-responsive-nav-link2 :href="route('contactus')" :active="request()->routeIs('contactus')">
                 {{ __('Contact Us') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link2>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -174,10 +174,10 @@
                 @endrole
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+                    <x-responsive-nav-link2 :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Logout') }}
-                    </x-responsive-nav-link>
+                    </x-responsive-nav-link2>
                 </form>
                 @endauth
                 @else
