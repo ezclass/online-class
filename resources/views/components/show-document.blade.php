@@ -1,4 +1,4 @@
-<div class="mt-36 antialiased font-sans">
+<div class="mt-6 antialiased font-sans">
         <div class="container mx-auto px-4 sm:px-8">
             <div class="py-8">
                 <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
