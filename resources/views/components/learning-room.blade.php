@@ -37,7 +37,7 @@
     </style>
 
     <div class="bg-gray-100 font-family-karla flex">
-        <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+        <aside class="relative bg-sidebar h-screen w-64 hidden md:block shadow-xl">
             <div class="p-6">
                 <a class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ Auth::user()->name }}</a>
             </div>
@@ -77,7 +77,7 @@
 
         <div class="w-full flex flex-col h-screen overflow-y-hidden">
             <!-- Desktop Header -->
-            <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+            <header class="w-full items-center bg-white py-2 px-6 hidden md:flex">
                 <div class="w-1/2"></div>
                 <a href="{{route('program.view',$lesson->program)}}" class="text-indigo-500">Lesson</a>
                 <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
@@ -88,7 +88,7 @@
             </header>
 
             <!-- Mobile Header & Nav -->
-            <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
+            <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 md:hidden">
                 <div class="flex items-center justify-between">
                     <a href="{{ route('dashboard') }}" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
                         <img src="{{ Storage::disk('do')->url('avatar/'. Auth::user()->avatar)}}">
