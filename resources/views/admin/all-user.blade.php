@@ -1,4 +1,8 @@
 <x-admin>
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-alart />
+
+    <x-admin-dashboard-navigation />
 
     <x-search-user-form :selected-role-id="$selectedRoleId" />
 
@@ -123,16 +127,6 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-        var elems = document.getElementsByClassName('deactiveuser');
-        var confirmIt = function(e) {
-            if (!confirm('Do you want to activate this user?')) e.preventDefault();
-        };
-        for (var i = 0, l = elems.length; i < l; i++) {
-            elems[i].addEventListener('click', confirmIt, false);
-        }
-    </script>
 
     <script type="text/javascript">
         var elems = document.getElementsByClassName('activeuser');

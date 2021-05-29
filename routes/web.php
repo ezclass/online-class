@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\StudentPaymentHistoryController;
 use App\Http\Controllers\Admin\SuperAdminDashboardController;
 use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserStatusController;
 use App\Http\Controllers\BankDetailController;
 use App\Http\Controllers\CheckoutController;
@@ -279,8 +280,17 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->gro
 });
 
 Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verified'])->group(function () {
-    Route::get('/admin/all-user', AdminDashboardController::class)
+    Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
+
+    Route::get('/admin/all-user', [UserController::class, 'allUser'])
+        ->name('all.user');
+
+    Route::get('/admin/not-verified-user', [UserController::class, 'notVerified'])
+        ->name('not.verified.user');
+
+    Route::get('/admin/inactive-user', [UserController::class, 'inActiveUser'])
+        ->name('inactive.user');
 
     Route::get('/deactive-user/{user}', [UserStatusController::class, 'deactive'])
         ->name('deactive.user');
