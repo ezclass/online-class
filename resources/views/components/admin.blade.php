@@ -42,6 +42,14 @@
                 <a href="{{ route('dashboard') }}" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ Auth::user()->name }}</a>
             </div>
             <nav class="text-white text-base font-semibold pt-3">
+
+                @role('admin')
+                <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                    <i class="fas fa-tachometer-alt mr-3"></i>
+                    {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+                @endrole
+
                 @role('super_admin')
                 <x-responsive-nav-link :href="route('super.admin.dashboard')" :active="request()->routeIs('super.admin.dashboard')">
                     <i class="fas fa-tachometer-alt mr-3"></i>
@@ -49,7 +57,7 @@
                 </x-responsive-nav-link>
                 @endrole
 
-                <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                <x-responsive-nav-link :href="route('all.user')" :active="request()->routeIs('all.user')">
                     <i class="fas fa-user-alt mr-3"></i>
                     {{ __('Overview') }}
                 </x-responsive-nav-link>

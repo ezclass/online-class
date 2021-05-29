@@ -28,7 +28,7 @@
             </div>
             @endforeach
             <div class="justify-center mt-6">
-                <a href="{{route('admin.dashboard')}}">
+                <a href="{{route('super.admin.dashboard')}}">
                     <x-warning-button type="button">
                         {{__('Go Back')}}
                     </x-warning-button>
