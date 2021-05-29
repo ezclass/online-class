@@ -12,7 +12,7 @@
             </p>
         </div>
 
-        <!-- <div class="py-5 lg:space-x-3 space-y-3 lg:space-y-0">
+        <div class="py-5 lg:space-x-3 space-y-3 lg:space-y-0">
             <div class="lg:w-auto inline-flex w-full font-semibold tracking-wide justify-center items-center text-gray-600 space-x-1.5 border border-gray-400 focus:ring-1 focus:ring-gray-300 focus:ring-offset-2 hover:bg-gray-100 focus:outline-none px-4 py-2 text-sm rounded-lg">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@
                     {{ $teacher->phone_number }}
                 </span>
             </div>
-        </div> -->
+        </div>
 
     </div>
 </div>
