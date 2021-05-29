@@ -1,4 +1,4 @@
-<div class="bg-white lg:mx-60">
+<div class="bg-white xl:mx-60">
     <div class="text-center pt-2">
         <span class="font-black text-md  text-gray-500 mb-10">Upload files</span>
         <span class="font-black text-sm  text-gray-400 mb-10">( png, jpg, jpeg, pdf, docx, ppt, mkv, mp4, zip, txt )</span>
