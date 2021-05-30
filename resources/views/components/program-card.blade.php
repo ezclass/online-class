@@ -2,14 +2,13 @@
     <img class="w-full max-h-56" src="{{Storage::disk('do')->url('program/'.$program->image)}}" alt="image" />
     <div class="badge absolute top-0 right-0 bg-red-500 m-1 text-gray-200 p-1 px-2 text-xs font-bold rounded">Rs:{{ $program->fees }}</div>
     <div class="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300">
-        <span class="mr-3 p-1 px-2 font-bold"></span>
-        <span class="mr-2 p-1 px-2 font-bold  border-gray-400">{{ $program->language->name }}</span>
+        <span class="mr-2 p-1 px-2 text-sm  text-gray-800">{{ $program->language->name }}</span>
         <span class="mr-2 p-1 px-2 font-bold border-l border-gray-400">
-            <span class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold">{{ $program->grade->name }}</span>
+            <span class="badge bg-indigo-500 text-blue-100 rounded px-1 text-sm font-bold">{{ $program->grade->name }}</span>
         </span>
     </div>
-    <div class="desc p-4 text-gray-800">
-        <span class="title text-xl block">{{ $program->subject->name }}</span>
+    <div class="desc p-4">
+        <span class="title text-xl text-black block">{{ $program->subject->name }}</span>
         ( {{ $program->class_type }} )
         <h6 class="mt-4 text-sm font-medium">Clas Start Date : <span class="text-indigo-700">{{ $program->start_date->format('M d,Y')}}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class End Date : <span class="text-indigo-700">{{ $program->end_date->format('M d,Y') }}</span></h6>
