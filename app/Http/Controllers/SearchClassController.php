@@ -8,6 +8,7 @@ use App\Models\Program;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class SearchClassController extends Controller
 {
     public function __invoke(Request $request)
@@ -42,6 +43,7 @@ class SearchClassController extends Controller
                 $query->whereNotIn('id', $enroledProgramIds);
             })
             ->isPublished()
+            ->orderBy('updated_at', 'DESC')
             ->paginate(16);
 
         return view('pages.search-class')
