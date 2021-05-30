@@ -61,6 +61,7 @@
     <div class="desc p-4 text-gray-800">
         <span class="title font-bold block">{{$enrolment->program->subject->name}}</span>
         ( {{ $enrolment->program->class_type }} )
+        <p class="text-gray-400 text-sm mt-1 block"> {{ $enrolment->program->description }}</p>
         <h6 class="mt-4 text-sm font-medium">Clas Start Date : <span class="text-indigo-700">{{ $enrolment->program->start_date->format('M d,Y')}}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class End Date : <span class="text-indigo-700">{{ $enrolment->program->end_date->format('M d,Y') }}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class Day : <span class="text-indigo-700">{{ $enrolment->program->day}}</span></h6>
