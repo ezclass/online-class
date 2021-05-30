@@ -22,6 +22,7 @@ class UpdateProgramController extends Controller
         $program->start_time = $request->get('start_time');
         $program->end_time = $request->get('end_time');
         $program->day = $request->get('day');
+        $program->description = $request->get('description');
         $program->save();
         $this->storeFile($program, $request->file('image'));
 

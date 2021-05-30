@@ -21,14 +21,14 @@
                     <hr class="m-6 border-gray-500">
                     <div class="mt-4">
                         <div class="text-center mt-6">
-                            <a href="{{route('send.otp')}}" class="text-xl"> Send verification code </a>
+                            <a href="{{route('send.otp')}}" class="text-lg border-1 border-gray-100 focus:outline-none bg-yellow-600 text-white font-bold tracking-wider block w-full p-1 rounded-lg focus:border-gray-700 hover:bg-gray-700"> Send verification code </a>
                         </div>
                         <form action="{{route('verify.otp', Auth::user())}}" method="POST">
                             @csrf
-                            <div class="py-2 text-left">
+                            <div class="py-2 text-left mt-3">
                                 <input type="text" name="otp" class="border-1 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Enter 6-digit code" />
                             </div>
-                            <div class="py-2">
+                            <div class="py-2 mt-2">
                                 <button type="submit" class="border-1 border-gray-100 focus:outline-none bg-gray-600 text-white font-bold tracking-wider block w-full p-1 rounded-lg focus:border-gray-700 hover:bg-gray-700">
                                     Verify Code
                                 </button>

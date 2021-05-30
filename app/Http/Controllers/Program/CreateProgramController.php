@@ -25,6 +25,7 @@ class CreateProgramController extends Controller
         $program->start_time = $request->get('start_time');
         $program->end_time = $request->get('end_time');
         $program->day = $request->get('day');
+        $program->description = $request->get('description');
         $program->user_id = Auth::user()->id;
         $program->status = 1;
         $program->image = "program-image.jpg";
