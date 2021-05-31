@@ -18,15 +18,18 @@
                             </label>
                             <div class="mt-1 flex items-center">
                                 <span class="inline-block h-12 w-12 rounded-full overflow-hidde">
-                                    <img src="{{Storage::disk('do')->url('avatar/'. Auth::user()->avatar)}}" alt="avatar" class="inline-block h-12 w-12 rounded-full ring-2 ring-white">
+                                    <img src="{{ Storage::disk('do')->url('avatar/' . Auth::user()->avatar) }}"
+                                        alt="avatar" class="inline-block h-12 w-12 rounded-full ring-2 ring-white">
                                 </span>
                             </div>
                         </div>
 
                         <div>
-                            <form action="{{route('uploadavaratar', Auth::user())}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('uploadavaratar', Auth::user()) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
-                                <div class="mt-1 flex justify-items-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                <div
+                                    class="mt-1 flex justify-items-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                     <div class="space-y-1 text-center">
                                         <div class="flex text-sm text-gray-600">
                                             <input type="file" id="avatar" name="avatar">
@@ -39,7 +42,8 @@
                                     </div>
                                 </div>
                                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    <button type="submit"
+                                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                         Save
                                     </button>
                                 </div>
@@ -66,20 +70,25 @@
                 </div>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form action="{{route('setting.save', Auth::User())}}" method="POST">
+                <form action="{{ route('setting.save', Auth::User()) }}" method="POST">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="name" class="block text-sm font-medium text-gray-700">Full name</label>
-                                    <input type="text" name="name" value="{{Auth::User()->name}}" id="name" autocomplete="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    <input type="text" name="name" value="{{ Auth::User()->name }}" id="name"
+                                        autocomplete="name"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
-                                    <select id="gender" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                        <option selected value="{{Auth::User()->gender}}">{{Auth::User()->gender}}</option>
+                                    <select id="gender" name="gender" autocomplete="gender"
+                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option selected value="{{ Auth::User()->gender }}">
+                                            {{ Auth::User()->gender }}
+                                        </option>
                                         <option value="Male">Male</option>
                                         <option value="Female">female</option>
                                     </select>
@@ -87,24 +96,59 @@
 
                                 @role('teacher')
                                 <div class="col-span-6">
-                                    <label for="experience" class="block text-sm font-medium text-gray-700">Experience</label>
-                                    <input type="text" name="experience" id="experience" value="{{Auth::User()->experience}}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                                    <label for="experience"
+                                        class="block text-sm font-medium text-gray-700">Experience</label>
+                                    <input type="text" name="experience" id="experience"
+                                        value="{{ Auth::User()->experience }}"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                                 </div>
 
                                 <div class="col-span-6">
-                                    <label for="education" class="block text-sm font-medium text-gray-700">Education</label>
-                                    <input type="text" name="education" value="{{Auth::User()->education}}" placeholder="{{Auth::User()->education}}" id="education" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                                    <label for="education"
+                                        class="block text-sm font-medium text-gray-700">Education</label>
+                                    <input type="text" name="education" value="{{ Auth::User()->education }}"
+                                        placeholder="{{ Auth::User()->education }}" id="education"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                                 </div>
                                 @endrole
                             </div>
                         </div>
                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <button type="submit"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Save
                             </button>
                         </div>
                     </div>
                 </form>
+
+                @role('teacher')
+                @if (Auth::user()->trailer !== null)
+                    <div class="col-span-6">
+                        <div class="text-center bg-indigo-100 border border-indigo-400 text-indigo-700 p-3 rounded relative my-6 w-full shadow"
+                            role="alert">
+                            <span class="block sm:inline text-indigo-700">
+                                To help students understand you, update the video you created
+                            </span>
+                        </div>
+                        <div class="m-10 text-center">
+                            <form action="{{ route('save.trailer', Auth::user()) }}" method="POST">
+                                @csrf
+                                <input type="text" id="trailer" :value="old('trailer')" name="trailer"
+                                    class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+                                    placeholder="Youtube Trailer video Link" />
+                                <button
+                                    class="px-8 rounded-r-lg bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="{{ route('delete.trailer', Auth::user()) }}" class="text-red-500 text-md deletelink">Delete
+                            Link</a>
+                    </div>
+                @endif
+                @endrole
             </div>
         </div>
     </div>
@@ -128,29 +172,35 @@
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="name" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                                <span class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                    {{Auth::user()->phone_number}}
+                                <span
+                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    {{ Auth::user()->phone_number }}
                                 </span>
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="gender" class="block text-sm font-medium text-gray-700">Change</label>
-                                <a href="{{route('phone.number.verification')}}" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <a href="{{ route('phone.number.verification') }}"
+                                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     Change Phone Number
                                 </a>
                             </div>
 
                             <div class="col-span-6">
-                                <form action="{{route('change.email', Auth::user())}}" method="POST">
+                                <form action="{{ route('change.email', Auth::user()) }}" method="POST">
                                     @csrf
                                     <div class="">
-                                        <label for="experience" class="block text-sm font-medium text-gray-700">Email</label>
-                                        <input type="email" name="email" value="{{Auth::user()->email}}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                        <label for="experience"
+                                            class="block text-sm font-medium text-gray-700">Email</label>
+                                        <input type="email" name="email" value="{{ Auth::user()->email }}"
+                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                     </div>
 
                                     <div class="mt-4">
-                                        <label for="education" class="block text-sm font-medium text-gray-700">Change Email</label>
-                                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        <label for="education" class="block text-sm font-medium text-gray-700">Change
+                                            Email</label>
+                                        <button type="submit"
+                                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             Change Email
                                         </button>
                                     </div>
@@ -169,3 +219,15 @@
         <div class="border-t border-gray-200"></div>
     </div>
 </div>
+
+
+
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('deletelink');
+    var confirmIt = function(e) {
+        if (!confirm('Delete this link?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
