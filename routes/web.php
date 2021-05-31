@@ -62,6 +62,7 @@ use App\Http\Controllers\Security\OtpController;
 use App\Http\Controllers\Security\PhoneNumberVerificationController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TermAndConditionController;
+use App\Http\Controllers\TrailerController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -269,6 +270,13 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
 
     Route::get('/cash-history', CashHistoryController::class)
         ->name('cash.history');
+
+    /* public profile */
+    Route::post('/save-trailer/{user}', [TrailerController::class, 'save'])
+        ->name('save.trailer');
+
+    Route::get('/delete-trailer/{user}', [TrailerController::class, 'delete'])
+        ->name('delete.trailer');
 });
 
 Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->group(function () {
