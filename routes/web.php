@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\EnrolledStudentDetailController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
+use App\Http\Controllers\Admin\SettingController as AdminSettingController;
 use App\Http\Controllers\Admin\StudentPaymentHistoryController;
 use App\Http\Controllers\Admin\SuperAdminDashboardController;
 use App\Http\Controllers\Admin\TeacherPayController;
@@ -356,6 +357,12 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
 
     Route::get('/delete-user/{user}', DeleteUserController::class)
         ->name('delete.user');
+
+    Route::get('/admin-setting', [AdminSettingController::class, 'view'])
+        ->name('admin.setting');
+
+    Route::post('/add-subject', [AdminSettingController::class, 'save'])
+        ->name('add.subject');
 });
 
 require __DIR__ . '/auth.php';
