@@ -69,13 +69,13 @@
         <div class="mt-4">
             <label for="day" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2">Class Day <span class="text-red-500">*</span></label>
             <select x-cloak id="select">
-                <option value=" monday">Monday</option>
-                <option value=" tuesday">Tuesday</option>
-                <option value=" wednesday">Wednesday</option>
-                <option value=" thursday">Thursday</option>
-                <option value=" friday">Friday</option>
-                <option value=" saturday">Saturday</option>
-                <option value=" wednesday">Sunday</option>
+                <option value=" Monday">Monday</option>
+                <option value=" Tuesday">Tuesday</option>
+                <option value=" Wednesday">Wednesday</option>
+                <option value=" Thursday">Thursday</option>
+                <option value=" Friday">Friday</option>
+                <option value=" Saturday">Saturday</option>
+                <option value=" Sunday">Sunday</option>
             </select>
 
             <div x-data="dropdown()" x-init="loadOptions()" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
