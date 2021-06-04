@@ -31,7 +31,7 @@
 
         <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
             <p class="text-xl pb-6 flex items-center">
-                <i class="fas fa-list mr-3"></i> Contact Form
+                <i class="fas fa-list mr-3"></i> Add Grade
             </p>
             <div class="leading-loose">
                 <form class="p-10 bg-white rounded shadow-xl">
@@ -59,14 +59,23 @@
                     <thead class="bg-gray-800 text-white">
                         <tr>
                             <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">id</th>
-                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">name</th>
+                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
+                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Update</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-700">
                         @forelse ($subjects as $subject)
                             <tr>
                                 <td class="w-1/3 text-left py-3 px-4">{{ $subject->id }}</td>
-                                <td class="w-1/3 text-left py-3 px-4">{{ $subject->name }}</td>
+                                <form action="{{ route('update.subject', $subject) }}" method="POST">
+                                    @csrf
+                                    <td class="w-1/3 text-left py-3 px-4">
+                                        <input type="text" name="subject" value="{{ $subject->name }}">
+                                    </td>
+                                    <td class="w-1/3 text-left py-3 px-4">
+                                        <button class="text-green-500 updatebtn">Update</button>
+                                    </td>
+                                </form>
                             </tr>
                         @empty
 
@@ -102,4 +111,15 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('updatebtn');
+        var confirmIt = function(e) {
+            if (!confirm('Do you want to accept this opinion?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+
+    </script>
 </x-admin>

@@ -37,4 +37,14 @@ class SettingController extends Controller
             ->back()
             ->with('success', 'Subject saving is successful');
     }
+
+    public function update(SuperAdminRequest $request, Subject $subject)
+    {
+        $subject->setTranslation('name', 'en', $request->get('subject'));
+        $subject->save();
+
+        return redirect()
+            ->back()
+            ->with('success', 'Subject update successful');
+    }
 }

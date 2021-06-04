@@ -1,4 +1,4 @@
-<form action="{{route('admin.dashboard')}}" method="GET">
+<form action="{{route('all.user')}}" method="GET">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
         <div>
             <x-label for="">Select Role</x-label>
