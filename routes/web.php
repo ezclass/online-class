@@ -182,12 +182,6 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
     Route::get('/class', ProgramViewContraller::class)
         ->name('program.view.teacher');
 
-    Route::get('/program-status-publish/{program}', [ProgramStatusController::class, 'publish'])
-        ->name('status.publish');
-
-    Route::get('/program-status-unpublish/{program}', [ProgramStatusController::class, 'unpublish'])
-        ->name('status.unpublish');
-
     Route::get('/update-class/{program}', UpdateProgramViewController::class)
         ->name('update.program.view');
 
@@ -288,6 +282,16 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->gro
         ->name('enroled.program.delete');
 });
 
+
+Route::middleware(['role:admin|super_admin|teacher', 'verified', 'active', 'phone_verified'])->group(function () {
+    Route::get('/program-status-publish/{program}', [ProgramStatusController::class, 'publish'])
+        ->name('status.publish');
+
+    Route::get('/program-status-unpublish/{program}', [ProgramStatusController::class, 'unpublish'])
+        ->name('status.unpublish');
+});
+
+
 Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verified'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardController::class)
         ->name('admin.dashboard');
@@ -363,6 +367,9 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
 
     Route::post('/add-subject', [AdminSettingController::class, 'save'])
         ->name('add.subject');
+
+    Route::post('/update-subject/{subject}', [AdminSettingController::class, 'update'])
+        ->name('update.subject');
 });
 
 require __DIR__ . '/auth.php';
