@@ -54,6 +54,7 @@ use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\Notification\MarkAsReadController;
 use App\Http\Controllers\OpinionController;
+use App\Http\Controllers\Pages\SearchTeacherController;
 use App\Http\Controllers\Payment\CashHistoryController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;

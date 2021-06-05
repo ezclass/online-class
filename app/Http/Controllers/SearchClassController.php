@@ -43,7 +43,7 @@ class SearchClassController extends Controller
                 $query->whereNotIn('id', $enroledProgramIds);
             })
             ->isPublished()
-            ->orderBy('updated_at', 'DESC')
+            ->inRandomOrder()
             ->paginate(16);
 
         return view('pages.search-class')
