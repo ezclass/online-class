@@ -23,7 +23,7 @@
 
     <div class="justify-center mt-6">
         <x-success-button class="ml-3 mt-5">
-            {{ __('Submit') }}
+            {{ __('Filter') }}
         </x-success-button>
     </div>
 </form>
