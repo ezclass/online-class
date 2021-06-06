@@ -20,6 +20,7 @@ class UserController extends Controller
                     $query->where('role_id', $roleId);
                 });
             })
+            ->where('name', 'like', "%$request->name%")
             ->with('roles')
             ->where('phone_number_verified_at', "<>", null)
             ->where('email_verified_at', "<>", null)

@@ -316,7 +316,11 @@
     </div>
 
     <div class="mt-10 py-4 px-4">
-        {{ $programs->appends(['grade' => request()->query('grade'), 'subject' => request()->query('subject')])->links() }}
+        {{ $programs->appends([
+        'grade' => request()->query('grade'),
+        'subject' => request()->query('subject'),
+        'name' => request()->query('name'),
+    ])->links() }}
     </div>
 
 </x-app-layout>
