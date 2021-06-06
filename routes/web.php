@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\EnrolledStudentDetailController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
-use App\Http\Controllers\Admin\SettingController as AdminSettingController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\StudentPaymentHistoryController;
 use App\Http\Controllers\Admin\SuperAdminDashboardController;
 use App\Http\Controllers\Admin\TeacherPayController;
@@ -54,7 +54,6 @@ use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\Notification\MarkAsReadController;
 use App\Http\Controllers\OpinionController;
-use App\Http\Controllers\Pages\SearchTeacherController;
 use App\Http\Controllers\Payment\CashHistoryController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
@@ -62,7 +61,6 @@ use App\Http\Controllers\Program\ProgramStatusController;
 use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\Security\OtpController;
 use App\Http\Controllers\Security\PhoneNumberVerificationController;
-use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\TrailerController;
 use App\Http\Controllers\ViewProgramController;
@@ -363,13 +361,13 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
     Route::get('/delete-user/{user}', DeleteUserController::class)
         ->name('delete.user');
 
-    Route::get('/admin-setting', [AdminSettingController::class, 'view'])
+    Route::get('/admin-setting', [SettingController::class, 'view'])
         ->name('admin.setting');
 
-    Route::post('/add-subject', [AdminSettingController::class, 'save'])
+    Route::post('/add-subject', [SettingController::class, 'save'])
         ->name('add.subject');
 
-    Route::post('/update-subject/{subject}', [AdminSettingController::class, 'update'])
+    Route::post('/update-subject/{subject}', [SettingController::class, 'update'])
         ->name('update.subject');
 });
 

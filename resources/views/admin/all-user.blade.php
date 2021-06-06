@@ -154,7 +154,7 @@
                                 @empty
                                     <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow"
                                         role="alert">
-                                        <span class="block sm:inline"> Teachers are not yet registered</span>
+                                        <span class="block sm:inline"> Such user is not yet registered</span>
                                     </div>
                                 @endforelse
                             </tbody>
@@ -162,7 +162,10 @@
                         </table>
                         <div
                             class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
-                            {{ $users->appends(['role' => request()->query('role')])->links() }}
+                            {{ $users->appends([
+        'role' => request()->query('role'),
+        'name' => request()->query('name'),
+    ])->links() }}
                         </div>
                     </div>
                 </div>

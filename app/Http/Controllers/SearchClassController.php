@@ -39,6 +39,13 @@ class SearchClassController extends Controller
                     $query->where('id', $gradeId);
                 });
             })
+            ->when($request->filled('name'), function ($query) use ($request) {
+                $teacherName = $request->get('name');
+
+                $query->whereHas('teacher', function (Builder $query) use ($teacherName) {
+                    $query->where('name', 'like', "%$teacherName%");
+                });
+            })
             ->when($enroledProgramIds != null, function (Builder $query) use ($enroledProgramIds) {
                 $query->whereNotIn('id', $enroledProgramIds);
             })
