@@ -315,7 +315,7 @@
         @endforelse
     </div>
 
-    <div class="mt-10 py-4 px-4">
+    <div class="px-5 py-5 bg-gray-100 border-t flex flex-col xs:flex-row items-center xs:justify-between">
         {{ $programs->appends([
         'grade' => request()->query('grade'),
         'subject' => request()->query('subject'),
