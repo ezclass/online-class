@@ -16,6 +16,7 @@ class DocumentController extends Controller
                 'lesson' => $lesson,
                 'documents' => Document::query()
                     ->ofLesson($lesson)
+                    ->where('file', "<>", null)
                     ->orderBy('id', 'DESC')
                     ->paginate(10),
             ]);

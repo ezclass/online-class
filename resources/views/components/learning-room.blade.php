@@ -52,7 +52,7 @@
                     {{ __('Meeting') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="route('document',$lesson)" :active="request()->routeIs('document',$lesson)">
+                <x-responsive-nav-link :href="route('safe.document',$lesson)" :active="request()->routeIs('safe.document',$lesson)">
                     <i class="far fa-file-word"></i>
                     {{ __('document') }}
                 </x-responsive-nav-link>
@@ -106,12 +106,12 @@
                         {{ __('Overview') }}
                     </x-responsive-nav-link>
 
-                    <x-responsive-nav-link :href="route('meet',$lesson)" :active="request()->routeIs('meet',$lesson)">
+                    <x-responsive-nav-link :href="route('meet', $lesson)" :active="request()->routeIs('meet', $lesson)">
                         <i class="fas fa-video"></i>
                         {{ __('Meeting') }}
                     </x-responsive-nav-link>
 
-                    <x-responsive-nav-link :href="route('document',$lesson)" :active="request()->routeIs('document',$lesson)">
+                    <x-responsive-nav-link :href="route('safe.document', $lesson)" :active="request()->routeIs('safe.document', $lesson)">
                         <i class="far fa-file-word"></i>
                         {{ __('document') }}
                     </x-responsive-nav-link>

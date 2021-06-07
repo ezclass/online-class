@@ -52,6 +52,7 @@ use App\Http\Controllers\LearningRoom\FileUploadController;
 use App\Http\Controllers\LearningRoom\McqController;
 use App\Http\Controllers\LearningRoom\MeetController;
 use App\Http\Controllers\LearningRoom\OverviewController;
+use App\Http\Controllers\LearningRoom\YoutubeVideoController;
 use App\Http\Controllers\Notification\MarkAsReadController;
 use App\Http\Controllers\OpinionController;
 use App\Http\Controllers\Payment\CashHistoryController;
@@ -142,8 +143,11 @@ Route::middleware(['auth', 'verified', 'active', 'phone_verified'])->group(funct
     Route::get('/meeting/{lesson}', [MeetController::class, 'show'])
         ->name('meet');
 
-    Route::get('/document/{lesson}', DocumentController::class)
-        ->name('document');
+    Route::get('/safe-document/{lesson}', DocumentController::class)
+        ->name('safe.document');
+
+    Route::get('/youtube-video/{lesson}', [YoutubeVideoController::class, 'view'])
+        ->name('youtube.video');
 
     Route::get('/document-download/{document}', FileDownloadController::class)
         ->name('file.download');
@@ -231,6 +235,9 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
 
     Route::post('/document-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
+
+    Route::post('/youtube-link-save/{lesson}', [YoutubeVideoController::class, 'save'])
+        ->name('youtube.link.save');
 
     Route::get('/download-access-active/{document}', [DownloadAccessController::class, 'active'])
         ->name('download.active');
