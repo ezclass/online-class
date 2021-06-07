@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 
-class SettingController extends Controller
+class UserSettingController extends Controller
 {
     public function view(Request $request)
     {

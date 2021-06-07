@@ -218,7 +218,7 @@
 
             <div class="mt-4">
                 <label for="description" class="block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2"> Description <span class="text-grey-500">(optional)</span></label>
-                <input type="text" name="description" value="{{ $program->description }}" id="description" :value="old('description')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                <input type="text" name="description" value="{{ $program->description }}" id="description" :value="old('description')" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             </div>
 
             <div class="mt-4">

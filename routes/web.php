@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AllTeacherController;
 use App\Http\Controllers\Admin\ClientOpinionController;
 use App\Http\Controllers\Admin\DeleteUserController;
@@ -9,7 +10,6 @@ use App\Http\Controllers\Admin\EnrolledStudentDetailController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
-use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\StudentPaymentHistoryController;
 use App\Http\Controllers\Admin\SuperAdminDashboardController;
 use App\Http\Controllers\Admin\TeacherPayController;
@@ -63,6 +63,7 @@ use App\Http\Controllers\Security\OtpController;
 use App\Http\Controllers\Security\PhoneNumberVerificationController;
 use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\TrailerController;
+use App\Http\Controllers\UserSettingController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -119,16 +120,16 @@ Route::middleware(['auth', 'verified', 'active', 'phone_verified'])->group(funct
         ->name('mark.as.read');
 
     /* Setting */
-    Route::get('/setting', [SettingController::class, 'view'])
+    Route::get('/setting', [UserSettingController::class, 'view'])
         ->name('setting');
 
-    Route::post('/setting-save/{user}', [SettingController::class, 'save'])
+    Route::post('/setting-save/{user}', [UserSettingController::class, 'save'])
         ->name('setting.save');
 
-    Route::post('/uploadavaratar/{user}', [SettingController::class, 'uploadavaratar'])
+    Route::post('/uploadavaratar/{user}', [UserSettingController::class, 'uploadavaratar'])
         ->name('uploadavaratar');
 
-    Route::post('/change-email/{user}', [SettingController::class, 'change'])
+    Route::post('/change-email/{user}', [UserSettingController::class, 'change'])
         ->name('change.email');
 
     /* Learning */
@@ -361,13 +362,13 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
     Route::get('/delete-user/{user}', DeleteUserController::class)
         ->name('delete.user');
 
-    Route::get('/admin-setting', [SettingController::class, 'view'])
+    Route::get('/admin-setting', [AdminSettingController::class, 'view'])
         ->name('admin.setting');
 
-    Route::post('/add-subject', [SettingController::class, 'save'])
+    Route::post('/add-subject', [AdminSettingController::class, 'save'])
         ->name('add.subject');
 
-    Route::post('/update-subject/{subject}', [SettingController::class, 'update'])
+    Route::post('/update-subject/{subject}', [AdminSettingController::class, 'update'])
         ->name('update.subject');
 });
 
