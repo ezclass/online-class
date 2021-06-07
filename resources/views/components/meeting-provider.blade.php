@@ -1,7 +1,7 @@
 <div class="max-w-full mx-4 sm:mx-auto sm:px-6 lg:px-8">
     <div class="sm:flex sm:space-x-4">
-        <a href="https://meet.google.com/" target="new" class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div class="bg-white p-5">
+        <a href="https://meet.google.com/" target="new" class="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+            <div class="bg-blue-100 hover:bg-indigo-100 p-5">
                 <div class="sm:flex sm:items-start">
                     <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
                         <svg width="256px" height="297px" viewBox="0 0 356 297" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="sm:w-16 sm:h-16 w-10 h-10">
@@ -61,8 +61,8 @@
                 </div>
             </div>
         </a>
-        <a href="https://zoom.us/" target="new" class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div class="bg-white p-5">
+        <a href="https://zoom.us/" target="new" class="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+            <div class="bg-blue-100 hover:bg-indigo-100 p-5">
                 <div class="sm:flex sm:items-start">
                     <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
                         <svg height="60" width="120" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -108,8 +108,8 @@
             </div>
         </a>
 
-        <a href="https://www.microsoft.com/en-us/microsoft-teams/group-chat-software" target="new" class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div class="bg-white p-5">
+        <a href="https://www.microsoft.com/en-us/microsoft-teams/group-chat-software" target="new" class="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+            <div class="bg-blue-100 hover:bg-indigo-100 p-5">
                 <div class="sm:flex sm:items-start">
                     <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2381.4 2354.5" class="sm:w-16 sm:h-16 w-10 h-10">

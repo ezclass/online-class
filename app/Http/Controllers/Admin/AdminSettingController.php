@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\SuperAdminRequest;
 use App\Models\Grade;
 use App\Models\Subject;
 
-class SettingController extends Controller
+class AdminSettingController extends Controller
 {
     public function view(SuperAdminRequest $request)
     {
