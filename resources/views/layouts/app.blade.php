@@ -40,7 +40,7 @@
         @include('layouts.navigation')
 
         <main>
-           
+            <x-easy-announcement />
             {{ $slot }}
         </main>
     </div>
