@@ -9,6 +9,6 @@ class AdminDashboardController extends Controller
 {
     public function __invoke(AdminSuperAdminRequest $request)
     {
-        return view('admin.super-admin-dashboard');
+        return view('admin.admin-dashboard');
     }
 }
