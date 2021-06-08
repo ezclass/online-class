@@ -32,14 +32,14 @@
                 </div>
                 @endif
 
-                @if(session('cancelled'))
+                @if(session('danger'))
                 <div class="py-3 px-5 mb-4 bg-red-100 border border-red-400 text-red-900 text-sm rounded-md flex items-center justify-between shadow" role="alert">
                     <div class="text-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-5 pt-1" viewBox="0 0 24 24">
                             <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.597 17.954l-4.591-4.55-4.555 4.596-1.405-1.405 4.547-4.592-4.593-4.552 1.405-1.405 4.588 4.543 4.545-4.589 1.416 1.403-4.546 4.587 4.592 4.548-1.403 1.416z" />
                         </svg>
                     </div>
-                    <span class="block sm:inline">{{session('cancelled')}}</span>
+                    <span class="block sm:inline">{{session('danger')}}</span>
                     <button class="w-4" type="button" data-dismiss="alert" aria-label="Close" onclick="this.parentElement.remove();">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

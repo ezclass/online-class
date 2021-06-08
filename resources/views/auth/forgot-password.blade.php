@@ -25,4 +25,6 @@
 
     </x-auth-page>
 
+    <x-messanger />
+    
 </x-app-layout>
