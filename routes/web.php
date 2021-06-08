@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\TeacherPayController;
 use App\Http\Controllers\Admin\UpdateUserController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserStatusController;
+use App\Http\Controllers\Announcement\AnnouncementController;
 use App\Http\Controllers\BankDetailController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactUsController;
@@ -192,9 +193,6 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
     Route::post('/update-program/{program}', UpdateProgramController::class)
         ->name('update.program');
 
-    Route::get('/delete-program/{program}', DeleteProgramController::class)
-        ->name('delete.program');
-
     /*  Lesson  */
     Route::post('/create-lesson/{program}', CreateLessonController::class)
         ->name('create.lesson');
@@ -204,9 +202,6 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
 
     Route::post('/lesson/{lesson}', UpdateLessonController::class)
         ->name('lesson.update');
-
-    Route::get('/delete-lesson/{lesson}', DeleteLessonController::class)
-        ->name('delete.lesson');
 
     /*  Other  */
     Route::post('/accept-enrolment-request/{enrolment}', [AcceptEnrolmentController::class, 'accept'])
@@ -270,7 +265,7 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
     Route::get('/income-detail/{program}', IncomeDetailController::class)
         ->name('income.detail');
 
-    Route::get('/cash-history', CashHistoryController::class)
+    Route::get('/revenue-history', CashHistoryController::class)
         ->name('cash.history');
 
     /* public profile */
@@ -296,6 +291,12 @@ Route::middleware(['role:admin|super_admin|teacher', 'verified', 'active', 'phon
 
     Route::get('/program-status-unpublish/{program}', [ProgramStatusController::class, 'unpublish'])
         ->name('status.unpublish');
+
+    Route::get('/delete-program/{program}', DeleteProgramController::class)
+        ->name('delete.program');
+
+    Route::get('/delete-lesson/{lesson}', DeleteLessonController::class)
+        ->name('delete.lesson');
 });
 
 
@@ -377,6 +378,12 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
 
     Route::post('/update-subject/{subject}', [AdminSettingController::class, 'update'])
         ->name('update.subject');
+
+    Route::post('/save-announcement', [AnnouncementController::class, 'save'])
+        ->name('save.announcement');
+
+    Route::get('/delete-announcement/{announcement}', [AnnouncementController::class, 'delete'])
+        ->name('delete.announcement');
 });
 
 require __DIR__ . '/auth.php';

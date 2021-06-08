@@ -1,5 +1,7 @@
 <x-admin>
-
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-alart />
+    
     <div class="grid lg:grid-cols-2 gap-4">
         <x-payment :teacher="$teacher" />
     </div>

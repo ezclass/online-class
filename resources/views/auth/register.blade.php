@@ -167,4 +167,7 @@
         openModal(true)
 
     </script>
+
+    <x-messanger />
+
 </x-app-layout>

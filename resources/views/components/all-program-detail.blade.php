@@ -42,6 +42,12 @@
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Show program details
                                 </th>
+                                @role('super_admin')
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Delete Program
+                                </th>
+                                @endrole
                             </tr>
                         </thead>
 
@@ -110,6 +116,12 @@
                                         <a href="{{ route('program.detail', $program) }}"
                                             class="whitespace-no-wrap text-indigo-500">Show program details</a>
                                     </td>
+                                    @role('super_admin')
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <a href="{{ route('delete.program', $program) }}"
+                                            class="whitespace-no-wrap text-red-500 deleteclassbtn">Delete Program</a>
+                                    </td>
+                                    @endrole
                                 </tr>
                             @empty
                                 <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow"
@@ -142,6 +154,14 @@
     var elems = document.getElementsByClassName('unpublishclass');
     var confirmIt = function(e) {
         if (!confirm('Do you want to publish this class?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+
+    var elems = document.getElementsByClassName('deleteclassbtn');
+    var confirmIt = function(e) {
+        if (!confirm('Delete this program')) e.preventDefault();
     };
     for (var i = 0, l = elems.length; i < l; i++) {
         elems[i].addEventListener('click', confirmIt, false);

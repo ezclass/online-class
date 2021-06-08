@@ -30,6 +30,7 @@
         gtag('js', new Date());
 
         gtag('config', 'G-ZCH9ZG26VL');
+
     </script>
 
 </head>
@@ -39,6 +40,7 @@
         @include('layouts.navigation')
 
         <main>
+            <x-easy-announcement />
             {{ $slot }}
         </main>
     </div>

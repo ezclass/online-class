@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-auth-page>
-    
+
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -39,4 +39,7 @@
             </div>
         </form>
     </x-auth-page>
+
+    <x-messanger />
+    
 </x-app-layout>
