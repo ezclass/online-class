@@ -20,7 +20,6 @@ class StudentProgramCard extends Component
                 'program.teacher',
                 'program.subject',
                 'program.grade',
-                'program.enrolments',
                 'program.language'
             ])
             ->orderBy('id', 'DESC')

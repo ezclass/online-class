@@ -33,9 +33,8 @@
             @endif
         </div>
         <div class="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300">
-            <span class="mr-1 p-1 px-2 font-bold">All Students : {{ $enrolment->program->enrolments->count() }}</span>
             <span
-                class="mr-1 p-1 px-2 font-bold border-l border-gray-400">{{ $enrolment->program->language->name }}</span>
+                class="mr-1 p-1 px-2 font-bold">{{ $enrolment->program->language->name }}</span>
             <span
                 class="mr-1 p-1 px-2 font-bold border-l border-gray-400">{{ $enrolment->program->grade->name }}</span>
         </div>
@@ -68,7 +67,6 @@
         <div class="desc p-4 text-gray-800">
             <span class="title font-bold block">{{ $enrolment->program->subject->name }}</span>
             ( {{ $enrolment->program->class_type }} )
-            <p class="text-gray-400 text-sm mt-1 block"> {{ $enrolment->program->description }}</p>
             <h6 class="mt-4 text-sm font-medium">Clas Start Date : <span
                     class="text-indigo-700">{{ $enrolment->program->start_date->format('M d,Y') }}</span></h6>
             <h6 class="mt-2 text-sm font-medium">Class End Date : <span

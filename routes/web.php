@@ -41,6 +41,7 @@ use App\Http\Controllers\Program\UpdateProgramController;
 use App\Http\Controllers\Program\UpdateProgramViewController;
 use App\Http\Controllers\EnroledProgramDeleteController;
 use App\Http\Controllers\Enroll\BlockController;
+use App\Http\Controllers\Enroll\EnrollProgramController;
 use App\Http\Controllers\Enroll\RemindCancelController;
 use App\Http\Controllers\Enroll\RemindController;
 use App\Http\Controllers\Enroll\UnBlockController;
@@ -83,6 +84,9 @@ Route::post('/send-mail', [ContactUsController::class, 'mail'])
 
 Route::get('/legal', TermAndConditionController::class)
     ->name('legal');
+
+Route::get('/enroll-class/{program}', EnrollProgramController::class)
+    ->name('enroll.program');
 
 Route::get('/public-dashboard/{user}', PublicDashboardController::class)
     ->name('public.dashboard');
