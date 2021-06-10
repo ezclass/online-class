@@ -37,9 +37,12 @@
             <span class="title font-bold block">{{ $program->subject->name }}</span>
             ( {{ $program->class_type }} )
         </div>
-        <div class="sm:h-20 md:h-24 lg:h-24 xl:h-20">
-            <p class="text-gray-400 text-sm mt-1 block"> {{ $program->description }}</p>
-        </div>
+        <span
+            class="text-yellow-400 hover:text-black mr-3 inline-flex items-center leading-none text-md pr-3 py-1 border-r-2 border-yellow-200  px-3 text-xs font-semibold  bg-yellow-100 rounded-full">
+            <a href="{{ route('enroll.program', $program->getRouteKey()) }}">
+                Additional Additions
+            </a>
+        </span>
         <h6 class="mt-4 text-sm font-medium">Clas Start Date : <span
                 class="text-indigo-700">{{ $program->start_date->format('M d,Y') }}</span></h6>
         <h6 class="mt-2 text-sm font-medium">Class End Date : <span
@@ -64,7 +67,7 @@
         <div class="mt-4 mb-6">
             <a href="{{ route('income.detail', $program) }}"
                 class="description text-sm  py-2 border-gray-400 mb-2 text-indigo-500 inline-flex items-center">
-                Income details
+                Income Details
                 <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14"></path>

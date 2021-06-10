@@ -58,6 +58,7 @@ use App\Http\Controllers\LearningRoom\YoutubeVideoController;
 use App\Http\Controllers\Notification\MarkAsReadController;
 use App\Http\Controllers\OpinionController;
 use App\Http\Controllers\Payment\CashHistoryController;
+use App\Http\Controllers\Program\AdditionController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\ProgramStatusController;
@@ -278,6 +279,12 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
 
     Route::get('/delete-trailer/{user}', [TrailerController::class, 'delete'])
         ->name('delete.trailer');
+
+    Route::post('/save-addition/{program}', [AdditionController::class, 'save'])
+        ->name('save.addition');
+
+    Route::get('/delete-addition/{addition}', [AdditionController::class, 'delete'])
+        ->name('delete.addition');
 });
 
 Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->group(function () {

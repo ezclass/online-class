@@ -14,15 +14,19 @@
             <span class="title text-lg text-black block">{{ $program->subject->name }}</span>
             ( {{ $program->class_type }} )
         </div>
-
-        <h6 class=" text-sm font-medium">Clas Start Date : <span
-                class="text-indigo-700">{{ $program->start_date->format('M d,Y') }}</span></h6>
-        <h6 class="mt-2 text-sm font-medium">Class End Date : <span
-                class="text-indigo-700">{{ $program->end_date->format('M d,Y') }}</span></h6>
-        <h6 class="mt-2 text-sm font-medium">Class Day : <span class="text-indigo-700">{{ $program->day }}</span></h6>
-        <h6 class="mt-2 text-sm font-medium">Class Time : <span
-                class="text-indigo-700">{{ $program->start_time->format('h:i A') }} To
-                {{ $program->end_time->format('h:i A') }}</span></h6>
+        <div class="h-32">
+            <h6 class=" text-sm font-medium">Clas Start Date : <span
+                    class="text-indigo-700">{{ $program->start_date->format('M d,Y') }}</span></h6>
+            <h6 class="mt-2 text-sm font-medium">Class End Date : <span
+                    class="text-indigo-700">{{ $program->end_date->format('M d,Y') }}</span></h6>
+            <h6 class="mt-2 text-sm font-medium">Class Day : <span class="text-indigo-700">{{ $program->day }}</span>
+            </h6>
+            <h6 class="mt-2 text-sm font-medium">Class Time :
+                <span class="text-indigo-700">{{ $program->start_time->format('h:i A') }} To
+                    {{ $program->end_time->format('h:i A') }}
+                </span>
+            </h6>
+        </div>
         <p class="mt-8 text-sm text-gray-800 text-center">
             <a href="{{ route('public.dashboard', $program->teacher->getRouteKey()) }}">
                 <img src="{{ Storage::disk('do')->url('avatar/' . $program->teacher->avatar) }}" alt="avatar"
@@ -33,8 +37,8 @@
     </div>
     <div class="text-center w-full py-4">
         <a href="{{ route('enroll.program', $program->getRouteKey()) }}"
-            class="text-center text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">
-            Enroll Class
+            class="text-center text-white bg-green-500 border-0 py-1 px-12 focus:outline-none hover:bg-green-600 rounded">
+            Show More
         </a>
     </div>
 </div>
