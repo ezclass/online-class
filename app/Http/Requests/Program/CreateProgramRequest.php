@@ -25,7 +25,7 @@ class CreateProgramRequest extends FormRequest
             'start_time' => 'required',
             'end_time' => 'required',
             'day' => 'required',
-            'description' => 'max:125',
+            'description' => 'max:255',
         ];
     }
 }
