@@ -43,7 +43,7 @@ class UserSettingController extends Controller
     private function storeFile(User $user, UploadedFile $file = null)
     {
         if ($file != null) {
-            $filename = $user->id . '.' . $file->getClientOriginalExtension();
+            $filename = $user->getRouteKey() . '.' . $file->getClientOriginalExtension();
             Storage::disk('do')->put('avatar/' . $filename, file_get_contents(request()->file('avatar')->getRealPath()), 'public');
             $user->avatar = $filename;
             $user->save();

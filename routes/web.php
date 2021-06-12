@@ -1,12 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBankPaymentController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminOnlinePaymentController;
 use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AllTeacherController;
 use App\Http\Controllers\Admin\ClientOpinionController;
 use App\Http\Controllers\Admin\DeleteUserController;
 use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\EnrolledStudentDetailController;
+use App\Http\Controllers\Admin\OnlinePaymentController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
@@ -57,7 +60,9 @@ use App\Http\Controllers\LearningRoom\OverviewController;
 use App\Http\Controllers\LearningRoom\YoutubeVideoController;
 use App\Http\Controllers\Notification\MarkAsReadController;
 use App\Http\Controllers\OpinionController;
+use App\Http\Controllers\Payment\BankPaymentController;
 use App\Http\Controllers\Payment\CashHistoryController;
+use App\Http\Controllers\Payment\PaymentMethodController;
 use App\Http\Controllers\Program\AdditionController;
 use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
@@ -163,16 +168,6 @@ Route::middleware(['auth', 'verified', 'active', 'phone_verified'])->group(funct
 
     Route::post('/mcq-save/{lesson}', [McqController::class, 'save'])
         ->name('mcq.save');
-
-    /* Payment */
-    Route::get('/checkout/success', [CheckoutController::class, 'success'])
-        ->name('checkout.success');
-
-    Route::get('/checkout/cancelled', [CheckoutController::class, 'cancelled'])
-        ->name('checkout.cancelled');
-
-    Route::get('/checkout/{enrolment}', [CheckoutController::class, 'show'])
-        ->name('checkout');
 
     Route::get('/student-payment-history/{enrolment}/{user}', ProgramPaymentHistoryController::class)
         ->name('payment.history');
@@ -293,6 +288,26 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->gro
 
     Route::get('/enroled-program-delete/{enrolment}', EnroledProgramDeleteController::class)
         ->name('enroled.program.delete');
+
+    Route::get('/payment-method/{enrolment}', PaymentMethodController::class)
+        ->name('payment.method');
+
+    /*Online Payment */
+    Route::get('/checkout/success', [CheckoutController::class, 'success'])
+        ->name('checkout.success');
+
+    Route::get('/checkout/cancelled', [CheckoutController::class, 'cancelled'])
+        ->name('checkout.cancelled');
+
+    Route::get('/checkout/{enrolment}', [CheckoutController::class, 'show'])
+        ->name('checkout');
+
+    /*Bank Payment */
+    Route::get('/bank-payment/{enrolment}', [BankPaymentController::class, 'show'])
+        ->name('bank.payment');
+
+    Route::post('/save-bank-payment/{enrolment}', [BankPaymentController::class, 'save'])
+        ->name('save.bank.payment');
 });
 
 
@@ -372,6 +387,12 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
     Route::get('/super-admin/dashboard', SuperAdminDashboardController::class)
         ->name('super.admin.dashboard');
 
+    Route::post('/save-announcement', [AnnouncementController::class, 'save'])
+        ->name('save.announcement');
+
+    Route::get('/delete-announcement/{announcement}', [AnnouncementController::class, 'delete'])
+        ->name('delete.announcement');
+
     Route::get('/edit-user/{user}', EditUserController::class)
         ->name('edit.user');
 
@@ -381,6 +402,29 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
     Route::get('/delete-user/{user}', DeleteUserController::class)
         ->name('delete.user');
 
+    /* Bank Payment */
+    Route::get('/pending-bank-payment', [AdminBankPaymentController::class, 'pending'])
+        ->name('pending.bank.payment');
+
+    Route::get('/approve-bank-payment/{bank}', [AdminBankPaymentController::class, 'approve'])
+        ->name('approve.bank.payment');
+
+    Route::get('/delete-bank-payment/{bank}', [AdminBankPaymentController::class, 'delete'])
+        ->name('delete.bank.payment');
+
+    Route::get('/success-bank-payment', [AdminBankPaymentController::class, 'successPayment'])
+        ->name('success.bank.payment');
+
+    /* Online Payment */
+    Route::get('/success-online-payment', [AdminOnlinePaymentController::class, 'success'])
+        ->name('success.online.payment');
+
+    Route::get('/cancel-online-payment', [AdminOnlinePaymentController::class, 'cancel'])
+        ->name('cancel.online.payment');
+
+    Route::get('/delete-online-payment/{payment}', [AdminOnlinePaymentController::class, 'delete'])
+        ->name('delete.online.payment');
+
     Route::get('/admin-setting', [AdminSettingController::class, 'view'])
         ->name('admin.setting');
 
@@ -389,12 +433,6 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
 
     Route::post('/update-subject/{subject}', [AdminSettingController::class, 'update'])
         ->name('update.subject');
-
-    Route::post('/save-announcement', [AnnouncementController::class, 'save'])
-        ->name('save.announcement');
-
-    Route::get('/delete-announcement/{announcement}', [AnnouncementController::class, 'delete'])
-        ->name('delete.announcement');
 });
 
 require __DIR__ . '/auth.php';
