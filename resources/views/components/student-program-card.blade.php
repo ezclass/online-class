@@ -118,7 +118,7 @@
                 @if ($enrolment->accepted_at !== null and $enrolment->payment_policy !== 0)
                     <span
                         class="text-yellow-400 mr-3 inline-flex items-center leading-none text-md  py-1 border-gray-200 px-3 font-semibold  bg-yellow-100 rounded-full">
-                        <a href="{{ route('checkout', $enrolment) }}">
+                        <a href="{{ route('payment.method', $enrolment) }}">
                             Pay class fees
                         </a>
                     </span>

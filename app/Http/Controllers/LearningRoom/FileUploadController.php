@@ -26,7 +26,7 @@ class FileUploadController extends Controller
     private function storeFile(Document $document, UploadedFile $file = null)
     {
         if ($file != null) {
-            $filename = $document->id . '.' . $file->getClientOriginalExtension();
+            $filename = $document->getRouteKey() . '.' . $file->getClientOriginalExtension();
             Storage::disk('do')->put('document/' . $filename, file_get_contents(request()->file('file')->getRealPath()), 'public');
             $document->file = $filename;
             $document->save();

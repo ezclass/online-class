@@ -40,7 +40,7 @@ class CreateProgramController extends Controller
     private function storeFile(Program $program, UploadedFile $file = null)
     {
         if ($file != null) {
-            $filename = $program->id . '.' . $file->getClientOriginalExtension();
+            $filename = $program->getRouteKey() . '.' . $file->getClientOriginalExtension();
             Storage::disk('do')->put('program/' . $filename, file_get_contents(request()->file('image')->getRealPath()), 'public');
             $program->image = $filename;
             $program->save();

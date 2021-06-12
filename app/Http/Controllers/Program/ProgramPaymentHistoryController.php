@@ -21,6 +21,7 @@ class ProgramPaymentHistoryController extends Controller
                     ->where('payable_id', $enrolment->program_id)
                     ->paidBy($user)
                     ->success()
+                    ->orderBy('id', 'DESC')
                     ->get(),
             ]);
     }

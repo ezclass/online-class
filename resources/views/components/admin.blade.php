@@ -34,14 +34,12 @@
         .account-link:hover {
             background: #3d68ff;
         }
-
     </style>
 
     <div class="bg-gray-100 font-family-karla flex">
         <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
             <div class="p-6">
-                <a href="{{ route('dashboard') }}"
-                    class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ Auth::user()->name }}</a>
+                <a href="{{ route('dashboard') }}" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ Auth::user()->name }}</a>
             </div>
             <nav class="text-white text-base font-semibold pt-3">
 
@@ -53,8 +51,7 @@
                 @endrole
 
                 @role('super_admin')
-                <x-responsive-nav-link :href="route('super.admin.dashboard')"
-                    :active="request()->routeIs('super.admin.dashboard')">
+                <x-responsive-nav-link :href="route('super.admin.dashboard')" :active="request()->routeIs('super.admin.dashboard')">
                     <i class="fas fa-tachometer-alt mr-3"></i>
                     {{ __('Dashboard') }}
                 </x-responsive-nav-link>
@@ -76,6 +73,11 @@
                 </x-responsive-nav-link>
 
                 @role('super_admin')
+                <x-responsive-nav-link :href="route('pending.bank.payment')" :active="request()->routeIs('pending.bank.payment')">
+                    <i class="fas fa-money-check"></i>
+                    {{ __('Payment') }}
+                </x-responsive-nav-link>
+
                 <x-responsive-nav-link :href="route('admin.setting')" :active="request()->routeIs('admin.setting')">
                     <i class="fas fa-cogs"></i>
                     {{ __('Setting') }}
@@ -84,16 +86,15 @@
 
             </nav>
             @if (Route::has('login'))
-                @auth
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button
-                            class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
-                            <i class="fas fa-sign-out-alt mr-3"></i>
-                            Logout
-                        </button>
-                    </form>
-                @endauth
+            @auth
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
+                    <i class="fas fa-sign-out-alt mr-3"></i>
+                    Logout
+                </button>
+            </form>
+            @endauth
             @endif
         </aside>
 
@@ -103,12 +104,10 @@
                 <div class="w-1/2"></div>
                 <a href="{{ route('welcome') }}" class="text-indigo-500">Home</a>
                 <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-                    <button @click="isOpen = !isOpen"
-                        class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                    <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
                         <img src="{{ Storage::disk('do')->url('avatar/' . Auth::user()->avatar) }}">
                     </button>
-                    <button x-show="isOpen" @click="isOpen = false"
-                        class="h-full w-full fixed inset-0 cursor-default"></button>
+                    <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
                     <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
                         <a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
                         <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
@@ -120,8 +119,7 @@
             <!-- Mobile Header & Nav -->
             <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
                 <div class="flex items-center justify-between">
-                    <a href="{{ route('dashboard') }}"
-                        class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                    <a href="{{ route('dashboard') }}" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
                         <img src="{{ Storage::disk('do')->url('avatar/' . Auth::user()->avatar) }}">
                     </a>
                     <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
@@ -133,15 +131,13 @@
                 <!-- Dropdown Nav -->
                 <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
                     @role('super_admin')
-                    <x-responsive-nav-link :href="route('super.admin.dashboard')"
-                        :active="request()->routeIs('super.admin.dashboard')">
+                    <x-responsive-nav-link :href="route('super.admin.dashboard')" :active="request()->routeIs('super.admin.dashboard')">
                         <i class="fas fa-tachometer-alt mr-3"></i>
                         {{ __('Dashboard') }}
                     </x-responsive-nav-link>
                     @endrole
 
-                    <x-responsive-nav-link :href="route('admin.dashboard')"
-                        :active="request()->routeIs('admin.dashboard')">
+                    <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         <i class="fas fa-user-alt mr-3"></i>
                         {{ __('Overview') }}
                     </x-responsive-nav-link>
@@ -151,8 +147,7 @@
                         {{ __('Teacher Pay') }}
                     </x-responsive-nav-link>
 
-                    <x-responsive-nav-link :href="route('client.opinion')"
-                        :active="request()->routeIs('client.opinion')">
+                    <x-responsive-nav-link :href="route('client.opinion')" :active="request()->routeIs('client.opinion')">
                         <i class="far fa-comment"></i>
                         {{ __('Client Opinion') }}
                     </x-responsive-nav-link>
@@ -169,8 +164,7 @@
         </div>
 
         <!-- Font Awesome -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-            integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     </div>
 
 </x-guest-layout>
