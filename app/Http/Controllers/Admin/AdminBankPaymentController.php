@@ -26,13 +26,15 @@ class AdminBankPaymentController extends Controller
     {
         $payment = Payment::findByOrderId($bank->payment->getRouteKey());
         $payment->payment_id = $bank->payment->getRouteKey();
-        $payment->status = 1;
+        $payment->status = 2;
+        $payment->validated = 1;
         $payment->save();
-        $request->user()->notify(new PaymentSuccessful($payment));
 
-        $bank->status = 1;
+        $bank->status = 2;
         $bank->save();
 
+        $payment->payer->notify(new PaymentSuccessful($payment));
+        
         return redirect()
             ->back()
             ->with('success', 'Payment approved successfully');
@@ -53,7 +55,7 @@ class AdminBankPaymentController extends Controller
             ->with([
                 'banks' => Bank::query()
                     ->with(['payment.payer', 'payment.payable'])
-                    ->where('status', 1)
+                    ->where('status', 2)
                     ->orderBy('id', 'DESC')
                     ->paginate(10),
             ]);
