@@ -10,7 +10,7 @@
         @endrole
 
         @role('student')
-        <x-responsive-nav-link href="{{ route('student.dashboard')}}">
+        <x-responsive-nav-link href="{{ route('student.dashboard')}}" class="text-yellow-500">
             {{__('Dashboard')}}
         </x-responsive-nav-link>
         @endrole
