@@ -22,7 +22,7 @@ class AcceptEnrollmentRequest extends Notification
 
     public function via($notifiable)
     {
-        return ['mail', 'database', SmsChannel::class];
+        return ['database', SmsChannel::class];
     }
 
     public function toMail($notifiable)
