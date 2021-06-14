@@ -27,7 +27,6 @@
 
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-    <x-alart />
 
     <form action="{{route('save.bank.payment', $enrolment)}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -41,7 +40,7 @@
 
                 <div class="grid grid-cols-1 mt-5 mx-7">
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Address</label>
-                    <input name="address" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Address" required />
+                    <input name="address" :value="old('address')" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Address" required autofocus />
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
