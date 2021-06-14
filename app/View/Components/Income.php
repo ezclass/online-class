@@ -22,7 +22,7 @@ class Income extends Component
                 Carbon::createFromDate("$firstDay")->startOfMonth(),
                 Carbon::createFromDate("$lastDay")->endOfMonth()
             ])
-            ->where('validated', null)
+            ->where('validated')
             ->success()
             ->get();
     }

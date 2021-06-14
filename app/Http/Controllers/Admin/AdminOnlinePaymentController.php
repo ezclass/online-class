@@ -15,7 +15,7 @@ class AdminOnlinePaymentController extends Controller
                 'payments' => Payment::query()
                     ->with(['payer', 'payable'])
                     ->success()
-                    ->where('validated', null)
+                    ->where('validated')
                     ->orderBy('id', 'DESC')
                     ->paginate(10),
             ]);
