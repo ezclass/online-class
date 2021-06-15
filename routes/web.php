@@ -68,6 +68,7 @@ use App\Http\Controllers\Program\IncomeDetailController;
 use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\ProgramStatusController;
 use App\Http\Controllers\Program\StudentDetailController;
+use App\Http\Controllers\Program\VideoController;
 use App\Http\Controllers\Security\OtpController;
 use App\Http\Controllers\Security\PhoneNumberVerificationController;
 use App\Http\Controllers\TermAndConditionController;
@@ -192,6 +193,12 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->gro
 
     Route::post('/update-program/{program}', UpdateProgramController::class)
         ->name('update.program');
+
+    Route::post('/save-program-video/{program}', [VideoController::class, 'save'])
+        ->name('save.program.video');
+
+    Route::get('/delete-program-video/{program}', [VideoController::class, 'delete'])
+        ->name('delete.program.video');
 
     /*  Lesson  */
     Route::post('/create-lesson/{program}', CreateLessonController::class)
