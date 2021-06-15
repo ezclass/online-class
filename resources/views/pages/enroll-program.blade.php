@@ -3,6 +3,7 @@
     <x-alart />
 
     @can('create', $program)
+        <x-program-video :program="$program" />
         <x-addition-form :program="$program" />
     @endcan
 

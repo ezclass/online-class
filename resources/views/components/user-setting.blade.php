@@ -128,7 +128,7 @@
                         <div class="text-center bg-indigo-100 border border-indigo-400 text-indigo-700 p-3 rounded relative my-6 w-full shadow"
                             role="alert">
                             <span class="block sm:inline text-indigo-700">
-                                To help students understand you, update the video you created
+                                To help students understand you, update the video you created on the public dashboard.
                             </span>
                         </div>
                         <div class="m-10 text-center">
