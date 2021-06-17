@@ -358,6 +358,9 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verifi
     Route::get('/admin/account-verified/{user}', [VerifyAccountController::class, 'verify'])
         ->name('account.verified');
 
+    Route::get('/admin/account-information-delete/{user}', [VerifyAccountController::class, 'delete'])
+        ->name('account.information.delete');
+
     Route::get('/admin/inactive-user', [UserController::class, 'inActiveUser'])
         ->name('inactive.user');
 

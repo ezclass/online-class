@@ -57,4 +57,15 @@ class VerifyAccountController extends Controller
             ->back()
             ->with('success', 'Account verified successfully');
     }
+
+    public function delete(AdminSuperAdminRequest $request, User $user)
+    {
+        $user->verify_account = 0;
+        $user->save();
+        $user->verify->delete();
+
+        return redirect()
+            ->back()
+            ->with('success', 'Account information has been deleted');
+    }
 }
