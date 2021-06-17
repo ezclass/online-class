@@ -9,7 +9,6 @@ use App\Http\Controllers\Admin\ClientOpinionController;
 use App\Http\Controllers\Admin\DeleteUserController;
 use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\EnrolledStudentDetailController;
-use App\Http\Controllers\Admin\OnlinePaymentController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
@@ -74,6 +73,7 @@ use App\Http\Controllers\Security\PhoneNumberVerificationController;
 use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\TrailerController;
 use App\Http\Controllers\UserSettingController;
+use App\Http\Controllers\Verify\VerifyAccountController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -111,11 +111,17 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/verify-otp/{user}', [OtpController::class, 'verify'])
         ->name('verify.otp');
 
+    Route::get('/account-verify', [VerifyAccountController::class, 'view'])
+        ->name('account.verify');
+
+    Route::post('/save-account-verify/{user}', [VerifyAccountController::class, 'save'])
+        ->name('save.account.verify');
+
     Route::get('/deactive', DeactiveDashboardController::class)
         ->name('deactive.dashboard');
 });
 
-Route::middleware(['auth', 'verified', 'active', 'phone_verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'active', 'phone_verified', 'account_verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
@@ -174,7 +180,7 @@ Route::middleware(['auth', 'verified', 'active', 'phone_verified'])->group(funct
         ->name('payment.history');
 });
 
-Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified'])->group(function () {
+Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified', 'account_verified'])->group(function () {
     Route::get('/teacher/dashboard', TeacherDashboardController::class)
         ->name('teacher.dashboard');
 
@@ -318,7 +324,7 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->gro
 });
 
 
-Route::middleware(['role:admin|super_admin|teacher', 'verified', 'active', 'phone_verified'])->group(function () {
+Route::middleware(['role:admin|super_admin|teacher', 'verified', 'active', 'phone_verified', 'account_verified'])->group(function () {
     Route::get('/program-status-publish/{program}', [ProgramStatusController::class, 'publish'])
         ->name('status.publish');
 
@@ -340,8 +346,17 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verifi
     Route::get('/admin/all-user', [UserController::class, 'allUser'])
         ->name('all.user');
 
-    Route::get('/admin/not-verified-user', [UserController::class, 'notVerified'])
+    Route::get('/admin/not-verified-user', [UserController::class, 'notVerifiedUser'])
         ->name('not.verified.user');
+
+    Route::get('/admin/not-verified-account', [UserController::class, 'notVerifiedAccount'])
+        ->name('not.verified.account');
+
+    Route::get('/admin/pending-verify-account', [UserController::class, 'pendingVerifyAccount'])
+        ->name('pending.verify.account');
+
+    Route::get('/admin/account-verified/{user}', [VerifyAccountController::class, 'verify'])
+        ->name('account.verified');
 
     Route::get('/admin/inactive-user', [UserController::class, 'inActiveUser'])
         ->name('inactive.user');

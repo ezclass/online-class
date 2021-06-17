@@ -35,9 +35,19 @@ class UserController extends Controller
             ]);
     }
 
-    public function notVerified(AdminSuperAdminRequest $request)
+    public function notVerifiedUser(AdminSuperAdminRequest $request)
     {
         return view('admin.not-verified-user');
+    }
+
+    public function pendingVerifyAccount(AdminSuperAdminRequest $request)
+    {
+        return view('admin.pending-verify-account');
+    }
+
+    public function notVerifiedAccount(AdminSuperAdminRequest $request)
+    {
+        return view('admin.not-verified-account');
     }
 
     public function inActiveUser(SuperAdminRequest $request)
