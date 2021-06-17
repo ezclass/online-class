@@ -47,6 +47,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(BankDetail::class, 'user_id');
     }
 
+    public function verify()
+    {
+        return $this->hasOne(Verify::class, 'user_id');
+    }
+
     public function isActive(): bool
     {
         return $this->status == 1;
@@ -55,6 +60,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isVerified(): bool
     {
         return $this->phone_number_verified_at !== null;
+    }
+
+    public function isAccountVerified(): bool
+    {
+        return $this->verify == 1;
     }
 
     public function isStudent(): bool

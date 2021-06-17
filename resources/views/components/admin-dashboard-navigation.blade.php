@@ -18,6 +18,18 @@
             </x-responsive-nav-link>
         </div>
 
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('not.verified.account')" :active="request()->routeIs('not.verified.account')">
+                {{ __('Not Verified Account') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('pending.verify.account')" :active="request()->routeIs('pending.verify.account')">
+                {{ __('Pending Verify Account') }}
+            </x-responsive-nav-link>
+        </div>
+
         @role('super_admin')
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('inactive.user')" :active="request()->routeIs('inactive.user')">
