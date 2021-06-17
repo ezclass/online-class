@@ -20,6 +20,9 @@
                                     Status
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Photo
+                                </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Facebook
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -42,6 +45,9 @@
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Verify Account
                                 </th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Delete
+                                </th>
                             </tr>
                         </thead>
 
@@ -53,9 +59,9 @@
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10">
+                                        <a href="{{ Storage::disk('do')->url('avatar/'. $user->avatar)}}" target="new" class="flex-shrink-0 w-10 h-10">
                                             <img class="w-10 h-10 rounded-full" src="{{ Storage::disk('do')->url('avatar/'. $user->avatar)}}" alt="" />
-                                        </div>
+                                        </a>
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900">{{$user->name}}</div>
                                             <div class="text-sm text-gray-500">{{$user->email}}</div>
@@ -108,14 +114,17 @@
                                 </td>
                                 @endif
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{ Storage::disk('do')->url('verify/'. $user->verify->photo)}}" target="new" class="flex-shrink-0 w-10 h-10">
+                                        <img class="w-10 h-10 rounded-full" src="{{ Storage::disk('do')->url('verify/'. $user->verify->photo)}}" alt="" />
+                                    </a>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <a href="{{$user->verify->facebook}}" target="new" class="text-green-500 whitespace-no-wrap">
                                         Facebook
                                     </a>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                    <p class="inline-flex px-2 text-xs font-semibold leading-5 text-indigo-800 bg-indigo-100 rounded-full">
-                                        {{$user->verify->province}}
-                                    </p>
+                                    {{$user->verify->province}}
                                     <p class="mt-2 inline-flex px-2 text-xs font-semibold leading-5 text-indigo-800 bg-indigo-100 rounded-full">
                                         {{$user->verify->district}}
                                     </p>
@@ -145,6 +154,11 @@
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <a href="{{route('account.verified',$user)}}" class="verifyaccountbtn inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
                                         Verify
+                                    </a>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{route('account.information.delete', $user)}}" class="deleteaccountbtn inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-red-100 rounded-full">
+                                        Delete
                                     </a>
                                 </td>
                             </tr>
@@ -181,6 +195,14 @@
     var elems = document.getElementsByClassName('verifyaccountbtn');
     var confirmIt = function(e) {
         if (!confirm('Verify this account?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+
+    var elems = document.getElementsByClassName('deleteaccountbtn');
+    var confirmIt = function(e) {
+        if (!confirm('Delete this information?')) e.preventDefault();
     };
     for (var i = 0, l = elems.length; i < l; i++) {
         elems[i].addEventListener('click', confirmIt, false);

@@ -64,7 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAccountVerified(): bool
     {
-        return $this->verify == 1;
+        return $this->verify_account == 1;
     }
 
     public function isStudent(): bool
