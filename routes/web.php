@@ -48,6 +48,7 @@ use App\Http\Controllers\Enroll\RemindCancelController;
 use App\Http\Controllers\Enroll\RemindController;
 use App\Http\Controllers\Enroll\UnBlockController;
 use App\Http\Controllers\Enroll\UpdateEnrolmentController;
+use App\Http\Controllers\LearningRoom\CloudDocumentController;
 use App\Http\Controllers\LearningRoom\DocumentController;
 use App\Http\Controllers\LearningRoom\DownloadAccessController;
 use App\Http\Controllers\LearningRoom\FileDeleteController;
@@ -164,11 +165,14 @@ Route::middleware(['auth', 'verified', 'active', 'phone_verified', 'account_veri
     Route::get('/safe-document/{lesson}', DocumentController::class)
         ->name('safe.document');
 
+    Route::get('/document-download/{document}', FileDownloadController::class)
+        ->name('file.download');
+
     Route::get('/youtube-video/{lesson}', [YoutubeVideoController::class, 'view'])
         ->name('youtube.video');
 
-    Route::get('/document-download/{document}', FileDownloadController::class)
-        ->name('file.download');
+    Route::get('/cloud-document/{lesson}', [CloudDocumentController::class, 'view'])
+        ->name('cloud.document');
 
     Route::get('/mcq/{lesson}', [McqController::class, 'view'])
         ->name('mcq.view');
@@ -244,14 +248,17 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified', 'acco
     Route::post('/document-upload/{lesson}', FileUploadController::class)
         ->name('file.upload');
 
-    Route::post('/youtube-link-save/{lesson}', [YoutubeVideoController::class, 'save'])
-        ->name('youtube.link.save');
-
     Route::get('/download-access-active/{document}', [DownloadAccessController::class, 'active'])
         ->name('download.active');
 
     Route::get('/download-access-inactive/{document}', [DownloadAccessController::class, 'inactive'])
         ->name('download.inactive');
+
+    Route::post('/youtube-link-save/{lesson}', [YoutubeVideoController::class, 'save'])
+        ->name('youtube.link.save');
+
+    Route::post('/cloud-link-save/{lesson}', [CloudDocumentController::class, 'save'])
+        ->name('cloud.link.save');
 
     Route::get('/document-delete/{document}', FileDeleteController::class)
         ->name('document.delete');

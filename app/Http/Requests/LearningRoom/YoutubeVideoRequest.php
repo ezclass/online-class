@@ -8,14 +8,14 @@ class YoutubeVideoRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('view', $this->route('lesson')->program);
+        return $this->user()->can('create', $this->route('lesson'));
     }
 
     public function rules()
     {
         return [
             'title' => 'required|max:30',
-            'youtube' => 'required|url'
+            'link' => 'required|url'
         ];
     }
 }

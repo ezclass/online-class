@@ -8,18 +8,18 @@ use App\Http\Requests\LearningRoom\YoutubeVideoRequest;
 use App\Models\Document;
 use App\Models\Lesson;
 
-class YoutubeVideoController extends Controller
+class CloudDocumentController extends Controller
 {
     public function view(DocumentRequest $request, Lesson $lesson)
     {
-        return view('learning-room.youtube-video')
+        return view('learning-room.cloud-document')
             ->with([
                 'lesson' => $lesson,
                 'documents' => Document::query()
                     ->ofLesson($lesson)
-                    ->where('youtube', "<>", null)
+                    ->where('cloud', "<>", null)
                     ->orderBy('id', 'DESC')
-                    ->paginate(9),
+                    ->paginate(10),
             ]);
     }
 
@@ -27,7 +27,7 @@ class YoutubeVideoController extends Controller
     {
         $document = new Document();
         $document->title = $request->get('title');
-        $document->youtube = $request->get('link');
+        $document->cloud = $request->get('link');
         $document->lesson_id = $lesson->id;
         $document->save();
 
