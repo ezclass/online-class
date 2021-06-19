@@ -12,5 +12,11 @@
                 {{ __('Youtube Video') }}
             </x-responsive-nav-link>
         </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('cloud.document', $lesson)" :active="request()->routeIs('cloud.document', $lesson)">
+                {{ __('Cloud Document') }}
+            </x-responsive-nav-link>
+        </div>
     </nav>
 </div>

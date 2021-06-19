@@ -60,6 +60,7 @@ class VerifyAccountController extends Controller
 
     public function delete(AdminSuperAdminRequest $request, User $user)
     {
+        Storage::disk('do')->delete('verify/' . $user->verify->photo);
         $user->verify_account = 0;
         $user->save();
         $user->verify->delete();
