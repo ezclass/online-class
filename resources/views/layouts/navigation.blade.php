@@ -33,11 +33,20 @@
 
             <!-- Settings Dropdown -->
             <div class="sm:flex sm:items-center sm:ml-6">
-                <div class="sm:flex sm:items-center sm:ml-6">
+                <div class="mt-1 md:mt-0 sm:flex sm:items-center sm:mr-6">
                     <x-notification />
                 </div>
 
                 @if (Route::has('login'))
+
+                @role('teacher')
+                @if (Auth::user()->verify_account == 1)
+                <span class="md:flex sm:hidden items-center text-sm font-medium text-green-500">
+                    <i class="fas fa-check animate-pulse mr-1"></i> <span class="animate-pulse">Verified</span> <!-- certificate -->
+                </span>
+                @endif
+                @endrole
+
                 <div class="hidden  top-0 right-0 px-6 py-4 sm:block">
                     @auth
                     <div>
@@ -58,7 +67,6 @@
                                     </div>
                                 </button>
                             </x-slot>
-
                             <x-slot name="content">
                                 <!-- Authentication -->
                                 <div>
