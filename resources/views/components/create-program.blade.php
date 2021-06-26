@@ -217,6 +217,11 @@
         </textarea>
     </div>
 
+    <div class="mt-4">
+        <x-label for="image">Class Image <span class="text-grey-500">(optional)</span></x-label>
+        <input type="file" name="image" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500">
+    </div>
+
     <div class="justify-center mt-6">
         <x-success-button class="ml-3 mt-5">
             {{ __('Create') }}

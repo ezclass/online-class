@@ -46,9 +46,6 @@
                                             <p class="text-gray-900 whitespace-no-wrap">
                                                 {{$enrolment->student->name}}
                                             </p>
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                {{$enrolment->student->phone_number}}
-                                            </p>
                                         </div>
                                     </div>
                                 </td>

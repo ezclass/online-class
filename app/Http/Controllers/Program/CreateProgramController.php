@@ -30,7 +30,7 @@ class CreateProgramController extends Controller
         $program->status = 1;
         $program->image = "program-image.jpg";
         $program->save();
-        //$this->storeFile($program, $request->file('image'));
+        $this->storeFile($program, $request->file('image'));
 
         return redirect()
             ->route('program.view.teacher')
