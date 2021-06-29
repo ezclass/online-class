@@ -30,8 +30,26 @@ class TeacherPayController extends Controller
                     ->whereHas('payable', function (Builder $query) use ($user) {
                         $query->where('user_id', $user->id);
                     })
+                    ->whereHas('payer', function (Builder $query) use ($user) {
+                        $query->where('reference', $user->getRouteKey());
+                    })
                     ->success()
                     ->get(),
+
+                'homepayments' => Payment::query()
+                    ->whereBetween('updated_at', [
+                        Carbon::createFromDate("$firstDay")->startOfMonth(),
+                        Carbon::createFromDate("$lastDay")->endOfMonth()
+                    ])
+                    ->whereHas('payable', function (Builder $query) use ($user) {
+                        $query->where('user_id', $user->id);
+                    })
+                    ->whereHas('payer', function (Builder $query) use ($user) {
+                        $query->where('reference', "<>", $user->getRouteKey());
+                    })
+                    ->success()
+                    ->get(),
+
                 'programs' => Program::query()
                     ->with(['enrolments', 'subject'])
                     ->where('user_id', $user->id)

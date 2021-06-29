@@ -5,7 +5,7 @@
             <input type="hidden" name="user_id" value="{{$teacher->id}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Your Class Name" required>
             <div>
                 <x-label for="">Amount <span class="text-red-500">*</span></x-label>
-                <input type="text" name="amount" value="{{ $payments->sum('amount') - ($payments->sum('amount') / 100) * 10 }}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Your Class Name" required>
+                <input type="text" name="amount" value="{{ $payments->sum('amount') / 100 * 90 + $homepayments->sum('amount') / 100 * 70}}" class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-non focus:border-teal-500" placeholder="Your Class Name" required>
             </div>
             <div>
                 <x-label for="">Summary <span class="text-red-500">*</span> </x-label>

@@ -69,6 +69,7 @@ use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\ProgramStatusController;
 use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\Program\VideoController;
+use App\Http\Controllers\Reference\ReferenceController;
 use App\Http\Controllers\Security\OtpController;
 use App\Http\Controllers\Security\PhoneNumberVerificationController;
 use App\Http\Controllers\TermAndConditionController;
@@ -118,11 +119,17 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/save-account-verify/{user}', [VerifyAccountController::class, 'save'])
         ->name('save.account.verify');
 
+    Route::get('/add-reference', [ReferenceController::class, 'view'])
+        ->name('add.reference');
+
+    Route::post('/save-reference/{user}', [ReferenceController::class, 'save'])
+        ->name('save.reference');
+
     Route::get('/deactive', DeactiveDashboardController::class)
         ->name('deactive.dashboard');
 });
 
-Route::middleware(['auth', 'verified', 'active', 'phone_verified', 'account_verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'active', 'phone_verified', 'account_verified' , 'reference'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
@@ -302,7 +309,7 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified', 'acco
         ->name('delete.addition');
 });
 
-Route::middleware(['role:student', 'verified', 'active', 'phone_verified'])->group(function () {
+Route::middleware(['role:student', 'verified', 'active', 'phone_verified', 'reference'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 

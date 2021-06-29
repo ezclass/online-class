@@ -22,7 +22,7 @@ class BankIncome extends Component
                 Carbon::createFromDate("$firstDay")->startOfMonth(),
                 Carbon::createFromDate("$lastDay")->endOfMonth()
             ])
-            ->where('validated', "<>", null)
+            ->where('validated', 1)
             ->success()
             ->get();
     }

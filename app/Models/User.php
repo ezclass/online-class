@@ -67,6 +67,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->verify_account == 1;
     }
 
+    public function isReference(): bool
+    {
+        return $this->reference !== null;
+    }
+
     public function isStudent(): bool
     {
         return $this->hasRole(Role::ROLE_STUDENT);

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Program\IncomeDetailRequest;
 use App\Models\Program;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 
 class IncomeDetailController extends Controller
 {
@@ -20,13 +21,28 @@ class IncomeDetailController extends Controller
             ->with([
                 'program' => $program,
                 'payments' => Payment::query()
-                    ->where('payable_id', $program->id)
-                    ->success()
                     ->whereBetween('updated_at', [
                         Carbon::createFromDate("$firstDay")->startOfMonth(),
                         Carbon::createFromDate("$lastDay")->endOfMonth()
                     ])
-                    ->sum('amount'),
+                    ->where('payable_id', $program->id)
+                    ->whereHas('payer', function (Builder $query) use ($program) {
+                        $query->where('reference', $program->teacher->getRouteKey());
+                    })
+                    ->success()
+                    ->get(),
+
+                'homepayments' => Payment::query()
+                    ->whereBetween('updated_at', [
+                        Carbon::createFromDate("$firstDay")->startOfMonth(),
+                        Carbon::createFromDate("$lastDay")->endOfMonth()
+                    ])
+                    ->where('payable_id', $program->id)
+                    ->whereHas('payer', function (Builder $query) use ($program) {
+                        $query->where('reference', "<>", $program->teacher->getRouteKey());
+                    })
+                    ->success()
+                    ->get()
             ]);
     }
 }

@@ -30,6 +30,7 @@ class CheckoutController extends Controller
         $payment = Payment::findByOrderId($request->get('order_id'));
         $payment->payment_id = $request->get('order_id');
         $payment->status = 2;
+        $payment->validated = 2;
         $payment->save();
         $request->user()->notify(new PaymentSuccessful($payment));
 
