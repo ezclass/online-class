@@ -11,7 +11,13 @@
         <div class="mt-2 text-xl text-green-400">
             Total amount to be paid =
             <span class="text-yellow-500">
-                Rs.{{ $payments->sum('amount') / 100 * 90 + $homepayments->sum('amount') / 100 * 70}} //
+                Rs.{{ $payments->sum('amount') / 100 * 90 + $homepayments->sum('amount') / 100 * 80}} //
+            </span>
+        </div>
+        <div class="mt-2 text-xl text-green-400">
+            Total Income =
+            <span class="text-indigo-500">
+                Rs.{{ ($payments->sum('amount') + $homepayments->sum('amount')) - ($payments->sum('amount') / 100 * 90 + $homepayments->sum('amount') / 100 * 80)}} //
             </span>
         </div>
     </div>
@@ -32,12 +38,12 @@
     Home Class Student
     <div class="m-6 mt-4">
         <div class="mt-6 text-xl">Total = Rs.{{ $homepayments->sum('amount') }}</div>
-        <div class="mt-2 text-xl">Amount Charged (30%) = {{$homepayments->sum('amount') /100 * 30}}</div>
-        <div class="mt-2 text-xl">Amount Paid (Total - 30%) = {{ $homepayments->sum('amount') }} - {{$homepayments->sum('amount') /100 * 30}}</div>
+        <div class="mt-2 text-xl">Amount Charged (20%) = {{$homepayments->sum('amount') /100 * 20}}</div>
+        <div class="mt-2 text-xl">Amount Paid (Total - 20%) = {{ $homepayments->sum('amount') }} - {{$homepayments->sum('amount') /100 * 20}}</div>
         <div class="mt-2 text-xl text-green-400">
             Total amount to be paid =
             <span class="text-yellow-500">
-                Rs.{{ $homepayments->sum('amount') / 100 * 70 }} //
+                Rs.{{ $homepayments->sum('amount') / 100 * 80 }} //
             </span>
         </div>
     </div>

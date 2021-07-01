@@ -64,6 +64,7 @@
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">{{ $program->subject->name }}</p>
                                         ( {{ $program->class_type }} )
+                                        <p class="text-gray-900 whitespace-no-wrap">{{ $program->grade->name }}</p>
                                     </td>
 
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
