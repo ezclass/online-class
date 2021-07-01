@@ -51,7 +51,7 @@ class TeacherPayController extends Controller
                     ->get(),
 
                 'programs' => Program::query()
-                    ->with(['enrolments', 'subject'])
+                    ->with(['enrolments', 'subject', 'grade'])
                     ->where('user_id', $user->id)
                     ->get(),
                 'paids' => Paid::query()
