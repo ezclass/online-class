@@ -4,28 +4,26 @@ namespace App\Http\Controllers\Verify;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminSuperAdminRequest;
-use App\Http\Requests\Verify\VerifyAccountRequest;
-use App\Http\Requests\Verify\ViewVerifyAccountRequest;
+use App\Http\Requests\Verify\StudentVerifyAccountRequest;
 use App\Models\User;
 use App\Models\Verify;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class VerifyAccountController extends Controller
+class StudentVerifyAccountController extends Controller
 {
-    public function view(ViewVerifyAccountRequest $request)
+    public function view()
     {
         return view('verify.teacher-verify');
     }
 
-    public function save(VerifyAccountRequest $request, User $user)
+    public function save(StudentVerifyAccountRequest $request, User $user)
     {
         $verify = new Verify();
         $verify->dob = $request->get('dob');
         $verify->province = $request->get('province');
         $verify->district = $request->get('district');
-        $verify->facebook = $request->get('fb');
         $verify->school = $request->get('school');
         $verify->user_id = Auth::user()->id;
         $verify->save();

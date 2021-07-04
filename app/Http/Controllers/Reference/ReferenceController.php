@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Reference;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Reference\ReferenceRequest;
+use App\Http\Requests\Reference\ViewReferenceRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class ReferenceController extends Controller
 {
-    public function view(Request $request)
+    public function view(ViewReferenceRequest $request)
     {
         return view('Reference.reference');
     }
