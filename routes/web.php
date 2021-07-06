@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ClientOpinionController;
 use App\Http\Controllers\Admin\DeleteUserController;
 use App\Http\Controllers\Admin\EditUserController;
 use App\Http\Controllers\Admin\EnrolledStudentDetailController;
+use App\Http\Controllers\Admin\GradeSettingController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
@@ -129,7 +130,7 @@ Route::middleware(['auth'])->group(function () {
         ->name('deactive.dashboard');
 });
 
-Route::middleware(['auth', 'verified', 'active', 'phone_verified', 'account_verified' , 'reference'])->group(function () {
+Route::middleware(['auth', 'verified', 'active', 'phone_verified', 'account_verified', 'reference'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
@@ -464,6 +465,7 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
     Route::get('/delete-online-payment/{payment}', [AdminOnlinePaymentController::class, 'delete'])
         ->name('delete.online.payment');
 
+    /* Setting */
     Route::get('/admin-setting', [AdminSettingController::class, 'view'])
         ->name('admin.setting');
 
@@ -472,6 +474,12 @@ Route::middleware(['role:super_admin', 'verified', 'active', 'phone_verified'])-
 
     Route::post('/update-subject/{subject}', [AdminSettingController::class, 'update'])
         ->name('update.subject');
+
+    Route::post('/add-grade', [GradeSettingController::class, 'save'])
+        ->name('add.grade');
+
+    Route::post('/update-grade/{grade}', [GradeSettingController::class, 'update'])
+        ->name('update.grade');
 });
 
 require __DIR__ . '/auth.php';
