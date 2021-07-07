@@ -66,6 +66,7 @@
                                                 <div class="text-sm font-medium text-gray-900">{{ $user->name }}
                                                 </div>
                                                 <div class="text-sm text-gray-500">{{ $user->email }}</div>
+                                                <div class="text-sm text-gray-500">{{ $user->phone_number }}</div>
                                             </div>
                                         </div>
                                     </td>
@@ -75,7 +76,7 @@
                                         </p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">{{ $user->phone_number }}</p>
+                                        <p class="text-gray-900 whitespace-no-wrap">{{ $user->reference }}</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <p class="inline-flex px-2 text-xs font-semibold leading-5 text-indigo-800 bg-indigo-100 rounded-full">
@@ -121,6 +122,11 @@
                                     @if (implode(', ', $user->roles->pluck('name')->toArray()) == 'teacher')
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                         <a href="{{ route('teacher.pay', $user) }}" class="text-yellow-500">Show
+                                            More</a>
+                                    </td>
+                                    @elseif(implode(', ', $user->roles->pluck('name')->toArray()) == 'student')
+                                    <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                        <a href="{{ route('student.detail', $user) }}" class="text-yellow-500">Show
                                             More</a>
                                     </td>
                                     @else

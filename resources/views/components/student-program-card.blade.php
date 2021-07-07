@@ -6,10 +6,6 @@
             <div class="badge absolute top-0 right-0 bg-green-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
                 Free Card
             </div>
-        @elseif ($enrolment->payment_policy == 50)
-            <div class="badge absolute top-0 right-0 bg-blue-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
-                Rs:{{ $enrolment->program->fees / 2 }} ( 50% Offer )
-            </div>
         @elseif ($enrolment->payment_policy == 100)
             <div class="badge absolute top-0 right-0 bg-red-500 m-1 text-gray-100 p-1 px-2 text-xs font-bold rounded">
                 Rs:{{ $enrolment->program->fees }}

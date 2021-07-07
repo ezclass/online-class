@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\GradeSettingController;
 use App\Http\Controllers\Admin\PaidController;
 use App\Http\Controllers\Admin\PayerDetailController;
 use App\Http\Controllers\Admin\ProgramDetailController;
+use App\Http\Controllers\Admin\StudentAllDetailController;
 use App\Http\Controllers\Admin\StudentPaymentHistoryController;
 use App\Http\Controllers\Admin\SuperAdminDashboardController;
 use App\Http\Controllers\Admin\TeacherPayController;
@@ -314,9 +315,6 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified', 'refe
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 
-    Route::get('/enroled-program-delete/{enrolment}', EnroledProgramDeleteController::class)
-        ->name('enroled.program.delete');
-
     Route::get('/payment-method/{enrolment}', PaymentMethodController::class)
         ->name('payment.method');
 
@@ -338,6 +336,10 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified', 'refe
         ->name('save.bank.payment');
 });
 
+Route::middleware(['role:super_admin|student', 'verified', 'active', 'phone_verified', 'reference'])->group(function () {
+    Route::get('/enroled-program-delete/{enrolment}', EnroledProgramDeleteController::class)
+        ->name('enroled.program.delete');
+});
 
 Route::middleware(['role:admin|super_admin|teacher', 'verified', 'active', 'phone_verified', 'account_verified'])->group(function () {
     Route::get('/program-status-publish/{program}', [ProgramStatusController::class, 'publish'])
@@ -386,6 +388,9 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verifi
         ->name('active.user');
 
     /* student detail */
+    Route::get('/admin/student-detail/{user}', [StudentAllDetailController::class, 'view'])
+        ->name('student.detail');
+
     Route::get('/student-payment-history-chech/{enrolment}/{user}', StudentPaymentHistoryController::class)
         ->name('student.payment.history');
 
