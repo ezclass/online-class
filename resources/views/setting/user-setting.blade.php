@@ -4,6 +4,8 @@
     <x-alart />
 
     <x-user-setting />
+
+    <x-whatsapp />
     <x-messanger />
-    
+
 </x-app-layout>

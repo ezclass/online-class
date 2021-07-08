@@ -74,4 +74,7 @@
             </div>
         </div>
     </form>
+
+    <x-messanger />
+    <x-whatsapp />
 </x-app-layout>

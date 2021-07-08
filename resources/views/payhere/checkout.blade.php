@@ -69,4 +69,8 @@
             </x-pay-here-checkout-form>
         </div>
     </div>
+
+    <x-messanger />
+    <x-whatsapp />
+    
 </x-app-layout>

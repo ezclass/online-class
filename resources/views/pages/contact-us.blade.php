@@ -6,5 +6,6 @@
     <x-contact-us />
 
     <x-messanger />
+    <x-whatsapp />
 
 </x-app-layout>
