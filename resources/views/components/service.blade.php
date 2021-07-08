@@ -1,7 +1,7 @@
 <div class="mt-8 mb-8 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
 
     <div class="w-full rounded-lg overflow-hidden mx-auto">
-        <div class="relative flex flex-col items-center justify-around h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
+        <a href="{{route('search.class')}}" class="relative flex flex-col items-center justify-around h-80 rounded-2xl " style="transform: translate(0px, 0px); opacity: 1;">
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-300 rounded-xl -rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full text-white transform scale-x-105 scale-y-95 bg-purple-400 rounded-xl rotate-2 " style="z-index: -1;"></div>
             <div class="absolute z-0 w-full h-full transform scale-x-105 scale-y-95 bg-white rounded-xl " style="z-index: -1;"></div>
@@ -148,7 +148,7 @@
             <div class="z-10 p-2 text-sm text-center text-gray-500 ">
                 Find teachers for subjects that are relevant to your or your child's grade
             </div>
-        </div>
+        </a>
     </div>
 
     <div class="w-full rounded-lg overflow-hidden mx-auto">
