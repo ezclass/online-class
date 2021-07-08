@@ -169,5 +169,6 @@
     </script>
 
     <x-messanger />
+    <x-whatsapp />
 
 </x-app-layout>

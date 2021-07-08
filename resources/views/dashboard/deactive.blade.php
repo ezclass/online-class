@@ -127,5 +127,6 @@
     </div>
 
     <x-messanger />
+    <x-whatsapp />
 
 </x-guest-layout>

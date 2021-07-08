@@ -12,4 +12,8 @@
             </ul>
         </div>
     </div>
+
+    <x-messanger />
+    <x-whatsapp />
+    
 </x-app-layout>

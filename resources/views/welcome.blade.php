@@ -17,5 +17,6 @@
     <x-client-opinion />
 
     <x-messanger />
+    <x-whatsapp />
 
 </x-app-layout>

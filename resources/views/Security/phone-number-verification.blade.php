@@ -41,5 +41,6 @@
     </section>
 
     <x-messanger />
-
+    <x-whatsapp />
+    
 </x-app-layout>

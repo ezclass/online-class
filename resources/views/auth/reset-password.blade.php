@@ -41,5 +41,6 @@
     </x-auth-page>
 
     <x-messanger />
-    
+    <x-whatsapp />
+
 </x-app-layout>

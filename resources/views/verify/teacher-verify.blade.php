@@ -137,4 +137,7 @@
     </div>
     @endif
 
+    <x-messanger />
+    <x-whatsapp />
+
 </x-guest-layout>
