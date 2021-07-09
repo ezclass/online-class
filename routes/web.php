@@ -389,7 +389,7 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verifi
 
     /* student detail */
     Route::get('/admin/student-detail/{user}', [StudentAllDetailController::class, 'view'])
-        ->name('student.detail');
+        ->name('admin.student.detail');
 
     Route::get('/student-payment-history-chech/{enrolment}/{user}', StudentPaymentHistoryController::class)
         ->name('student.payment.history');

@@ -26,7 +26,7 @@
                                         Registed At
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Phone Number
+                                        Reference Number
                                     </th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                         Role
@@ -126,7 +126,7 @@
                                     </td>
                                     @elseif(implode(', ', $user->roles->pluck('name')->toArray()) == 'student')
                                     <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
-                                        <a href="{{ route('student.detail', $user) }}" class="text-yellow-500">Show
+                                        <a href="{{ route('admin.student.detail', $user) }}" class="text-yellow-500">Show
                                             More</a>
                                     </td>
                                     @else
