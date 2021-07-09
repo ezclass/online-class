@@ -8,7 +8,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PaymentSuccessful extends Notification
+class PaymentSuccessTeacher extends Notification
 {
     use Queueable;
 
@@ -27,37 +27,37 @@ class PaymentSuccessful extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('For the' . ' ' .
+            ->line($this->payment->payer->name . ' ' .
+                'student has paid Rs.' .
+                $this->payment->amount . ' ' .
+                'for your' . ' ' .
                 $this->payment->payable->subject->name . ' ' .
-                'class of the' . ' ' .
-                $this->payment->payable->teacher->name . ' ' .
-                'teacher,' . ' ' .
-                'your payment was successful.')
-            ->action('Go to the dashboard', url('/student/dashboard'))
+                'class.')
+            ->action('Go to the dashboard', url('/teacher/dashboard'))
             ->line('Thanks for using homeclass.lk');
     }
 
     public function toArray($notifiable)
     {
         return [
-            'data' => 'For the' . ' ' .
+            $this->payment->payer->name . ' ' .
+                'student has paid Rs.' .
+                $this->payment->amount . ' ' .
+                'for your' . ' ' .
                 $this->payment->payable->subject->name . ' ' .
-                'class of the' . ' ' .
-                $this->payment->payable->teacher->name . ' ' .
-                'teacher,' . ' ' .
-                'your payment was successful.'
+                'class.'
         ];
     }
 
     public function toSms($notifiable): SmsChannel
     {
         return (new SmsChannel())
-            ->content('For the' . ' ' .
+            ->content($this->payment->payer->name . ' ' .
+                'student has paid Rs.' .
+                $this->payment->amount . ' ' .
+                'for your' . ' ' .
                 $this->payment->payable->subject->name . ' ' .
-                'class of the' . ' ' .
-                $this->payment->payable->teacher->name . ' ' .
-                'teacher,' . ' ' .
-                'your payment was successful.')
-            ->to($this->payment->payer->phone_number);
+                'class.')
+            ->to($this->payment->payable->teacher->phone_number);
     }
 }

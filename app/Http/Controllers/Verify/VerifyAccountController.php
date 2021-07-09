@@ -8,6 +8,7 @@ use App\Http\Requests\Verify\VerifyAccountRequest;
 use App\Http\Requests\Verify\ViewVerifyAccountRequest;
 use App\Models\User;
 use App\Models\Verify;
+use App\Notifications\VerifyAccount;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -53,6 +54,7 @@ class VerifyAccountController extends Controller
     {
         $user->verify_account = 1;
         $user->save();
+        $user->notify(new VerifyAccount($user));
 
         return redirect()
             ->back()

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SuperAdminRequest;
 use App\Models\Bank;
 use App\Notifications\PaymentSuccessful;
+use App\Notifications\PaymentSuccessTeacher;
 
 class AdminBankPaymentController extends Controller
 {
@@ -34,7 +35,8 @@ class AdminBankPaymentController extends Controller
         $bank->save();
 
         $payment->payer->notify(new PaymentSuccessful($payment));
-        
+        $payment->payable->teacher->notify(new PaymentSuccessTeacher($payment));
+
         return redirect()
             ->back()
             ->with('success', 'Payment approved successfully');

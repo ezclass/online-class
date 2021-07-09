@@ -6,6 +6,7 @@ use ApiChef\PayHere\Payment;
 use App\Http\Requests\PaymentViewRequest;
 use App\Models\Enrolment;
 use App\Notifications\PaymentSuccessful;
+use App\Notifications\PaymentSuccessTeacher;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -33,6 +34,7 @@ class CheckoutController extends Controller
         $payment->validated = 0;
         $payment->save();
         $request->user()->notify(new PaymentSuccessful($payment));
+        $payment->payable->teacher->notify(new PaymentSuccessTeacher($payment));
 
         return redirect()
             ->route('student.dashboard')
