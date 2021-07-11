@@ -17,7 +17,7 @@ class VerifyAccountController extends Controller
 {
     public function view(ViewVerifyAccountRequest $request)
     {
-        return view('verify.teacher-verify');
+        return view('verify.account-verify');
     }
 
     public function save(VerifyAccountRequest $request, User $user)

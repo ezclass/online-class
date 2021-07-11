@@ -13,6 +13,7 @@ class PendingVerifyAccount extends Component
     public function __construct()
     {
         $this->users = User::query()
+            ->with(['roles', 'verify'])
             ->where('verify_account', 2)
             ->where('email_verified_at', "<>", null)
             ->where('phone_number_verified_at', "<>", null)

@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class StudentVerifyAccountController extends Controller
 {
-    public function view()
-    {
-        return view('verify.teacher-verify');
-    }
-
     public function save(StudentVerifyAccountRequest $request, User $user)
     {
         $verify = new Verify();
@@ -41,25 +36,15 @@ class StudentVerifyAccountController extends Controller
     {
         if ($file != null) {
             $filename = $verify->getRouteKey() . '.' . $file->getClientOriginalExtension();
-            Storage::disk('do')->put('verify/' . $filename, file_get_contents(request()->file('photo')->getRealPath()), 'public');
+            Storage::disk('do')->put('student-verify/' . $filename, file_get_contents(request()->file('photo')->getRealPath()), 'public');
             $verify->photo = $filename;
             $verify->save();
         }
     }
 
-    public function verify(AdminSuperAdminRequest $request, User $user)
-    {
-        $user->verify_account = 1;
-        $user->save();
-
-        return redirect()
-            ->back()
-            ->with('success', 'Account verified successfully');
-    }
-
     public function delete(AdminSuperAdminRequest $request, User $user)
     {
-        Storage::disk('do')->delete('verify/' . $user->verify->photo);
+        Storage::disk('do')->delete('student-verify/' . $user->verify->photo);
         $user->verify_account = 0;
         $user->save();
         $user->verify->delete();
