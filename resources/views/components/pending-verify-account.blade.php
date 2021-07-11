@@ -20,7 +20,7 @@
                                     Status
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Photo
+                                   User Photo
                                 </th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-blue-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Facebook
@@ -113,16 +113,31 @@
                                     </a>
                                 </td>
                                 @endif
+                                @if (implode(', ', $user->roles->pluck('name')->toArray()) == 'teacher')
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <a href="{{ Storage::disk('do')->url('verify/'. $user->verify->photo)}}" target="new" class="flex-shrink-0 w-10 h-10">
                                         <img class="w-10 h-10 rounded-full" src="{{ Storage::disk('do')->url('verify/'. $user->verify->photo)}}" alt="" />
                                     </a>
                                 </td>
+                                @elseif(implode(', ', $user->roles->pluck('name')->toArray()) == 'student')
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{ Storage::disk('do')->url('student-verify/'. $user->verify->photo)}}" target="new" class="flex-shrink-0 w-10 h-10">
+                                        <img class="w-10 h-10 rounded-full" src="{{ Storage::disk('do')->url('student-verify/'. $user->verify->photo)}}" alt="" />
+                                    </a>
+                                </td>
+                                @else
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm"></td>
+                                @endif
+
+                                @if (implode(', ', $user->roles->pluck('name')->toArray()) == 'teacher')
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <a href="{{$user->verify->facebook}}" target="new" class="text-green-500 whitespace-no-wrap">
                                         Facebook
                                     </a>
                                 </td>
+                                @else
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm"></td>
+                                @endif
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     {{$user->verify->province}}
                                     <p class="mt-2 inline-flex px-2 text-xs font-semibold leading-5 text-indigo-800 bg-indigo-100 rounded-full">
@@ -151,16 +166,28 @@
                                     <a href="{{route('edit.user',$user)}}" class="text-yellow-500">Edit User</a>
                                 </td>
                                 @endrole
+
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <a href="{{route('account.verified',$user)}}" class="verifyaccountbtn inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
                                         Verify
                                     </a>
                                 </td>
+
+                                @if (implode(', ', $user->roles->pluck('name')->toArray()) == 'teacher')
                                 <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
                                     <a href="{{route('account.information.delete', $user)}}" class="deleteaccountbtn inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-red-100 rounded-full">
                                         Delete
                                     </a>
                                 </td>
+                                @elseif(implode(', ', $user->roles->pluck('name')->toArray()) == 'student')
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm">
+                                    <a href="{{route('student.account.information.delete', $user)}}" class="deleteaccountbtn inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-red-100 rounded-full">
+                                        Delete
+                                    </a>
+                                </td>
+                                @else
+                                <td class="px-5 py-5 border-b border-gray-300 bg-white text-sm"></td>
+                                @endif
                             </tr>
                             @empty
                             <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-3 rounded relative my-6  shadow" role="alert">

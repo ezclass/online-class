@@ -11,7 +11,7 @@ class AccountVerify
 {
     public function handle(Request $request, Closure $next,  $redirectToRoute = null)
     {
-        if ($request->user()->isTeacher()) {
+        if ($request->user()->isTeacher() or $request->user()->isStudent()) {
             if (!$request->user()->isAccountVerified()) {
                 return $request->expectsJson()
                     ? abort(403, 'Your account is not verified')

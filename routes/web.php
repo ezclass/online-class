@@ -77,6 +77,7 @@ use App\Http\Controllers\Security\PhoneNumberVerificationController;
 use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\TrailerController;
 use App\Http\Controllers\UserSettingController;
+use App\Http\Controllers\Verify\StudentVerifyAccountController;
 use App\Http\Controllers\Verify\VerifyAccountController;
 use App\Http\Controllers\ViewProgramController;
 use Illuminate\Support\Facades\Route;
@@ -121,6 +122,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/save-account-verify/{user}', [VerifyAccountController::class, 'save'])
         ->name('save.account.verify');
 
+    Route::post('/save-student-account-verify/{user}', [StudentVerifyAccountController::class, 'save'])
+        ->name('save.student.account.verify');
+
     Route::get('/add-reference', [ReferenceController::class, 'view'])
         ->name('add.reference');
 
@@ -131,7 +135,7 @@ Route::middleware(['auth'])->group(function () {
         ->name('deactive.dashboard');
 });
 
-Route::middleware(['auth', 'verified', 'active', 'phone_verified', 'account_verified', 'reference'])->group(function () {
+Route::middleware(['auth', 'verified', 'active', 'phone_verified', 'reference', 'account_verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
@@ -311,7 +315,7 @@ Route::middleware(['role:teacher', 'verified', 'active', 'phone_verified', 'acco
         ->name('delete.addition');
 });
 
-Route::middleware(['role:student', 'verified', 'active', 'phone_verified', 'reference'])->group(function () {
+Route::middleware(['role:student', 'verified', 'active', 'phone_verified', 'reference', 'account_verified'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 
@@ -336,7 +340,7 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified', 'refe
         ->name('save.bank.payment');
 });
 
-Route::middleware(['role:super_admin|student', 'verified', 'active', 'phone_verified', 'reference'])->group(function () {
+Route::middleware(['role:super_admin|student', 'verified', 'active', 'phone_verified', 'reference', 'account_verified'])->group(function () {
     Route::get('/enroled-program-delete/{enrolment}', EnroledProgramDeleteController::class)
         ->name('enroled.program.delete');
 });
@@ -377,6 +381,9 @@ Route::middleware(['role:admin|super_admin', 'verified', 'active', 'phone_verifi
 
     Route::get('/admin/account-information-delete/{user}', [VerifyAccountController::class, 'delete'])
         ->name('account.information.delete');
+
+    Route::get('/admin/student-account-information-delete/{user}', [StudentVerifyAccountController::class, 'delete'])
+        ->name('student.account.information.delete');
 
     Route::get('/admin/inactive-user', [UserController::class, 'inActiveUser'])
         ->name('inactive.user');
