@@ -31,6 +31,8 @@ class RankingController extends Controller
             ->with([
                 'teachers' => User::query()
                     ->role('teacher')
+                    ->where('verify_account', 1)
+                    ->where('status', 1)
                     ->when($rankIds != null, function (Builder $query) use ($rankIds) {
                         $query->whereNotIn('id', $rankIds);
                     })
