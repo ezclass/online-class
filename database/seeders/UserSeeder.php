@@ -10,11 +10,11 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        collect(range(1, 2))->each(function ($id) {
+        collect(range(1, 6))->each(function ($id) {
             User::factory()->create(['email' => "student_{$id}@homeclass.lk"])->assignRole(Role::ROLE_STUDENT);
         });
 
-        collect(range(1, 2))->each(function ($id) {
+        collect(range(1, 20))->each(function ($id) {
             User::factory()->create(['email' => "teacher_{$id}@homeclass.lk"])->assignRole(Role::ROLE_TEACHER);
         });
 

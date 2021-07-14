@@ -33,7 +33,7 @@ class ProgramFactory extends Factory
             'user_id' => User::role(Role::ROLE_TEACHER)->inRandomOrder()->first()->id,
             'subject_id' => Subject::query()->inRandomOrder()->first()->id,
             'language_id' => Language::query()->inRandomOrder()->first()->id,
-            'status' => 0,
+            'status' => 1,
         ];
     }
 }

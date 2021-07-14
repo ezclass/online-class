@@ -39,7 +39,7 @@
 
                 @if (Route::has('login'))
 
-                @role('teacher')
+                @role('teacher|student')
                 @if (Auth::user()->verify_account == 1)
                 <span class="md:flex sm:hidden items-center text-sm font-medium text-green-500">
                     <i class="fas fa-check animate-pulse mr-1"></i> <span class="animate-pulse">Verified</span> <!-- certificate -->
