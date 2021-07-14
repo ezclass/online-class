@@ -12,7 +12,7 @@
     <x-service />
     @endguest
 
-    <x-top-ranking />
+    
 
     <x-home-3 />
 
