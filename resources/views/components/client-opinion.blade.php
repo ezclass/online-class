@@ -14,7 +14,7 @@
     <div class="w-full bg-white border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800">
         <div class="w-full max-w-6xl mx-auto">
             <div class="text-center max-w-xl mx-auto">
-                <h1 class="text-6xl md:text-7xl font-bold mb-5 text-gray-600">Clients' opinions</h1>
+                <h1 class="text-6xl md:text-5xl font-bold mb-5 text-gray-600">Clients' opinions</h1>
                 <h3 class="text-xl mb-5 font-light">Thank you so much for your opinions on homeclas.lk</h3>
                 <div class="text-center mb-10">
                     <span class="inline-block w-1 h-1 rounded-full bg-indigo-500 ml-1"></span>

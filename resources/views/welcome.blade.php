@@ -7,10 +7,12 @@
     <x-header />
 
     @guest
-        <x-welcome-video />
-        <x-explain />
-        <x-service />
+    <x-welcome-video />
+    <x-explain />
+    <x-service />
     @endguest
+
+    <x-top-ranking />
 
     <x-home-3 />
 

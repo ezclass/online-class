@@ -71,6 +71,7 @@ use App\Http\Controllers\Program\ProgramPaymentHistoryController;
 use App\Http\Controllers\Program\ProgramStatusController;
 use App\Http\Controllers\Program\StudentDetailController;
 use App\Http\Controllers\Program\VideoController;
+use App\Http\Controllers\Ranking\RankingController;
 use App\Http\Controllers\Reference\ReferenceController;
 use App\Http\Controllers\Security\OtpController;
 use App\Http\Controllers\Security\PhoneNumberVerificationController;
@@ -319,10 +320,23 @@ Route::middleware(['role:student', 'verified', 'active', 'phone_verified', 'refe
     Route::get('/student/dashboard', StudentDashboardController::class)
         ->name('student.dashboard');
 
+    /* ranking */
+    Route::get('/ranking', [RankingController::class, 'view'])
+        ->name('view.ranking');
+
+    Route::post('/save-ranking/{user}', [RankingController::class, 'save'])
+        ->name('save.ranking');
+
+    Route::get('/ones-ranking', [RankingController::class, 'onesView'])
+        ->name('ones.ranking');
+
+    Route::post('/remove-ranking/{ranking}', [RankingController::class, 'remove'])
+        ->name('remove.ranking');
+
+    /*Online Payment */
     Route::get('/payment-method/{enrolment}', PaymentMethodController::class)
         ->name('payment.method');
 
-    /*Online Payment */
     Route::get('/checkout/success', [CheckoutController::class, 'success'])
         ->name('checkout.success');
 
