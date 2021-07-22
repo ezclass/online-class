@@ -40,7 +40,7 @@ class PaymentSuccessTeacher extends Notification
     public function toArray($notifiable)
     {
         return [
-            $this->payment->payer->name . ' ' .
+            'data' => $this->payment->payer->name . ' ' .
                 'student has paid Rs.' .
                 $this->payment->amount . ' ' .
                 'for your' . ' ' .
