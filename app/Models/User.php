@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use ApiChef\Obfuscate\Obfuscatable;
+use ApiChef\PayHere\Payment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -50,6 +51,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function verify()
     {
         return $this->hasOne(Verify::class, 'user_id');
+    }
+
+    public function payer()
+    {
+        return $this->morphMany(Payment::class, 'payer');
     }
 
     public function isActive(): bool

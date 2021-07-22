@@ -92,7 +92,7 @@
                                                 @if ($enrolment->payment_policy == 0)
                                                 <span class="text-green-500">Free Card</span>
                                                 @else
-                                                <span class="text-gray-500">Normel Pric</span>
+                                                <span class="text-gray-500">Normel Price</span>
                                                 @endif
                                             </option>
                                             <option value="0">Free Card</option>
